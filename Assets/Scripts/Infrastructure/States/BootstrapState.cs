@@ -37,7 +37,7 @@ namespace Infrastructure.States
 
         public void Enter()
         {
-            _sceneLoader.Load(Boot, EnterLoadLevel);
+            _sceneLoader.Load(Boot, onLoaded: EnterLoadLevel);
         }
 
         public void Exit()
@@ -56,7 +56,7 @@ namespace Infrastructure.States
             _services.RegisterSingle<IAssets>(new AssetProvider());
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(), _cameraShake));
-            _services.RegisterSingle<ISavedLoadService>(new SavedLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
+            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
             _services.RegisterSingle<IPool>(new BulletPool(_services.Single<IGameFactory>(), _bulletContainer));
             _services.RegisterSingle(new CurrentScreen(_camera));
             _services.RegisterSingle<IInput>(new MouseInput());

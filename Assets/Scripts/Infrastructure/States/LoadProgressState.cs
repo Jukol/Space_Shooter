@@ -7,9 +7,9 @@ namespace Infrastructure.States
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly IPersistentProgressService _progressService;
-        private readonly ISavedLoadService _saveLoadService;
+        private readonly ISaveLoadService _saveLoadService;
 
-        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISavedLoadService saveLoadService)
+        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;
@@ -35,7 +35,7 @@ namespace Infrastructure.States
 
         private PlayerProgress NewProgress()
         {
-            return new("Level 1");
+            return new PlayerProgress("Level 1");
         }
     }
 }

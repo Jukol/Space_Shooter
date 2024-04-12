@@ -4,14 +4,14 @@ using Infrastructure.Services.PersistentProgress;
 using UnityEngine;
 namespace Infrastructure.Services.SaveLoad
 {
-    public class SavedLoadService : ISavedLoadService
+    public class SaveLoadService : ISaveLoadService
     {
         private const string ProgressKey = "ProgressKey";
         private readonly IGameFactory _gameFactory;
 
         private readonly IPersistentProgressService _progressService;
 
-        public SavedLoadService(IPersistentProgressService progressService, IGameFactory gameFactory)
+        public SaveLoadService(IPersistentProgressService progressService, IGameFactory gameFactory)
         {
             _progressService = progressService;
             _gameFactory = gameFactory;

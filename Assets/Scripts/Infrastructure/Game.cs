@@ -12,8 +12,14 @@ namespace Infrastructure
 
         public Game(ICoroutineRunner coroutineRunner, LoadingCurtain curtain, Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake)
         {
-            StateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), curtain, AllServices.Container,
-                camera, spriteRenderer, bulletParent, cameraShake);
+            StateMachine = new GameStateMachine(
+                new SceneLoader(coroutineRunner), 
+                curtain, 
+                AllServices.Container,
+                camera, 
+                spriteRenderer, 
+                bulletParent, 
+                cameraShake);
         }
     }
 }

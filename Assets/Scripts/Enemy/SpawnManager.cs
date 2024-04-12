@@ -12,7 +12,7 @@ namespace Enemy
     {
         [SerializeField] private Spawner[] spawners;
 
-        private ISavedLoadService _savedLoadService;
+        private ISaveLoadService _saveLoadService;
 
         public int Wave
         {
@@ -22,7 +22,7 @@ namespace Enemy
 
         private void Start()
         {
-            _savedLoadService = AllServices.Container.Single<ISavedLoadService>();
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             StartCoroutine(SpawnerEnumerator());
         }
 
@@ -50,7 +50,7 @@ namespace Enemy
                     spawners[i].gameObject.SetActive(true);
                     WaveChanged?.Invoke(spawners[i].ID);
                     Wave = i;
-                    _savedLoadService.SaveProgress();
+                    _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
                 }
