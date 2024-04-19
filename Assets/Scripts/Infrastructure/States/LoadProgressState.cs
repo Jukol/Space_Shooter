@@ -19,7 +19,7 @@ namespace Infrastructure.States
         public void Enter()
         {
             LoadProgressOrInitNew();
-            _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.worldData.levelToLoad);
+            _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.lastLevelAndWave.levelToLoad);
         }
 
         public void Exit()

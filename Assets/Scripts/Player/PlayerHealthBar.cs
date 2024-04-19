@@ -9,7 +9,6 @@ namespace Player
 
         private Player _player;
 
-
         private void OnEnable()
         {
             Player.OnDamage += DrawHealthUnits;

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Interfaces;
 using UnityEngine;
+
 namespace Ammo
 {
     public class Bullet : MonoBehaviour, IAmmo
