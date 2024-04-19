@@ -2,12 +2,12 @@
 namespace Data
 {
     [Serializable]
-    public class WorldData
+    public class LastProgress
     {
         public string levelToLoad;
         public int waveToLoad;
 
-        public WorldData(string initialLevel)
+        public LastProgress(string initialLevel)
         {
             levelToLoad = initialLevel;
             waveToLoad = 0;
