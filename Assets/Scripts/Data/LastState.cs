@@ -2,15 +2,17 @@
 namespace Data
 {
     [Serializable]
-    public class LastLevelAndWave
+    public class LastState
     {
         public string levelToLoad;
         public int waveToLoad;
+        public int playerHealth;
 
-        public LastLevelAndWave(string initialLevel)
+        public LastState(string initialLevel, int health)
         {
             levelToLoad = initialLevel;
             waveToLoad = 0;
+            playerHealth = health;
         }
     }
 }

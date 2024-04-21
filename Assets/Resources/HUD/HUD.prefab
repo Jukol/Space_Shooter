@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 3185395271566708786}
   wave: {fileID: 7475967319573914746}
+  playerHealthBar: {fileID: 4345260296708954008}
 --- !u!1 &4345260297436713154
 GameObject:
   m_ObjectHideFlags: 0

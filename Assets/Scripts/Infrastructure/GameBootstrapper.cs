@@ -11,17 +11,19 @@ namespace Infrastructure
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private BulletContainer bulletParent;
         [SerializeField] private Camera shakingCamera;
-        
+        [SerializeField] private string initialLevel;
+        [SerializeField] private int initialHealth;
+
         private CameraShake cameraShake;
 
         private Game _game;
 
         private void Awake()
         {
-            var loadingCurtain = Instantiate(curtain);
-            var sprRenderer = Instantiate(spriteRenderer);
-            var bulletContainer = Instantiate(bulletParent);
-            var shkCamera = Instantiate(shakingCamera);
+            LoadingCurtain loadingCurtain = Instantiate(curtain);
+            SpriteRenderer sprRenderer = Instantiate(spriteRenderer);
+            BulletContainer bulletContainer = Instantiate(bulletParent);
+            Camera shkCamera = Instantiate(shakingCamera);
 
             cameraShake = shkCamera.GetComponent<CameraShake>();
 
@@ -30,7 +32,9 @@ namespace Infrastructure
                 shkCamera, 
                 sprRenderer, 
                 bulletContainer, 
-                cameraShake);
+                cameraShake,
+                initialLevel,
+                initialHealth);
             
             _game.StateMachine.Enter<BootstrapState>();
 

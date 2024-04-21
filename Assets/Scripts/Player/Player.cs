@@ -1,29 +1,60 @@
 ﻿using System;
+using Data;
+using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
 namespace Player
 {
-    public class Player : MonoBehaviour, IDamageable, IGetSizeable, IAnimatable
+    public class Player : MonoBehaviour, IDamageable, IGetSizeable, IAnimatable, ISavedProgress
     {
-        public static Action OnDamage;
+        public static Action OnHealthUpdate;
+        public int Health { get; private set; }
+        public Animator Animator { get; private set; }
+        public float Width { get; private set; }
+        public float Height { get; private set; }
 
         [SerializeField] private GameObject megaExplosion;
-        [SerializeField] private int health;
         [SerializeField] private SpriteRenderer spriteRenderer;
-        private CameraShake _cameraShake;
 
+        private CameraShake _cameraShake;
         private bool _explosionStarted;
         private IMovable _movable;
         private IShootable[] _shootables;
-        public int Health => health;
+        private ISaveLoadService _saveLoadService;
+
+        private void Start()
+        {
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+        }
+
+        public void Damage(int amount)
+        {
+            Health -= amount;
+            StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
+            _saveLoadService.SaveProgress();
+            OnHealthUpdate?.Invoke();
+        }
+
+        public void LoadProgress(PlayerProgress progress)
+        {
+            Health = progress.lastState.playerHealth;
+            OnHealthUpdate?.Invoke();
+        }
+
+        public void UpdateProgress(PlayerProgress progress)
+        {
+            progress.lastState.playerHealth = Health;
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Enemy"))
             {
                 Damage(1);
-                if (health < 1)
+                if (Health < 1)
                 {
                     StartCoroutine(_cameraShake.Shake(1, 0.1f));
                     if (!_explosionStarted)
@@ -37,18 +68,6 @@ namespace Player
                 }
             }
         }
-
-        public Animator Animator { get; private set; }
-
-        public void Damage(int amount)
-        {
-            health -= amount;
-            StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
-            OnDamage?.Invoke();
-        }
-
-        public float Width { get; private set; }
-        public float Height { get; private set; }
 
         public void Init(CameraShake cameraShake)
         {

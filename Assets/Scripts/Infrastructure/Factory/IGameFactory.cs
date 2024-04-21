@@ -10,13 +10,11 @@ namespace Infrastructure.Factory
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
 
-        public GameObject CreatePlayer();
-
-        public GameObject CreatePlayer(GameObject at);
+        public Player.Player CreatePlayer();
 
         public SpawnManager CreateSpawnManager();
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName);
+        public void CreateHud(SpawnManager spawnManager, string sceneName, Player.Player player);
 
         public GameObject CreateBullet();
 

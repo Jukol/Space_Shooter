@@ -4,11 +4,11 @@ namespace Data
     [Serializable]
     public class PlayerProgress
     {
-        public LastLevelAndWave lastLevelAndWave;
+        public LastState lastState;
 
-        public PlayerProgress(string initialLevel)
+        public PlayerProgress(string initialLevel, int health)
         {
-            lastLevelAndWave = new LastLevelAndWave(initialLevel);
+            lastState = new LastState(initialLevel, health);
         }
     }
 }

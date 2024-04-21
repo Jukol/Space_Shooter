@@ -10,7 +10,15 @@ namespace Infrastructure
     {
         public readonly GameStateMachine StateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner, LoadingCurtain curtain, Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake)
+        public Game(
+            ICoroutineRunner coroutineRunner, 
+            LoadingCurtain curtain, 
+            Camera camera, 
+            SpriteRenderer spriteRenderer, 
+            BulletContainer bulletParent, 
+            CameraShake cameraShake, 
+            string initialLevel, 
+            int initialHealth)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner), 
@@ -19,7 +27,9 @@ namespace Infrastructure
                 camera, 
                 spriteRenderer, 
                 bulletParent, 
-                cameraShake);
+                cameraShake,
+                initialLevel,
+                initialHealth);
         }
     }
 }

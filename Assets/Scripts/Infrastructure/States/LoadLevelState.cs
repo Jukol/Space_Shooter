@@ -46,9 +46,9 @@ namespace Infrastructure.States
 
         private void InitGameWorld()
         {
-            _gameFactory.CreatePlayer();
+            Player.Player player = _gameFactory.CreatePlayer();
             SpawnManager spawnManager = _gameFactory.CreateSpawnManager();
-            _gameFactory.CreateHud(spawnManager, _sceneName);
+            _gameFactory.CreateHud(spawnManager, _sceneName, player);
         }
 
         private void InformProgressReaders()

@@ -28,14 +28,14 @@ namespace Enemy
 
         public void UpdateProgress(PlayerProgress progress)
         {
-            progress.lastLevelAndWave.waveToLoad = Wave;
+            progress.lastState.waveToLoad = Wave;
         }
 
         public void LoadProgress(PlayerProgress progress)
         {
-            if (SceneManager.GetActiveScene().name == progress.lastLevelAndWave.levelToLoad)
+            if (SceneManager.GetActiveScene().name == progress.lastState.levelToLoad)
             {
-                Wave = progress.lastLevelAndWave.waveToLoad;
+                Wave = progress.lastState.waveToLoad;
             }
         }
 

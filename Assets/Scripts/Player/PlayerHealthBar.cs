@@ -3,22 +3,21 @@ namespace Player
 {
     public class PlayerHealthBar : MonoBehaviour
     {
-        public static bool ShouldUpdateHealth;
         [SerializeField] private GameObject healthUnit;
         [SerializeField] private float distanceBetweenUnits;
-
+        
         private Player _player;
 
-        private void OnEnable()
+        public void Init(Player player)
         {
-            Player.OnDamage += DrawHealthUnits;
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            _player = player;
+            Player.OnHealthUpdate += DrawHealthUnits;
             DrawHealthUnits();
         }
 
         private void OnDisable()
         {
-            Player.OnDamage -= DrawHealthUnits;
+            Player.OnHealthUpdate -= DrawHealthUnits;
         }
 
         private void DrawHealthUnits()
