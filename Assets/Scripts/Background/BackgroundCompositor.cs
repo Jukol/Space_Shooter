@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Ammo;
 using Infrastructure.Services;
 using UnityEngine;
 namespace Background
@@ -75,6 +77,7 @@ namespace Background
             }
         }
 
+        
         private void GetBackgroundsToStartPosition(GameObject[] backgrounds)
         {
             for (int i = 0; i < backgrounds.Length; i++)
