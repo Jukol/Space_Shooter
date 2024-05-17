@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Ammo;
+﻿using System.Collections.Generic;
 using Infrastructure.Services;
 using UnityEngine;
 namespace Background
