@@ -20,28 +20,8 @@ namespace Ammo
 
         public void Generate()
         {
-            for (int i = 0; i < _capacity; i++)
-            {
+            for (int i = 0; i < _capacity; i++) 
                 Add();
-            }
-        }
-
-        public GameObject Request()
-        {
-            foreach (GameObject ammo in _ammoBatch)
-            {
-                if (ammo != null)
-                {
-                    if (ammo.activeInHierarchy == false)
-                    {
-                        ammo.SetActive(true);
-                        ammo.transform.SetParent(_bulletContainer.transform);
-                        return ammo;
-                    }
-                }
-
-            }
-            return Add();
         }
 
         public GameObject Add()
@@ -51,6 +31,39 @@ namespace Ammo
             ammo.SetActive(false);
             _ammoBatch.Add(ammo);
             return ammo;
+        }
+
+        public GameObject Request()
+        {
+            foreach (GameObject ammo in _ammoBatch)
+            {
+                if (NotAvailable(ammo) || AlreadyInHierarchy(ammo)) continue;
+                
+                MakeReady(ammo);
+
+                return ammo;
+            }
+            
+            return Add();
+        }
+
+        private void MakeReady(GameObject ammo)
+        {
+
+            ammo.SetActive(true);
+            ammo.transform.SetParent(_bulletContainer.transform);
+        }
+
+        private static bool AlreadyInHierarchy(GameObject ammo)
+        {
+            if (ammo.activeInHierarchy) return true;
+            return false;
+        }
+
+        private static bool NotAvailable(GameObject ammo)
+        {
+            if (!ammo) return true;
+            return false;
         }
     }
 }
