@@ -25,6 +25,7 @@ namespace Background
             Sprite sprite = _spriteRenderer.sprite;
 
             ResizeFactor = screenWidth / sprite.bounds.size.x;
+            
             BackgroundsHeight = _spriteRenderer.bounds.size.y * ResizeFactor;
             VerticalOffset = (screenHeight - BackgroundsHeight) * 0.5f;
         }
