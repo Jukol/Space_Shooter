@@ -1,15 +1,18 @@
 ﻿using Infrastructure.Services;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 namespace Background
 {
-    public class BackgroundMover : MonoBehaviour, IMoveUppable
+    public class BackgroundMover : MonoBehaviour, IJumpUppable
     {
-        [SerializeField] protected float backgroundSpeed = 0.5f;
-        private readonly float _gapCrutch = 0.1f;
+        [SerializeField] protected float speed = 0.5f;
+        
+        private const float GapCrutch = 0.1f;
 
         private IBackgroundAdjuster _adjuster;
 
-        private BackgroundCompositor _backgroundCompositor;
+        private BackgroundCompositor _compositor;
         private float _myHeight;
         private float _offset;
         private SpriteRenderer _spriteRenderer;
@@ -18,10 +21,9 @@ namespace Background
         {
             Move();
             if (!(transform.position.y <= -(_myHeight + _offset)))
-            {
                 return;
-            }
-            MoveUp();
+            
+            JumpUp();
         }
 
         public void Init()
@@ -32,16 +34,16 @@ namespace Background
             _offset = _adjuster.VerticalOffset;
         }
 
-        public void MoveUp()
+        public void JumpUp()
         {
-            float moveUpY = _myHeight * 2 - _offset - _gapCrutch;
+            float moveUpY = _myHeight * 2 - _offset - GapCrutch;
             transform.position = new Vector2(0, moveUpY);
         }
 
         public void Move()
         {
             Transform myTransform = transform;
-            myTransform.position += -myTransform.up * (Time.deltaTime * backgroundSpeed);
+            myTransform.position += -myTransform.up * (Time.deltaTime * speed);
         }
     }
 }

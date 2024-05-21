@@ -5,7 +5,6 @@ namespace Background
     {
         public float Height { get; }
         public float VerticalOffset { get; }
-
         public float ResizeFactor { get; }
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace Background
 {
-    public interface IMoveUppable
+    public interface IJumpUppable
     {
         public void Init();
 
         public void Move();
 
-        public void MoveUp();
+        public void JumpUp();
     }
 }

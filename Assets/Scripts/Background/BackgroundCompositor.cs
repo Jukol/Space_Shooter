@@ -52,7 +52,7 @@ namespace Background
             for (int i = 0; i < partsInLayer; i++)
             {
                 bgrArray[i] = Instantiate(bgrType, layer.transform);
-                bgrArray[i].GetComponent<IMoveUppable>().Init();
+                bgrArray[i].GetComponent<IJumpUppable>().Init();
                 bgrArray[i].GetComponent<IResizable>().Resize();
             }
         }
