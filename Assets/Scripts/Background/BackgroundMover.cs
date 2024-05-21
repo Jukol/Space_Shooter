@@ -28,7 +28,7 @@ namespace Background
         {
             _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
 
-            _myHeight = _adjuster.BackgroundsHeight;
+            _myHeight = _adjuster.Height;
             _offset = _adjuster.VerticalOffset;
         }
 

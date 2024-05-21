@@ -316,13 +316,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb84e334cf2314f9df729f8bc9b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundsInLayer: 3
-  layerPrefabs:
+  partsInLayer: 3
+  prefabs:
   - {fileID: 1745972634859916825, guid: f45bca67bd610564c8ab94c8d9c88367, type: 3}
   - {fileID: 5111748057259917787, guid: 4681acce0b29d854d9897484fd21a6c5, type: 3}
   - {fileID: 9040793348833362046, guid: ba057eb4e368aec41a92ef7c94798912, type: 3}
   - {fileID: 6079332758163923016, guid: f4431a9fb8b3d8b468e0de9f3a4dacb7, type: 3}
-  layerParents:
+  layers:
   - {fileID: 1907141232}
   - {fileID: 687582028}
   - {fileID: 840407960}
@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 687582029}
   m_Layer: 0
-  m_Name: Layer_Parent_2
+  m_Name: Layer_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 840407961}
   m_Layer: 0
-  m_Name: Layer_Parent_3
+  m_Name: Layer_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337233332}
   m_Layer: 0
-  m_Name: Layer_Parent_4
+  m_Name: Layer_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907141233}
   m_Layer: 0
-  m_Name: Layer_Parent_1
+  m_Name: Layer_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

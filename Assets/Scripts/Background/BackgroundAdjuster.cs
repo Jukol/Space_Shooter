@@ -13,7 +13,7 @@ namespace Background
             ScreenAdjustmentData();
         }
 
-        public float BackgroundsHeight { get; private set; }
+        public float Height { get; private set; }
         public float VerticalOffset { get; private set; }
         public float ResizeFactor { get; private set; }
 
@@ -26,8 +26,8 @@ namespace Background
 
             ResizeFactor = screenWidth / sprite.bounds.size.x;
             
-            BackgroundsHeight = _spriteRenderer.bounds.size.y * ResizeFactor;
-            VerticalOffset = (screenHeight - BackgroundsHeight) * 0.5f;
+            Height = _spriteRenderer.bounds.size.y * ResizeFactor;
+            VerticalOffset = (screenHeight - Height) * 0.5f;
         }
     }
 }
