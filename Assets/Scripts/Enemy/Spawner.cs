@@ -11,12 +11,12 @@ namespace Enemy
         public static Action OnAllShipsKilled;
 
         [SerializeField] private int id;
+        [SerializeField] private Transform gridStartPosition;
+        [SerializeField] private GameObject positionsParent;
         [SerializeField] private GameObject shipPrefab;
         [SerializeField] private float seconds;
-        [SerializeField] private Transform[] positionGrid;
-        [SerializeField] private Transform gridStartPosition;
+        [SerializeField] private ShipPlaceHolder[] positionGrid;
         [SerializeField] private float timeToGetToPosition;
-        [SerializeField] private GameObject positions;
         [SerializeField] private GameObject maneuvering;
 
         private IBackgroundAdjuster _adjuster;
@@ -38,12 +38,10 @@ namespace Enemy
         {
             _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
 
-            FindObjectOfType<BackgroundCompositor>();
-
-            Vector3 localScale = positions.transform.localScale;
+            Vector3 localScale = positionsParent.transform.localScale;
             _initialScale = localScale;
             localScale *= _adjuster.ResizeFactor;
-            positions.transform.localScale = localScale;
+            positionsParent.transform.localScale = localScale;
 
             Transform transform1 = transform;
             Vector3 position = transform1.position;
@@ -51,15 +49,26 @@ namespace Enemy
             position = new Vector3(0, position.y / _adjuster.ResizeFactor, 0);
             transform1.position = position;
 
+            ArrangeShipPlaceHolders();
+
             StartCoroutine(GetShipsInPlace(shipPrefab));
 
             EnemyShipBehavior.OnDestroy += KilledShipsCounter;
         }
 
+        private void ArrangeShipPlaceHolders()
+        {
+            foreach (var shipPlaceHolder in positionGrid)
+            {
+                shipPlaceHolder.Position = shipPlaceHolder.transform.position;
+                shipPlaceHolder.ShipDead = false;
+            }
+        }
+
         private void OnDisable()
         {
             EnemyShipBehavior.OnDestroy -= KilledShipsCounter;
-            positions.transform.localScale = _initialScale;
+            positionsParent.transform.localScale = _initialScale;
             transform.position = _initialPosition;
         }
 
@@ -67,17 +76,22 @@ namespace Enemy
         {
             for (int i = 0; i < positionGrid.Length; i++)
             {
-                GameObject ship = Instantiate(shipPfb, gridStartPosition.position, Quaternion.Euler(0, 0, 180));
-                ship.transform.SetParent(maneuvering.transform, true);
+                EnemyShipBehavior ship = Instantiate(shipPfb, gridStartPosition.position, Quaternion.Euler(0, 0, 180)).GetComponent<EnemyShipBehavior>();
+                ship.transform.SetParent(positionGrid[i].transform, true);
+                positionGrid[i].Ship = ship;
 
                 if (i != positionGrid.Length - 1)
                 {
-                    ship.transform.DOMove(positionGrid[i].position, timeToGetToPosition);
+                    if (positionGrid[i].ShipDead) 
+                        yield break;
+                    ship.transform.DOMove(positionGrid[i].Position, timeToGetToPosition);
                     yield return _intervalBetweenShips;
                 }
                 else if (i == positionGrid.Length - 1)
                 {
-                    Tween getToPosition = ship.transform.DOMove(positionGrid[i].position, timeToGetToPosition);
+                    if (positionGrid[i].ShipDead) 
+                        yield break;
+                    Tween getToPosition = ship.transform.DOMove(positionGrid[i].Position, timeToGetToPosition);
                     getToPosition.OnComplete(AllInPosition);
                 }
             }

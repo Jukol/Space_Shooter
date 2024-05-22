@@ -6,6 +6,8 @@ namespace Enemy
 {
     public abstract class EnemyShipBehavior : MonoBehaviour, IDamageable
     {
+        public static event Action OnDestroy;
+        
         [SerializeField] private int currentHealth;
         [SerializeField] private EnemyScriptableObject shipData;
         [SerializeField] private RectTransform healthBar;
@@ -19,6 +21,7 @@ namespace Enemy
         private float _startHealth;
         private bool _woundedAnim, _smokeAnim;
         private int _woundedValue;
+
 
         private void Start()
         {
@@ -82,7 +85,5 @@ namespace Enemy
             _dead = true;
             Destroy(gameObject);
         }
-
-        public static event Action OnDestroy;
     }
 }
