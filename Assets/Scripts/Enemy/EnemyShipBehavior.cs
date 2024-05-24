@@ -80,6 +80,10 @@ namespace Enemy
             explosion.transform.position = transform.position;
             Destroy(explosion, 1f);
 
+            ShipPlaceHolder shipPlaceHolder = transform.parent.GetComponent<ShipPlaceHolder>();
+            if (shipPlaceHolder != null)
+                shipPlaceHolder.ShipDead = true;
+            
             OnDestroy?.Invoke();
 
             _dead = true;

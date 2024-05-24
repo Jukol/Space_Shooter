@@ -38,22 +38,30 @@ namespace Enemy
         {
             _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
 
-            Vector3 localScale = positionsParent.transform.localScale;
-            _initialScale = localScale;
-            localScale *= _adjuster.ResizeFactor;
-            positionsParent.transform.localScale = localScale;
+            ResizeWindow();
+            InitializePosition();
+            ArrangeShipPlaceHolders();
+            StartCoroutine(GetShipsInPlace(shipPrefab));
 
+            EnemyShipBehavior.OnDestroy += KilledShipsCounter;
+        }
+
+        private void InitializePosition()
+        {
             Transform transform1 = transform;
             Vector3 position = transform1.position;
             _initialPosition = position;
             position = new Vector3(0, position.y / _adjuster.ResizeFactor, 0);
             transform1.position = position;
+        }
 
-            ArrangeShipPlaceHolders();
+        private void ResizeWindow()
+        {
 
-            StartCoroutine(GetShipsInPlace(shipPrefab));
-
-            EnemyShipBehavior.OnDestroy += KilledShipsCounter;
+            Vector3 localScale = positionsParent.transform.localScale;
+            _initialScale = localScale;
+            localScale *= _adjuster.ResizeFactor;
+            positionsParent.transform.localScale = localScale;
         }
 
         private void ArrangeShipPlaceHolders()
@@ -76,21 +84,20 @@ namespace Enemy
         {
             for (int i = 0; i < positionGrid.Length; i++)
             {
+                if (positionGrid[i].ShipDead)
+                    yield break;
+
                 EnemyShipBehavior ship = Instantiate(shipPfb, gridStartPosition.position, Quaternion.Euler(0, 0, 180)).GetComponent<EnemyShipBehavior>();
                 ship.transform.SetParent(positionGrid[i].transform, true);
-                positionGrid[i].Ship = ship;
 
                 if (i != positionGrid.Length - 1)
                 {
-                    if (positionGrid[i].ShipDead) 
-                        yield break;
                     ship.transform.DOMove(positionGrid[i].Position, timeToGetToPosition);
                     yield return _intervalBetweenShips;
                 }
                 else if (i == positionGrid.Length - 1)
                 {
-                    if (positionGrid[i].ShipDead) 
-                        yield break;
+                    
                     Tween getToPosition = ship.transform.DOMove(positionGrid[i].Position, timeToGetToPosition);
                     getToPosition.OnComplete(AllInPosition);
                 }

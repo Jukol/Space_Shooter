@@ -8,6 +8,7 @@ namespace HUD
         [SerializeField] private TextMeshProUGUI killCounterField;
         private int _killCounter;
 
+
         private void OnEnable()
         {
             killCounterField = GetComponent<TextMeshProUGUI>();
