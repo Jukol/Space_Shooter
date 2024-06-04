@@ -11,7 +11,7 @@ namespace EnemyScripts
 {
     public class SpawnManager : MonoBehaviour, ISavedProgress
     {
-        [SerializeField] private Spawner[] spawners;
+        public Spawner[] spawners;
 
         private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
@@ -33,7 +33,7 @@ namespace EnemyScripts
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.waveToLoad = Wave;
-            progress.lastState.listOfSpawnerEnemyStatusLists = _progress.Progress.lastState.listOfSpawnerEnemyStatusLists;
+            progress.lastState.overallEnemyStatuses = _progress.Progress.lastState.overallEnemyStatuses;
         }
 
         public void LoadProgress(Progress progress)
@@ -41,7 +41,7 @@ namespace EnemyScripts
             if (SceneManager.GetActiveScene().name == progress.lastState.levelToLoad)
             {
                 Wave = progress.lastState.waveToLoad;
-                _progress.Progress.lastState.listOfSpawnerEnemyStatusLists = progress.lastState.listOfSpawnerEnemyStatusLists;
+                _progress.Progress.lastState.overallEnemyStatuses = progress.lastState.overallEnemyStatuses;
             }
         }
 

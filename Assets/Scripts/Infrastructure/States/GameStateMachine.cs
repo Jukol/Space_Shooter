@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ammo;
+using DefaultNamespace;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
@@ -16,13 +17,13 @@ namespace Infrastructure.States
         private IExitableState _activeState;
 
         public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain, AllServices services,
-            Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake, string initialLevel, int initialHealth)
+            Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake, string initialLevel, int initialHealth, OverallEnemyStatuses overallEnemyStatuses)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, camera, spriteRenderer, bulletParent, cameraShake),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain, services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>(), initialLevel, initialHealth),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>(), initialLevel, initialHealth, overallEnemyStatuses),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

@@ -1,4 +1,5 @@
 using Data;
+using DefaultNamespace;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 namespace Infrastructure.States
@@ -11,14 +12,16 @@ namespace Infrastructure.States
         private readonly string _initialLevel;
         private readonly int _initialHealth;
         private int _initialEnemyHealth;
+        private readonly OverallEnemyStatuses _overallEnemyStatuses;
 
-        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialHealth)
+        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialHealth, OverallEnemyStatuses overallEnemyStatuses)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;
             _saveLoadService = saveLoadService;
             _initialLevel = initialLevel;
             _initialHealth = initialHealth;
+            _overallEnemyStatuses = overallEnemyStatuses;
         }
 
         public void Enter()
@@ -42,7 +45,7 @@ namespace Infrastructure.States
 
         private Progress NewProgress()
         {
-            return new Progress(_initialLevel);
+            return new Progress(_initialLevel, _overallEnemyStatuses);
         }
     }
 }

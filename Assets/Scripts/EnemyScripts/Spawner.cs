@@ -15,6 +15,7 @@ namespace EnemyScripts
     public class Spawner : MonoBehaviour
     {
         public static Action OnAllShipsKilled;
+        public EnemyPlaceHolder[] enemyPlaceHolders;
         public int ID => id;
         public static Action OnAllInPlace { get; set; }
 
@@ -23,7 +24,6 @@ namespace EnemyScripts
         [SerializeField] private GameObject positionsParent;
         [SerializeField] private GameObject shipPrefab;
         [SerializeField] private float seconds;
-        [SerializeField] private EnemyPlaceHolder[] enemyPlaceHolders;
         [SerializeField] private float timeToGetToPosition;
         [SerializeField] private GameObject maneuvering;
 
@@ -73,73 +73,13 @@ namespace EnemyScripts
 
         private void ArrangeAndInitEnemyPlaceHolders()
         {
-            if (_progress.lastState.listOfSpawnerEnemyStatusLists.Count == 0)
-            {
-                CreateFirstStatusList();
-                _saveLoadService.SaveProgress();
-            }
-            else
-            {
-                if (_progress.lastState.listOfSpawnerEnemyStatusLists[id].spawnerEnemyStatuses.Count == 0)
-                {
-                    CreateStatusList();
-                    _saveLoadService.SaveProgress();
-                }
-                else
-                {
-                    for (int i = 0; i < enemyPlaceHolders.Length; i++)
-                    {
-                        enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-                        enemyPlaceHolders[i].enemyStatus = _progress.lastState.listOfSpawnerEnemyStatusLists[id].spawnerEnemyStatuses[i];
-                    }
-                }
-            }
-
-            
-            
-            // if (_progress.lastState.EnemyStatuses.Count == 0)
-            // {
-            //     for (int i = 0; i < enemyPlaceHolders.Length; i++)
-            //     {
-            //         enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-            //         enemyPlaceHolders[i].enemyStatus = new EnemyStatus(id, i, 50, false);
-            //         _progress.lastState.EnemyStatuses.Add(enemyPlaceHolders[i].enemyStatus);
-            //     }
-            //     
-            //     _saveLoadService.SaveProgress();
-            // }
-            // else
-            // {
-            //     for (int i = 0; i < enemyPlaceHolders.Length; i++)
-            //     {
-            //         enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-            //         enemyPlaceHolders[i].enemyStatus = _progress.lastState.EnemyStatuses[i];
-            //     }
-            // }
-        }
-
-        private void CreateStatusList()
-        {
-           _progress.lastState.listOfSpawnerEnemyStatusLists[id].spawnerEnemyStatuses = new List<EnemyStatus>();
-            
             for (int i = 0; i < enemyPlaceHolders.Length; i++)
             {
-                _progress.lastState.listOfSpawnerEnemyStatusLists[id].spawnerEnemyStatuses.Add(AddStatus(i));
+                enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
+                enemyPlaceHolders[i].enemyStatus = _progress.lastState.overallEnemyStatuses.enemyStatuses[i];
             }
         }
 
-        private void CreateFirstStatusList()
-        {
-            ListOfSpawnerEnemyStatusLists overallList = new();
-            List<EnemyStatus> thisSpawnersList = overallList.spawnerEnemyStatuses = new();
-            
-            for (int i = 0; i < enemyPlaceHolders.Length; i++)
-            {
-                thisSpawnersList.Add(AddStatus(i));
-            }
-            
-            _progress.lastState.listOfSpawnerEnemyStatusLists.Add(overallList);
-        }
 
         private EnemyStatus AddStatus(int i)
         {

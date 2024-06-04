@@ -527,12 +527,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 15
+  enemyPlaceHolders: []
+  id: 14
   gridStartPosition: {fileID: 7071607089029276415}
   positionsParent: {fileID: 7071607089677707964}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088993564505}
 --- !u!1 &7071607088174837232
@@ -1696,12 +1696,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
+  enemyPlaceHolders: []
+  id: 7
   gridStartPosition: {fileID: 7071607088698754622}
   positionsParent: {fileID: 7071607088395364403}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607090221757864}
 --- !u!1 &7071607088255467419
@@ -3226,12 +3226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 10
+  enemyPlaceHolders: []
+  id: 9
   gridStartPosition: {fileID: 7071607088567325403}
   positionsParent: {fileID: 7071607088674176190}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089569040572}
 --- !u!1 &7071607088395364403
@@ -3820,12 +3820,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  enemyPlaceHolders: []
+  id: 5
   gridStartPosition: {fileID: 7071607088437242731}
   positionsParent: {fileID: 7071607088826178288}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089065470587}
 --- !u!1 &7071607088467270160
@@ -4253,12 +4253,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
+  enemyPlaceHolders: []
+  id: 8
   gridStartPosition: {fileID: 7071607089879213180}
   positionsParent: {fileID: 7071607089200757877}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088144791396}
 --- !u!1 &7071607088478712199
@@ -5502,11 +5502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  gridStartPosition: {fileID: 7071607089970730148}
-  positionsParent: {fileID: 7071607089318748344}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
-  seconds: 0.1
   enemyPlaceHolders:
   - {fileID: 2209402915889320966}
   - {fileID: 8435743971314785917}
@@ -5517,6 +5512,11 @@ MonoBehaviour:
   - {fileID: 1554733504140371858}
   - {fileID: 4299305416712982091}
   - {fileID: 8764613173097546351}
+  id: 0
+  gridStartPosition: {fileID: 7071607089970730148}
+  positionsParent: {fileID: 7071607089318748344}
+  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
+  seconds: 0.1
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089318748344}
 --- !u!1 &7071607088588853339
@@ -6067,12 +6067,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 14
+  enemyPlaceHolders: []
+  id: 13
   gridStartPosition: {fileID: 7071607088767456446}
   positionsParent: {fileID: 7071607088216399771}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089416943679}
 --- !u!1 &7071607088644871724
@@ -6320,12 +6320,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 12
+  enemyPlaceHolders: []
+  id: 11
   gridStartPosition: {fileID: 7071607088177381138}
   positionsParent: {fileID: 7071607089582842838}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088193747455}
 --- !u!1 &7071607088666754311
@@ -11068,12 +11068,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 11
+  enemyPlaceHolders: []
+  id: 10
   gridStartPosition: {fileID: 7071607089271233804}
   positionsParent: {fileID: 7071607088593522709}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088542425442}
 --- !u!1 &7071607089085751550
@@ -11123,12 +11123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  enemyPlaceHolders: []
+  id: 6
   gridStartPosition: {fileID: 7071607089776761497}
   positionsParent: {fileID: 7071607090242857734}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089868286293}
 --- !u!1 &7071607089087685801
@@ -11145,7 +11145,7 @@ GameObject:
   - component: {fileID: 7071607089087685807}
   - component: {fileID: 7071607089087685800}
   m_Layer: 0
-  m_Name: Maneuvering
+  m_Name: Maneuverer
   m_TagString: Maneuvering
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13649,12 +13649,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  enemyPlaceHolders: []
+  id: 4
   gridStartPosition: {fileID: 7071607089149442602}
   positionsParent: {fileID: 7071607089149442603}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088992121255}
 --- !u!1 &7071607089290572129
@@ -14499,12 +14499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
+  enemyPlaceHolders: []
+  id: 2
   gridStartPosition: {fileID: 7071607090268386290}
   positionsParent: {fileID: 7071607090268386291}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088295351960}
 --- !u!1 &7071607089356260554
@@ -17545,11 +17545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  gridStartPosition: {fileID: 7071607089797472007}
-  positionsParent: {fileID: 7071607089318748344}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
-  seconds: 0.1
   enemyPlaceHolders:
   - {fileID: 3485946458255704219}
   - {fileID: 1096848680112110561}
@@ -17560,6 +17555,11 @@ MonoBehaviour:
   - {fileID: 1374174112776985355}
   - {fileID: 7344773734184221907}
   - {fileID: 457848604595686754}
+  id: 1
+  gridStartPosition: {fileID: 7071607089797472007}
+  positionsParent: {fileID: 7071607089318748344}
+  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
+  seconds: 0.1
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089087685801}
 --- !u!1 &7071607089635904065
@@ -21631,12 +21631,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 13
+  enemyPlaceHolders: []
+  id: 12
   gridStartPosition: {fileID: 7071607088751166293}
   positionsParent: {fileID: 7071607089899552224}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088562594404}
 --- !u!1 &7071607089949305083
@@ -22839,12 +22839,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3780d9198975ca4584aa53c4b655d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
+  enemyPlaceHolders: []
+  id: 3
   gridStartPosition: {fileID: 7071607089699424985}
   positionsParent: {fileID: 7071607089699424986}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088467270160}
 --- !u!1 &7071607090098156940

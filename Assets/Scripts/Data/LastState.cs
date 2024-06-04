@@ -11,13 +11,13 @@ namespace Data
         public string levelToLoad;
         public int waveToLoad;
         public int playerHealth;
-        public List<ListOfSpawnerEnemyStatusLists> listOfSpawnerEnemyStatusLists;
+        public OverallEnemyStatuses overallEnemyStatuses;
 
-        public LastState(string initialLevel)
+        public LastState(string initialLevel, OverallEnemyStatuses overallEnemyStatuses)
         {
             levelToLoad = initialLevel;
             waveToLoad = 0;
-            listOfSpawnerEnemyStatusLists = new();
+            this.overallEnemyStatuses = overallEnemyStatuses;
         }
     }
 }

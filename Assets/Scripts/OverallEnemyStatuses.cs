@@ -5,8 +5,8 @@ using EnemyScripts;
 namespace DefaultNamespace
 {
     [Serializable]
-    public class ListOfSpawnerEnemyStatusLists
+    public class OverallEnemyStatuses
     {
-        public List<EnemyStatus> spawnerEnemyStatuses;
+        public List<EnemyStatus> enemyStatuses;
     }
 }

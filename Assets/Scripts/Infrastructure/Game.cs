@@ -1,4 +1,5 @@
 ﻿using Ammo;
+using DefaultNamespace;
 using Infrastructure.Services;
 using Infrastructure.States;
 using Logic;
@@ -10,15 +11,15 @@ namespace Infrastructure
     {
         public readonly GameStateMachine StateMachine;
 
-        public Game(
-            ICoroutineRunner coroutineRunner, 
-            LoadingCurtain curtain, 
-            Camera camera, 
-            SpriteRenderer spriteRenderer, 
-            BulletContainer bulletParent, 
-            CameraShake cameraShake, 
-            string initialLevel, 
-            int initialHealth)
+        public Game(ICoroutineRunner coroutineRunner,
+            LoadingCurtain curtain,
+            Camera camera,
+            SpriteRenderer spriteRenderer,
+            BulletContainer bulletParent,
+            CameraShake cameraShake,
+            string initialLevel,
+            int initialHealth, 
+            OverallEnemyStatuses overallEnemyStatuses)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner), 
@@ -29,7 +30,8 @@ namespace Infrastructure
                 bulletParent, 
                 cameraShake,
                 initialLevel,
-                initialHealth);
+                initialHealth, 
+                overallEnemyStatuses);
         }
     }
 }
