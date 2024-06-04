@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using Enemy;
+using EnemyScripts;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using PlayerScripts;
 using UnityEngine;
 namespace Infrastructure.Factory
 {
@@ -10,11 +11,13 @@ namespace Infrastructure.Factory
         public List<ISavedProgressReader> ProgressReaders { get; }
         public List<ISavedProgress> ProgressWriters { get; }
 
-        public Player.Player CreatePlayer();
+        public Player CreatePlayer();
+
+        public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder);
 
         public SpawnManager CreateSpawnManager();
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player.Player player);
+        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player);
 
         public GameObject CreateBullet();
 

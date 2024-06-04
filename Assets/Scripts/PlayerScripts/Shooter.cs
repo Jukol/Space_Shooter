@@ -4,7 +4,8 @@ using Infrastructure.Services;
 using InputClasses;
 using Interfaces;
 using UnityEngine;
-namespace Player
+
+namespace PlayerScripts
 {
     public class Shooter : MonoBehaviour, IShootable
     {

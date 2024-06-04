@@ -1,6 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-namespace Enemy
+namespace EnemyScripts
 {
     public class Maneuverer : MonoBehaviour
     {

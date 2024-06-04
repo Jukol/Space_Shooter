@@ -55,7 +55,7 @@ namespace Infrastructure.States
             _services.RegisterSingle<IBackgroundAdjuster>(new BackgroundAdjuster(_camera, _spriteRenderer));
             _services.RegisterSingle<IAssets>(new AssetProvider());
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(), _cameraShake));
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(), _cameraShake, _services.Single<IPersistentProgressService>()));
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
             _services.RegisterSingle<IPool>(new BulletPool(_services.Single<IGameFactory>(), _bulletContainer));
             _services.RegisterSingle(new CurrentScreen(_camera));

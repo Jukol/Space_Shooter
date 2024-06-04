@@ -1,7 +1,9 @@
-﻿using Enemy;
+﻿using EnemyScripts;
 using Infrastructure.Factory;
 using Infrastructure.Services.PersistentProgress;
 using Logic;
+using PlayerScripts;
+
 namespace Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
@@ -46,7 +48,7 @@ namespace Infrastructure.States
 
         private void InitGameWorld()
         {
-            Player.Player player = _gameFactory.CreatePlayer();
+            Player player = _gameFactory.CreatePlayer();
             SpawnManager spawnManager = _gameFactory.CreateSpawnManager();
             _gameFactory.CreateHud(spawnManager, _sceneName, player);
         }

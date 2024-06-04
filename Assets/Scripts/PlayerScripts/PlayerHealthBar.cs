@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-namespace Player
+
+namespace PlayerScripts
 {
     public class PlayerHealthBar : MonoBehaviour
     {

@@ -1,5 +1,5 @@
-using Enemy;
-using Player;
+using EnemyScripts;
+using PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,8 +10,6 @@ namespace HUD
         [SerializeField] private TMP_Text level;
         [SerializeField] private TMP_Text wave;
         [SerializeField] private PlayerHealthBar playerHealthBar;
-
-        
 
         private SpawnManager _spawnManager;
 
@@ -27,7 +25,7 @@ namespace HUD
             _spawnManager.WaveChanged -= ChangeWaveNumber;
         }
 
-        public void Init(SpawnManager spawnManager, string sceneName, Player.Player player)
+        public void Init(SpawnManager spawnManager, string sceneName, Player player)
         {
             spawnManager.WaveChanged += ChangeWaveNumber;
             level.text = sceneName;

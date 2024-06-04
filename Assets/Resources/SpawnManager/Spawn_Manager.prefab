@@ -475,6 +475,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088162809520
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,19 +532,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089677707964}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607088746811189}
-  - {fileID: 7071607088399454658}
-  - {fileID: 7071607089779513052}
-  - {fileID: 7071607088291495605}
-  - {fileID: 7071607089445492131}
-  - {fileID: 7071607088148672014}
-  - {fileID: 7071607089463423842}
-  - {fileID: 7071607088418728362}
-  - {fileID: 7071607089499644695}
-  - {fileID: 7071607089402703869}
-  - {fileID: 7071607089398559981}
-  - {fileID: 7071607090090665866}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088993564505}
 --- !u!1 &7071607088174837232
@@ -639,6 +632,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088177381139
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +765,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088193747455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,90 +1245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7071607088210534234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7071607088210534233}
-  - component: {fileID: 7071607088210534232}
-  m_Layer: 0
-  m_Name: Positions_parent
-  m_TagString: Positions
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7071607088210534233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071607088210534234}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7071607088573270700}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7071607088210534232
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7071607088210534234}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088216399771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088234591475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1542,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088235224520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1644,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088246491754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,23 +1701,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607088395364403}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089551266504}
-  - {fileID: 7071607088519265822}
-  - {fileID: 7071607090061815153}
-  - {fileID: 7071607090281271756}
-  - {fileID: 7071607089534130433}
-  - {fileID: 7071607089723266087}
-  - {fileID: 7071607088804102684}
-  - {fileID: 7071607090223728318}
-  - {fileID: 7071607088965109110}
-  - {fileID: 7071607089197715593}
-  - {fileID: 7071607090197007236}
-  - {fileID: 7071607089739732090}
-  - {fileID: 7071607090098156915}
-  - {fileID: 7071607088764290251}
-  - {fileID: 7071607088348330501}
-  - {fileID: 7071607090184981930}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607090221757864}
 --- !u!1 &7071607088255467419
@@ -1878,6 +1801,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088263237196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +1903,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088265879834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088291495606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,6 +2184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088295351960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2664,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088327076611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088347257141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,6 +2868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088348330502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +2970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088357396610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088378524230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,6 +3174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088379118073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,19 +3231,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607088674176190}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089798180944}
-  - {fileID: 7071607089894067247}
-  - {fileID: 7071607089259981103}
-  - {fileID: 7071607089356260553}
-  - {fileID: 7071607088893565519}
-  - {fileID: 7071607089195257425}
-  - {fileID: 7071607089216375485}
-  - {fileID: 7071607088859949592}
-  - {fileID: 7071607090119143813}
-  - {fileID: 7071607089164131242}
-  - {fileID: 7071607089877136458}
-  - {fileID: 7071607089881077003}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089569040572}
 --- !u!1 &7071607088395364403
@@ -3470,6 +3431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088409959713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,6 +3533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088418728363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,6 +3635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088434485452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3761,6 +3737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088437242724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,16 +3825,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607088826178288}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607090228107115}
-  - {fileID: 7071607088833034158}
-  - {fileID: 7071607090155001815}
-  - {fileID: 7071607089632195887}
-  - {fileID: 7071607089688460226}
-  - {fileID: 7071607088228152089}
-  - {fileID: 7071607089656959581}
-  - {fileID: 7071607089949305082}
-  - {fileID: 7071607089906983965}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089065470587}
 --- !u!1 &7071607088467270160
@@ -4286,16 +4258,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089200757877}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089814386088}
-  - {fileID: 7071607089135007543}
-  - {fileID: 7071607088378524229}
-  - {fileID: 7071607088347257140}
-  - {fileID: 7071607088612784532}
-  - {fileID: 7071607090007782250}
-  - {fileID: 7071607089263927659}
-  - {fileID: 7071607088657707418}
-  - {fileID: 7071607090248315435}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088144791396}
 --- !u!1 &7071607088478712199
@@ -4395,6 +4358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088485392041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088519265823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,6 +4562,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088542425442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,6 +5042,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088562594404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,7 +5486,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7071607089970730148}
-  - {fileID: 7071607088210534233}
   - {fileID: 7071607089318748351}
   m_Father: {fileID: 7071607088265879832}
   m_RootOrder: 0
@@ -5525,16 +5507,16 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089318748344}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089356284916}
-  - {fileID: 7071607090123280968}
-  - {fileID: 7071607090122376690}
-  - {fileID: 7071607088588853338}
-  - {fileID: 7071607089141599637}
-  - {fileID: 7071607089689515506}
-  - {fileID: 7071607089182440834}
-  - {fileID: 7071607088234591474}
-  - {fileID: 7071607089482375067}
+  enemyPlaceHolders:
+  - {fileID: 2209402915889320966}
+  - {fileID: 8435743971314785917}
+  - {fileID: 6854891606788092894}
+  - {fileID: 558488656789585738}
+  - {fileID: 4309408855341411297}
+  - {fileID: 610562826436781197}
+  - {fileID: 1554733504140371858}
+  - {fileID: 4299305416712982091}
+  - {fileID: 8764613173097546351}
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089318748344}
 --- !u!1 &7071607088588853339
@@ -5634,6 +5616,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088593522709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5824,6 +5811,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088611188409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088612784533
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,6 +6015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088615494672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,16 +6072,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607088216399771}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607088694257948}
-  - {fileID: 7071607089201741308}
-  - {fileID: 7071607088922858280}
-  - {fileID: 7071607088685659032}
-  - {fileID: 7071607088865557866}
-  - {fileID: 7071607089628190183}
-  - {fileID: 7071607088552854856}
-  - {fileID: 7071607089635904064}
-  - {fileID: 7071607088608024721}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089416943679}
 --- !u!1 &7071607088644871724
@@ -6275,6 +6268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088662081268
 GameObject:
   m_ObjectHideFlags: 0
@@ -6327,16 +6325,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089582842838}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089997527924}
-  - {fileID: 7071607089498865152}
-  - {fileID: 7071607088986731840}
-  - {fileID: 7071607088283179501}
-  - {fileID: 7071607088666754310}
-  - {fileID: 7071607088667518639}
-  - {fileID: 7071607089176839025}
-  - {fileID: 7071607089470368438}
-  - {fileID: 7071607089688701003}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088193747455}
 --- !u!1 &7071607088666754311
@@ -6436,6 +6425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088667518632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6533,6 +6527,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088674176190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,6 +6725,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088683024172
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,6 +6920,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088685659033
 GameObject:
   m_ObjectHideFlags: 0
@@ -7013,6 +7022,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088694257949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7110,6 +7124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088698754623
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,6 +7257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088719867713
 GameObject:
   m_ObjectHideFlags: 0
@@ -7428,6 +7452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088746811190
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,6 +7554,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088751166294
 GameObject:
   m_ObjectHideFlags: 0
@@ -7653,6 +7687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088767456447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,6 +7820,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088799391600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7878,6 +7922,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088804102685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7975,6 +8024,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088826178288
 GameObject:
   m_ObjectHideFlags: 0
@@ -8165,6 +8219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088856616559
 GameObject:
   m_ObjectHideFlags: 0
@@ -8262,6 +8321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088859949593
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,6 +8423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088865557867
 GameObject:
   m_ObjectHideFlags: 0
@@ -8456,6 +8525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088893565512
 GameObject:
   m_ObjectHideFlags: 0
@@ -8553,6 +8627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088918667344
 GameObject:
   m_ObjectHideFlags: 0
@@ -8650,6 +8729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088922858281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,6 +8831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088937001450
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,6 +8933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088941096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -8941,6 +9035,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088950149127
 GameObject:
   m_ObjectHideFlags: 0
@@ -9038,6 +9137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088957263120
 GameObject:
   m_ObjectHideFlags: 0
@@ -9135,6 +9239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088965109111
 GameObject:
   m_ObjectHideFlags: 0
@@ -9232,6 +9341,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088972325163
 GameObject:
   m_ObjectHideFlags: 0
@@ -9329,6 +9443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088986731841
 GameObject:
   m_ObjectHideFlags: 0
@@ -9426,6 +9545,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607088992121255
 GameObject:
   m_ObjectHideFlags: 0
@@ -10279,6 +10403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089016168150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10376,6 +10505,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089029254880
 GameObject:
   m_ObjectHideFlags: 0
@@ -10473,6 +10607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089029276408
 GameObject:
   m_ObjectHideFlags: 0
@@ -10934,16 +11073,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607088593522709}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607090088643841}
-  - {fileID: 7071607088785790829}
-  - {fileID: 7071607090079327559}
-  - {fileID: 7071607089208335424}
-  - {fileID: 7071607089239366843}
-  - {fileID: 7071607089290572128}
-  - {fileID: 7071607090250962558}
-  - {fileID: 7071607089620670684}
-  - {fileID: 7071607090207941912}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088542425442}
 --- !u!1 &7071607089085751550
@@ -10998,16 +11128,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607090242857734}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607088434485427}
-  - {fileID: 7071607088972325162}
-  - {fileID: 7071607090016887948}
-  - {fileID: 7071607089325745546}
-  - {fileID: 7071607089126624808}
-  - {fileID: 7071607090137617650}
-  - {fileID: 7071607088315356610}
-  - {fileID: 7071607089808373923}
-  - {fileID: 7071607090166644263}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089868286293}
 --- !u!1 &7071607089087685801
@@ -11485,6 +11606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089115547555
 GameObject:
   m_ObjectHideFlags: 0
@@ -11582,6 +11708,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089126624809
 GameObject:
   m_ObjectHideFlags: 0
@@ -11679,6 +11810,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089135007536
 GameObject:
   m_ObjectHideFlags: 0
@@ -11776,6 +11912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089141599638
 GameObject:
   m_ObjectHideFlags: 0
@@ -11873,6 +12014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089149442603
 GameObject:
   m_ObjectHideFlags: 0
@@ -12001,6 +12147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089166477952
 GameObject:
   m_ObjectHideFlags: 0
@@ -12098,6 +12249,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089171957199
 GameObject:
   m_ObjectHideFlags: 0
@@ -12195,6 +12351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089176839026
 GameObject:
   m_ObjectHideFlags: 0
@@ -12292,6 +12453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089182440835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12389,6 +12555,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089195257426
 GameObject:
   m_ObjectHideFlags: 0
@@ -12486,6 +12657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089197715594
 GameObject:
   m_ObjectHideFlags: 0
@@ -12583,6 +12759,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089200757877
 GameObject:
   m_ObjectHideFlags: 0
@@ -12773,6 +12954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089208335425
 GameObject:
   m_ObjectHideFlags: 0
@@ -12870,6 +13056,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089216375486
 GameObject:
   m_ObjectHideFlags: 0
@@ -12967,6 +13158,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089239366836
 GameObject:
   m_ObjectHideFlags: 0
@@ -13064,6 +13260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089259981096
 GameObject:
   m_ObjectHideFlags: 0
@@ -13161,6 +13362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089263927652
 GameObject:
   m_ObjectHideFlags: 0
@@ -13258,6 +13464,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089271233805
 GameObject:
   m_ObjectHideFlags: 0
@@ -13386,6 +13597,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089279589254
 GameObject:
   m_ObjectHideFlags: 0
@@ -13438,19 +13654,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089149442603}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089960361360}
-  - {fileID: 7071607088263237171}
-  - {fileID: 7071607088856616558}
-  - {fileID: 7071607089337913653}
-  - {fileID: 7071607088611188408}
-  - {fileID: 7071607089675315784}
-  - {fileID: 7071607088678047202}
-  - {fileID: 7071607088255467418}
-  - {fileID: 7071607090115894911}
-  - {fileID: 7071607089520216892}
-  - {fileID: 7071607089115547554}
-  - {fileID: 7071607088709556345}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088992121255}
 --- !u!1 &7071607089290572129
@@ -13550,6 +13754,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089300948826
 GameObject:
   m_ObjectHideFlags: 0
@@ -13647,6 +13856,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089318748344
 GameObject:
   m_ObjectHideFlags: 0
@@ -13689,7 +13903,7 @@ Transform:
   - {fileID: 7071607088234591474}
   - {fileID: 7071607089482375067}
   m_Father: {fileID: 7071607088573270700}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7071607089318748348
 MonoBehaviour:
@@ -14131,6 +14345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089337913654
 GameObject:
   m_ObjectHideFlags: 0
@@ -14228,6 +14447,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089343012390
 GameObject:
   m_ObjectHideFlags: 0
@@ -14280,23 +14504,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607090268386291}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089300948825}
-  - {fileID: 7071607089812196635}
-  - {fileID: 7071607088957263127}
-  - {fileID: 7071607088409959712}
-  - {fileID: 7071607089843513305}
-  - {fileID: 7071607088799391607}
-  - {fileID: 7071607089770138299}
-  - {fileID: 7071607088357396609}
-  - {fileID: 7071607089094510562}
-  - {fileID: 7071607089586233083}
-  - {fileID: 7071607088235224527}
-  - {fileID: 7071607088685526438}
-  - {fileID: 7071607088719882945}
-  - {fileID: 7071607088208631203}
-  - {fileID: 7071607089949530318}
-  - {fileID: 7071607089520068836}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088295351960}
 --- !u!1 &7071607089356260554
@@ -14396,6 +14604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089356284917
 GameObject:
   m_ObjectHideFlags: 0
@@ -14493,6 +14706,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089398559982
 GameObject:
   m_ObjectHideFlags: 0
@@ -14590,6 +14808,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089402703870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14687,6 +14910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089416943679
 GameObject:
   m_ObjectHideFlags: 0
@@ -15162,6 +15390,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089445492156
 GameObject:
   m_ObjectHideFlags: 0
@@ -15259,6 +15492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089460937061
 GameObject:
   m_ObjectHideFlags: 0
@@ -15356,6 +15594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089463423843
 GameObject:
   m_ObjectHideFlags: 0
@@ -15453,6 +15696,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089470368439
 GameObject:
   m_ObjectHideFlags: 0
@@ -15550,6 +15798,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089482375060
 GameObject:
   m_ObjectHideFlags: 0
@@ -15647,6 +15900,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089498865153
 GameObject:
   m_ObjectHideFlags: 0
@@ -15744,6 +16002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089499644688
 GameObject:
   m_ObjectHideFlags: 0
@@ -15841,6 +16104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089520068837
 GameObject:
   m_ObjectHideFlags: 0
@@ -15938,6 +16206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089520216893
 GameObject:
   m_ObjectHideFlags: 0
@@ -16035,6 +16308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089534130434
 GameObject:
   m_ObjectHideFlags: 0
@@ -16132,6 +16410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089551266505
 GameObject:
   m_ObjectHideFlags: 0
@@ -16229,6 +16512,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089569040572
 GameObject:
   m_ObjectHideFlags: 0
@@ -16797,6 +17085,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089620670685
 GameObject:
   m_ObjectHideFlags: 0
@@ -16894,6 +17187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089623268109
 GameObject:
   m_ObjectHideFlags: 0
@@ -16991,6 +17289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089628190176
 GameObject:
   m_ObjectHideFlags: 0
@@ -17088,6 +17391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089632195880
 GameObject:
   m_ObjectHideFlags: 0
@@ -17185,6 +17493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089634165856
 GameObject:
   m_ObjectHideFlags: 0
@@ -17234,19 +17547,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   gridStartPosition: {fileID: 7071607089797472007}
-  positionsParent: {fileID: 7071607088719867713}
+  positionsParent: {fileID: 7071607089318748344}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607089623268108}
-  - {fileID: 7071607089679226338}
-  - {fileID: 7071607090179707783}
-  - {fileID: 7071607089900068896}
-  - {fileID: 7071607088937001449}
-  - {fileID: 7071607089635908337}
-  - {fileID: 7071607089278067526}
-  - {fileID: 7071607089860631369}
-  - {fileID: 7071607089419150389}
+  enemyPlaceHolders:
+  - {fileID: 3485946458255704219}
+  - {fileID: 1096848680112110561}
+  - {fileID: 1780375029126892238}
+  - {fileID: 3725804924122180978}
+  - {fileID: 3314041650080672729}
+  - {fileID: 7887044802164168212}
+  - {fileID: 1374174112776985355}
+  - {fileID: 7344773734184221907}
+  - {fileID: 457848604595686754}
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607089087685801}
 --- !u!1 &7071607089635904065
@@ -17346,6 +17659,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089635908338
 GameObject:
   m_ObjectHideFlags: 0
@@ -17443,6 +17761,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089656959582
 GameObject:
   m_ObjectHideFlags: 0
@@ -17540,6 +17863,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089659329470
 GameObject:
   m_ObjectHideFlags: 0
@@ -17668,6 +17996,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089675315785
 GameObject:
   m_ObjectHideFlags: 0
@@ -17765,6 +18098,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089677707964
 GameObject:
   m_ObjectHideFlags: 0
@@ -17958,6 +18296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089688460227
 GameObject:
   m_ObjectHideFlags: 0
@@ -18055,6 +18398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089688700996
 GameObject:
   m_ObjectHideFlags: 0
@@ -18152,6 +18500,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089689515507
 GameObject:
   m_ObjectHideFlags: 0
@@ -18249,6 +18602,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089699424986
 GameObject:
   m_ObjectHideFlags: 0
@@ -18477,6 +18835,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089739732091
 GameObject:
   m_ObjectHideFlags: 0
@@ -18574,6 +18937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089768091383
 GameObject:
   m_ObjectHideFlags: 0
@@ -18671,6 +19039,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089770138292
 GameObject:
   m_ObjectHideFlags: 0
@@ -18768,6 +19141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089776404080
 GameObject:
   m_ObjectHideFlags: 0
@@ -18865,6 +19243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089776761498
 GameObject:
   m_ObjectHideFlags: 0
@@ -18993,6 +19376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089797472000
 GameObject:
   m_ObjectHideFlags: 0
@@ -19003,7 +19391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7071607089797472007}
   m_Layer: 0
-  m_Name: Pos0
+  m_Name: Grid_start_position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19121,6 +19509,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089808373948
 GameObject:
   m_ObjectHideFlags: 0
@@ -19218,6 +19611,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089812196628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19315,6 +19713,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089814386089
 GameObject:
   m_ObjectHideFlags: 0
@@ -19412,6 +19815,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089828503450
 GameObject:
   m_ObjectHideFlags: 0
@@ -19540,6 +19948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089844212467
 GameObject:
   m_ObjectHideFlags: 0
@@ -19637,6 +20050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089847935793
 GameObject:
   m_ObjectHideFlags: 0
@@ -19734,6 +20152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089860631370
 GameObject:
   m_ObjectHideFlags: 0
@@ -19831,6 +20254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089868286293
 GameObject:
   m_ObjectHideFlags: 0
@@ -20306,6 +20734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089879213181
 GameObject:
   m_ObjectHideFlags: 0
@@ -20434,6 +20867,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089881076996
 GameObject:
   m_ObjectHideFlags: 0
@@ -20531,6 +20969,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089882319471
 GameObject:
   m_ObjectHideFlags: 0
@@ -20628,6 +21071,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089894067240
 GameObject:
   m_ObjectHideFlags: 0
@@ -20725,6 +21173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089899552224
 GameObject:
   m_ObjectHideFlags: 0
@@ -20922,6 +21375,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089906983966
 GameObject:
   m_ObjectHideFlags: 0
@@ -21019,6 +21477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089942819892
 GameObject:
   m_ObjectHideFlags: 0
@@ -21116,6 +21579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089946133994
 GameObject:
   m_ObjectHideFlags: 0
@@ -21168,23 +21636,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089899552224}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607088918667351}
-  - {fileID: 7071607089673061967}
-  - {fileID: 7071607089776404087}
-  - {fileID: 7071607089882319470}
-  - {fileID: 7071607090164697708}
-  - {fileID: 7071607089847935792}
-  - {fileID: 7071607088478712198}
-  - {fileID: 7071607089768091382}
-  - {fileID: 7071607089029254887}
-  - {fileID: 7071607088181224814}
-  - {fileID: 7071607090151027406}
-  - {fileID: 7071607088941096448}
-  - {fileID: 7071607089166477959}
-  - {fileID: 7071607089942819899}
-  - {fileID: 7071607089880046293}
-  - {fileID: 7071607089460937060}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088562594404}
 --- !u!1 &7071607089949305083
@@ -21284,6 +21736,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089949530319
 GameObject:
   m_ObjectHideFlags: 0
@@ -21381,6 +21838,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089960361361
 GameObject:
   m_ObjectHideFlags: 0
@@ -21478,6 +21940,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607089970730149
 GameObject:
   m_ObjectHideFlags: 0
@@ -21606,6 +22073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090007782251
 GameObject:
   m_ObjectHideFlags: 0
@@ -21703,6 +22175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090016887949
 GameObject:
   m_ObjectHideFlags: 0
@@ -21800,6 +22277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090046348351
 GameObject:
   m_ObjectHideFlags: 0
@@ -21897,6 +22379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090061815154
 GameObject:
   m_ObjectHideFlags: 0
@@ -21994,6 +22481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090079327552
 GameObject:
   m_ObjectHideFlags: 0
@@ -22091,6 +22583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090088643842
 GameObject:
   m_ObjectHideFlags: 0
@@ -22188,6 +22685,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090090665867
 GameObject:
   m_ObjectHideFlags: 0
@@ -22285,6 +22787,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090096491752
 GameObject:
   m_ObjectHideFlags: 0
@@ -22337,16 +22844,7 @@ MonoBehaviour:
   positionsParent: {fileID: 7071607089699424986}
   shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
-  positionGrid:
-  - {fileID: 7071607088950149126}
-  - {fileID: 7071607089003557909}
-  - {fileID: 7071607088174837239}
-  - {fileID: 7071607088327076610}
-  - {fileID: 7071607089016168149}
-  - {fileID: 7071607088485392040}
-  - {fileID: 7071607090046348350}
-  - {fileID: 7071607089844212466}
-  - {fileID: 7071607089171957198}
+  enemyPlaceHolders: []
   timeToGetToPosition: 0.5
   maneuvering: {fileID: 7071607088467270160}
 --- !u!1 &7071607090098156940
@@ -22446,6 +22944,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090115894904
 GameObject:
   m_ObjectHideFlags: 0
@@ -22543,6 +23046,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090119143814
 GameObject:
   m_ObjectHideFlags: 0
@@ -22640,6 +23148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090122376691
 GameObject:
   m_ObjectHideFlags: 0
@@ -22737,6 +23250,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090123280969
 GameObject:
   m_ObjectHideFlags: 0
@@ -22834,6 +23352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090137617651
 GameObject:
   m_ObjectHideFlags: 0
@@ -22931,6 +23454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090151027407
 GameObject:
   m_ObjectHideFlags: 0
@@ -23028,6 +23556,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090155001808
 GameObject:
   m_ObjectHideFlags: 0
@@ -23125,6 +23658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090164697709
 GameObject:
   m_ObjectHideFlags: 0
@@ -23222,6 +23760,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090166644256
 GameObject:
   m_ObjectHideFlags: 0
@@ -23319,6 +23862,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090179707776
 GameObject:
   m_ObjectHideFlags: 0
@@ -23416,6 +23964,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090184981931
 GameObject:
   m_ObjectHideFlags: 0
@@ -23513,6 +24066,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090197007237
 GameObject:
   m_ObjectHideFlags: 0
@@ -23610,6 +24168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090207941913
 GameObject:
   m_ObjectHideFlags: 0
@@ -23707,6 +24270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090221757864
 GameObject:
   m_ObjectHideFlags: 0
@@ -24182,6 +24750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090228107108
 GameObject:
   m_ObjectHideFlags: 0
@@ -24279,6 +24852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090242857734
 GameObject:
   m_ObjectHideFlags: 0
@@ -24469,6 +25047,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090250962559
 GameObject:
   m_ObjectHideFlags: 0
@@ -24566,6 +25149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0
 --- !u!1 &7071607090268386291
 GameObject:
   m_ObjectHideFlags: 0
@@ -24694,3 +25282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ad7abd05344dd189ed3d845c5c833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStatus:
+    spawnerId: 0
+    id: 0
+    health: 0
+    dead: 0

@@ -27,10 +27,10 @@ namespace Infrastructure.Services.SaveLoad
             PlayerPrefs.SetString(ProgressKey, _progressService.Progress.ToJson());
         }
 
-        public PlayerProgress LoadProgress()
+        public Progress LoadProgress()
         {
             return PlayerPrefs.GetString(ProgressKey)?
-                .ToDeserialized<PlayerProgress>();
+                .ToDeserialized<Progress>();
         }
     }
 }

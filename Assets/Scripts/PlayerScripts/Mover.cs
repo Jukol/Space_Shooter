@@ -3,7 +3,8 @@ using InputClasses;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
-namespace Player
+
+namespace PlayerScripts
 {
     public class Mover : MonoBehaviour, IMovable
     {

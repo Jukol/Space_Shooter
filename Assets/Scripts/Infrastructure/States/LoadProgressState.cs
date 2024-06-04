@@ -10,6 +10,7 @@ namespace Infrastructure.States
         private readonly ISaveLoadService _saveLoadService;
         private readonly string _initialLevel;
         private readonly int _initialHealth;
+        private int _initialEnemyHealth;
 
         public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialHealth)
         {
@@ -32,14 +33,16 @@ namespace Infrastructure.States
 
         private void LoadProgressOrInitNew()
         {
+            var progress = _saveLoadService.LoadProgress();
+            
             _progressService.Progress =
-                _saveLoadService.LoadProgress()
+                progress
                 ?? NewProgress();
         }
 
-        private PlayerProgress NewProgress()
+        private Progress NewProgress()
         {
-            return new PlayerProgress(_initialLevel, _initialHealth);
+            return new Progress(_initialLevel);
         }
     }
 }

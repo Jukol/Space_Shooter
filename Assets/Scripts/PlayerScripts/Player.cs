@@ -6,7 +6,8 @@ using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
-namespace Player
+
+namespace PlayerScripts
 {
     public class Player : MonoBehaviour, IDamageable, IGetSizeable, IAnimatable, ISavedProgress
     {
@@ -38,13 +39,13 @@ namespace Player
             OnHealthUpdate?.Invoke();
         }
 
-        public void LoadProgress(PlayerProgress progress)
+        public void LoadProgress(Progress progress)
         {
             Health = progress.lastState.playerHealth;
             OnHealthUpdate?.Invoke();
         }
 
-        public void UpdateProgress(PlayerProgress progress)
+        public void UpdateProgress(Progress progress)
         {
             progress.lastState.playerHealth = Health;
         }

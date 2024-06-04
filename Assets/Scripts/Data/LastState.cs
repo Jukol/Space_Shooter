@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using DefaultNamespace;
+using EnemyScripts;
+
 namespace Data
 {
     [Serializable]
@@ -7,12 +11,13 @@ namespace Data
         public string levelToLoad;
         public int waveToLoad;
         public int playerHealth;
+        public List<ListOfSpawnerEnemyStatusLists> listOfSpawnerEnemyStatusLists;
 
-        public LastState(string initialLevel, int health)
+        public LastState(string initialLevel)
         {
             levelToLoad = initialLevel;
             waveToLoad = 0;
-            playerHealth = health;
+            listOfSpawnerEnemyStatusLists = new();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Enemy;
+﻿using EnemyScripts;
 using TMPro;
 using UnityEngine;
 namespace HUD
@@ -13,12 +13,12 @@ namespace HUD
         {
             killCounterField = GetComponent<TextMeshProUGUI>();
             killCounterField.text = "0";
-            EnemyShipBehavior.OnDestroy += Counter;
+            Enemy.OnDestroy += Counter;
         }
 
         private void OnDisable()
         {
-            EnemyShipBehavior.OnDestroy -= Counter;
+            Enemy.OnDestroy -= Counter;
         }
 
         private void Counter()

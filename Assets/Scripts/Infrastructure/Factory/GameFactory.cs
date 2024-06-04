@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Enemy;
+using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
 using Infrastructure.Services.PersistentProgress;
 using MyScreen;
-using Player;
+using PlayerScripts;
 using UnityEngine;
 namespace Infrastructure.Factory
 {
@@ -12,27 +12,36 @@ namespace Infrastructure.Factory
     {
         private readonly IAssets _assets;
         private readonly CameraShake _cameraShake;
+        private readonly IPersistentProgressService _progressService;
 
-        public GameFactory(IAssets assets, CameraShake cameraShake)
+        public GameFactory(IAssets assets, CameraShake cameraShake, IPersistentProgressService progressService)
         {
             _cameraShake = cameraShake;
             _assets = assets;
+            _progressService = progressService;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
         public List<ISavedProgress> ProgressWriters { get; } = new();
 
-        public Player.Player CreatePlayer()
+        public Player CreatePlayer()
         {
             return InstantiateRegisteredPlayer(AssetPaths.PlayerPath);
+        }
+
+        public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder)
+        {
+            return InstantiateEnemy(AssetPaths.EnemyPath, gridStartPosition, placeHolder);
         }
 
         public SpawnManager CreateSpawnManager()
         {
             return InstantiateRegisteredSpawnManager(AssetPaths.SpawnManagerPath);
         }
+        
+        
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player.Player player)
+        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player)
         {
             GameObject hudGo = _assets.Instantiate(AssetPaths.HudPath);
             HudData hud = hudGo.GetComponent<HudData>();
@@ -50,17 +59,27 @@ namespace Infrastructure.Factory
             ProgressWriters.Clear();
         }
 
-        private Player.Player InstantiateRegisteredPlayer(string prefabPath)
+        private Player InstantiateRegisteredPlayer(string prefabPath)
         {
-            Player.Player player = _assets.Instantiate(prefabPath).GetComponent<Player.Player>();
+            Player player = _assets.Instantiate(prefabPath).GetComponent<Player>();
             Register(player);
             player.Init(_cameraShake);
             return player;
         }
 
+        private Enemy InstantiateEnemy(string prefabPath, Transform gridStartPosition, EnemyPlaceHolder placeHolder)
+        {
+            Enemy enemy = _assets.Instantiate(prefabPath, gridStartPosition, Quaternion.Euler(0, 0, 180)).GetComponent<Enemy>();
+            enemy.transform.SetParent(placeHolder.transform, true);
+            enemy.Init(placeHolder.enemyStatus.health);
+
+            return enemy;
+        }
+
         private SpawnManager InstantiateRegisteredSpawnManager(string prefabPath)
         {
             SpawnManager spawnManager = _assets.Instantiate(prefabPath).GetComponent<SpawnManager>();
+            spawnManager.Init(this, _progressService);
             Register(spawnManager);
             return spawnManager;
         }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-namespace Enemy
+
+namespace EnemyScripts
 {
     [CreateAssetMenu(fileName = "New Ship", menuName = "Enemy Ship")]
     public class EnemyScriptableObject : ScriptableObject
