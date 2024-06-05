@@ -78,14 +78,6 @@ namespace EnemyScripts
             }
         }
 
-
-        private EnemyStatus AddStatus(int i)
-        {
-            enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-            enemyPlaceHolders[i].enemyStatus = new EnemyStatus(id, i, 50, false);
-            return enemyPlaceHolders[i].enemyStatus;
-        }
-
         private void OnDisable()
         {
             Enemy.OnDestroy -= KilledShipsCounter;
