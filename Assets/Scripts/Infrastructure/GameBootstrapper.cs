@@ -24,7 +24,7 @@ namespace Infrastructure
 
         private Game _game;
 
-        private OverallEnemyStatuses overallEnemyStatuses;
+        private WrapperOfListOfSpawners wrapperOfListOfSpawners;
 
         private void Awake()
         {
@@ -35,7 +35,7 @@ namespace Infrastructure
 
             cameraShake = shkCamera.GetComponent<CameraShake>();
 
-            overallEnemyStatuses = CreateOverallEnemyStatuses();
+            wrapperOfListOfSpawners = CreateWrapperOfListOfSpawners();
 
             _game = new Game(this, 
                 loadingCurtain,
@@ -45,25 +45,30 @@ namespace Infrastructure
                 cameraShake,
                 initialLevel,
                 initialHealth, 
-                overallEnemyStatuses);
+                wrapperOfListOfSpawners);
             
             _game.StateMachine.Enter<BootstrapState>();
 
             DontDestroyOnLoad(this);
         }
 
-        private OverallEnemyStatuses CreateOverallEnemyStatuses()
+        private WrapperOfListOfSpawners CreateWrapperOfListOfSpawners()
         {
-            OverallEnemyStatuses allEnemyStatuses = new ();
-            allEnemyStatuses.enemyStatuses = new List<EnemyStatus>();
+            WrapperOfListOfSpawners allEnemyStatuses = new ();
+            allEnemyStatuses.WrapperOfStatuses = new List<WrapperOfListOfStatuses>();
 
             for (int i = 0; i < spawnManager.spawners.Length; i++)
             {
+                WrapperOfListOfStatuses wrapper = new ();
+                wrapper.ListOfStatuses = new List<EnemyStatus>();
+
                 for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
                 {
-                    EnemyStatus status = new (i, j, 50, false);
-                    allEnemyStatuses.enemyStatuses.Add(status);
+                    EnemyStatus enemyStatus = new(i, j, 50, false);
+                    wrapper.ListOfStatuses.Add(enemyStatus);
                 }
+                
+                allEnemyStatuses.WrapperOfStatuses.Add(wrapper);
             }
 
             return allEnemyStatuses;

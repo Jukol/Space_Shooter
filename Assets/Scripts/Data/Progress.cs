@@ -7,11 +7,11 @@ namespace Data
     public class Progress
     {
         public LastState lastState;
-        public OverallEnemyStatuses overallEnemyStatuses;
+        public WrapperOfListOfSpawners wrapperOfListOfSpawners;
 
-        public Progress(string initialLevel, OverallEnemyStatuses overallEnemyStatuses)
+        public Progress(string initialLevel, WrapperOfListOfSpawners wrapperOfListOfSpawners)
         {
-            lastState = new LastState(initialLevel, overallEnemyStatuses);
+            lastState = new LastState(initialLevel, wrapperOfListOfSpawners);
         }
     }
 }

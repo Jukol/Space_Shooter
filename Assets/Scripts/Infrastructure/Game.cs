@@ -19,7 +19,7 @@ namespace Infrastructure
             CameraShake cameraShake,
             string initialLevel,
             int initialHealth, 
-            OverallEnemyStatuses overallEnemyStatuses)
+            WrapperOfListOfSpawners overallEnemyStatuses)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner), 

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using Background;
 using Data;
-using DefaultNamespace;
 using DG.Tweening;
 using Infrastructure.Factory;
 using Infrastructure.Services;
@@ -76,7 +74,7 @@ namespace EnemyScripts
             for (int i = 0; i < enemyPlaceHolders.Length; i++)
             {
                 enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-                enemyPlaceHolders[i].enemyStatus = _progress.lastState.overallEnemyStatuses.enemyStatuses[i];
+                enemyPlaceHolders[i].enemyStatus = _progress.lastState.wrapperOfListOfSpawners.WrapperOfStatuses[id].ListOfStatuses[i];
             }
         }
 
