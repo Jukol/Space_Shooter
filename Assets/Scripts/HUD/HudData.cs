@@ -13,22 +13,23 @@ namespace HUD
 
         private SpawnManager _spawnManager;
 
-        private void OnEnable()
-        {
-            _spawnManager = FindObjectOfType<SpawnManager>();
-            _spawnManager.WaveChanged += ChangeWaveNumber;
-            level.text = SceneManager.GetActiveScene().name;
-        }
+        // private void OnEnable()
+        // {
+        //     _spawnManager = FindObjectOfType<SpawnManager>();
+        //     _spawnManager.WaveChanged += ChangeWaveNumber;
+        //     level.text = SceneManager.GetActiveScene().name;
+        // }
 
         private void OnDisable()
         {
             _spawnManager.WaveChanged -= ChangeWaveNumber;
         }
 
-        public void Init(SpawnManager spawnManager, string sceneName, Player player)
+        public void Init(SpawnManager spawnManager, string sceneName, Player player, int waveNumber)
         {
             spawnManager.WaveChanged += ChangeWaveNumber;
             level.text = sceneName;
+            ChangeWaveNumber(waveNumber + 1);
             playerHealthBar.Init(player);
         }
 

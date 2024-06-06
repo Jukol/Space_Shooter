@@ -38,14 +38,15 @@ namespace Infrastructure.Factory
         {
             return InstantiateRegisteredSpawnManager(AssetPaths.SpawnManagerPath);
         }
-        
-        
 
         public void CreateHud(SpawnManager spawnManager, string sceneName, Player player)
         {
             GameObject hudGo = _assets.Instantiate(AssetPaths.HudPath);
             HudData hud = hudGo.GetComponent<HudData>();
-            hud.Init(spawnManager, sceneName, player);
+
+            int waveNumber = _progressService.Progress.lastState.waveToLoad;
+            
+            hud.Init(spawnManager, sceneName, player, waveNumber);
         }
 
         public GameObject CreateBullet()
