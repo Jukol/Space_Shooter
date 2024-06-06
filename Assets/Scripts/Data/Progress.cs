@@ -9,9 +9,9 @@ namespace Data
         public LastState lastState;
         public WrapperOfListOfSpawners wrapperOfListOfSpawners;
 
-        public Progress(string initialLevel, WrapperOfListOfSpawners wrapperOfListOfSpawners)
+        public Progress(string level, int wave, WrapperOfListOfSpawners wrapperOfListOfSpawners)
         {
-            lastState = new LastState(initialLevel, wrapperOfListOfSpawners);
+            lastState = new LastState(level, wave, wrapperOfListOfSpawners);
         }
     }
 }

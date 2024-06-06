@@ -13,8 +13,9 @@ namespace Infrastructure.States
         private readonly int _initialHealth;
         private int _initialEnemyHealth;
         private readonly WrapperOfListOfSpawners _wrapperOfListOfSpawners;
+        private int _wave;
 
-        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialHealth, WrapperOfListOfSpawners wrapperOfListOfSpawners)
+        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialHealth, WrapperOfListOfSpawners wrapperOfListOfSpawners, int wave)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;
@@ -22,6 +23,7 @@ namespace Infrastructure.States
             _initialLevel = initialLevel;
             _initialHealth = initialHealth;
             _wrapperOfListOfSpawners = wrapperOfListOfSpawners;
+            _wave = wave;
         }
 
         public void Enter()
@@ -45,7 +47,7 @@ namespace Infrastructure.States
 
         private Progress NewProgress()
         {
-            return new Progress(_initialLevel, _wrapperOfListOfSpawners);
+            return new Progress(_initialLevel, _wave, _wrapperOfListOfSpawners);
         }
     }
 }

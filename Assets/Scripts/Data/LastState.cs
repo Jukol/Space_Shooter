@@ -13,10 +13,10 @@ namespace Data
         public int playerHealth;
         public WrapperOfListOfSpawners wrapperOfListOfSpawners;
 
-        public LastState(string initialLevel, WrapperOfListOfSpawners wrapperOfListOfSpawners)
+        public LastState(string level, int wave, WrapperOfListOfSpawners wrapperOfListOfSpawners)
         {
-            levelToLoad = initialLevel;
-            waveToLoad = 0;
+            levelToLoad = level;
+            waveToLoad = wave;
             this.wrapperOfListOfSpawners = wrapperOfListOfSpawners;
         }
     }

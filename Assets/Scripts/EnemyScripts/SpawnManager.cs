@@ -54,9 +54,9 @@ namespace EnemyScripts
                 for (int i = Wave; i < spawners.Length; i++)
                 {
                     spawners[i].gameObject.SetActive(true);
-                    spawners[i].Init(gameFactory, progress, _saveLoadService);
-                    WaveChanged?.Invoke(spawners[i].ID);
                     Wave = i;
+                    WaveChanged?.Invoke(Wave);
+                    spawners[i].Init(gameFactory, progress, _saveLoadService);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);

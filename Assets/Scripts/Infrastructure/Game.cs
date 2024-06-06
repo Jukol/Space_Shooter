@@ -19,7 +19,8 @@ namespace Infrastructure
             CameraShake cameraShake,
             string initialLevel,
             int initialHealth, 
-            WrapperOfListOfSpawners overallEnemyStatuses)
+            WrapperOfListOfSpawners overallEnemyStatuses,
+            int wave)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner), 
@@ -31,7 +32,8 @@ namespace Infrastructure
                 cameraShake,
                 initialLevel,
                 initialHealth, 
-                overallEnemyStatuses);
+                overallEnemyStatuses,
+                wave);
         }
     }
 }

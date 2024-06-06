@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Ammo;
 using DefaultNamespace;
 using EnemyScripts;
@@ -19,12 +18,13 @@ namespace Infrastructure
         [SerializeField] private int initialHealth;
         [SerializeField] private SpawnManager spawnManager;
 
-
         private CameraShake cameraShake;
 
         private Game _game;
 
         private WrapperOfListOfSpawners wrapperOfListOfSpawners;
+
+        private int _wave = 0;
 
         private void Awake()
         {
@@ -45,7 +45,8 @@ namespace Infrastructure
                 cameraShake,
                 initialLevel,
                 initialHealth, 
-                wrapperOfListOfSpawners);
+                wrapperOfListOfSpawners,
+                _wave);
             
             _game.StateMachine.Enter<BootstrapState>();
 
