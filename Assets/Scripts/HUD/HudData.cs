@@ -13,6 +13,8 @@ namespace HUD
 
         private SpawnManager _spawnManager;
 
+        private string test;
+
         // private void OnEnable()
         // {
         //     _spawnManager = FindObjectOfType<SpawnManager>();
@@ -30,15 +32,15 @@ namespace HUD
 
         public void Init(SpawnManager spawnManager, string sceneName, Player player, int waveNumber)
         {
-            _spawnManager = spawnManager;
-            _spawnManager.WaveChanged += ChangeWaveNumber;
+            spawnManager.WaveChanged += ChangeWaveNumber;
             level.text = sceneName;
-            ChangeWaveNumber(waveNumber + 1);
+            ChangeWaveNumber(waveNumber);
             playerHealthBar.Init(player);
         }
 
         private void ChangeWaveNumber(int waveNumber)
         {
+            waveNumber++;
             wave.text = "Wave " + waveNumber;
         }
     }

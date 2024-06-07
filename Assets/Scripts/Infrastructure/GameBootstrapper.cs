@@ -65,7 +65,7 @@ namespace Infrastructure
 
                 for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
                 {
-                    EnemyStatus enemyStatus = new(i, j, 50, false);
+                    EnemyStatus enemyStatus = new(i, j, initialHealth, false);
                     wrapper.ListOfStatuses.Add(enemyStatus);
                 }
                 

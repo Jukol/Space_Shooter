@@ -79,10 +79,13 @@ namespace EnemyScripts
             GameObject explosion = Instantiate(shipExplosion);
             explosion.transform.position = transform.position;
             Destroy(explosion, 1f);
+            
+            UpdateStatus();
 
             OnDestroy?.Invoke();
 
             _dead = true;
+            
             Destroy(gameObject);
         }
 

@@ -8,6 +8,8 @@ namespace EnemyScripts
     [Serializable]
     public class EnemyPlaceHolder : MonoBehaviour
     {
+        public event Action Dead; 
+
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
         private ISaveLoadService _saveLoadService;
@@ -23,6 +25,7 @@ namespace EnemyScripts
             if (enemyStatus.health == 0)
             {
                 enemyStatus.dead = true;
+                Dead?.Invoke();
             }
             
             _saveLoadService.SaveProgress();

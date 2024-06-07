@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using Background;
 using Data;
 using DG.Tweening;
@@ -35,7 +36,9 @@ namespace EnemyScripts
 
         private IGameFactory _gameFactory;
         private Progress _progress;
-        private ISaveLoadService _saveLoadService; 
+        private ISaveLoadService _saveLoadService;
+
+        private int _initialEnemiesInSpawner;
 
         public void Init(IGameFactory gameFactory, Progress progress, ISaveLoadService saveLoadService)
         {
@@ -43,6 +46,7 @@ namespace EnemyScripts
             _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
             _progress = progress;
             _saveLoadService = saveLoadService;
+            _initialEnemiesInSpawner = enemyPlaceHolders.Length;
 
             ResizeWindow();
             InitializePosition();
@@ -126,9 +130,8 @@ namespace EnemyScripts
         }
 
         private void KilledShipsCounter()
-        {
-            _killedShips++;
-            if (_killedShips % enemyPlaceHolders.Length == 0)
+        { 
+            if (enemyPlaceHolders.All(placeholder => placeholder.enemyStatus.dead))
             {
                 OnAllShipsKilled?.Invoke();
                 gameObject.SetActive(false);
