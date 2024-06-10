@@ -1,26 +1,21 @@
+using Data;
 using EnemyScripts;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace HUD
 {
-    public class HudData : MonoBehaviour
+    public class HudData : MonoBehaviour, ISavedProgress
     {
         [SerializeField] private TMP_Text level;
         [SerializeField] private TMP_Text wave;
         [SerializeField] private PlayerHealthBar playerHealthBar;
+        [SerializeField] private KillCount killCount;
 
         private SpawnManager _spawnManager;
-
-        private string test;
-
-        // private void OnEnable()
-        // {
-        //     _spawnManager = FindObjectOfType<SpawnManager>();
-        //     _spawnManager.WaveChanged += ChangeWaveNumber;
-        //     level.text = SceneManager.GetActiveScene().name;
-        // }
 
         private void OnDisable()
         {
@@ -30,18 +25,29 @@ namespace HUD
             }
         }
 
-        public void Init(SpawnManager spawnManager, string sceneName, Player player, int waveNumber)
+        public void Init(SpawnManager spawnManager, string sceneName, Player player, int waveNumber, int killCount)
         {
             spawnManager.WaveChanged += ChangeWaveNumber;
             level.text = sceneName;
             ChangeWaveNumber(waveNumber);
             playerHealthBar.Init(player);
+            this.killCount.Init(killCount);
         }
 
         private void ChangeWaveNumber(int waveNumber)
         {
             waveNumber++;
             wave.text = "Wave " + waveNumber;
+        }
+
+        public void LoadProgress(Progress progress)
+        {
+            killCount.killCounter = progress.lastState.killCount;
+        }
+
+        public void UpdateProgress(Progress progress)
+        {
+            progress.lastState.killCount = killCount.killCounter;
         }
     }
 }

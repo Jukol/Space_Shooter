@@ -1,30 +1,38 @@
 ﻿using EnemyScripts;
+using Infrastructure.Services;
+using Infrastructure.Services.SaveLoad;
 using TMPro;
 using UnityEngine;
 namespace HUD
 {
     public class KillCount : MonoBehaviour
     {
+        public int killCounter;
         [SerializeField] private TextMeshProUGUI killCounterField;
-        private int _killCounter;
-
-
-        private void OnEnable()
+        private ISaveLoadService _saveLoadService;
+        
+        private void Start()
         {
-            killCounterField = GetComponent<TextMeshProUGUI>();
-            killCounterField.text = "0";
+            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+        }
+
+        public void Init(int count)
+        {
+            killCounterField.text = count.ToString();
             Enemy.OnDestroy += Counter;
         }
 
         private void OnDisable()
         {
             Enemy.OnDestroy -= Counter;
+            
         }
 
         private void Counter()
         {
-            _killCounter++;
-            killCounterField.text = _killCounter.ToString();
+            killCounter++;
+            killCounterField.text = killCounter.ToString();
+            _saveLoadService.SaveProgress();
         }
     }
 }

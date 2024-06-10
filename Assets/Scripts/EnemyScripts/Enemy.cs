@@ -1,11 +1,8 @@
 ﻿using System;
-using Data;
 using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 namespace EnemyScripts

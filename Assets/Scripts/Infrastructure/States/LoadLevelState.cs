@@ -50,7 +50,7 @@ namespace Infrastructure.States
         {
             Player player = _gameFactory.CreatePlayer();
             SpawnManager spawnManager = _gameFactory.CreateSpawnManager();
-            _gameFactory.CreateHud(spawnManager, _sceneName, player);
+            _gameFactory.CreateHud(spawnManager, _sceneName, player, _progressService);
         }
 
         private void InformProgressReaders()

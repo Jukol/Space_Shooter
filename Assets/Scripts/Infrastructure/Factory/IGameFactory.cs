@@ -2,6 +2,7 @@
 using EnemyScripts;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using PlayerScripts;
 using UnityEngine;
 namespace Infrastructure.Factory
@@ -17,7 +18,7 @@ namespace Infrastructure.Factory
 
         public SpawnManager CreateSpawnManager();
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player);
+        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progress);
 
         public GameObject CreateBullet();
 

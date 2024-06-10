@@ -3,6 +3,7 @@ using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
 using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using MyScreen;
 using PlayerScripts;
 using UnityEngine;
@@ -39,14 +40,9 @@ namespace Infrastructure.Factory
             return InstantiateRegisteredSpawnManager(AssetPaths.SpawnManagerPath);
         }
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player)
+        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progressService)
         {
-            GameObject hudGo = _assets.Instantiate(AssetPaths.HudPath);
-            HudData hud = hudGo.GetComponent<HudData>();
-
-            int waveNumber = _progressService.Progress.lastState.waveToLoad;
-            
-            hud.Init(spawnManager, sceneName, player, waveNumber);
+            InstantiateRegisteredHud(spawnManager, sceneName, player, progressService);
         }
 
         public GameObject CreateBullet()
@@ -58,6 +54,18 @@ namespace Infrastructure.Factory
         {
             ProgressReaders.Clear();
             ProgressWriters.Clear();
+        }
+
+        private void InstantiateRegisteredHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progressService)
+        {
+            GameObject hudGo = _assets.Instantiate(AssetPaths.HudPath);
+            HudData hud = hudGo.GetComponent<HudData>();
+
+            int waveNumber = _progressService.Progress.lastState.waveToLoad;
+            int killCount = progressService.Progress.lastState.killCount;
+            
+            hud.Init(spawnManager, sceneName, player, waveNumber, killCount);
+            Register(hud);
         }
 
         private Player InstantiateRegisteredPlayer(string prefabPath)
