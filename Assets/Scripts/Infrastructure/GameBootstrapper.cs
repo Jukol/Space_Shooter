@@ -15,7 +15,7 @@ namespace Infrastructure
         [SerializeField] private BulletContainer bulletParent;
         [SerializeField] private Camera shakingCamera;
         [SerializeField] private string initialLevel;
-        [SerializeField] private int initialHealth;
+        [SerializeField] private int initialEnemyHealth;
         [SerializeField] private SpawnManager spawnManager;
 
         private CameraShake cameraShake;
@@ -44,7 +44,7 @@ namespace Infrastructure
                 bulletContainer, 
                 cameraShake,
                 initialLevel,
-                initialHealth, 
+                initialEnemyHealth, 
                 wrapperOfListOfSpawners,
                 _wave);
             
@@ -65,7 +65,7 @@ namespace Infrastructure
 
                 for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
                 {
-                    EnemyStatus enemyStatus = new(i, j, initialHealth, false);
+                    EnemyStatus enemyStatus = new(i, j, initialEnemyHealth, false);
                     wrapper.ListOfStatuses.Add(enemyStatus);
                 }
                 

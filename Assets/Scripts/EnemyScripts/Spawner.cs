@@ -103,10 +103,7 @@ namespace EnemyScripts
                         AllInPosition();
                         yield break;
                     }
-                    else
-                    {
-                        continue;
-                    }
+                    continue;
                 }
 
                 Enemy enemy = gameFactory.CreateEnemy(gridStartPosition, enemyPlaceHolders[i]);
