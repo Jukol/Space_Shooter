@@ -9,14 +9,14 @@ namespace Data
         public string levelToLoad;
         public int waveToLoad;
         public int playerHealth;
-        public WrapperOfListOfSpawners wrapperOfListOfSpawners;
+        public SpawnersWrapper spawnersWrapper;
         public int killCount;
 
-        public LastState(string level, int wave, WrapperOfListOfSpawners wrapperOfListOfSpawners, int playerHealth)
+        public LastState(string level, int wave, SpawnersWrapper spawnersWrapper, int playerHealth)
         {
             levelToLoad = level;
             waveToLoad = wave;
-            this.wrapperOfListOfSpawners = wrapperOfListOfSpawners;
+            this.spawnersWrapper = spawnersWrapper;
             killCount = 0;
             this.playerHealth = playerHealth;
         }

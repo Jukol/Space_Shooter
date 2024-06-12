@@ -20,7 +20,7 @@ namespace Infrastructure
             string initialLevel,
             int initialPlayerHealth,
             int initialEnemyHealth,
-            WrapperOfListOfSpawners overallEnemyStatuses,
+            SpawnersWrapper spawnersWrapper,
             int wave)
         {
             StateMachine = new GameStateMachine(
@@ -34,7 +34,7 @@ namespace Infrastructure
                 initialLevel,
                 initialPlayerHealth,
                 initialEnemyHealth,
-                overallEnemyStatuses,
+                spawnersWrapper,
                 wave);
         }
     }

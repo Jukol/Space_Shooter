@@ -33,7 +33,7 @@ namespace EnemyScripts
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.waveToLoad = Wave;
-            progress.lastState.wrapperOfListOfSpawners = _progress.Progress.lastState.wrapperOfListOfSpawners;
+            progress.lastState.spawnersWrapper = _progress.Progress.lastState.spawnersWrapper;
         }
 
         public void LoadProgress(Progress progress)
@@ -41,7 +41,7 @@ namespace EnemyScripts
             if (SceneManager.GetActiveScene().name == progress.lastState.levelToLoad)
             {
                 Wave = progress.lastState.waveToLoad;
-                _progress.Progress.lastState.wrapperOfListOfSpawners = progress.lastState.wrapperOfListOfSpawners;
+                _progress.Progress.lastState.spawnersWrapper = progress.lastState.spawnersWrapper;
             }
         }
 

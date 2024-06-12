@@ -5,13 +5,13 @@ using EnemyScripts;
 namespace DefaultNamespace
 {
     [Serializable]
-    public class WrapperOfListOfSpawners
+    public class SpawnersWrapper
     {
-        public List<WrapperOfListOfStatuses> WrapperOfStatuses;
+        public List<StatusesWrapper> WrapperOfStatuses;
     }
     
     [Serializable]
-    public class WrapperOfListOfStatuses
+    public class StatusesWrapper
     {
         public List<EnemyStatus> ListOfStatuses;
     }

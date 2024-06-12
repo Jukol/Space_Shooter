@@ -23,9 +23,9 @@ namespace Infrastructure
 
         private Game _game;
 
-        private WrapperOfListOfSpawners wrapperOfListOfSpawners;
+        private SpawnersWrapper spawnersWrapper;
 
-        private int _wave = 0;
+        private readonly int _wave = 0;
 
         private void Awake()
         {
@@ -36,7 +36,7 @@ namespace Infrastructure
 
             cameraShake = shkCamera.GetComponent<CameraShake>();
 
-            wrapperOfListOfSpawners = CreateWrapperOfListOfSpawners();
+            spawnersWrapper = CreateWrapperOfListOfSpawners();
 
             _game = new Game(this, 
                 loadingCurtain,
@@ -47,7 +47,7 @@ namespace Infrastructure
                 initialLevel,
                 initialPlayerHealth,
                 initialEnemyHealth, 
-                wrapperOfListOfSpawners,
+                spawnersWrapper,
                 _wave);
             
             _game.StateMachine.Enter<BootstrapState>();
@@ -55,26 +55,26 @@ namespace Infrastructure
             DontDestroyOnLoad(this);
         }
 
-        private WrapperOfListOfSpawners CreateWrapperOfListOfSpawners()
+        private SpawnersWrapper CreateWrapperOfListOfSpawners()
         {
-            WrapperOfListOfSpawners allEnemyStatuses = new ();
-            allEnemyStatuses.WrapperOfStatuses = new List<WrapperOfListOfStatuses>();
+            SpawnersWrapper spawnersWrapper = new ();
+            spawnersWrapper.WrapperOfStatuses = new List<StatusesWrapper>();
 
             for (int i = 0; i < spawnManager.spawners.Length; i++)
             {
-                WrapperOfListOfStatuses wrapper = new ();
-                wrapper.ListOfStatuses = new List<EnemyStatus>();
+                StatusesWrapper statusesWrapper = new ();
+                statusesWrapper.ListOfStatuses = new List<EnemyStatus>();
 
                 for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
                 {
                     EnemyStatus enemyStatus = new(i, j, initialEnemyHealth, false);
-                    wrapper.ListOfStatuses.Add(enemyStatus);
+                    statusesWrapper.ListOfStatuses.Add(enemyStatus);
                 }
                 
-                allEnemyStatuses.WrapperOfStatuses.Add(wrapper);
+                spawnersWrapper.WrapperOfStatuses.Add(statusesWrapper);
             }
 
-            return allEnemyStatuses;
+            return spawnersWrapper;
         }
     }
 }

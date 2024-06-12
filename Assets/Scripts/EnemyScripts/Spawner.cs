@@ -78,7 +78,7 @@ namespace EnemyScripts
             for (int i = 0; i < enemyPlaceHolders.Length; i++)
             {
                 enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-                enemyPlaceHolders[i].enemyStatus = _progress.lastState.wrapperOfListOfSpawners.WrapperOfStatuses[id].ListOfStatuses[i];
+                enemyPlaceHolders[i].enemyStatus = _progress.lastState.spawnersWrapper.WrapperOfStatuses[id].ListOfStatuses[i];
             }
         }
 
