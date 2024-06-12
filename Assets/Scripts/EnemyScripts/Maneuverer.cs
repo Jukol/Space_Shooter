@@ -28,20 +28,11 @@ namespace EnemyScripts
 
         private void StartTweens()
         {
-            if (move)
-            {
-                tweens.DOPlayAllById("Move");
-            }
+            if (move) tweens.DOPlayAllById("Move");
 
-            if (scale)
-            {
-                tweens.DOPlayAllById("Scale");
-            }
+            if (scale) tweens.DOPlayAllById("Scale");
 
-            if (rotate)
-            {
-                tweens.DOPlayAllById("Rotate");
-            }
+            if (rotate) tweens.DOPlayAllById("Rotate");
         }
 
         private void RewindAndPause()

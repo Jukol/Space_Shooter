@@ -70,9 +70,8 @@ namespace EnemyScripts
             DamageEffects();
 
             if (_currentHealth != 0 || _dead)
-            {
                 return;
-            }
+            
             GameObject explosion = Instantiate(shipExplosion);
             explosion.transform.position = transform.position;
             Destroy(explosion, 1f);

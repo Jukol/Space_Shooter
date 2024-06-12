@@ -7,6 +7,7 @@ namespace EnemyScripts
     {
         public string shipName;
         public float speed;
+        public int initialHealth;
         public int wounded;
         public int damaged;
     }

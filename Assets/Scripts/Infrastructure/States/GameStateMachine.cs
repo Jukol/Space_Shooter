@@ -17,13 +17,13 @@ namespace Infrastructure.States
         private IExitableState _activeState;
 
         public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain, AllServices services,
-            Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake, string initialLevel, int initialHealth, WrapperOfListOfSpawners wrapperOfListOfSpawners, int wave)
+            Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake, string initialLevel, int initialPlayerHealth, int initialEnemyHealth, WrapperOfListOfSpawners wrapperOfListOfSpawners, int wave)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, camera, spriteRenderer, bulletParent, cameraShake),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain, services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>(), initialLevel, initialHealth, wrapperOfListOfSpawners, wave),
+                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>(), initialLevel, initialPlayerHealth, initialEnemyHealth, wrapperOfListOfSpawners, wave),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

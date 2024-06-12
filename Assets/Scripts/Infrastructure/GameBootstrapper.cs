@@ -15,6 +15,7 @@ namespace Infrastructure
         [SerializeField] private BulletContainer bulletParent;
         [SerializeField] private Camera shakingCamera;
         [SerializeField] private string initialLevel;
+        [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
         [SerializeField] private SpawnManager spawnManager;
 
@@ -44,6 +45,7 @@ namespace Infrastructure
                 bulletContainer, 
                 cameraShake,
                 initialLevel,
+                initialPlayerHealth,
                 initialEnemyHealth, 
                 wrapperOfListOfSpawners,
                 _wave);

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using DefaultNamespace;
-using EnemyScripts;
-using HUD;
 
 namespace Data
 {
@@ -15,12 +12,13 @@ namespace Data
         public WrapperOfListOfSpawners wrapperOfListOfSpawners;
         public int killCount;
 
-        public LastState(string level, int wave, WrapperOfListOfSpawners wrapperOfListOfSpawners)
+        public LastState(string level, int wave, WrapperOfListOfSpawners wrapperOfListOfSpawners, int playerHealth)
         {
             levelToLoad = level;
             waveToLoad = wave;
             this.wrapperOfListOfSpawners = wrapperOfListOfSpawners;
             killCount = 0;
+            this.playerHealth = playerHealth;
         }
     }
 }

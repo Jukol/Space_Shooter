@@ -18,20 +18,22 @@ namespace Infrastructure
             BulletContainer bulletParent,
             CameraShake cameraShake,
             string initialLevel,
-            int initialHealth, 
+            int initialPlayerHealth,
+            int initialEnemyHealth,
             WrapperOfListOfSpawners overallEnemyStatuses,
             int wave)
         {
             StateMachine = new GameStateMachine(
-                new SceneLoader(coroutineRunner), 
-                curtain, 
+                new SceneLoader(coroutineRunner),
+                curtain,
                 AllServices.Container,
-                camera, 
-                spriteRenderer, 
-                bulletParent, 
+                camera,
+                spriteRenderer,
+                bulletParent,
                 cameraShake,
                 initialLevel,
-                initialHealth, 
+                initialPlayerHealth,
+                initialEnemyHealth,
                 overallEnemyStatuses,
                 wave);
         }

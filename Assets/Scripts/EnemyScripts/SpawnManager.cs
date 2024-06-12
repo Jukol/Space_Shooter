@@ -18,16 +18,10 @@ namespace EnemyScripts
         private IPersistentProgressService _progress;
         
 
-        private void Start()
-        {
+        private void Start() => 
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress));
-        }
 
-        public int Wave
-        {
-            get;
-            set;
-        }
+        public int Wave { get; set; }
 
         public void Init(IGameFactory gameFactory, IPersistentProgressService progress)
         {
@@ -55,8 +49,6 @@ namespace EnemyScripts
 
         private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress)
         {
-            //int wave = progress.lastState.waveToLoad;
-            
             while (true)
             {
                 for (int i = Wave; i < spawners.Length; i++)
