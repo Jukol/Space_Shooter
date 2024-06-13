@@ -29,6 +29,9 @@ namespace EnemyScripts
 
         private Spawner _spawner;
 
+        private void OnEnable() => 
+            _woundedAnim = false;
+
         public void Init(int health)
         {
             _woundedValue = shipData.wounded;
@@ -36,8 +39,7 @@ namespace EnemyScripts
 
             _currentHealth = health;
             
-            _healthSlider = healthBar.GetComponent<Slider>();
-            _healthSlider.value = _currentHealth / startHealth;
+            SetSlider();
 
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
@@ -49,9 +51,10 @@ namespace EnemyScripts
             DamageEffects();
         }
 
-        private void OnEnable()
+        private void SetSlider()
         {
-            _woundedAnim = false;
+            _healthSlider = healthBar.GetComponent<Slider>();
+            _healthSlider.value = _currentHealth / startHealth;
         }
 
         public void Damage(int damageAmount)
@@ -72,16 +75,21 @@ namespace EnemyScripts
             if (_currentHealth != 0 || _dead)
                 return;
             
+            InitiateDestruction();
+        }
+
+        private void InitiateDestruction()
+        {
             GameObject explosion = Instantiate(shipExplosion);
             explosion.transform.position = transform.position;
             Destroy(explosion, 1f);
-            
+
             UpdateStatus();
 
             OnDestroy?.Invoke();
 
             _dead = true;
-            
+
             Destroy(gameObject);
         }
 

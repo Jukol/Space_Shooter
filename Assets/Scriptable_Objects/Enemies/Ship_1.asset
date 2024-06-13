@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Ship_01
   speed: 0
+  initialHealth: 50
   wounded: 25
   damaged: 10
