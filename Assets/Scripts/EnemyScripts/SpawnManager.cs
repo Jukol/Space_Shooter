@@ -16,10 +16,6 @@ namespace EnemyScripts
         private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
         private IPersistentProgressService _progress;
-        
-
-        private void Start() => 
-            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress));
 
         public int Wave { get; set; }
 
@@ -28,6 +24,7 @@ namespace EnemyScripts
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _gameFactory = gameFactory;
             _progress = progress;
+            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress));
         }
 
         public void UpdateProgress(Progress progress)

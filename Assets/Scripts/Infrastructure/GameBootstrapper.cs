@@ -6,18 +6,20 @@ using Infrastructure.States;
 using Logic;
 using MyScreen;
 using UnityEngine;
+using Zenject;
+
 namespace Infrastructure
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
-        [SerializeField] private LoadingCurtain curtain;
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private BulletContainer bulletParent;
-        [SerializeField] private Camera shakingCamera;
-        [SerializeField] private string initialLevel;
-        [SerializeField] private int initialPlayerHealth;
-        [SerializeField] private int initialEnemyHealth;
-        [SerializeField] private SpawnManager spawnManager;
+        [Inject] private LoadingCurtain curtain;
+        [Inject] private SpriteRenderer spriteRenderer;
+        [Inject] private BulletContainer bulletParent;
+        [Inject] private Camera shakingCamera;
+        [Inject] private string initialLevel;
+        [Inject (Id = "PlayerHealth")] private int initialPlayerHealth;
+        [Inject (Id = "EnemyHealth")] private int initialEnemyHealth;
+        [Inject] private SpawnManager spawnManager;
 
         private CameraShake cameraShake;
 
@@ -29,20 +31,14 @@ namespace Infrastructure
 
         private void Awake()
         {
-            LoadingCurtain loadingCurtain = Instantiate(curtain);
-            SpriteRenderer sprRenderer = Instantiate(spriteRenderer);
-            BulletContainer bulletContainer = Instantiate(bulletParent);
-            Camera shkCamera = Instantiate(shakingCamera);
-
-            cameraShake = shkCamera.GetComponent<CameraShake>();
-
+            cameraShake = shakingCamera.GetComponent<CameraShake>();
             spawnersWrapper = CreateWrapperOfListOfSpawners();
 
             _game = new Game(this, 
-                loadingCurtain,
-                shkCamera, 
-                sprRenderer, 
-                bulletContainer, 
+                curtain,
+                shakingCamera, 
+                spriteRenderer, 
+                bulletParent, 
                 cameraShake,
                 initialLevel,
                 initialPlayerHealth,

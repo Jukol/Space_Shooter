@@ -74,3 +74,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906799ba9cb7ed7428ee5da4026e9e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curtain: {fileID: 3681425444270156750, guid: 687d2763fc40f0741ab54b1f80223dd7, type: 3}
+  spriteRenderer: {fileID: 1745972634859916820, guid: f45bca67bd610564c8ab94c8d9c88367, type: 3}
+  bulletParent: {fileID: 1986638416795416070, guid: cbc05add649794169892a9fccb201aa3, type: 3}
+  shakingCamera: {fileID: 29944998062663, guid: 0463f3e3f90b447ecbc4909df276247f, type: 3}
+  spawnManager: {fileID: 7071607088265879833, guid: ec233d8009dda2e4a98fca2fa93537cc, type: 3}
+  initialLevel: Level 1
+  initialPlayerHealth: 10
+  initialEnemyHealth: 50
