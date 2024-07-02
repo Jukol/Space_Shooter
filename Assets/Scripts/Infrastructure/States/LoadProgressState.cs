@@ -15,7 +15,15 @@ namespace Infrastructure.States
         private readonly SpawnersWrapper _spawnersWrapper;
         private int _wave;
 
-        public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService, string initialLevel, int initialPlayerHealth, int initialEnemyHealth, SpawnersWrapper spawnersWrapper, int wave)
+        public LoadProgressState(
+            GameStateMachine gameStateMachine, 
+            IPersistentProgressService progressService, 
+            ISaveLoadService saveLoadService, 
+            string initialLevel, 
+            int initialPlayerHealth, 
+            int initialEnemyHealth, 
+            SpawnersWrapper spawnersWrapper, 
+            int wave)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;

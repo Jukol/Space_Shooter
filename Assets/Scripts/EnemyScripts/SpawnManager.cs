@@ -7,13 +7,15 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
+
 namespace EnemyScripts
 {
     public class SpawnManager : MonoBehaviour, ISavedProgress
     {
         public Spawner[] spawners;
 
-        private ISaveLoadService _saveLoadService;
+        [Inject] private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
         private IPersistentProgressService _progress;
 
@@ -21,7 +23,7 @@ namespace EnemyScripts
 
         public void Init(IGameFactory gameFactory, IPersistentProgressService progress)
         {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            //_saveLoadService = AllServices.Container.Single<ISaveLoadService>();
             _gameFactory = gameFactory;
             _progress = progress;
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress));
@@ -53,7 +55,7 @@ namespace EnemyScripts
                     spawners[i].gameObject.SetActive(true);
                     Wave = i;
                     WaveChanged?.Invoke(Wave);
-                    spawners[i].Init(gameFactory, progress, _saveLoadService);
+                    spawners[i].Init(gameFactory, progress);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);

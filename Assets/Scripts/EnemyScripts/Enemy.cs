@@ -4,6 +4,7 @@ using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace EnemyScripts
 {
@@ -25,7 +26,7 @@ namespace EnemyScripts
 
         private bool _woundedAnim, _smokeAnim;
         private int _woundedValue;
-        private ISaveLoadService _saveLoadService;
+        [Inject] private ISaveLoadService _saveLoadService;
 
         private Spawner _spawner;
 
@@ -41,7 +42,7 @@ namespace EnemyScripts
             
             SetSlider();
 
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            //_saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
             wounded.SetActive(false);
             whiteSmoke.SetActive(false);

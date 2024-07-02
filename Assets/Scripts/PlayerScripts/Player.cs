@@ -6,6 +6,7 @@ using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
+using Zenject;
 
 namespace PlayerScripts
 {
@@ -24,12 +25,7 @@ namespace PlayerScripts
         private bool _explosionStarted;
         private IMovable _movable;
         private IShootable[] _shootables;
-        private ISaveLoadService _saveLoadService;
-
-        private void Start()
-        {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-        }
+        [Inject] private ISaveLoadService _saveLoadService;
 
         public void Damage(int amount)
         {

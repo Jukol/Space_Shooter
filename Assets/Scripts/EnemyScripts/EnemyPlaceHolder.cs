@@ -2,6 +2,7 @@
 using Infrastructure.Services;
 using Infrastructure.Services.SaveLoad;
 using UnityEngine;
+using Zenject;
 
 namespace EnemyScripts
 {
@@ -12,12 +13,7 @@ namespace EnemyScripts
 
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
-        private ISaveLoadService _saveLoadService;
-
-        private void Awake()
-        {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-        }
+        [Inject] private ISaveLoadService _saveLoadService;
 
         public void UpdateStatus(int health)
         {

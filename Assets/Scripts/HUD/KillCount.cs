@@ -3,18 +3,16 @@ using Infrastructure.Services;
 using Infrastructure.Services.SaveLoad;
 using TMPro;
 using UnityEngine;
+using Zenject;
+
 namespace HUD
 {
     public class KillCount : MonoBehaviour
     {
         public int killCounter;
         [SerializeField] private TextMeshProUGUI killCounterField;
-        private ISaveLoadService _saveLoadService;
+        [Inject] private ISaveLoadService _saveLoadService;
         
-        private void Start()
-        {
-            _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-        }
 
         public void Init(int count)
         {

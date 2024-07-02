@@ -9,21 +9,56 @@ using Infrastructure.Services.SaveLoad;
 using Logic;
 using MyScreen;
 using UnityEngine;
+using Zenject;
+
 namespace Infrastructure.States
 {
     public class GameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
+        [Inject] private ISaveLoadService _saveLoadService;
+        [Inject] private IPersistentProgressService _progressService;
 
-        public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain, AllServices services,
-            Camera camera, SpriteRenderer spriteRenderer, BulletContainer bulletParent, CameraShake cameraShake, string initialLevel, int initialPlayerHealth, int initialEnemyHealth, SpawnersWrapper spawnersWrapper, int wave)
+        public GameStateMachine(
+            SceneLoader sceneLoader, 
+            LoadingCurtain curtain, 
+            AllServices services,
+            Camera camera, 
+            SpriteRenderer spriteRenderer, 
+            BulletContainer bulletParent, 
+            CameraShake cameraShake, 
+            string initialLevel, 
+            int initialPlayerHealth, 
+            int initialEnemyHealth, 
+            SpawnersWrapper spawnersWrapper, 
+            int wave)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, camera, spriteRenderer, bulletParent, cameraShake),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain, services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
-                [typeof(LoadProgressState)] = new LoadProgressState(this, services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>(), initialLevel, initialPlayerHealth, initialEnemyHealth, spawnersWrapper, wave),
+                [typeof(BootstrapState)] = new BootstrapState(
+                    this, 
+                    sceneLoader, 
+                    services, 
+                    camera, 
+                    spriteRenderer, 
+                    bulletParent, 
+                    cameraShake),
+                [typeof(LoadLevelState)] = new LoadLevelState(
+                    this, 
+                    sceneLoader, 
+                    curtain, 
+                    services.Single<IGameFactory>(), 
+                    _progressService),
+                [typeof(LoadProgressState)] = new LoadProgressState(
+                    this, 
+                    _progressService, 
+                    _saveLoadService, 
+                    initialLevel, 
+                    initialPlayerHealth, 
+                    initialEnemyHealth, 
+                    spawnersWrapper, 
+                    wave),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

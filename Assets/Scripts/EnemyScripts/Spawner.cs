@@ -8,6 +8,7 @@ using Infrastructure.Factory;
 using Infrastructure.Services;
 using Infrastructure.Services.SaveLoad;
 using UnityEngine;
+using Zenject;
 
 namespace EnemyScripts
 {
@@ -36,17 +37,14 @@ namespace EnemyScripts
 
         private IGameFactory _gameFactory;
         private Progress _progress;
-        private ISaveLoadService _saveLoadService;
 
-        private int _initialEnemiesInSpawner;
-
-        public void Init(IGameFactory gameFactory, Progress progress, ISaveLoadService saveLoadService)
+        public void Init(
+            IGameFactory gameFactory, 
+            Progress progress)
         {
             _intervalBetweenShips = new WaitForSeconds(seconds);
             _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
             _progress = progress;
-            _saveLoadService = saveLoadService;
-            _initialEnemiesInSpawner = enemyPlaceHolders.Length;
 
             ResizeWindow();
             InitializePosition();

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Infrastructure.Factory;
 using UnityEngine;
+using Zenject;
+
 namespace Ammo
 {
     public class BulletPool : IPool
