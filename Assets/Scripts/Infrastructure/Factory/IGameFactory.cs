@@ -2,7 +2,6 @@
 using EnemyScripts;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
 using PlayerScripts;
 using UnityEngine;
 namespace Infrastructure.Factory
@@ -17,6 +16,7 @@ namespace Infrastructure.Factory
         public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder);
 
         public SpawnManager CreateSpawnManager();
+        public void LaunchSpawnManager();
 
         public void CreateHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progress);
 

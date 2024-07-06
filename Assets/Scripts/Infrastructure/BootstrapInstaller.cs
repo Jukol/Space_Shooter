@@ -19,7 +19,6 @@ namespace Infrastructure
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private BulletContainer bulletParent;
         [SerializeField] private Camera myCamera;
-        [SerializeField] private CameraShake shakingCamera;
         [SerializeField] private SpawnManager spawnManager;
         [SerializeField] private string initialLevel;
         [SerializeField] private int initialPlayerHealth;
@@ -31,7 +30,6 @@ namespace Infrastructure
             Container.Bind<SpriteRenderer>().FromComponentInNewPrefab(spriteRenderer).AsSingle();
             Container.Bind<BulletContainer>().FromComponentInNewPrefab(bulletParent).AsSingle();
             Container.Bind<Camera>().FromComponentInNewPrefab(myCamera).AsSingle();
-            //Container.Bind<CameraShake>().FromComponentInNewPrefab(shakingCamera).AsSingle();
             Container.Bind<SpawnManager>().FromComponentInNewPrefab(spawnManager).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");

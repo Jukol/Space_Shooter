@@ -24,19 +24,16 @@ namespace EnemyScripts
         public int Wave { get; set; }
         
         [Inject]
-        public void Construct(ISaveLoadService saveLoadService)
+        public void Construct(ISaveLoadService saveLoadService, IGameFactory gameFactory, IPersistentProgressService progress, IBackgroundAdjuster adjuster)
         {
             _saveLoadService = saveLoadService;
-        }
-
-        public void Init(
-            IGameFactory gameFactory, 
-            IPersistentProgressService progress, 
-            IBackgroundAdjuster adjuster)
-        {
             _gameFactory = gameFactory;
             _progress = progress;
             _adjuster = adjuster;
+        }
+        
+        public void Launch()
+        {
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
         }
 

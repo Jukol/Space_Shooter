@@ -47,6 +47,7 @@ namespace Infrastructure.States
         {
             InitGameWorld();
             InformProgressReaders();
+            _gameFactory.LaunchSpawnManager();
 
             _stateMachine.Enter<GameLoopState>();
         }

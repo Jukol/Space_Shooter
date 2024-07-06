@@ -14,12 +14,13 @@ namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
+        public SpawnManager SpawnManager { get; private set; }
+        
         private readonly IAssets _assets;
         private readonly Camera _camera;
         private readonly IPersistentProgressService _progressService;
         private readonly CurrentScreen _currentScreen;
-        private readonly IBackgroundAdjuster _adjuster;
-        
+
         [Inject]
         public GameFactory(
             IAssets assets, 
@@ -32,7 +33,6 @@ namespace Infrastructure.Factory
             _assets = assets;
             _progressService = progressService;
             _currentScreen = currentScreen;
-            _adjuster = adjuster;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -68,6 +68,11 @@ namespace Infrastructure.Factory
             ProgressReaders.Clear();
             ProgressWriters.Clear();
         }
+        
+        public void LaunchSpawnManager()
+        {
+            SpawnManager.Launch();
+        }
 
         private void InstantiateRegisteredHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progressService)
         {
@@ -101,10 +106,9 @@ namespace Infrastructure.Factory
 
         private SpawnManager InstantiateRegisteredSpawnManager(string prefabPath)
         {
-            SpawnManager spawnManager = _assets.Instantiate(prefabPath).GetComponent<SpawnManager>();
-            spawnManager.Init(this, _progressService, _adjuster);
-            Register(spawnManager);
-            return spawnManager;
+            SpawnManager = _assets.Instantiate(prefabPath).GetComponent<SpawnManager>();
+            Register(SpawnManager);
+            return SpawnManager;
         }
 
         private void Register(ISavedProgressReader progressReader)
