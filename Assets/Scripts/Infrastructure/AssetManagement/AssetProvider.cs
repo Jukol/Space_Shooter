@@ -30,6 +30,7 @@ namespace Infrastructure.AssetManagement
             GameObject prefab = Resources.Load<GameObject>(path);
             var obj = _container.InstantiatePrefab(prefab);
             obj.transform.parent = parent;
+            obj.transform.position = parent.position;
             obj.transform.rotation = angle;
             return obj;
         }
