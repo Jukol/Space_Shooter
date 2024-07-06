@@ -1,7 +1,6 @@
 using Data;
-using DefaultNamespace;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
+
 namespace Infrastructure.States
 {
     public class LoadProgressState : IState
@@ -11,7 +10,6 @@ namespace Infrastructure.States
         private readonly ISaveLoadService _saveLoadService;
         private readonly string _initialLevel;
         private readonly int _initialPlayerHealth;
-        private int _initialEnemyHealth;
         private readonly SpawnersWrapper _spawnersWrapper;
         private int _wave;
 
@@ -21,7 +19,6 @@ namespace Infrastructure.States
             ISaveLoadService saveLoadService, 
             string initialLevel, 
             int initialPlayerHealth, 
-            int initialEnemyHealth, 
             SpawnersWrapper spawnersWrapper, 
             int wave)
         {
@@ -30,7 +27,6 @@ namespace Infrastructure.States
             _saveLoadService = saveLoadService;
             _initialLevel = initialLevel;
             _initialPlayerHealth = initialPlayerHealth;
-            _initialEnemyHealth = initialEnemyHealth;
             _spawnersWrapper = spawnersWrapper;
             _wave = wave;
         }
@@ -49,9 +45,7 @@ namespace Infrastructure.States
         {
             var progress = _saveLoadService.LoadProgress();
             
-            _progressService.Progress =
-                progress
-                ?? NewProgress();
+            _progressService.Progress = progress ?? NewProgress();
         }
 
         private Progress NewProgress()

@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services;
+﻿using Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +9,7 @@ namespace Background
         [SerializeField] private int partsInLayer;
         [SerializeField] private GameObject[] prefabs, layers;
 
-        [Inject] private IBackgroundAdjuster _adjuster;
+        private IBackgroundAdjuster _adjuster;
         private float _height;
 
         private GameObject[][] _backgroundArray;
@@ -26,8 +26,10 @@ namespace Background
             _offset = _adjuster.VerticalOffset;
         }
 
-        private void Start() => 
+        private void Start()
+        {
             ComposeBackgrounds();
+        }
 
         private void ComposeBackgrounds()
         {

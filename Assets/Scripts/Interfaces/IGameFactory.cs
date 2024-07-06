@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using EnemyScripts;
-using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
 using PlayerScripts;
 using UnityEngine;
-namespace Infrastructure.Factory
+
+namespace Interfaces
 {
     public interface IGameFactory : IService
     {
         public List<ISavedProgressReader> ProgressReaders { get; }
-        public List<ISavedProgress> ProgressWriters { get; }
+        public List<ISavedProgressWriter> ProgressWriters { get; }
 
         public Player CreatePlayer();
 

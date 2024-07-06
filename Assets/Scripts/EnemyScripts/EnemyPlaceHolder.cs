@@ -1,6 +1,5 @@
 ﻿using System;
-using Infrastructure.Services;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +8,6 @@ namespace EnemyScripts
     [Serializable]
     public class EnemyPlaceHolder : MonoBehaviour
     {
-        public event Action Dead;
-        
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
 
@@ -20,7 +17,6 @@ namespace EnemyScripts
             if (enemyStatus.health == 0)
             {
                 enemyStatus.dead = true;
-                Dead?.Invoke();
             }
             
             saveLoadService.SaveProgress();

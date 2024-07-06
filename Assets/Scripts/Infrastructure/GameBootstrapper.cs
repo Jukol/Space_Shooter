@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using DefaultNamespace;
 using EnemyScripts;
 using Infrastructure.Factory;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
 using Infrastructure.States;
+using Interfaces;
 using Logic;
 using MyScreen;
 using UnityEngine;
@@ -47,8 +45,7 @@ namespace Infrastructure
             _game = new Game(this, 
                 curtain,
                 initialLevel,
-                initialPlayerHealth,
-                initialEnemyHealth, 
+                initialPlayerHealth, 
                 spawnersWrapper,
                 _wave,
                 _progressService,
@@ -72,7 +69,7 @@ namespace Infrastructure
 
                 for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
                 {
-                    EnemyStatus enemyStatus = new(i, j, initialEnemyHealth, false);
+                    EnemyStatus enemyStatus = new(initialEnemyHealth, false);
                     statusesWrapper.ListOfStatuses.Add(enemyStatus);
                 }
                 

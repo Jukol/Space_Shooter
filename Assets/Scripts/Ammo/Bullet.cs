@@ -18,8 +18,10 @@ namespace Ammo
 
         private bool _targetHit;
 
-        private void Awake() => 
+        private void Awake()
+        {
             _targetHit = false;
+        }
 
         private void OnEnable()
         {

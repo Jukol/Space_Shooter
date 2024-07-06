@@ -1,5 +1,6 @@
 using Data;
-namespace Infrastructure.Services.SaveLoad
+
+namespace Interfaces
 {
     public interface ISaveLoadService : IService
     {

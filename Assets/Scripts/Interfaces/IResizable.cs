@@ -1,4 +1,4 @@
-﻿namespace Background
+﻿namespace Interfaces
 {
     public interface IResizable
     {

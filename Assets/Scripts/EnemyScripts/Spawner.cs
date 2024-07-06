@@ -5,8 +5,7 @@ using Background;
 using Data;
 using DG.Tweening;
 using Infrastructure.Factory;
-using Infrastructure.Services;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -16,7 +15,6 @@ namespace EnemyScripts
     {
         public static Action OnAllShipsKilled;
         public EnemyPlaceHolder[] enemyPlaceHolders;
-        public int ID => id;
         public static Action OnAllInPlace { get; set; }
 
         [SerializeField] private int id;

@@ -1,18 +1,17 @@
 using Data;
-using Infrastructure.Factory;
-using Infrastructure.Services.PersistentProgress;
+using Interfaces;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure.Services.SaveLoad
+namespace Infrastructure.Services
 {
     public class SaveLoadService : ISaveLoadService
     {
         private const string ProgressKey = "ProgressKey";
+        
         private readonly IGameFactory _gameFactory;
-
         private readonly IPersistentProgressService _progressService;
-
+        
         [Inject]
         public SaveLoadService(IPersistentProgressService progressService, IGameFactory gameFactory)
         {
@@ -22,7 +21,7 @@ namespace Infrastructure.Services.SaveLoad
 
         public void SaveProgress()
         {
-            foreach (ISavedProgress progressWriter in _gameFactory.ProgressWriters)
+            foreach (ISavedProgressWriter progressWriter in _gameFactory.ProgressWriters)
             {
                 progressWriter.UpdateProgress(_progressService.Progress);
             }

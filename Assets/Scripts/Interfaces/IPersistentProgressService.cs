@@ -1,5 +1,6 @@
 ﻿using Data;
-namespace Infrastructure.Services.PersistentProgress
+
+namespace Interfaces
 {
     public interface IPersistentProgressService : IService
     {

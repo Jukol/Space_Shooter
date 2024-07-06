@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services;
+﻿using Interfaces;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -16,7 +16,7 @@ namespace Background
         private SpriteRenderer _spriteRenderer;
         private IBackgroundAdjuster _adjuster;
 
-        protected void Update()
+        public void Update()
         {
             Move();
             if (!(transform.position.y <= -(_myHeight + _offset)))

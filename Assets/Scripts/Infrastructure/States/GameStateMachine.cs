@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DefaultNamespace;
 using Infrastructure.Factory;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using Logic;
-using Zenject;
 
 namespace Infrastructure.States
 {
@@ -19,7 +16,6 @@ namespace Infrastructure.States
             LoadingCurtain curtain, 
             string initialLevel, 
             int initialPlayerHealth, 
-            int initialEnemyHealth, 
             SpawnersWrapper spawnersWrapper, 
             int wave,
             IPersistentProgressService progressService,
@@ -43,7 +39,6 @@ namespace Infrastructure.States
                     saveLoadService, 
                     initialLevel, 
                     initialPlayerHealth, 
-                    initialEnemyHealth, 
                     spawnersWrapper, 
                     wave),
                 [typeof(GameLoopState)] = new GameLoopState(this)

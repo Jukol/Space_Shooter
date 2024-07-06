@@ -1,14 +1,13 @@
 using Data;
 using EnemyScripts;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace HUD
 {
-    public class HudData : MonoBehaviour, ISavedProgress
+    public class HudData : MonoBehaviour, ISavedProgressWriter
     {
         [SerializeField] private TMP_Text level;
         [SerializeField] private TMP_Text wave;
@@ -25,13 +24,18 @@ namespace HUD
             }
         }
 
-        public void Init(SpawnManager spawnManager, string sceneName, Player player, int waveNumber, int killCount)
+        public void Init(
+            SpawnManager spawnManager, 
+            string sceneName, 
+            Player player, 
+            int waveNumber, 
+            int myKillCount)
         {
             spawnManager.WaveChanged += ChangeWaveNumber;
             level.text = sceneName;
             ChangeWaveNumber(waveNumber);
             playerHealthBar.Init(player);
-            this.killCount.Init(killCount);
+            killCount.Init(myKillCount);
         }
 
         private void ChangeWaveNumber(int waveNumber)

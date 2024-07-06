@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EnemyScripts;
 
-namespace DefaultNamespace
+namespace Infrastructure
 {
     [Serializable]
     public class SpawnersWrapper

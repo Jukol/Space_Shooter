@@ -1,8 +1,6 @@
 ﻿using System;
 using Data;
-using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Infrastructure;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
@@ -10,7 +8,7 @@ using Zenject;
 
 namespace PlayerScripts
 {
-    public class Player : MonoBehaviour, IDamageable, IGetSizeable, IAnimatable, ISavedProgress
+    public class Player : MonoBehaviour, IDamageable, IGetSizeable, IAnimatable, ISavedProgressWriter
     {
         public static Action OnHealthUpdate;
         public int Health { get; private set; }

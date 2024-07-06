@@ -3,17 +3,17 @@ using System.Collections;
 using Background;
 using Data;
 using Infrastructure.Factory;
-using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace EnemyScripts
 {
-    public class SpawnManager : MonoBehaviour, ISavedProgress
+    public class SpawnManager : MonoBehaviour, ISavedProgressWriter
     {
+        public event Action<int> WaveChanged;
+        
         public Spawner[] spawners;
 
         private ISaveLoadService _saveLoadService;
@@ -21,7 +21,7 @@ namespace EnemyScripts
         private IPersistentProgressService _progress;
         private IBackgroundAdjuster _adjuster;
 
-        public int Wave { get; set; }
+        private int Wave { get; set; }
         
         [Inject]
         public void Construct(ISaveLoadService saveLoadService, IGameFactory gameFactory, IPersistentProgressService progress, IBackgroundAdjuster adjuster)
@@ -31,7 +31,7 @@ namespace EnemyScripts
             _progress = progress;
             _adjuster = adjuster;
         }
-        
+
         public void Launch()
         {
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
@@ -51,8 +51,6 @@ namespace EnemyScripts
                 _progress.Progress.lastState.spawnersWrapper = progress.lastState.spawnersWrapper;
             }
         }
-
-        public event Action<int> WaveChanged;
 
         private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster)
         {

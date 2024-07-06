@@ -1,8 +1,6 @@
-﻿using DefaultNamespace;
-using Infrastructure.Factory;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+﻿using Infrastructure.Factory;
 using Infrastructure.States;
+using Interfaces;
 using Logic;
 
 namespace Infrastructure
@@ -15,7 +13,6 @@ namespace Infrastructure
             LoadingCurtain curtain,
             string initialLevel,
             int initialPlayerHealth,
-            int initialEnemyHealth,
             SpawnersWrapper spawnersWrapper,
             int wave,
             IPersistentProgressService progressService,
@@ -27,7 +24,6 @@ namespace Infrastructure
                 curtain,
                 initialLevel,
                 initialPlayerHealth,
-                initialEnemyHealth,
                 spawnersWrapper,
                 wave,
                 progressService,

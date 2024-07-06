@@ -1,33 +1,28 @@
 ﻿using System.Collections.Generic;
-using Background;
 using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
-using Infrastructure.Services.PersistentProgress;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using MyScreen;
 using PlayerScripts;
 using UnityEngine;
-using Zenject;
 
 namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        public SpawnManager SpawnManager { get; private set; }
+        private SpawnManager SpawnManager { get; set; }
         
         private readonly IAssets _assets;
         private readonly Camera _camera;
         private readonly IPersistentProgressService _progressService;
         private readonly CurrentScreen _currentScreen;
-
-        [Inject]
+        
         public GameFactory(
             IAssets assets, 
             Camera camera, 
             IPersistentProgressService progressService,
-            CurrentScreen currentScreen,
-            IBackgroundAdjuster adjuster)
+            CurrentScreen currentScreen)
         {
             _camera = camera;
             _assets = assets;
@@ -36,7 +31,7 @@ namespace Infrastructure.Factory
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
-        public List<ISavedProgress> ProgressWriters { get; } = new();
+        public List<ISavedProgressWriter> ProgressWriters { get; } = new();
 
         public Player CreatePlayer()
         {
@@ -113,7 +108,7 @@ namespace Infrastructure.Factory
 
         private void Register(ISavedProgressReader progressReader)
         {
-            if (progressReader is ISavedProgress progressWriter)
+            if (progressReader is ISavedProgressWriter progressWriter)
             {
                 ProgressWriters.Add(progressWriter);
             }

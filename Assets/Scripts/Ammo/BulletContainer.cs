@@ -7,7 +7,9 @@ namespace Ammo
         
         public int Capacity => capacity;
 
-        private void Awake() => 
+        private void Awake()
+        {
             DontDestroyOnLoad(gameObject);
+        }
     }
 }

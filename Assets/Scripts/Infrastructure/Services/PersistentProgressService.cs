@@ -1,5 +1,7 @@
 ﻿using Data;
-namespace Infrastructure.Services.PersistentProgress
+using Interfaces;
+
+namespace Infrastructure.Services
 {
     public class PersistentProgressService : IPersistentProgressService
     {

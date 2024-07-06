@@ -1,6 +1,4 @@
 ﻿using System;
-using Infrastructure.Services;
-using Infrastructure.Services.SaveLoad;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +8,12 @@ namespace EnemyScripts
 {
     public class Enemy : MonoBehaviour, IDamageable
     {
+        [Inject]
+        public void Construct(ISaveLoadService saveLoadService)
+        {
+            _saveLoadService = saveLoadService;
+        }
+        
         public static event Action OnDestroy;
 
         [SerializeField] private float startHealth;
@@ -30,13 +34,9 @@ namespace EnemyScripts
 
         private Spawner _spawner;
 
-        private void OnEnable() => 
-            _woundedAnim = false;
-        
-        [Inject]
-        public void Construct(ISaveLoadService saveLoadService)
+        private void OnEnable()
         {
-            _saveLoadService = saveLoadService;
+            _woundedAnim = false;
         }
 
         public void Init(int health)
@@ -98,8 +98,11 @@ namespace EnemyScripts
             Destroy(gameObject);
         }
 
-        private void UpdateStatus() => 
-            transform.parent.GetComponent<EnemyPlaceHolder>().UpdateStatus(_currentHealth, _saveLoadService);
+        private void UpdateStatus()
+        {
+            transform.parent.GetComponent<EnemyPlaceHolder>()
+                .UpdateStatus(_currentHealth, _saveLoadService);
+        }
 
         private void DamageEffects()
         {

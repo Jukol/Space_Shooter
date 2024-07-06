@@ -1,5 +1,5 @@
 ﻿using System;
-using DefaultNamespace;
+using Infrastructure;
 
 namespace Data
 {

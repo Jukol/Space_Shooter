@@ -1,6 +1,5 @@
 ﻿using EnemyScripts;
-using Infrastructure.Services;
-using Infrastructure.Services.SaveLoad;
+using Interfaces;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -10,10 +9,11 @@ namespace HUD
     public class KillCount : MonoBehaviour
     {
         public int killCounter;
+        
         [SerializeField] private TextMeshProUGUI killCounterField;
+        
         [Inject] private ISaveLoadService _saveLoadService;
         
-
         public void Init(int count)
         {
             killCounterField.text = count.ToString();

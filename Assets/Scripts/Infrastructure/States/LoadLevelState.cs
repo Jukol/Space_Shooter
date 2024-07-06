@@ -1,6 +1,6 @@
 ﻿using EnemyScripts;
 using Infrastructure.Factory;
-using Infrastructure.Services.PersistentProgress;
+using Interfaces;
 using Logic;
 using PlayerScripts;
 
@@ -8,13 +8,13 @@ namespace Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
+        private string _sceneName;
+        
         private readonly LoadingCurtain _curtain;
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _progressService;
         private readonly SceneLoader _sceneLoader;
         private readonly GameStateMachine _stateMachine;
-
-        private string _sceneName;
 
         public LoadLevelState(
             GameStateMachine stateMachine, 
@@ -47,6 +47,7 @@ namespace Infrastructure.States
         {
             InitGameWorld();
             InformProgressReaders();
+            
             _gameFactory.LaunchSpawnManager();
 
             _stateMachine.Enter<GameLoopState>();

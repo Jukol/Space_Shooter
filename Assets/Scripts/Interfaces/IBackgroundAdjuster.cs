@@ -1,5 +1,4 @@
-using Infrastructure.Services;
-namespace Background
+namespace Interfaces
 {
     public interface IBackgroundAdjuster : IService
     {

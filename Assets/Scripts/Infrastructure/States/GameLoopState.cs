@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.States
+﻿using Interfaces;
+
+namespace Infrastructure.States
 {
     public class GameLoopState : IState
     {
