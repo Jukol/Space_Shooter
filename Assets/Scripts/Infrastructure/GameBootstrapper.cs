@@ -1,7 +1,10 @@
 using System.Collections.Generic;
-using Ammo;
+using System.Runtime.InteropServices;
 using DefaultNamespace;
 using EnemyScripts;
+using Infrastructure.Factory;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using Infrastructure.States;
 using Logic;
 using MyScreen;
@@ -13,38 +16,44 @@ namespace Infrastructure
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
         [Inject] private LoadingCurtain curtain;
-        [Inject] private SpriteRenderer spriteRenderer;
-        [Inject] private BulletContainer bulletParent;
-        [Inject] private Camera shakingCamera;
         [Inject] private string initialLevel;
         [Inject (Id = "PlayerHealth")] private int initialPlayerHealth;
         [Inject (Id = "EnemyHealth")] private int initialEnemyHealth;
         [Inject] private SpawnManager spawnManager;
 
-        private CameraShake cameraShake;
-
         private Game _game;
-
         private SpawnersWrapper spawnersWrapper;
-
         private readonly int _wave = 0;
+
+        private IPersistentProgressService _progressService;
+        private ISaveLoadService _saveLoadService;
+        private IGameFactory _gameFactory;
+        
+        [Inject]
+        public void Construct(
+            IPersistentProgressService progressService, 
+            ISaveLoadService saveLoadService,
+            IGameFactory gameFactory)
+        {
+            _progressService = progressService;
+            _saveLoadService = saveLoadService;
+            _gameFactory = gameFactory;
+        }
 
         private void Awake()
         {
-            cameraShake = shakingCamera.GetComponent<CameraShake>();
             spawnersWrapper = CreateWrapperOfListOfSpawners();
 
             _game = new Game(this, 
                 curtain,
-                shakingCamera, 
-                spriteRenderer, 
-                bulletParent, 
-                cameraShake,
                 initialLevel,
                 initialPlayerHealth,
                 initialEnemyHealth, 
                 spawnersWrapper,
-                _wave);
+                _wave,
+                _progressService,
+                _saveLoadService,
+                _gameFactory);
             
             _game.StateMachine.Enter<BootstrapState>();
 

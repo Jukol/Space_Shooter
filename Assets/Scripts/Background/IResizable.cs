@@ -2,6 +2,6 @@
 {
     public interface IResizable
     {
-        public void Resize();
+        public void Resize(IBackgroundAdjuster backgroundAdjuster);
     }
 }

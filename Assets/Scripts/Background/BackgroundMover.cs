@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace Background
 {
@@ -9,11 +10,11 @@ namespace Background
         [SerializeField] protected float speed = 0.5f;
         
         private const float GapCrutch = 0.1f;
-        private IBackgroundAdjuster _adjuster;
         private BackgroundCompositor _compositor;
         private float _myHeight;
         private float _offset;
         private SpriteRenderer _spriteRenderer;
+        private IBackgroundAdjuster _adjuster;
 
         protected void Update()
         {
@@ -23,11 +24,10 @@ namespace Background
             
             JumpUp();
         }
-
-        public void Init()
+        
+        public void Init(IBackgroundAdjuster adjuster)
         {
-            _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
-
+            _adjuster = adjuster;
             _myHeight = _adjuster.Height;
             _offset = _adjuster.VerticalOffset;
         }

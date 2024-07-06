@@ -66,13 +66,13 @@ namespace PlayerScripts
             }
         }
 
-        public void Init(CameraShake cameraShake)
+        public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
         {
             Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
             Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
             Animator = GetComponent<Animator>();
 
-            GetComponent<IMovable>().Init();
+            GetComponent<IMovable>().Init(currentScreen);
 
             _shootables = GetComponents<IShootable>();
 

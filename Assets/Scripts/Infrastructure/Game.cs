@@ -1,10 +1,10 @@
-﻿using Ammo;
-using DefaultNamespace;
-using Infrastructure.Services;
+﻿using DefaultNamespace;
+using Infrastructure.Factory;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using Infrastructure.States;
 using Logic;
-using MyScreen;
-using UnityEngine;
+
 namespace Infrastructure
 {
     public class Game
@@ -13,29 +13,26 @@ namespace Infrastructure
 
         public Game(ICoroutineRunner coroutineRunner,
             LoadingCurtain curtain,
-            Camera camera,
-            SpriteRenderer spriteRenderer,
-            BulletContainer bulletParent,
-            CameraShake cameraShake,
             string initialLevel,
             int initialPlayerHealth,
             int initialEnemyHealth,
             SpawnersWrapper spawnersWrapper,
-            int wave)
+            int wave,
+            IPersistentProgressService progressService,
+            ISaveLoadService saveLoadService,
+            IGameFactory gameFactory)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner),
                 curtain,
-                AllServices.Container,
-                camera,
-                spriteRenderer,
-                bulletParent,
-                cameraShake,
                 initialLevel,
                 initialPlayerHealth,
                 initialEnemyHealth,
                 spawnersWrapper,
-                wave);
+                wave,
+                progressService,
+                saveLoadService,
+                gameFactory);
         }
     }
 }

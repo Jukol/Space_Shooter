@@ -3,6 +3,7 @@ using InputClasses;
 using Interfaces;
 using MyScreen;
 using UnityEngine;
+using Zenject;
 
 namespace PlayerScripts
 {
@@ -16,7 +17,7 @@ namespace PlayerScripts
         private Camera _camera;
         private IGetSizeable _gameObjectSize;
 
-        private IInput _iInput;
+        [Inject] private IInput _iInput;
         private float _lastYPosition;
 
         private float _leftBorder;
@@ -24,6 +25,8 @@ namespace PlayerScripts
         private float _rightBorder;
         private IGetSizeable _screenBounds;
         private float _topBorder;
+
+        [Inject] private CurrentScreen _currentScreen;
 
         private void Update()
         {
@@ -40,16 +43,13 @@ namespace PlayerScripts
             Move();
         }
 
-        public void Init()
+        public void Init(CurrentScreen currentScreen)
         {
             _camera = Camera.main;
 
-            _iInput = AllServices.Container.Single<IInput>();
-
             _gameObjectSize = GetComponent<IGetSizeable>();
             _animator = GetComponent<IAnimatable>();
-
-            CurrentScreen currentScreen = AllServices.Container.Single<CurrentScreen>();
+            
             ScreenBounds borders = currentScreen.GetBoundsForObject(_gameObjectSize);
 
             _leftBorder = borders.Left;

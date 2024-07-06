@@ -1,16 +1,12 @@
-﻿using Infrastructure.Services;
-using UnityEngine;
+﻿using UnityEngine;
+
 namespace Background
 {
     public class BackgroundResizer : MonoBehaviour, IResizable
     {
-        private IBackgroundAdjuster _backgroundAdjusterService;
-
-        public void Resize()
+        public void Resize(IBackgroundAdjuster backgroundAdjuster)
         {
-            _backgroundAdjusterService = AllServices.Container.Single<IBackgroundAdjuster>();
-
-            float resizeFactor = _backgroundAdjusterService.ResizeFactor;
+            float resizeFactor = backgroundAdjuster.ResizeFactor;
 
             Transform mTransform = transform;
 

@@ -9,13 +9,12 @@ namespace EnemyScripts
     [Serializable]
     public class EnemyPlaceHolder : MonoBehaviour
     {
-        public event Action Dead; 
-
+        public event Action Dead;
+        
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
-        [Inject] private ISaveLoadService _saveLoadService;
 
-        public void UpdateStatus(int health)
+        public void UpdateStatus(int health, ISaveLoadService saveLoadService)
         {
             enemyStatus.health = health;
             if (enemyStatus.health == 0)
@@ -24,7 +23,7 @@ namespace EnemyScripts
                 Dead?.Invoke();
             }
             
-            _saveLoadService.SaveProgress();
+            saveLoadService.SaveProgress();
         }
     }
 }

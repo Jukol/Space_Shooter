@@ -26,12 +26,18 @@ namespace EnemyScripts
 
         private bool _woundedAnim, _smokeAnim;
         private int _woundedValue;
-        [Inject] private ISaveLoadService _saveLoadService;
+        private ISaveLoadService _saveLoadService;
 
         private Spawner _spawner;
 
         private void OnEnable() => 
             _woundedAnim = false;
+        
+        [Inject]
+        public void Construct(ISaveLoadService saveLoadService)
+        {
+            _saveLoadService = saveLoadService;
+        }
 
         public void Init(int health)
         {
@@ -41,8 +47,6 @@ namespace EnemyScripts
             _currentHealth = health;
             
             SetSlider();
-
-            //_saveLoadService = AllServices.Container.Single<ISaveLoadService>();
 
             wounded.SetActive(false);
             whiteSmoke.SetActive(false);
@@ -95,7 +99,7 @@ namespace EnemyScripts
         }
 
         private void UpdateStatus() => 
-            transform.parent.GetComponent<EnemyPlaceHolder>().UpdateStatus(_currentHealth);
+            transform.parent.GetComponent<EnemyPlaceHolder>().UpdateStatus(_currentHealth, _saveLoadService);
 
         private void DamageEffects()
         {

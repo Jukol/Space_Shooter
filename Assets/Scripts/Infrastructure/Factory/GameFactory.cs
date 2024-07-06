@@ -1,24 +1,38 @@
 ﻿using System.Collections.Generic;
+using Background;
 using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
 using Infrastructure.Services.PersistentProgress;
+using Infrastructure.Services.SaveLoad;
 using MyScreen;
 using PlayerScripts;
 using UnityEngine;
+using Zenject;
+
 namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
         private readonly IAssets _assets;
-        private readonly CameraShake _cameraShake;
+        private readonly Camera _camera;
         private readonly IPersistentProgressService _progressService;
-
-        public GameFactory(IAssets assets, CameraShake cameraShake, IPersistentProgressService progressService)
+        private readonly CurrentScreen _currentScreen;
+        private readonly IBackgroundAdjuster _adjuster;
+        
+        [Inject]
+        public GameFactory(
+            IAssets assets, 
+            Camera camera, 
+            IPersistentProgressService progressService,
+            CurrentScreen currentScreen,
+            IBackgroundAdjuster adjuster)
         {
-            _cameraShake = cameraShake;
+            _camera = camera;
             _assets = assets;
             _progressService = progressService;
+            _currentScreen = currentScreen;
+            _adjuster = adjuster;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -71,7 +85,8 @@ namespace Infrastructure.Factory
         {
             Player player = _assets.Instantiate(prefabPath).GetComponent<Player>();
             Register(player);
-            player.Init(_cameraShake);
+            var cameraShake = _camera.GetComponent<CameraShake>();
+            player.Init(cameraShake, _currentScreen);
             return player;
         }
 
@@ -87,7 +102,7 @@ namespace Infrastructure.Factory
         private SpawnManager InstantiateRegisteredSpawnManager(string prefabPath)
         {
             SpawnManager spawnManager = _assets.Instantiate(prefabPath).GetComponent<SpawnManager>();
-            spawnManager.Init(this, _progressService);
+            spawnManager.Init(this, _progressService, _adjuster);
             Register(spawnManager);
             return spawnManager;
         }

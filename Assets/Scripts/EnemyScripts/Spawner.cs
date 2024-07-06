@@ -40,10 +40,11 @@ namespace EnemyScripts
 
         public void Init(
             IGameFactory gameFactory, 
-            Progress progress)
+            Progress progress,
+            IBackgroundAdjuster adjuster)
         {
             _intervalBetweenShips = new WaitForSeconds(seconds);
-            _adjuster = AllServices.Container.Single<IBackgroundAdjuster>();
+            _adjuster = adjuster;
             _progress = progress;
 
             ResizeWindow();

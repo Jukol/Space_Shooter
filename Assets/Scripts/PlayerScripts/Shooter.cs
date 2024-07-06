@@ -4,6 +4,7 @@ using Infrastructure.Services;
 using InputClasses;
 using Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace PlayerScripts
 {
@@ -18,8 +19,8 @@ namespace PlayerScripts
         private IAmmo _ammo;
 
         private WaitForSeconds _fireRateYield;
-        private IInput _iInput;
-        private IPool _pool;
+        [Inject] private IInput _iInput;
+        [Inject] private IPool _pool;
         private bool _shootStarted;
 
         private void Update()
@@ -32,8 +33,8 @@ namespace PlayerScripts
         {
             muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);
-            _pool = AllServices.Container.Single<IPool>();
-            _iInput = AllServices.Container.Single<IInput>();
+            //_pool = AllServices.Container.Single<IPool>();
+            //_iInput = AllServices.Container.Single<IInput>();
         }
 
         public void Shoot()

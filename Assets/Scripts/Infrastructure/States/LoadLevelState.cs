@@ -16,7 +16,12 @@ namespace Infrastructure.States
 
         private string _sceneName;
 
-        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain, IGameFactory gameFactory, IPersistentProgressService progressService)
+        public LoadLevelState(
+            GameStateMachine stateMachine, 
+            SceneLoader sceneLoader, 
+            LoadingCurtain curtain, 
+            IGameFactory gameFactory, 
+            IPersistentProgressService progressService)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;

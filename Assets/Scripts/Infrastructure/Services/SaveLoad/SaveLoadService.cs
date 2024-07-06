@@ -2,6 +2,8 @@ using Data;
 using Infrastructure.Factory;
 using Infrastructure.Services.PersistentProgress;
 using UnityEngine;
+using Zenject;
+
 namespace Infrastructure.Services.SaveLoad
 {
     public class SaveLoadService : ISaveLoadService
@@ -11,6 +13,7 @@ namespace Infrastructure.Services.SaveLoad
 
         private readonly IPersistentProgressService _progressService;
 
+        [Inject]
         public SaveLoadService(IPersistentProgressService progressService, IGameFactory gameFactory)
         {
             _progressService = progressService;

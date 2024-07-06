@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ammo;
 using DefaultNamespace;
 using Infrastructure.Factory;
-using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoad;
 using Logic;
-using MyScreen;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.States
@@ -17,43 +13,34 @@ namespace Infrastructure.States
     {
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
-        [Inject] private ISaveLoadService _saveLoadService;
-        [Inject] private IPersistentProgressService _progressService;
 
         public GameStateMachine(
             SceneLoader sceneLoader, 
             LoadingCurtain curtain, 
-            AllServices services,
-            Camera camera, 
-            SpriteRenderer spriteRenderer, 
-            BulletContainer bulletParent, 
-            CameraShake cameraShake, 
             string initialLevel, 
             int initialPlayerHealth, 
             int initialEnemyHealth, 
             SpawnersWrapper spawnersWrapper, 
-            int wave)
+            int wave,
+            IPersistentProgressService progressService,
+            ISaveLoadService saveLoadService,
+            IGameFactory gameFactory)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(
                     this, 
-                    sceneLoader, 
-                    services, 
-                    camera, 
-                    spriteRenderer, 
-                    bulletParent, 
-                    cameraShake),
+                    sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(
                     this, 
                     sceneLoader, 
                     curtain, 
-                    services.Single<IGameFactory>(), 
-                    _progressService),
+                    gameFactory, 
+                    progressService),
                 [typeof(LoadProgressState)] = new LoadProgressState(
                     this, 
-                    _progressService, 
-                    _saveLoadService, 
+                    progressService, 
+                    saveLoadService, 
                     initialLevel, 
                     initialPlayerHealth, 
                     initialEnemyHealth, 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Background;
 using Data;
 using Infrastructure.Factory;
 using Infrastructure.Services;
@@ -15,18 +16,28 @@ namespace EnemyScripts
     {
         public Spawner[] spawners;
 
-        [Inject] private ISaveLoadService _saveLoadService;
+        private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
         private IPersistentProgressService _progress;
+        private IBackgroundAdjuster _adjuster;
 
         public int Wave { get; set; }
-
-        public void Init(IGameFactory gameFactory, IPersistentProgressService progress)
+        
+        [Inject]
+        public void Construct(ISaveLoadService saveLoadService)
         {
-            //_saveLoadService = AllServices.Container.Single<ISaveLoadService>();
+            _saveLoadService = saveLoadService;
+        }
+
+        public void Init(
+            IGameFactory gameFactory, 
+            IPersistentProgressService progress, 
+            IBackgroundAdjuster adjuster)
+        {
             _gameFactory = gameFactory;
             _progress = progress;
-            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress));
+            _adjuster = adjuster;
+            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
         }
 
         public void UpdateProgress(Progress progress)
@@ -46,7 +57,7 @@ namespace EnemyScripts
 
         public event Action<int> WaveChanged;
 
-        private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress)
+        private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster)
         {
             while (true)
             {
@@ -55,7 +66,7 @@ namespace EnemyScripts
                     spawners[i].gameObject.SetActive(true);
                     Wave = i;
                     WaveChanged?.Invoke(Wave);
-                    spawners[i].Init(gameFactory, progress);
+                    spawners[i].Init(gameFactory, progress, adjuster);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);

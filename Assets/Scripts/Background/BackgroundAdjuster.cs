@@ -1,4 +1,6 @@
 using UnityEngine;
+using Zenject;
+
 namespace Background
 {
     public class BackgroundAdjuster : IBackgroundAdjuster
@@ -6,6 +8,7 @@ namespace Background
         private readonly Camera _camera;
         private readonly SpriteRenderer _spriteRenderer;
 
+        [Inject]
         public BackgroundAdjuster(Camera camera, SpriteRenderer spriteRenderer)
         {
             _camera = camera;
