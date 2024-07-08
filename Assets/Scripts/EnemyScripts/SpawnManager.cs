@@ -45,7 +45,9 @@ namespace EnemyScripts
 
         public void LoadProgress(Progress progress)
         {
-            if (SceneManager.GetActiveScene().name == progress.lastState.levelToLoad)
+            var currentScene = SceneManager.GetActiveScene().name;
+            
+            if (currentScene == progress.lastState.levelToLoad)
             {
                 Wave = progress.lastState.waveToLoad;
                 _progress.Progress.lastState.spawnersWrapper = progress.lastState.spawnersWrapper;

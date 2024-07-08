@@ -1,40 +1,42 @@
 using Data;
+using Infrastructure.Signals;
 using Interfaces;
+using Zenject;
 
 namespace Infrastructure.States
 {
     public class LoadProgressState : IState
     {
-        private readonly GameStateMachine _gameStateMachine;
         private readonly IPersistentProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
         private readonly string _initialLevel;
         private readonly int _initialPlayerHealth;
         private readonly SpawnersWrapper _spawnersWrapper;
         private int _wave;
+        private SignalBus _signalBus;
 
         public LoadProgressState(
-            GameStateMachine gameStateMachine, 
             IPersistentProgressService progressService, 
             ISaveLoadService saveLoadService, 
             string initialLevel, 
             int initialPlayerHealth, 
             SpawnersWrapper spawnersWrapper, 
-            int wave)
+            int wave,
+            SignalBus signalBus)
         {
-            _gameStateMachine = gameStateMachine;
             _progressService = progressService;
             _saveLoadService = saveLoadService;
             _initialLevel = initialLevel;
             _initialPlayerHealth = initialPlayerHealth;
             _spawnersWrapper = spawnersWrapper;
             _wave = wave;
+            _signalBus = signalBus;
         }
 
         public void Enter()
         {
             LoadProgressOrInitNew();
-            _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.lastState.levelToLoad);
+            _signalBus.Fire<ProgressLoaded>();
         }
 
         public void Exit()

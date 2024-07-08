@@ -2,6 +2,7 @@
 using Infrastructure.States;
 using Interfaces;
 using Logic;
+using Zenject;
 
 namespace Infrastructure
 {
@@ -17,7 +18,8 @@ namespace Infrastructure
             int wave,
             IPersistentProgressService progressService,
             ISaveLoadService saveLoadService,
-            IGameFactory gameFactory)
+            IGameFactory gameFactory,
+            SignalBus signalBus)
         {
             StateMachine = new GameStateMachine(
                 new SceneLoader(coroutineRunner),
@@ -28,7 +30,8 @@ namespace Infrastructure
                 wave,
                 progressService,
                 saveLoadService,
-                gameFactory);
+                gameFactory,
+                signalBus);
         }
     }
 }

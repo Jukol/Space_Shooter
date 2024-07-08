@@ -1,8 +1,10 @@
 ﻿using EnemyScripts;
 using Infrastructure.Factory;
+using Infrastructure.Signals;
 using Interfaces;
 using Logic;
 using PlayerScripts;
+using Zenject;
 
 namespace Infrastructure.States
 {
@@ -14,20 +16,20 @@ namespace Infrastructure.States
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _progressService;
         private readonly SceneLoader _sceneLoader;
-        private readonly GameStateMachine _stateMachine;
+        private readonly SignalBus _signalBus;
 
-        public LoadLevelState(
-            GameStateMachine stateMachine, 
+        public LoadLevelState( 
             SceneLoader sceneLoader, 
             LoadingCurtain curtain, 
             IGameFactory gameFactory, 
-            IPersistentProgressService progressService)
+            IPersistentProgressService progressService,
+            SignalBus signalBus)
         {
-            _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _curtain = curtain;
             _gameFactory = gameFactory;
             _progressService = progressService;
+            _signalBus = signalBus;
         }
 
         public void Enter(string sceneName)
@@ -45,12 +47,13 @@ namespace Infrastructure.States
 
         private void OnLoaded()
         {
-            InitGameWorld();
-            InformProgressReaders();
-            
-            _gameFactory.LaunchSpawnManager();
-
-            _stateMachine.Enter<GameLoopState>();
+            // InitGameWorld();
+            // InformProgressReaders();
+            //
+            // _gameFactory.LaunchSpawnManager();
+            //
+            // _stateMachine.Enter<GameLoopState>();
+            _signalBus.Fire<LevelLoadLoaded>();
         }
 
         private void InitGameWorld()

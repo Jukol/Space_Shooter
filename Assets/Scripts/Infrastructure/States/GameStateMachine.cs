@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Infrastructure.Factory;
 using Interfaces;
 using Logic;
+using Zenject;
 
 namespace Infrastructure.States
 {
@@ -20,27 +20,28 @@ namespace Infrastructure.States
             int wave,
             IPersistentProgressService progressService,
             ISaveLoadService saveLoadService,
-            IGameFactory gameFactory)
+            IGameFactory gameFactory,
+            SignalBus signalBus)
         {
             _states = new Dictionary<Type, IExitableState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(
-                    this, 
-                    sceneLoader),
+                    sceneLoader,
+                    signalBus),
                 [typeof(LoadLevelState)] = new LoadLevelState(
-                    this, 
                     sceneLoader, 
                     curtain, 
                     gameFactory, 
-                    progressService),
+                    progressService,
+                    signalBus),
                 [typeof(LoadProgressState)] = new LoadProgressState(
-                    this, 
                     progressService, 
                     saveLoadService, 
                     initialLevel, 
                     initialPlayerHealth, 
                     spawnersWrapper, 
-                    wave),
+                    wave,
+                    signalBus),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

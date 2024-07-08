@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using EnemyScripts;
-using Infrastructure.Factory;
+using Infrastructure.Signals;
 using Infrastructure.States;
 using Interfaces;
 using Logic;
-using MyScreen;
+using PlayerScripts;
 using UnityEngine;
 using Zenject;
 
@@ -21,46 +20,71 @@ namespace Infrastructure
 
         private Game _game;
         private SpawnersWrapper spawnersWrapper;
-        private readonly int _wave = 0;
+        private int _wave;
 
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
         
+        private SignalBus _signalBus;
+        
         [Inject]
         public void Construct(
             IPersistentProgressService progressService, 
             ISaveLoadService saveLoadService,
-            IGameFactory gameFactory)
+            IGameFactory gameFactory,
+            SignalBus signalBus)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
             _gameFactory = gameFactory;
+            _signalBus = signalBus;
         }
 
         private void Awake()
         {
             spawnersWrapper = CreateWrapperOfListOfSpawners();
+            _signalBus.Subscribe<BootstrapLoaded>(OnBootstrapStateLoaded);
+            _signalBus.Subscribe<ProgressLoaded>(OnProgressStateLoaded);
+            _signalBus.Subscribe<LevelLoadLoaded>(OnLoadLevelStateLoaded);
 
             _game = new Game(this, 
                 curtain,
                 initialLevel,
-                initialPlayerHealth, 
+                initialPlayerHealth,
                 spawnersWrapper,
                 _wave,
                 _progressService,
                 _saveLoadService,
-                _gameFactory);
+                _gameFactory,
+                _signalBus);
             
             _game.StateMachine.Enter<BootstrapState>();
 
             DontDestroyOnLoad(this);
         }
 
+        private void OnBootstrapStateLoaded() => _game.StateMachine.Enter<LoadProgressState>();
+        private void OnProgressStateLoaded()
+        {
+            _gameFactory.CleanUp();
+            _game.StateMachine.Enter<LoadLevelState, string>(_progressService.Progress.lastState.levelToLoad);
+        }
+
+        private void OnLoadLevelStateLoaded()
+        {
+            InitGameWorld(_progressService.Progress.lastState.levelToLoad);
+            InformProgressReaders();
+            
+            _gameFactory.LaunchSpawnManager();
+
+            _game.StateMachine.Enter<GameLoopState>();
+        }
+
         private SpawnersWrapper CreateWrapperOfListOfSpawners()
         {
-            SpawnersWrapper spawnersWrapper = new ();
-            spawnersWrapper.WrapperOfStatuses = new List<StatusesWrapper>();
+            SpawnersWrapper mySpawnersWrapper = new ();
+            mySpawnersWrapper.WrapperOfStatuses = new List<StatusesWrapper>();
 
             for (int i = 0; i < spawnManager.spawners.Length; i++)
             {
@@ -73,10 +97,25 @@ namespace Infrastructure
                     statusesWrapper.ListOfStatuses.Add(enemyStatus);
                 }
                 
-                spawnersWrapper.WrapperOfStatuses.Add(statusesWrapper);
+                mySpawnersWrapper.WrapperOfStatuses.Add(statusesWrapper);
             }
 
-            return spawnersWrapper;
+            return mySpawnersWrapper;
+        }
+        
+        private void InitGameWorld(string sceneName)
+        {
+            Player player = _gameFactory.CreatePlayer();
+            SpawnManager spawnManager = _gameFactory.CreateSpawnManager();
+            _gameFactory.CreateHud(spawnManager, sceneName, player, _progressService);
+        }
+
+        private void InformProgressReaders()
+        {
+            foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders)
+            {
+                progressReader.LoadProgress(_progressService.Progress);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using EnemyScripts;
 using Infrastructure.AssetManagement;
 using Infrastructure.Factory;
 using Infrastructure.Services;
+using Infrastructure.Signals;
 using InputClasses;
 using Interfaces;
 using Logic;
@@ -26,6 +27,13 @@ namespace Infrastructure
 
         public override void InstallBindings()
         {
+            SignalBusInstaller.Install(Container);
+            Container.DeclareSignal<BootstrapLoaded>();
+            Container.DeclareSignal<ProgressLoaded>();
+            Container.DeclareSignal<LevelLoadLoaded>();
+
+            Container.Bind<GameBootstrapper>().FromComponentInHierarchy().AsSingle();
+            
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
             Container.Bind<SpriteRenderer>().FromComponentInNewPrefab(spriteRenderer).AsSingle();
             Container.Bind<BulletContainer>().FromComponentInNewPrefab(bulletParent).AsSingle();
