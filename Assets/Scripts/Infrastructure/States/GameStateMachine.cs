@@ -11,38 +11,14 @@ namespace Infrastructure.States
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(
-            SceneLoader sceneLoader, 
-            LoadingCurtain curtain, 
-            string initialLevel, 
-            int initialPlayerHealth, 
-            SpawnersWrapper spawnersWrapper, 
-            int wave,
-            IPersistentProgressService progressService,
-            ISaveLoadService saveLoadService,
-            IGameFactory gameFactory,
-            SignalBus signalBus)
+        public GameStateMachine(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, SignalBus signalBus)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(
-                    sceneLoader,
-                    signalBus),
-                [typeof(LoadLevelState)] = new LoadLevelState(
-                    sceneLoader, 
-                    curtain, 
-                    gameFactory, 
-                    progressService,
-                    signalBus),
-                [typeof(LoadProgressState)] = new LoadProgressState(
-                    progressService, 
-                    saveLoadService, 
-                    initialLevel, 
-                    initialPlayerHealth, 
-                    spawnersWrapper, 
-                    wave,
-                    signalBus),
-                [typeof(GameLoopState)] = new GameLoopState(this)
+                [typeof(BootstrapState)] = new BootstrapState(coroutineRunner, signalBus),
+                [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, signalBus),
+                [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, signalBus),
+                [typeof(GameLoopState)] = new GameLoopState(gameInitializer)
             };
         }
 

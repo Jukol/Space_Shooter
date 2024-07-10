@@ -80,5 +80,6 @@ MonoBehaviour:
   myCamera: {fileID: 29944998062663, guid: 0463f3e3f90b447ecbc4909df276247f, type: 3}
   spawnManager: {fileID: 7071607088265879833, guid: ec233d8009dda2e4a98fca2fa93537cc, type: 3}
   initialLevel: Level 1
+  initialWave: 0
   initialPlayerHealth: 10
   initialEnemyHealth: 50

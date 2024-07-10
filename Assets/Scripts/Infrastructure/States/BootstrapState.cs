@@ -7,16 +7,13 @@ namespace Infrastructure.States
     public class BootstrapState : IState
     {
         private const string Boot = "Boot";
-        private readonly SignalBus _signalBus;
         
-        private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
+        private readonly SignalBus _signalBus;
 
-        public BootstrapState(
-            SceneLoader sceneLoader,
-            SignalBus signalBus)
+        public BootstrapState(ICoroutineRunner coroutineRunner, SignalBus signalBus)
         {
-            _sceneLoader = sceneLoader;
+            _sceneLoader = new SceneLoader(coroutineRunner);
             _signalBus = signalBus;
         }
         
@@ -32,7 +29,6 @@ namespace Infrastructure.States
 
         private void EnterLoadLevel()
         {
-            //_gameStateMachine.Enter<LoadProgressState>();
             _signalBus.Fire<BootstrapLoaded>();
         }
     }

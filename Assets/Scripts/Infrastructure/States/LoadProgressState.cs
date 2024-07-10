@@ -7,29 +7,12 @@ namespace Infrastructure.States
 {
     public class LoadProgressState : IState
     {
-        private readonly IPersistentProgressService _progressService;
-        private readonly ISaveLoadService _saveLoadService;
-        private readonly string _initialLevel;
-        private readonly int _initialPlayerHealth;
-        private readonly SpawnersWrapper _spawnersWrapper;
-        private int _wave;
+        private readonly GameInitializer _gameInitializer;
         private SignalBus _signalBus;
 
-        public LoadProgressState(
-            IPersistentProgressService progressService, 
-            ISaveLoadService saveLoadService, 
-            string initialLevel, 
-            int initialPlayerHealth, 
-            SpawnersWrapper spawnersWrapper, 
-            int wave,
-            SignalBus signalBus)
+        public LoadProgressState(GameInitializer gameInitializer, SignalBus signalBus)
         {
-            _progressService = progressService;
-            _saveLoadService = saveLoadService;
-            _initialLevel = initialLevel;
-            _initialPlayerHealth = initialPlayerHealth;
-            _spawnersWrapper = spawnersWrapper;
-            _wave = wave;
+            _gameInitializer = gameInitializer;
             _signalBus = signalBus;
         }
 
@@ -45,14 +28,18 @@ namespace Infrastructure.States
 
         private void LoadProgressOrInitNew()
         {
-            var progress = _saveLoadService.LoadProgress();
+            var progress = _gameInitializer.SaveLoadService.LoadProgress();
             
-            _progressService.Progress = progress ?? NewProgress();
+            _gameInitializer.ProgressService.Progress = progress ?? NewProgress();
         }
 
         private Progress NewProgress()
         {
-            return new Progress(_initialLevel, _wave, _spawnersWrapper, _initialPlayerHealth);
+            return new Progress(
+                _gameInitializer.InitialLevel, 
+                _gameInitializer.InitialWave, 
+                _gameInitializer.SpawnersWrapper, 
+                _gameInitializer.InitialPlayerHealth);
         }
     }
 }
