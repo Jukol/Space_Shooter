@@ -7,7 +7,12 @@ namespace MyScreen
         public CurrentScreen(Camera myCamera)
         {
             Camera camera = myCamera;
-            Vector3 screenBounds = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, camera.transform.position.z));
+            Vector3 screenBounds = camera.ScreenToWorldPoint(
+                new Vector3(
+                    Screen.width, 
+                    Screen.height, 
+                    camera.transform.position.z)
+                );
             Width = screenBounds.x;
             Height = screenBounds.y;
         }

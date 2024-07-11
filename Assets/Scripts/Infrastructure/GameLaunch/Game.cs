@@ -2,7 +2,7 @@
 using Interfaces;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.GameLaunch
 {
     public class Game
     {

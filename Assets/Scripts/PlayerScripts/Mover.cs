@@ -25,8 +25,6 @@ namespace PlayerScripts
         private IGetSizeable _screenBounds;
         private float _topBorder;
 
-        [Inject] private CurrentScreen _currentScreen;
-
         private void Update()
         {
             _iInput.UserInput();

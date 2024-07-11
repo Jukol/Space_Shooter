@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using EnemyScripts;
 
-namespace Infrastructure
+namespace Infrastructure.Wrappers
 {
-    [Serializable]
-    public class SpawnersWrapper
-    {
-        public List<StatusesWrapper> WrapperOfStatuses;
-    }
-    
     [Serializable]
     public class StatusesWrapper
     {

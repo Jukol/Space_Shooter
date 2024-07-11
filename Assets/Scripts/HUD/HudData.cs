@@ -16,14 +16,6 @@ namespace HUD
 
         private SpawnManager _spawnManager;
 
-        private void OnDisable()
-        {
-            if (_spawnManager != null)
-            {
-                _spawnManager.WaveChanged -= ChangeWaveNumber;
-            }
-        }
-
         public void Init(
             SpawnManager spawnManager, 
             string sceneName, 
@@ -38,12 +30,6 @@ namespace HUD
             killCount.Init(myKillCount);
         }
 
-        private void ChangeWaveNumber(int waveNumber)
-        {
-            waveNumber++;
-            wave.text = "Wave " + waveNumber;
-        }
-
         public void LoadProgress(Progress progress)
         {
             killCount.killCounter = progress.lastState.killCount;
@@ -52,6 +38,20 @@ namespace HUD
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.killCount = killCount.killCounter;
+        }
+
+        private void OnDisable()
+        {
+            if (_spawnManager != null)
+            {
+                _spawnManager.WaveChanged -= ChangeWaveNumber;
+            }
+        }
+
+        private void ChangeWaveNumber(int waveNumber)
+        {
+            waveNumber++;
+            wave.text = "Wave " + waveNumber;
         }
     }
 }

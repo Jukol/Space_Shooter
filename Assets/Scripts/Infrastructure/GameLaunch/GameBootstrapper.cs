@@ -6,7 +6,7 @@ using PlayerScripts;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.GameLaunch
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
@@ -34,7 +34,11 @@ namespace Infrastructure
             DontDestroyOnLoad(this);
         }
 
-        private void OnBootstrapStateLoaded() => _game.StateMachine.Enter<LoadProgressState>();
+        private void OnBootstrapStateLoaded()
+        {
+            _game.StateMachine.Enter<LoadProgressState>();
+        }
+
         private void OnProgressStateLoaded()
         {
             _gameInitializer.GameFactory.CleanUp();

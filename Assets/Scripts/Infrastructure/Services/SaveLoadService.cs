@@ -12,7 +12,6 @@ namespace Infrastructure.Services
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _progressService;
         
-        [Inject]
         public SaveLoadService(IPersistentProgressService progressService, IGameFactory gameFactory)
         {
             _progressService = progressService;

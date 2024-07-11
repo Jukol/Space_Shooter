@@ -9,11 +9,9 @@ namespace EnemyScripts
     public class Enemy : MonoBehaviour, IDamageable
     {
         [Inject]
-        public void Construct(ISaveLoadService saveLoadService)
-        {
+        public void Construct(ISaveLoadService saveLoadService) => 
             _saveLoadService = saveLoadService;
-        }
-        
+
         public static event Action OnDestroy;
 
         [SerializeField] private float startHealth;

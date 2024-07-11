@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using UnityEngine;
+
 namespace InputClasses
 {
     public class MouseInput : IInput

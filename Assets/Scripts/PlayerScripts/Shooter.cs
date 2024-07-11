@@ -32,8 +32,6 @@ namespace PlayerScripts
         {
             muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);
-            //_pool = AllServices.Container.Single<IPool>();
-            //_iInput = AllServices.Container.Single<IInput>();
         }
 
         public void Shoot()

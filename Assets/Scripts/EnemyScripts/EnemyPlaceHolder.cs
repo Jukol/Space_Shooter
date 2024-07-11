@@ -14,11 +14,9 @@ namespace EnemyScripts
         public void UpdateStatus(int health, ISaveLoadService saveLoadService)
         {
             enemyStatus.health = health;
-            if (enemyStatus.health == 0)
-            {
+            if (enemyStatus.health == 0) 
                 enemyStatus.dead = true;
-            }
-            
+
             saveLoadService.SaveProgress();
         }
     }

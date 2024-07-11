@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Infrastructure.GameLaunch;
 using Interfaces;
 using Logic;
 using Zenject;
@@ -11,7 +12,10 @@ namespace Infrastructure.States
         private readonly Dictionary<Type, IExitableState> _states;
         private IExitableState _activeState;
 
-        public GameStateMachine(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, SignalBus signalBus)
+        public GameStateMachine(
+            GameInitializer gameInitializer, 
+            ICoroutineRunner coroutineRunner, 
+            SignalBus signalBus)
         {
             _states = new Dictionary<Type, IExitableState>
             {

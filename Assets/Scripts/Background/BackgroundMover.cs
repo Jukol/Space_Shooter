@@ -32,13 +32,13 @@ namespace Background
             _offset = _adjuster.VerticalOffset;
         }
 
-        public void JumpUp()
+        private void JumpUp()
         {
             float moveUpY = _myHeight * 2 - _offset - GapCrutch;
             transform.position = new Vector2(0, moveUpY);
         }
 
-        public void Move()
+        private void Move()
         {
             Transform myTransform = transform;
             myTransform.position += -myTransform.up * (Time.deltaTime * speed);

@@ -25,6 +25,25 @@ namespace PlayerScripts
         private IShootable[] _shootables;
         [Inject] private ISaveLoadService _saveLoadService;
 
+        public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
+        {
+            Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
+            Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
+            Animator = GetComponent<Animator>();
+
+            GetComponent<IMovable>().Init(currentScreen);
+
+            _shootables = GetComponents<IShootable>();
+
+            foreach (IShootable shootable in _shootables)
+            {
+                shootable.Init();
+            }
+
+            _explosionStarted = false;
+            _cameraShake = cameraShake;
+        }
+
         public void Damage(int amount)
         {
             Health -= amount;
@@ -62,25 +81,6 @@ namespace PlayerScripts
                     }
                 }
             }
-        }
-
-        public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
-        {
-            Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
-            Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
-            Animator = GetComponent<Animator>();
-
-            GetComponent<IMovable>().Init(currentScreen);
-
-            _shootables = GetComponents<IShootable>();
-
-            foreach (IShootable shootable in _shootables)
-            {
-                shootable.Init();
-            }
-
-            _explosionStarted = false;
-            _cameraShake = cameraShake;
         }
     }
 }

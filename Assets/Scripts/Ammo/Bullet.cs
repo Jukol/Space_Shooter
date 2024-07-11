@@ -35,6 +35,12 @@ namespace Ammo
                 Move();
         }
 
+        public void Move()
+        {
+            Transform cachedTransform = transform;
+            cachedTransform.position += cachedTransform.up * (Time.deltaTime * bulletSpeed);
+        }
+
         private void OnBecameInvisible() => 
             gameObject.SetActive(false);
 
@@ -42,12 +48,6 @@ namespace Ammo
         {
             _targetHit = true;
             await DamageAndDie(collision);
-        }
-
-        public void Move()
-        {
-            Transform cachedTransform = transform;
-            cachedTransform.position += cachedTransform.up * (Time.deltaTime * bulletSpeed);
         }
 
         private async Task DamageAndDie(Collider2D collision)

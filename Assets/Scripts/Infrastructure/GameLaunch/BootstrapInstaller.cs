@@ -6,6 +6,7 @@ using Infrastructure.AssetManagement;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using Infrastructure.Signals;
+using Infrastructure.Wrappers;
 using InputClasses;
 using Interfaces;
 using Logic;
@@ -13,7 +14,7 @@ using MyScreen;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.GameLaunch
 {
     public class BootstrapInstaller : MonoInstaller
     {
@@ -29,7 +30,6 @@ namespace Infrastructure
 
         public override void InstallBindings()
         {
-            //Game Initializer
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
@@ -40,7 +40,6 @@ namespace Infrastructure
             Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
             Container.Bind<GameInitializer>().AsSingle();
             
-            //Signals
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<BootstrapLoaded>();
             Container.DeclareSignal<ProgressLoaded>();

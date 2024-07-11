@@ -1,8 +1,9 @@
+using Infrastructure.Wrappers;
 using Interfaces;
 using Logic;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.GameLaunch
 {
     public class GameInitializer
     {

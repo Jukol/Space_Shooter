@@ -21,13 +21,13 @@ namespace Ammo
             Generate();
         }
 
-        public void Generate()
+        private void Generate()
         {
             for (int i = 0; i < _capacity; i++) 
                 Add();
         }
 
-        public GameObject Add()
+        private GameObject Add()
         {
             GameObject ammo = _gameFactory.CreateBullet();
             ammo.transform.SetParent(_bulletContainer.transform);
