@@ -19,14 +19,14 @@ namespace Infrastructure.GameLaunch
         {
             _gameInitializer = gameInitializer;
             _signalBus = signalBus;
+            
+            _signalBus.Subscribe<BootstrapLoaded>(OnBootstrapStateLoaded);
+            _signalBus.Subscribe<ProgressLoaded>(OnProgressStateLoaded);
+            _signalBus.Subscribe<LevelLoadLoaded>(OnLoadLevelStateLoaded);
         }
 
         private void Awake()
         {
-            _signalBus.Subscribe<BootstrapLoaded>(OnBootstrapStateLoaded);
-            _signalBus.Subscribe<ProgressLoaded>(OnProgressStateLoaded);
-            _signalBus.Subscribe<LevelLoadLoaded>(OnLoadLevelStateLoaded);
-
             _game = new Game(_gameInitializer, this, _signalBus);
             
             _game.StateMachine.Enter<BootstrapState>();
@@ -55,8 +55,6 @@ namespace Infrastructure.GameLaunch
             _game.StateMachine.Enter<GameLoopState>();
         }
 
-        
-        
         private void InitGameWorld(string sceneName)
         {
             Player player = _gameInitializer.GameFactory.CreatePlayer();
