@@ -13,6 +13,7 @@ namespace Infrastructure.States
 
         public void Enter()
         {
+            _gameInitializer.GameFactory.CreateSpawnManager();
         }
 
         public void Exit()

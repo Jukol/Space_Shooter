@@ -6,6 +6,7 @@ using Interfaces;
 using MyScreen;
 using PlayerScripts;
 using UnityEngine;
+using Zenject;
 
 namespace Infrastructure.Factory
 {
@@ -17,17 +18,20 @@ namespace Infrastructure.Factory
         private readonly Camera _camera;
         private readonly IPersistentProgressService _progressService;
         private readonly CurrentScreen _currentScreen;
+        private readonly SignalBus _signalBus;
         
         public GameFactory(
             IAssets assets, 
             Camera camera, 
             IPersistentProgressService progressService,
-            CurrentScreen currentScreen)
+            CurrentScreen currentScreen,
+            SignalBus signalBus)
         {
             _camera = camera;
             _assets = assets;
             _progressService = progressService;
             _currentScreen = currentScreen;
+            _signalBus = signalBus;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -48,9 +52,12 @@ namespace Infrastructure.Factory
             return InstantiateRegisteredSpawnManager(AssetPaths.SpawnManagerPath);
         }
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progressService)
+        public void CreateHud(
+            string sceneName, 
+            Player player, 
+            IPersistentProgressService progressService)
         {
-            InstantiateRegisteredHud(spawnManager, sceneName, player, progressService);
+            InstantiateRegisteredHud(_signalBus, sceneName, player, progressService);
         }
 
         public GameObject CreateBullet()
@@ -63,13 +70,12 @@ namespace Infrastructure.Factory
             ProgressReaders.Clear();
             ProgressWriters.Clear();
         }
-        
-        public void LaunchSpawnManager()
-        {
-            SpawnManager.Launch();
-        }
 
-        private void InstantiateRegisteredHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progressService)
+        private void InstantiateRegisteredHud(
+            SignalBus signalBus, 
+            string sceneName, 
+            Player player, 
+            IPersistentProgressService progressService)
         {
             GameObject hudGo = _assets.Instantiate(AssetPaths.HudPath);
             HudData hud = hudGo.GetComponent<HudData>();
@@ -77,7 +83,7 @@ namespace Infrastructure.Factory
             int waveNumber = _progressService.Progress.lastState.waveToLoad;
             int killCount = progressService.Progress.lastState.killCount;
             
-            hud.Init(spawnManager, sceneName, player, waveNumber, killCount);
+            hud.Init(signalBus, sceneName, player, waveNumber, killCount);
             Register(hud);
         }
 

@@ -82,4 +82,4 @@ MonoBehaviour:
   initialLevel: Level 1
   initialWave: 0
   initialPlayerHealth: 10
-  initialEnemyHealth: 50
+  initialEnemyHealth: 5

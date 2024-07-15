@@ -1,10 +1,13 @@
 using Data;
 using EnemyScripts;
+using Infrastructure.Signals;
 using Interfaces;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
+
 namespace HUD
 {
     public class HudData : MonoBehaviour, ISavedProgressWriter
@@ -15,17 +18,19 @@ namespace HUD
         [SerializeField] private KillCount killCount;
 
         private SpawnManager _spawnManager;
+        private SignalBus _signalBus;
 
         public void Init(
-            SpawnManager spawnManager, 
+            SignalBus signalBus, 
             string sceneName, 
             Player player, 
             int waveNumber, 
             int myKillCount)
         {
-            spawnManager.WaveChanged += ChangeWaveNumber;
+            _signalBus = signalBus;
+            _signalBus.Subscribe<WaveCompleted>(ChangeWaveNumber);
             level.text = sceneName;
-            ChangeWaveNumber(waveNumber);
+            wave.text = "Wave " + waveNumber;
             playerHealthBar.Init(player);
             killCount.Init(myKillCount);
         }
@@ -44,12 +49,13 @@ namespace HUD
         {
             if (_spawnManager != null)
             {
-                _spawnManager.WaveChanged -= ChangeWaveNumber;
+                _signalBus.Unsubscribe<WaveCompleted>(ChangeWaveNumber);
             }
         }
 
-        private void ChangeWaveNumber(int waveNumber)
+        private void ChangeWaveNumber(WaveCompleted args)
         {
+            int waveNumber = args.WaveNumber;
             waveNumber++;
             wave.text = "Wave " + waveNumber;
         }

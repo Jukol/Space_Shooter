@@ -2,6 +2,7 @@
 using EnemyScripts;
 using PlayerScripts;
 using UnityEngine;
+using Zenject;
 
 namespace Interfaces
 {
@@ -15,9 +16,8 @@ namespace Interfaces
         public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder);
 
         public SpawnManager CreateSpawnManager();
-        public void LaunchSpawnManager();
 
-        public void CreateHud(SpawnManager spawnManager, string sceneName, Player player, IPersistentProgressService progress);
+        public void CreateHud(string sceneName, Player player, IPersistentProgressService progress);
 
         public GameObject CreateBullet();
 

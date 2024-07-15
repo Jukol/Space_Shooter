@@ -4,6 +4,7 @@ using Infrastructure.States;
 using Interfaces;
 using PlayerScripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Infrastructure.GameLaunch
@@ -13,13 +14,14 @@ namespace Infrastructure.GameLaunch
         private GameInitializer _gameInitializer;
         private Game _game;
         private SignalBus _signalBus;
-        
+        private int _sceneCount;
+
         [Inject]
         public void Construct(GameInitializer gameInitializer, SignalBus signalBus)
         {
             _gameInitializer = gameInitializer;
             _signalBus = signalBus;
-            
+
             _signalBus.Subscribe<BootstrapLoaded>(OnBootstrapStateLoaded);
             _signalBus.Subscribe<ProgressLoaded>(OnProgressStateLoaded);
             _signalBus.Subscribe<LevelLoadLoaded>(OnLoadLevelStateLoaded);
@@ -27,6 +29,8 @@ namespace Infrastructure.GameLaunch
 
         private void Awake()
         {
+            _sceneCount = SceneManager.sceneCountInBuildSettings;
+            
             _game = new Game(_gameInitializer, this, _signalBus);
             
             _game.StateMachine.Enter<BootstrapState>();
@@ -50,7 +54,7 @@ namespace Infrastructure.GameLaunch
             InitGameWorld(_gameInitializer.ProgressService.Progress.lastState.levelToLoad);
             InformProgressReaders();
             
-            _gameInitializer.GameFactory.LaunchSpawnManager();
+            //_gameInitializer.GameFactory.LaunchSpawnManager();
 
             _game.StateMachine.Enter<GameLoopState>();
         }
@@ -58,9 +62,7 @@ namespace Infrastructure.GameLaunch
         private void InitGameWorld(string sceneName)
         {
             Player player = _gameInitializer.GameFactory.CreatePlayer();
-            SpawnManager spawnManager = _gameInitializer.GameFactory.CreateSpawnManager();
             _gameInitializer.GameFactory.CreateHud(
-                spawnManager, 
                 sceneName, 
                 player, 
                 _gameInitializer.ProgressService);

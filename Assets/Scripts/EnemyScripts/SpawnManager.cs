@@ -3,6 +3,7 @@ using System.Collections;
 using Background;
 using Data;
 using Infrastructure.Factory;
+using Infrastructure.Signals;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,19 +21,26 @@ namespace EnemyScripts
         private IGameFactory _gameFactory;
         private IPersistentProgressService _progress;
         private IBackgroundAdjuster _adjuster;
+        private SignalBus _signalBus;
 
         private int Wave { get; set; }
         
         [Inject]
-        public void Construct(ISaveLoadService saveLoadService, IGameFactory gameFactory, IPersistentProgressService progress, IBackgroundAdjuster adjuster)
+        public void Construct(
+            ISaveLoadService saveLoadService, 
+            IGameFactory gameFactory, 
+            IPersistentProgressService progress, 
+            IBackgroundAdjuster adjuster,
+            SignalBus signalBus)
         {
             _saveLoadService = saveLoadService;
             _gameFactory = gameFactory;
             _progress = progress;
             _adjuster = adjuster;
+            _signalBus = signalBus;
         }
 
-        public void Launch()
+        public void Start()
         {
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
         }
@@ -56,18 +64,23 @@ namespace EnemyScripts
 
         private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster)
         {
+            int wave = progress.lastState.waveToLoad;
+            
             while (true)
             {
-                for (int i = Wave; i < spawners.Length; i++)
+                for (int i = wave; i < spawners.Length; i++)
                 {
                     spawners[i].gameObject.SetActive(true);
                     Wave = i;
-                    WaveChanged?.Invoke(Wave);
+                    _signalBus.Fire(new WaveCompleted() {WaveNumber = Wave});
                     spawners[i].Init(gameFactory, progress, adjuster);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
                 }
+                
+                _signalBus.Fire<LevelCompleted>();
+                Debug.Log("Level completed!");
             }
         }
     }
