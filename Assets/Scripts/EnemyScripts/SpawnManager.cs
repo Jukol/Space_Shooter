@@ -70,6 +70,7 @@ namespace EnemyScripts
             {
                 spawners[i].gameObject.SetActive(true);
                 Wave = i;
+                _signalBus.Fire(new WaveCompleted(i));
                 spawners[i].Init(id,i, gameFactory, progress, adjuster);
                 _saveLoadService.SaveProgress();
                 int i1 = i;

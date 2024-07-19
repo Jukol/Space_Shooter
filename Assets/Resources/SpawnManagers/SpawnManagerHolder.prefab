@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManagers:
-  - {fileID: 7071607088265879833, guid: 57bca81bf7487458da97931323e8ed83, type: 3}
-  - {fileID: 7071607088265879833, guid: 774016b7551e040c0a2773b5ed777b70, type: 3}
+  - {fileID: 7071607088265879833, guid: 997e8a571baa249dd864f3cb38e9bbf0, type: 3}
+  - {fileID: 7071607088265879833, guid: cfbef82b4216c49e195a0aa9e3bca900, type: 3}

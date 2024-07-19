@@ -14,5 +14,6 @@ namespace Infrastructure.GameLaunch
         [Inject] public IPersistentProgressService ProgressService;
         [Inject] public ISaveLoadService SaveLoadService;
         [Inject] public IGameFactory GameFactory;
+        [Inject] public SignalBus SignalBus;
     }
 }

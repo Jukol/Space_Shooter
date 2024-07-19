@@ -64,12 +64,11 @@ namespace Infrastructure.Factory
             return spawnManager;
         }
 
-        public void CreateHud(
-            string sceneName, 
+        public void CreateHud( 
             Player player, 
             IPersistentProgressService progressService)
         {
-            InstantiateRegisteredHud(_signalBus, sceneName, player, progressService);
+            InstantiateRegisteredHud(_signalBus, player, progressService);
         }
 
         public GameObject CreateBullet()
@@ -84,8 +83,7 @@ namespace Infrastructure.Factory
         }
 
         private void InstantiateRegisteredHud(
-            SignalBus signalBus, 
-            string sceneName, 
+            SignalBus signalBus,
             Player player, 
             IPersistentProgressService progressService)
         {
@@ -94,6 +92,7 @@ namespace Infrastructure.Factory
 
             int waveNumber = _progressService.Progress.lastState.waveToLoad;
             int killCount = progressService.Progress.lastState.killCount;
+            string sceneName = _progressService.Progress.lastState.levelToLoad;
             
             hud.Init(signalBus, sceneName, player, waveNumber, killCount);
             Register(hud);

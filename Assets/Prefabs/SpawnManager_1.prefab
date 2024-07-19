@@ -549,10 +549,8 @@ MonoBehaviour:
   id: 14
   gridStartPosition: {fileID: 7071607089029276415}
   positionsParent: {fileID: 7071607088993564505}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088993564505}
 --- !u!1 &7071607088174837232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,10 +1635,8 @@ MonoBehaviour:
   id: 7
   gridStartPosition: {fileID: 7071607088698754622}
   positionsParent: {fileID: 7071607090221757864}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607090221757864}
 --- !u!1 &7071607088255467419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   spawners:
+  - {fileID: 7071607088615494679}
   - {fileID: 7071607088162809526}
 --- !u!1 &7071607088283179502
 GameObject:
@@ -3161,10 +3158,8 @@ MonoBehaviour:
   id: 9
   gridStartPosition: {fileID: 7071607088567325403}
   positionsParent: {fileID: 7071607089569040572}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089569040572}
 --- !u!1 &7071607088399454659
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,10 +3650,8 @@ MonoBehaviour:
   id: 5
   gridStartPosition: {fileID: 7071607088437242731}
   positionsParent: {fileID: 7071607089065470587}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089065470587}
 --- !u!1 &7071607088467270160
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,10 +4098,8 @@ MonoBehaviour:
   id: 8
   gridStartPosition: {fileID: 7071607089879213180}
   positionsParent: {fileID: 7071607088144791396}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088144791396}
 --- !u!1 &7071607088478712199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,10 +5371,8 @@ MonoBehaviour:
   id: 0
   gridStartPosition: {fileID: 7071607089970730148}
   positionsParent: {fileID: 7071607089318748344}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089318748344}
 --- !u!1 &7071607088588853339
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,10 +5832,8 @@ MonoBehaviour:
   id: 13
   gridStartPosition: {fileID: 7071607088767456446}
   positionsParent: {fileID: 7071607089416943679}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089416943679}
 --- !u!1 &7071607088657707419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6006,10 +5993,8 @@ MonoBehaviour:
   id: 11
   gridStartPosition: {fileID: 7071607088177381138}
   positionsParent: {fileID: 7071607088193747455}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088193747455}
 --- !u!1 &7071607088666754311
 GameObject:
   m_ObjectHideFlags: 0
@@ -10360,10 +10345,8 @@ MonoBehaviour:
   id: 10
   gridStartPosition: {fileID: 7071607089271233804}
   positionsParent: {fileID: 7071607088542425442}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088542425442}
 --- !u!1 &7071607089085751550
 GameObject:
   m_ObjectHideFlags: 0
@@ -10423,10 +10406,8 @@ MonoBehaviour:
   id: 6
   gridStartPosition: {fileID: 7071607089776761497}
   positionsParent: {fileID: 7071607089868286293}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089868286293}
 --- !u!1 &7071607089087685801
 GameObject:
   m_ObjectHideFlags: 0
@@ -12838,10 +12819,8 @@ MonoBehaviour:
   id: 4
   gridStartPosition: {fileID: 7071607089149442602}
   positionsParent: {fileID: 7071607088992121255}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088992121255}
 --- !u!1 &7071607089290572129
 GameObject:
   m_ObjectHideFlags: 0
@@ -13695,10 +13674,8 @@ MonoBehaviour:
   id: 2
   gridStartPosition: {fileID: 7071607090268386290}
   positionsParent: {fileID: 7071607088295351960}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088295351960}
 --- !u!1 &7071607089356260554
 GameObject:
   m_ObjectHideFlags: 0
@@ -16635,10 +16612,8 @@ MonoBehaviour:
   id: 1
   gridStartPosition: {fileID: 7071607089797472007}
   positionsParent: {fileID: 7071607089087685801}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607089087685801}
 --- !u!1 &7071607089635904065
 GameObject:
   m_ObjectHideFlags: 0
@@ -20378,10 +20353,8 @@ MonoBehaviour:
   id: 12
   gridStartPosition: {fileID: 7071607088751166293}
   positionsParent: {fileID: 7071607088562594404}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088562594404}
 --- !u!1 &7071607089949305083
 GameObject:
   m_ObjectHideFlags: 0
@@ -21572,10 +21545,8 @@ MonoBehaviour:
   id: 3
   gridStartPosition: {fileID: 7071607089699424985}
   positionsParent: {fileID: 7071607088467270160}
-  shipPrefab: {fileID: 2505702599986202165, guid: 772765ea79228ea4cb849d2afc803025, type: 3}
   seconds: 0.1
   timeToGetToPosition: 0.5
-  maneuvering: {fileID: 7071607088467270160}
 --- !u!1 &7071607090098156940
 GameObject:
   m_ObjectHideFlags: 0

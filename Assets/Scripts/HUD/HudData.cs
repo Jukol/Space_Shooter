@@ -29,10 +29,16 @@ namespace HUD
         {
             _signalBus = signalBus;
             _signalBus.Subscribe<WaveCompleted>(ChangeWaveNumber);
+            _signalBus.Subscribe<LevelCompleted>(ChangeLevelNumber);
             level.text = sceneName;
             wave.text = "Wave " + waveNumber;
             playerHealthBar.Init(player);
             killCount.Init(myKillCount);
+        }
+
+        private void ChangeLevelNumber(LevelCompleted obj)
+        {
+            level.text = obj.LevelToLoad;
         }
 
         public void LoadProgress(Progress progress)
