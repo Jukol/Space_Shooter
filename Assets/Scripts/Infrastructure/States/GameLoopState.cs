@@ -13,8 +13,9 @@ namespace Infrastructure.States
             _gameStateMachine = gameStateMachine;
         }
 
-        private void OnLevelCompleted()
+        private void OnLevelCompleted(SpawnManager spawnManager)
         {
+            spawnManager.DestroyMe();
             _completedSpawnManagerId += 2;
             string nextSceneName = "Level " + _completedSpawnManagerId;
             _gameStateMachine.Enter<LoadLevelState, string>(nextSceneName);

@@ -14,7 +14,7 @@ namespace EnemyScripts
         public EnemyPlaceHolder[] enemyPlaceHolders;
         public static Action OnAllInPlace { get; set; }
 
-        public int id;
+        [SerializeField] private int id;
         
         [SerializeField] private Transform gridStartPosition;
         [SerializeField] private GameObject positionsParent;
@@ -35,7 +35,8 @@ namespace EnemyScripts
         private int _spawnManagerId;
 
         public void Init(
-            int spawnManagerId,
+            int spawnerManagerId,
+            int spawnerId,
             IGameFactory gameFactory, 
             Progress progress,
             IBackgroundAdjuster adjuster)
@@ -43,7 +44,8 @@ namespace EnemyScripts
             _intervalBetweenShips = new WaitForSeconds(seconds);
             _adjuster = adjuster;
             _progress = progress;
-            _spawnManagerId = spawnManagerId;
+            id = spawnerId;
+            _spawnManagerId = spawnerManagerId;
 
             ResizeWindow();
             InitializePosition();
@@ -76,10 +78,13 @@ namespace EnemyScripts
             for (int i = 0; i < enemyPlaceHolders.Length; i++)
             {
                 enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-                    enemyPlaceHolders[i].enemyStatus = 
-                    _progress.lastState
+                    enemyPlaceHolders[i].enemyStatus = _progress
+                        .lastState
                         .spawnWrapperHolder
-                        .chiefWrapper.SpawnersWrappers[_spawnManagerId].WrapperOfStatuses[id].ListOfStatuses[i];
+                        .chiefWrapper
+                        .SpawnersWrappers[_spawnManagerId]
+                        .WrapperOfStatuses[id]
+                        .ListOfStatuses[i];
             }
         }
 

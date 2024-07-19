@@ -13,7 +13,7 @@ namespace EnemyScripts
     {
         public int id;
         public Spawner[] spawners;
-        public event Action LevelCompleted;
+        public event Action<SpawnManager> LevelCompleted;
 
         private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
@@ -40,11 +40,6 @@ namespace EnemyScripts
 
         public void Launch()
         {
-            for (int i = 0; i < spawners.Length; i++)
-            {
-                spawners[i].id = i;
-            }
-            
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
         }
 
@@ -70,24 +65,24 @@ namespace EnemyScripts
         private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster)
         {
             int wave = progress.lastState.waveToLoad;
-            
-            while (true)
-            {
-                for (int i = wave; i < spawners.Length; i++)
+
+            for (int i = wave; i < spawners.Length; i++)
                 {
                     spawners[i].gameObject.SetActive(true);
                     Wave = i;
-                    _signalBus.Fire(new WaveCompleted() {WaveNumber = Wave});
-                    spawners[i].Init(id, gameFactory, progress, adjuster);
+                    spawners[i].Init(id,i, gameFactory, progress, adjuster);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
                 }
                 
-                LevelCompleted?.Invoke();
-                
-                Destroy(gameObject);
-            }
+                LevelCompleted?.Invoke(this);
+            
+        }
+        
+        public void DestroyMe()
+        {
+            Destroy(gameObject);
         }
     }
 }
