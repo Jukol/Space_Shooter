@@ -18,6 +18,12 @@ namespace Infrastructure
         {
             _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
         }
+        
+        public void Load(int sceneIndex, Action onLoaded = null)
+        {
+            string sceneName = "Level " + sceneIndex;
+            _coroutineRunner.StartCoroutine(LoadScene(sceneName, onLoaded));
+        }
 
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {

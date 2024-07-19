@@ -1852,7 +1852,7 @@ GameObject:
   - component: {fileID: 7071607088265879832}
   - component: {fileID: 7071607088265879833}
   m_Layer: 0
-  m_Name: Spawn_Manager
+  m_Name: SpawnManager_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,22 +1902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013178eece863154b9691d75e6fe9935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   spawners:
-  - {fileID: 7071607088573270701}
-  - {fileID: 7071607089634165862}
-  - {fileID: 7071607089343012388}
-  - {fileID: 7071607090096491758}
-  - {fileID: 7071607089279589252}
   - {fileID: 7071607088444903257}
-  - {fileID: 7071607089085751549}
-  - {fileID: 7071607088246491753}
-  - {fileID: 7071607088469871382}
-  - {fileID: 7071607088379118079}
-  - {fileID: 7071607089075956279}
-  - {fileID: 7071607088662081275}
-  - {fileID: 7071607089946133993}
-  - {fileID: 7071607088615494679}
-  - {fileID: 7071607088162809526}
 --- !u!1 &7071607088283179502
 GameObject:
   m_ObjectHideFlags: 0

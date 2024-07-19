@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Background;
 using Data;
-using Infrastructure.Factory;
 using Infrastructure.Signals;
 using Interfaces;
 using UnityEngine;
@@ -13,9 +11,9 @@ namespace EnemyScripts
 {
     public class SpawnManager : MonoBehaviour, ISavedProgressWriter
     {
-        public event Action<int> WaveChanged;
-        
+        public int id;
         public Spawner[] spawners;
+        public event Action LevelCompleted;
 
         private ISaveLoadService _saveLoadService;
         private IGameFactory _gameFactory;
@@ -40,15 +38,21 @@ namespace EnemyScripts
             _signalBus = signalBus;
         }
 
-        public void Start()
+        public void Launch()
         {
+            for (int i = 0; i < spawners.Length; i++)
+            {
+                spawners[i].id = i;
+            }
+            
             StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
         }
 
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.waveToLoad = Wave;
-            progress.lastState.spawnersWrapper = _progress.Progress.lastState.spawnersWrapper;
+
+            progress.lastState.spawnManagerIndex = id;
         }
 
         public void LoadProgress(Progress progress)
@@ -58,7 +62,8 @@ namespace EnemyScripts
             if (currentScene == progress.lastState.levelToLoad)
             {
                 Wave = progress.lastState.waveToLoad;
-                _progress.Progress.lastState.spawnersWrapper = progress.lastState.spawnersWrapper;
+                
+                _progress.Progress.lastState.spawnManagerIndex = progress.lastState.spawnManagerIndex;
             }
         }
 
@@ -73,14 +78,15 @@ namespace EnemyScripts
                     spawners[i].gameObject.SetActive(true);
                     Wave = i;
                     _signalBus.Fire(new WaveCompleted() {WaveNumber = Wave});
-                    spawners[i].Init(gameFactory, progress, adjuster);
+                    spawners[i].Init(id, gameFactory, progress, adjuster);
                     _saveLoadService.SaveProgress();
                     int i1 = i;
                     yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
                 }
                 
-                _signalBus.Fire<LevelCompleted>();
-                Debug.Log("Level completed!");
+                LevelCompleted?.Invoke();
+                
+                Destroy(gameObject);
             }
         }
     }

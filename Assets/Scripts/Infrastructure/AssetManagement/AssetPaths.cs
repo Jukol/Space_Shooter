@@ -4,8 +4,8 @@
     {
         public const string PlayerPath = "Player/Player";
         public const string HudPath = "HUD/HUD";
-        public const string SpawnManagerPath = "SpawnManager/Spawn_Manager";
         public const string BulletPath = "Ammo/Bullet";
         public const string EnemyPath = "Enemies/Enemy";
+        public const string SpawnManagerHolderPath = "SpawnManagers/SpawnManagerHolder";
     }
 }

@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using Infrastructure.GameLaunch;
+using Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,11 @@ namespace Infrastructure.AssetManagement
     public class AssetProvider : IAssets
     {
         [Inject] private DiContainer _container;
+        
+        public GameObject Instantiate(GameObject prefab)
+        {
+            return _container.InstantiatePrefab(prefab);
+        }
         
         public GameObject Instantiate(string path)
         {

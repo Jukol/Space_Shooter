@@ -16,6 +16,8 @@ namespace Infrastructure.States
         private readonly SignalBus _signalBus;
 
         private readonly GameInitializer _gameInitializer;
+        
+        private SpawnManager _spawnManager;
 
         public LoadLevelState(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, SignalBus signalBus)
         {
@@ -28,6 +30,7 @@ namespace Infrastructure.States
         {
             _gameInitializer.Curtain.Show();
             _gameInitializer.GameFactory.CleanUp();
+            _spawnManager = _gameInitializer.GameFactory.CreateSpawnManager(sceneName);
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 
@@ -38,7 +41,7 @@ namespace Infrastructure.States
 
         private void OnLoaded()
         {
-            _signalBus.Fire<LevelLoadLoaded>();
+            _signalBus.Fire(new LevelLoadLoaded(_spawnManager));
         }
     }
 }

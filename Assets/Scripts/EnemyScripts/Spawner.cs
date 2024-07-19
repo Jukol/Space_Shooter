@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using Background;
 using Data;
 using DG.Tweening;
-using Infrastructure.Factory;
 using Interfaces;
 using UnityEngine;
-using Zenject;
 
 namespace EnemyScripts
 {
@@ -17,7 +14,8 @@ namespace EnemyScripts
         public EnemyPlaceHolder[] enemyPlaceHolders;
         public static Action OnAllInPlace { get; set; }
 
-        [SerializeField] private int id;
+        public int id;
+        
         [SerializeField] private Transform gridStartPosition;
         [SerializeField] private GameObject positionsParent;
         [SerializeField] private GameObject shipPrefab;
@@ -36,7 +34,10 @@ namespace EnemyScripts
         private IGameFactory _gameFactory;
         private Progress _progress;
 
+        private int _spawnManagerId;
+
         public void Init(
+            int spawnManagerId,
             IGameFactory gameFactory, 
             Progress progress,
             IBackgroundAdjuster adjuster)
@@ -44,6 +45,7 @@ namespace EnemyScripts
             _intervalBetweenShips = new WaitForSeconds(seconds);
             _adjuster = adjuster;
             _progress = progress;
+            _spawnManagerId = spawnManagerId;
 
             ResizeWindow();
             InitializePosition();
@@ -72,10 +74,14 @@ namespace EnemyScripts
 
         private void ArrangeAndInitEnemyPlaceHolders()
         {
+
             for (int i = 0; i < enemyPlaceHolders.Length; i++)
             {
                 enemyPlaceHolders[i].Position = enemyPlaceHolders[i].transform.position;
-                enemyPlaceHolders[i].enemyStatus = _progress.lastState.spawnersWrapper.WrapperOfStatuses[id].ListOfStatuses[i];
+                    enemyPlaceHolders[i].enemyStatus = 
+                    _progress.lastState
+                        .spawnWrapperHolder
+                        .chiefWrapper.SpawnersWrappers[_spawnManagerId].WrapperOfStatuses[id].ListOfStatuses[i];
             }
         }
 

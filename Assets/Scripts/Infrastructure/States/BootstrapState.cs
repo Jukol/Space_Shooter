@@ -11,9 +11,9 @@ namespace Infrastructure.States
         private readonly SceneLoader _sceneLoader;
         private readonly SignalBus _signalBus;
 
-        public BootstrapState(ICoroutineRunner coroutineRunner, SignalBus signalBus)
+        public BootstrapState(SceneLoader sceneLoader, SignalBus signalBus)
         {
-            _sceneLoader = new SceneLoader(coroutineRunner);
+            _sceneLoader = sceneLoader;
             _signalBus = signalBus;
         }
         

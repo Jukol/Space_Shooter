@@ -4,7 +4,6 @@ using Infrastructure.States;
 using Interfaces;
 using PlayerScripts;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Infrastructure.GameLaunch
@@ -14,7 +13,6 @@ namespace Infrastructure.GameLaunch
         private GameInitializer _gameInitializer;
         private Game _game;
         private SignalBus _signalBus;
-        private int _sceneCount;
 
         [Inject]
         public void Construct(GameInitializer gameInitializer, SignalBus signalBus)
@@ -29,8 +27,6 @@ namespace Infrastructure.GameLaunch
 
         private void Awake()
         {
-            _sceneCount = SceneManager.sceneCountInBuildSettings;
-            
             _game = new Game(_gameInitializer, this, _signalBus);
             
             _game.StateMachine.Enter<BootstrapState>();
@@ -49,14 +45,14 @@ namespace Infrastructure.GameLaunch
             _game.StateMachine.Enter<LoadLevelState, string>(_gameInitializer.ProgressService.Progress.lastState.levelToLoad);
         }
 
-        private void OnLoadLevelStateLoaded()
+        private void OnLoadLevelStateLoaded(LevelLoadLoaded signal)
         {
-            InitGameWorld(_gameInitializer.ProgressService.Progress.lastState.levelToLoad);
-            InformProgressReaders();
+            string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
             
-            //_gameInitializer.GameFactory.LaunchSpawnManager();
+            InitGameWorld(levelToLoad);
+            InformProgressReaders();
 
-            _game.StateMachine.Enter<GameLoopState>();
+            _game.StateMachine.Enter<GameLoopState, LevelLoadLoaded>(signal);
         }
 
         private void InitGameWorld(string sceneName)

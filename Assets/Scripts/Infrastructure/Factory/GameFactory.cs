@@ -2,6 +2,7 @@
 using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
+using Infrastructure.GameLaunch;
 using Interfaces;
 using MyScreen;
 using PlayerScripts;
@@ -12,26 +13,27 @@ namespace Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        private SpawnManager SpawnManager { get; set; }
-        
         private readonly IAssets _assets;
         private readonly Camera _camera;
         private readonly IPersistentProgressService _progressService;
         private readonly CurrentScreen _currentScreen;
         private readonly SignalBus _signalBus;
-        
+        private readonly SpawnManagerHolder _spawnManagerHolder;
+
         public GameFactory(
             IAssets assets, 
             Camera camera, 
             IPersistentProgressService progressService,
             CurrentScreen currentScreen,
-            SignalBus signalBus)
+            SignalBus signalBus,
+            SpawnManagerHolder spawnManagerHolder)
         {
             _camera = camera;
             _assets = assets;
             _progressService = progressService;
             _currentScreen = currentScreen;
             _signalBus = signalBus;
+            _spawnManagerHolder = spawnManagerHolder;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -46,10 +48,20 @@ namespace Infrastructure.Factory
         {
             return InstantiateEnemy(AssetPaths.EnemyPath, gridStartPosition, placeHolder);
         }
-
-        public SpawnManager CreateSpawnManager()
+        
+        public SpawnWrapperHolder CreateSpawnWrapperHolder()
         {
-            return InstantiateRegisteredSpawnManager(AssetPaths.SpawnManagerPath);
+            var spawnWrapperHolder = new SpawnWrapperHolder(_spawnManagerHolder);
+            Register(spawnWrapperHolder);
+            return spawnWrapperHolder;
+        }
+        
+        public SpawnManager CreateSpawnManager(string scene)
+        {
+            SpawnManager spawnManager = 
+                _assets.Instantiate(_spawnManagerHolder.SpawnManagersByScene[scene].gameObject).GetComponent<SpawnManager>();
+            Register(spawnManager);
+            return spawnManager;
         }
 
         public void CreateHud(
@@ -103,13 +115,6 @@ namespace Infrastructure.Factory
             enemy.Init(placeHolder.enemyStatus.health);
 
             return enemy;
-        }
-
-        private SpawnManager InstantiateRegisteredSpawnManager(string prefabPath)
-        {
-            SpawnManager = _assets.Instantiate(prefabPath).GetComponent<SpawnManager>();
-            Register(SpawnManager);
-            return SpawnManager;
         }
 
         private void Register(ISavedProgressReader progressReader)

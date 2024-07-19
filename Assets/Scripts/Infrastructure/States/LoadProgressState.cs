@@ -10,11 +10,13 @@ namespace Infrastructure.States
     {
         private readonly GameInitializer _gameInitializer;
         private SignalBus _signalBus;
-
+        private SpawnWrapperHolder _spawnWrapperHolder;
+        
         public LoadProgressState(GameInitializer gameInitializer, SignalBus signalBus)
         {
             _gameInitializer = gameInitializer;
             _signalBus = signalBus;
+            _spawnWrapperHolder = _gameInitializer.GameFactory.CreateSpawnWrapperHolder();
         }
 
         public void Enter()
@@ -37,9 +39,10 @@ namespace Infrastructure.States
         private Progress NewProgress()
         {
             return new Progress(
-                _gameInitializer.InitialLevel, 
-                _gameInitializer.InitialWave, 
-                _gameInitializer.SpawnersWrapper, 
+                _gameInitializer.InitialLevel,
+                _gameInitializer.InitialWave,
+                _spawnWrapperHolder,
+                _gameInitializer.SpawnManagerIndex,
                 _gameInitializer.InitialPlayerHealth);
         }
     }

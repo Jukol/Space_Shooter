@@ -1,4 +1,3 @@
-using Infrastructure.Wrappers;
 using Interfaces;
 using Logic;
 using Zenject;
@@ -10,7 +9,7 @@ namespace Infrastructure.GameLaunch
         [Inject] public LoadingCurtain Curtain;
         [Inject] public string InitialLevel;
         [Inject (Id = "PlayerHealth")] public int InitialPlayerHealth;
-        [Inject] public SpawnersWrapper SpawnersWrapper;
+        [Inject (Id = "SpawnManagerIndex")] public int SpawnManagerIndex;
         [Inject (Id = "InitialWave")] public int InitialWave;
         [Inject] public IPersistentProgressService ProgressService;
         [Inject] public ISaveLoadService SaveLoadService;

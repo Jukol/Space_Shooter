@@ -1,6 +1,5 @@
 ﻿using System;
-using Infrastructure;
-using Infrastructure.Wrappers;
+using Infrastructure.GameLaunch;
 
 namespace Data
 {
@@ -9,9 +8,14 @@ namespace Data
     {
         public LastState lastState;
 
-        public Progress(string level, int wave, SpawnersWrapper spawnersWrapper, int playerHealth)
+        public Progress(
+            string level, 
+            int wave,
+            SpawnWrapperHolder spawnWrapperHolder,
+            int spawnManagerIndex, 
+            int playerHealth)
         {
-            lastState = new LastState(level, wave, spawnersWrapper, playerHealth);
+            lastState = new LastState(level, wave, spawnWrapperHolder,  spawnManagerIndex, playerHealth);
         }
     }
 }

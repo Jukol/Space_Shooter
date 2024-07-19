@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Ammo;
 using Background;
 using EnemyScripts;
@@ -6,7 +5,6 @@ using Infrastructure.AssetManagement;
 using Infrastructure.Factory;
 using Infrastructure.Services;
 using Infrastructure.Signals;
-using Infrastructure.Wrappers;
 using InputClasses;
 using Interfaces;
 using Logic;
@@ -22,9 +20,10 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private BulletContainer bulletParent;
         [SerializeField] private Camera myCamera;
-        [SerializeField] private SpawnManager spawnManager;
+        [SerializeField] private SpawnManagerHolder spawnManagerHolder;
         [SerializeField] private string initialLevel;
         [SerializeField] private int initialWave;
+        [SerializeField] private int initialSpawnManagerIndex;
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
 
@@ -33,8 +32,10 @@ namespace Infrastructure.GameLaunch
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
-            Container.Bind<SpawnersWrapper>().FromMethod(CreateWrapperOfListOfSpawners).AsSingle();
+            Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();
+            Container.Bind<SpawnWrapperHolder>().AsSingle();
             Container.BindInstance(initialWave).WithId("InitialWave");
+            Container.BindInstance(initialSpawnManagerIndex).WithId("SpawnManagerIndex");
             Container.Bind<IPersistentProgressService>().To<PersistentProgressService>().AsSingle();
             Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
             Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
@@ -43,14 +44,13 @@ namespace Infrastructure.GameLaunch
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<BootstrapLoaded>();
             Container.DeclareSignal<ProgressLoaded>();
-            Container.DeclareSignal<LevelLoadLoaded>();
+            Container.DeclareSignal<LevelLoadLoaded>().OptionalSubscriber();
             Container.DeclareSignal<LevelCompleted>();
             Container.DeclareSignal<WaveCompleted>();
 
             Container.Bind<SpriteRenderer>().FromComponentInNewPrefab(spriteRenderer).AsSingle();
             Container.Bind<BulletContainer>().FromComponentInNewPrefab(bulletParent).AsSingle();
             Container.Bind<Camera>().FromComponentInNewPrefab(myCamera).AsSingle();
-            Container.Bind<SpawnManager>().FromComponentInNewPrefab(spawnManager).AsSingle();
             Container.BindInstance(initialEnemyHealth).WithId("EnemyHealth");
 
             Container.Bind<IAssets>().To<AssetProvider>().AsSingle();
@@ -60,28 +60,6 @@ namespace Infrastructure.GameLaunch
             Container.Bind<IPool>().To<BulletPool>().AsSingle();
             
             Container.Bind<IInput>().To<MouseInput>().AsSingle();
-        }
-        
-        private SpawnersWrapper CreateWrapperOfListOfSpawners()
-        {
-            SpawnersWrapper mySpawnersWrapper = new ();
-            mySpawnersWrapper.WrapperOfStatuses = new List<StatusesWrapper>();
-
-            for (int i = 0; i < spawnManager.spawners.Length; i++)
-            {
-                StatusesWrapper statusesWrapper = new ();
-                statusesWrapper.ListOfStatuses = new List<EnemyStatus>();
-
-                for (int j = 0; j < spawnManager.spawners[i].enemyPlaceHolders.Length; j++)
-                {
-                    EnemyStatus enemyStatus = new(initialEnemyHealth, false);
-                    statusesWrapper.ListOfStatuses.Add(enemyStatus);
-                }
-                
-                mySpawnersWrapper.WrapperOfStatuses.Add(statusesWrapper);
-            }
-
-            return mySpawnersWrapper;
         }
     }
 }

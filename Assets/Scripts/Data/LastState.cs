@@ -1,5 +1,6 @@
 ﻿using System;
 using Infrastructure;
+using Infrastructure.GameLaunch;
 using Infrastructure.Wrappers;
 
 namespace Data
@@ -10,14 +11,21 @@ namespace Data
         public string levelToLoad;
         public int waveToLoad;
         public int playerHealth;
-        public SpawnersWrapper spawnersWrapper;
+        public int spawnManagerIndex;
+        public SpawnWrapperHolder spawnWrapperHolder;
         public int killCount;
 
-        public LastState(string level, int wave, SpawnersWrapper spawnersWrapper, int playerHealth)
+        public LastState(
+            string level, 
+            int wave,
+            SpawnWrapperHolder spawnWrapperHolder,
+            int spawnManagerIndex,
+            int playerHealth)
         {
             levelToLoad = level;
             waveToLoad = wave;
-            this.spawnersWrapper = spawnersWrapper;
+            this.spawnWrapperHolder = spawnWrapperHolder;
+            this.spawnManagerIndex = spawnManagerIndex;
             killCount = 0;
             this.playerHealth = playerHealth;
         }

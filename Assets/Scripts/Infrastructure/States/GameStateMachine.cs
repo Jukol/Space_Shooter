@@ -17,12 +17,14 @@ namespace Infrastructure.States
             ICoroutineRunner coroutineRunner, 
             SignalBus signalBus)
         {
+            SceneLoader sceneLoader = new SceneLoader(coroutineRunner);
+            
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(coroutineRunner, signalBus),
+                [typeof(BootstrapState)] = new BootstrapState(sceneLoader, signalBus),
                 [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, signalBus),
                 [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, signalBus),
-                [typeof(GameLoopState)] = new GameLoopState(gameInitializer)
+                [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }
 
