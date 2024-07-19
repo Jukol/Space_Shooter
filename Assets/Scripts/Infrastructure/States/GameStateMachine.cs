@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Infrastructure.GameLaunch;
 using Interfaces;
 using Logic;
-using Zenject;
 
 namespace Infrastructure.States
 {
@@ -14,16 +13,15 @@ namespace Infrastructure.States
 
         public GameStateMachine(
             GameInitializer gameInitializer, 
-            ICoroutineRunner coroutineRunner, 
-            SignalBus signalBus)
+            ICoroutineRunner coroutineRunner)
         {
-            SceneLoader sceneLoader = new SceneLoader(coroutineRunner);
+            SceneLoader sceneLoader = new(coroutineRunner);
             
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(sceneLoader, signalBus),
-                [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, signalBus),
-                [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, signalBus),
+                [typeof(BootstrapState)] = new BootstrapState(sceneLoader, this),
+                [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, this),
+                [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, this),
                 [typeof(GameLoopState)] = new GameLoopState(this)
             };
         }

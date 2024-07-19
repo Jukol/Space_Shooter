@@ -33,15 +33,15 @@ namespace Infrastructure
                 yield break;
             }
 
-            AsyncOperation waitForNextScene = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+            AsyncOperation waitForNextScene = SceneManager.LoadSceneAsync(nextScene);
 
             while (!waitForNextScene.isDone)
             {
                 yield return null;
             }
             
-            var currentScene = SceneManager.GetActiveScene();
-            SceneManager.UnloadSceneAsync(currentScene);
+            // var currentScene = SceneManager.GetActiveScene();
+            // SceneManager.UnloadSceneAsync(currentScene);
 
             onLoaded?.Invoke();
         }

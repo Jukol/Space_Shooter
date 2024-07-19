@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013178eece863154b9691d75e6fe9935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   spawners:
   - {fileID: 7071607088162809526}
 --- !u!1 &7071607088283179502

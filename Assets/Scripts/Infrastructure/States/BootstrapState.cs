@@ -1,6 +1,5 @@
 ﻿using Infrastructure.Signals;
 using Interfaces;
-using Zenject;
 
 namespace Infrastructure.States
 {
@@ -9,17 +8,17 @@ namespace Infrastructure.States
         private const string Boot = "Boot";
         
         private readonly SceneLoader _sceneLoader;
-        private readonly SignalBus _signalBus;
+        private readonly GameStateMachine _gameStateMachine;
 
-        public BootstrapState(SceneLoader sceneLoader, SignalBus signalBus)
+        public BootstrapState(SceneLoader sceneLoader, GameStateMachine gameStateMachine)
         {
             _sceneLoader = sceneLoader;
-            _signalBus = signalBus;
+            _gameStateMachine = gameStateMachine;
         }
         
         public void Enter()
         {
-            _sceneLoader.Load(Boot, onLoaded: EnterLoadLevel);
+            _sceneLoader.Load(Boot, onLoaded: EnterLoadProgressState);
         }
 
         public void Exit()
@@ -27,9 +26,9 @@ namespace Infrastructure.States
 
         }
 
-        private void EnterLoadLevel()
+        private void EnterLoadProgressState()
         {
-            _signalBus.Fire<BootstrapLoaded>();
+            _gameStateMachine.Enter<LoadProgressState>();
         }
     }
 }

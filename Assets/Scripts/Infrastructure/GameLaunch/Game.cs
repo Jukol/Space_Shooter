@@ -10,7 +10,7 @@ namespace Infrastructure.GameLaunch
 
         public Game(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, SignalBus signalBus)
         {
-            StateMachine = new GameStateMachine(gameInitializer, coroutineRunner, signalBus);
+            StateMachine = new GameStateMachine(gameInitializer, coroutineRunner);
         }
     }
 }

@@ -1,5 +1,4 @@
 using EnemyScripts;
-using Infrastructure.Signals;
 using Infrastructure.States;
 using Interfaces;
 using PlayerScripts;
@@ -19,10 +18,6 @@ namespace Infrastructure.GameLaunch
         {
             _gameInitializer = gameInitializer;
             _signalBus = signalBus;
-
-            _signalBus.Subscribe<BootstrapLoaded>(OnBootstrapStateLoaded);
-            _signalBus.Subscribe<ProgressLoaded>(OnProgressStateLoaded);
-            _signalBus.Subscribe<LevelLoadLoaded>(OnLoadLevelStateLoaded);
         }
 
         private void Awake()
@@ -32,44 +27,6 @@ namespace Infrastructure.GameLaunch
             _game.StateMachine.Enter<BootstrapState>();
 
             DontDestroyOnLoad(this);
-        }
-
-        private void OnBootstrapStateLoaded()
-        {
-            _game.StateMachine.Enter<LoadProgressState>();
-        }
-
-        private void OnProgressStateLoaded()
-        {
-            _gameInitializer.GameFactory.CleanUp();
-            _game.StateMachine.Enter<LoadLevelState, string>(_gameInitializer.ProgressService.Progress.lastState.levelToLoad);
-        }
-
-        private void OnLoadLevelStateLoaded(LevelLoadLoaded signal)
-        {
-            string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
-            
-            InitGameWorld(levelToLoad);
-            InformProgressReaders();
-
-            _game.StateMachine.Enter<GameLoopState, LevelLoadLoaded>(signal);
-        }
-
-        private void InitGameWorld(string sceneName)
-        {
-            Player player = _gameInitializer.GameFactory.CreatePlayer();
-            _gameInitializer.GameFactory.CreateHud(
-                sceneName, 
-                player, 
-                _gameInitializer.ProgressService);
-        }
-
-        private void InformProgressReaders()
-        {
-            foreach (ISavedProgressReader progressReader in _gameInitializer.GameFactory.ProgressReaders)
-            {
-                progressReader.LoadProgress(_gameInitializer.ProgressService.Progress);
-            }
         }
     }
 }

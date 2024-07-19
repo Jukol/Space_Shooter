@@ -2,27 +2,27 @@ using Data;
 using Infrastructure.GameLaunch;
 using Infrastructure.Signals;
 using Interfaces;
-using Zenject;
 
 namespace Infrastructure.States
 {
     public class LoadProgressState : IState
     {
         private readonly GameInitializer _gameInitializer;
-        private SignalBus _signalBus;
+        private readonly GameStateMachine _gameStateMachine;
         private SpawnWrapperHolder _spawnWrapperHolder;
         
-        public LoadProgressState(GameInitializer gameInitializer, SignalBus signalBus)
+        public LoadProgressState(GameInitializer gameInitializer, GameStateMachine gameStateMachine)
         {
             _gameInitializer = gameInitializer;
-            _signalBus = signalBus;
+            _gameStateMachine = gameStateMachine;
             _spawnWrapperHolder = _gameInitializer.GameFactory.CreateSpawnWrapperHolder();
         }
 
         public void Enter()
         {
             LoadProgressOrInitNew();
-            _signalBus.Fire<ProgressLoaded>();
+            _gameInitializer.GameFactory.CleanUp();
+            _gameStateMachine.Enter<LoadLevelState, string>(_gameInitializer.ProgressService.Progress.lastState.levelToLoad);
         }
 
         public void Exit()

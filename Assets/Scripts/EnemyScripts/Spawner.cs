@@ -18,10 +18,8 @@ namespace EnemyScripts
         
         [SerializeField] private Transform gridStartPosition;
         [SerializeField] private GameObject positionsParent;
-        [SerializeField] private GameObject shipPrefab;
         [SerializeField] private float seconds;
         [SerializeField] private float timeToGetToPosition;
-        [SerializeField] private GameObject maneuvering;
 
         private IBackgroundAdjuster _adjuster;
         private Vector3 _initialPosition;

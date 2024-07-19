@@ -1,15 +1,9 @@
 ﻿using EnemyScripts;
-using Infrastructure.GameLaunch;
-using Infrastructure.Signals;
 using Interfaces;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace Infrastructure.States
 {
-    public class GameLoopState : IPayloadedState<LevelLoadLoaded>
+    public class GameLoopState : IPayloadedState<SpawnManager>
     {
         private readonly GameStateMachine _gameStateMachine;
         private int _completedSpawnManagerId;
@@ -26,9 +20,8 @@ namespace Infrastructure.States
             _gameStateMachine.Enter<LoadLevelState, string>(nextSceneName);
         }
 
-        public void Enter(LevelLoadLoaded payload)
+        public void Enter(SpawnManager spawnManager)
         {
-            SpawnManager spawnManager = payload.SpawnManager;
             _completedSpawnManagerId = spawnManager.id;
             spawnManager.LevelCompleted += OnLevelCompleted;
             spawnManager.Launch();

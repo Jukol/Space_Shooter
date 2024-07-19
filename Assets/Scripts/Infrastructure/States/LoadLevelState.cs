@@ -5,7 +5,6 @@ using Infrastructure.Signals;
 using Interfaces;
 using Logic;
 using PlayerScripts;
-using Zenject;
 
 namespace Infrastructure.States
 {
@@ -13,17 +12,18 @@ namespace Infrastructure.States
     {
         private readonly IPersistentProgressService _progressService;
         private readonly SceneLoader _sceneLoader;
-        private readonly SignalBus _signalBus;
-
         private readonly GameInitializer _gameInitializer;
+        private readonly GameStateMachine _gameStateMachine;
         
         private SpawnManager _spawnManager;
 
-        public LoadLevelState(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, SignalBus signalBus)
+        private int enterCheck;
+
+        public LoadLevelState(GameInitializer gameInitializer, ICoroutineRunner coroutineRunner, GameStateMachine gameStateMachine)
         {
             _gameInitializer = gameInitializer;
             _sceneLoader = new SceneLoader(coroutineRunner);
-            _signalBus = signalBus;
+            _gameStateMachine = gameStateMachine;
         }
 
         public void Enter(string sceneName)
@@ -41,7 +41,34 @@ namespace Infrastructure.States
 
         private void OnLoaded()
         {
-            _signalBus.Fire(new LevelLoadLoaded(_spawnManager));
+            string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
+
+            if (enterCheck == 0)
+            {
+                enterCheck++;
+                InitGameWorld(levelToLoad);
+                InformProgressReaders();
+            }
+            
+
+            _gameStateMachine.Enter<GameLoopState, SpawnManager>(_spawnManager);
+        }
+        
+        private void InitGameWorld(string sceneName)
+        {
+            Player player = _gameInitializer.GameFactory.CreatePlayer();
+            _gameInitializer.GameFactory.CreateHud(
+                sceneName, 
+                player, 
+                _gameInitializer.ProgressService);
+        }
+
+        private void InformProgressReaders()
+        {
+            foreach (ISavedProgressReader progressReader in _gameInitializer.GameFactory.ProgressReaders)
+            {
+                progressReader.LoadProgress(_gameInitializer.ProgressService.Progress);
+            }
         }
     }
 }
