@@ -67,21 +67,17 @@ namespace EnemyScripts
             int wave = progress.lastState.waveToLoad;
 
             for (int i = wave; i < spawners.Length; i++)
-                {
-                    spawners[i].gameObject.SetActive(true);
-                    Wave = i;
-                    spawners[i].Init(id,i, gameFactory, progress, adjuster);
-                    _saveLoadService.SaveProgress();
-                    int i1 = i;
-                    yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
-                }
+            {
+                spawners[i].gameObject.SetActive(true);
+                Wave = i;
+                spawners[i].Init(id,i, gameFactory, progress, adjuster);
+                _saveLoadService.SaveProgress();
+                int i1 = i;
+                yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);
+            }
                 
-                LevelCompleted?.Invoke(this);
-            
-        }
-        
-        public void DestroyMe()
-        {
+            LevelCompleted?.Invoke(this);
+
             Destroy(gameObject);
         }
     }
