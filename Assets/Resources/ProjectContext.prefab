@@ -75,11 +75,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curtain: {fileID: 3681425444270156750, guid: 687d2763fc40f0741ab54b1f80223dd7, type: 3}
-  spriteRenderer: {fileID: 1745972634859916820, guid: f45bca67bd610564c8ab94c8d9c88367, type: 3}
+  spriteRenderer: {fileID: 1745972634859916820, guid: 2f9ecb516e85d0444a5a9d2d596d1ff6, type: 3}
   bulletParent: {fileID: 1986638416795416070, guid: cbc05add649794169892a9fccb201aa3, type: 3}
   myCamera: {fileID: 29944998062663, guid: 0463f3e3f90b447ecbc4909df276247f, type: 3}
   spawnManagerHolder: {fileID: 83746038571348629, guid: ed7e5afd53cfd4ee8a0c77d09d3e7eb3, type: 3}
   initialLevel: Level 1
   initialWave: 0
+  initialSpawnManagerIndex: 0
   initialPlayerHealth: 10
   initialEnemyHealth: 5

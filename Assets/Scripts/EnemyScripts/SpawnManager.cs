@@ -21,8 +21,6 @@ namespace EnemyScripts
         private IBackgroundAdjuster _adjuster;
         private SignalBus _signalBus;
 
-        private int Wave { get; set; }
-        
         [Inject]
         public void Construct(
             ISaveLoadService saveLoadService, 

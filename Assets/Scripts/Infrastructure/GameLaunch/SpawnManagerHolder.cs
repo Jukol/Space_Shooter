@@ -17,11 +17,24 @@ namespace Infrastructure.GameLaunch
         [Inject]
         private void Construct()
         {
+            Enumerate();
+            
             SpawnManagersByScene = new()
             {
                 { "Level 1", spawnManagers[0] },
                 { "Level 2", spawnManagers[1] },
+                { "Level 3", spawnManagers[2] },
+                { "Level 4", spawnManagers[3] },
             };
+
+        }
+
+        private void Enumerate()
+        {
+            for (var i = 0; i < spawnManagers.Length; i++)
+            {
+                spawnManagers[i].id = i;
+            }
         }
     }
 }

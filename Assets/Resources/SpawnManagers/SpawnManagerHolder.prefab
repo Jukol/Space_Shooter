@@ -47,3 +47,5 @@ MonoBehaviour:
   spawnManagers:
   - {fileID: 7071607088265879833, guid: 997e8a571baa249dd864f3cb38e9bbf0, type: 3}
   - {fileID: 7071607088265879833, guid: cfbef82b4216c49e195a0aa9e3bca900, type: 3}
+  - {fileID: 7071607088265879833, guid: 7f811f252161dfb4593bd959f3c9f01d, type: 3}
+  - {fileID: 7071607088265879833, guid: 60b2ce185f6b78d45a992685a2b0e9ba, type: 3}

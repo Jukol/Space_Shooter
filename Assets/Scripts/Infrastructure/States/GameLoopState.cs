@@ -34,9 +34,15 @@ namespace Infrastructure.States
             }
             else
             {
-                Debug.Log("Game Over!");
+                GameOverRoutine();
             }
             
+        }
+
+        private void GameOverRoutine()
+        {
+            Debug.Log("Game Over!");
+            PlayerPrefs.DeleteAll();
         }
 
         public void Enter(SpawnManager spawnManager)

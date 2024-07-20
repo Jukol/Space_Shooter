@@ -45,7 +45,7 @@ namespace Infrastructure.GameLaunch
             Container.DeclareSignal<BootstrapLoaded>();
             Container.DeclareSignal<ProgressLoaded>();
             Container.DeclareSignal<LevelLoadLoaded>().OptionalSubscriber();
-            Container.DeclareSignal<LevelCompleted>();
+            Container.DeclareSignal<LevelCompleted>().OptionalSubscriber();
             Container.DeclareSignal<WaveCompleted>();
 
             Container.Bind<SpriteRenderer>().FromComponentInNewPrefab(spriteRenderer).AsSingle();
