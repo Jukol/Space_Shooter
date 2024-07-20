@@ -21,6 +21,7 @@ namespace Infrastructure.States
         private void OnLevelCompleted(SpawnManager spawnManager)
         {
             _gameInitializer.ProgressService.Progress.lastState.levelToLoad = "Level " + (_completedSpawnManagerId + 2);
+            _gameInitializer.ProgressService.Progress.lastState.waveToLoad = 0;
             _gameInitializer.ProgressService.Progress.lastState.spawnManagerIndex = _completedSpawnManagerId + 2;
             _gameInitializer.SaveLoadService.SaveProgress();
             

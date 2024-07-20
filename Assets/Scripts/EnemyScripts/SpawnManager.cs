@@ -45,7 +45,7 @@ namespace EnemyScripts
 
         public void UpdateProgress(Progress progress)
         {
-            progress.lastState.waveToLoad = Wave;
+            progress.lastState = _progress.Progress.lastState;
 
             progress.lastState.spawnManagerIndex = id;
         }
@@ -56,7 +56,7 @@ namespace EnemyScripts
             
             if (currentScene == progress.lastState.levelToLoad)
             {
-                Wave = progress.lastState.waveToLoad;
+                _progress.Progress.lastState = progress.lastState;
                 
                 _progress.Progress.lastState.spawnManagerIndex = progress.lastState.spawnManagerIndex;
             }
@@ -69,7 +69,7 @@ namespace EnemyScripts
             for (int i = wave; i < spawners.Length; i++)
             {
                 spawners[i].gameObject.SetActive(true);
-                Wave = i;
+                _progress.Progress.lastState.waveToLoad = i;
                 _signalBus.Fire(new WaveCompleted(i));
                 spawners[i].Init(id,i, gameFactory, progress, adjuster);
                 _saveLoadService.SaveProgress();
