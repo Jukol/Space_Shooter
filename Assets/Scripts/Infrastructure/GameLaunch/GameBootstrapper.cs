@@ -20,12 +20,14 @@ namespace Infrastructure.GameLaunch
             _signalBus = signalBus;
         }
 
-        private void Awake()
+        public void Launch()
         {
             _game = new Game(_gameInitializer, this, _signalBus);
-            
             _game.StateMachine.Enter<BootstrapState>();
+        }
 
+        private void Awake()
+        {
             DontDestroyOnLoad(this);
         }
     }

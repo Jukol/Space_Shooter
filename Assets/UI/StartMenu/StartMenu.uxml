@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="TopBox" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:Button text="START" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" style="width: 40%; height: 5%; font-size: 55px; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>
