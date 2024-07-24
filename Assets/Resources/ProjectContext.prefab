@@ -84,3 +84,4 @@ MonoBehaviour:
   initialSpawnManagerIndex: 0
   initialPlayerHealth: 10
   initialEnemyHealth: 5
+  startMenuHandler: {fileID: 518172588381784492, guid: 0d345e33ceb975947bb44e7a55b63e72, type: 3}

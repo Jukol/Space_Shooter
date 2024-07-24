@@ -16,9 +16,10 @@ namespace Infrastructure.States
         private readonly GameStateMachine _gameStateMachine;
         
         private SpawnManager _spawnManager;
-
+        private Player _player;
+        
         private int enterCheck;
-
+        
         public LoadLevelState(
             GameInitializer gameInitializer, 
             ICoroutineRunner coroutineRunner, 
@@ -46,21 +47,24 @@ namespace Infrastructure.States
         {
             string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
             _gameInitializer.SignalBus.Fire(new LevelCompleted(levelToLoad));
+            
+            StartMenuHandler startMenuHandler = _gameInitializer.GameFactory.CreateStartMenuHandler();
 
             if (enterCheck == 0)
             {
                 enterCheck++;
-                InitGameWorld(levelToLoad);
+                InitGameWorld();
                 InformProgressReaders();
             }
-
-            _gameStateMachine.Enter<GameLoopState, SpawnManager>(_spawnManager);
+            
+            _player.gameObject.SetActive(false);
+            _gameStateMachine.Enter<GameLoopState, SpawnManager, Player, StartMenuHandler>(_spawnManager, _player, startMenuHandler);
         }
         
-        private void InitGameWorld(string sceneName)
+        private void InitGameWorld()
         {
-            Player player = _gameInitializer.GameFactory.CreatePlayer();
-            _gameInitializer.GameFactory.CreateHud(player, _gameInitializer.ProgressService);
+            _player = _gameInitializer.GameFactory.CreatePlayer();
+            _gameInitializer.GameFactory.CreateHud(_player, _gameInitializer.ProgressService);
         }
 
         private void InformProgressReaders()

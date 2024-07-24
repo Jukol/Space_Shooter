@@ -1,27 +1,39 @@
 ﻿using EnemyScripts;
 using Infrastructure.GameLaunch;
+using Infrastructure.Signals;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Infrastructure.States
 {
-    public class GameLoopState : IPayloadedState<SpawnManager>
+    public class GameLoopState : IPayloadedState2<SpawnManager, Player, StartMenuHandler>
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly GameInitializer _gameInitializer;
+        private readonly SignalBus _signalBus;
+        
         private int _completedSpawnManagerId;
 
-        public GameLoopState(GameStateMachine gameStateMachine, GameInitializer gameInitializer)
+        public GameLoopState(
+            GameStateMachine gameStateMachine, 
+            GameInitializer gameInitializer,
+            SignalBus signalBus)
         {
             _gameStateMachine = gameStateMachine;
             _gameInitializer = gameInitializer;
+            _signalBus = signalBus;
         }
 
         private void OnLevelCompleted(SpawnManager spawnManager)
         {
             _gameInitializer.ProgressService.Progress.lastState.levelToLoad = "Level " + (_completedSpawnManagerId + 2);
-            _gameInitializer.ProgressService.Progress.lastState.waveToLoad = 0;
+            int wave = _gameInitializer.ProgressService.Progress.lastState.waveToLoad = 0;
+            
+            _signalBus.Fire(new WaveCompleted(wave));
+            
             _gameInitializer.ProgressService.Progress.lastState.spawnManagerIndex = _completedSpawnManagerId + 2;
             _gameInitializer.SaveLoadService.SaveProgress();
             
@@ -45,11 +57,12 @@ namespace Infrastructure.States
             PlayerPrefs.DeleteAll();
         }
 
-        public void Enter(SpawnManager spawnManager)
+        public void Enter(SpawnManager spawnManager, Player player, StartMenuHandler startMenuHandler)
         {
             _completedSpawnManagerId = spawnManager.id;
             spawnManager.LevelCompleted += OnLevelCompleted;
-            spawnManager.Launch();
+            
+            startMenuHandler.Init(spawnManager, player);
         }
 
         public void Exit()

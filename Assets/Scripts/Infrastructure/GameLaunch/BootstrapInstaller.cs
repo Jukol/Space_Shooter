@@ -26,10 +26,12 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialSpawnManagerIndex;
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
+        [SerializeField] private StartMenuHandler startMenuHandler;
 
         public override void InstallBindings()
         {
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
+            Container.Bind<StartMenuHandler>().FromComponentInNewPrefab(startMenuHandler).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
             Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();

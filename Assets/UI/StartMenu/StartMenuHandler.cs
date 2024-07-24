@@ -1,29 +1,37 @@
+using EnemyScripts;
 using Infrastructure.GameLaunch;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class StartMenuHandler : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
-    [SerializeField] private GameBootstrapper gameBootstrapper;
 
     private Button startButton;
     private VisualElement topBox;
+    
+    private SpawnManager _spawnManager;
+    private Player _player;
 
-    private void Start()
+    public void Init(SpawnManager spawnManager, Player player)
     {
         VisualElement root = uiDocument.rootVisualElement;
         
         startButton = root.Q<Button>("StartButton");
         topBox = root.Q<VisualElement>("TopBox");
         
-        startButton.RegisterCallback<ClickEvent>(OnStartButtonClicked);
+        _spawnManager = spawnManager;
+        _player = player;
+        
+        startButton.clicked += OnStartButtonClicked;
     }
 
-    private void OnStartButtonClicked(ClickEvent evt)
+    private void OnStartButtonClicked()
     {
         topBox.style.display = DisplayStyle.None;
         
-        gameBootstrapper.Launch();
+        _spawnManager.Launch();
+        _player.gameObject.SetActive(true);
     }
 }

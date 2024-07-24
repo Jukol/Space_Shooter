@@ -75,6 +75,11 @@ namespace Infrastructure.Factory
         {
             return _assets.Instantiate(AssetPaths.BulletPath);
         }
+        
+        public StartMenuHandler CreateStartMenuHandler()
+        {
+            return _assets.Instantiate(AssetPaths.StartMenuHandler).GetComponent<StartMenuHandler>();
+        }
 
         public void CleanUp()
         {
@@ -104,6 +109,7 @@ namespace Infrastructure.Factory
             Register(player);
             var cameraShake = _camera.GetComponent<CameraShake>();
             player.Init(cameraShake, _currentScreen);
+            player.gameObject.SetActive(false);
             return player;
         }
 

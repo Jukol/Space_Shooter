@@ -1,7 +1,5 @@
-using EnemyScripts;
 using Infrastructure.States;
 using Interfaces;
-using PlayerScripts;
 using UnityEngine;
 using Zenject;
 
@@ -20,14 +18,11 @@ namespace Infrastructure.GameLaunch
             _signalBus = signalBus;
         }
 
-        public void Launch()
+        private void Awake()
         {
             _game = new Game(_gameInitializer, this, _signalBus);
             _game.StateMachine.Enter<BootstrapState>();
-        }
-
-        private void Awake()
-        {
+            
             DontDestroyOnLoad(this);
         }
     }

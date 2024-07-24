@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Infrastructure.GameLaunch;
 using Interfaces;
 using Logic;
+using Zenject;
 
 namespace Infrastructure.States
 {
@@ -13,7 +14,8 @@ namespace Infrastructure.States
 
         public GameStateMachine(
             GameInitializer gameInitializer, 
-            ICoroutineRunner coroutineRunner)
+            ICoroutineRunner coroutineRunner,
+            SignalBus signalBus)
         {
             SceneLoader sceneLoader = new(coroutineRunner);
             
@@ -22,7 +24,7 @@ namespace Infrastructure.States
                 [typeof(BootstrapState)] = new BootstrapState(sceneLoader, this),
                 [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, this),
                 [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, this),
-                [typeof(GameLoopState)] = new GameLoopState(this, gameInitializer)
+                [typeof(GameLoopState)] = new GameLoopState(this, gameInitializer, signalBus)
             };
         }
 
@@ -36,6 +38,15 @@ namespace Infrastructure.States
         {
             TState state = ChangeState<TState>();
             state.Enter(payload);
+        }
+        
+        public void Enter<TState, TPayload1, TPayLoad2, TPayload3>(
+            TPayload1 payload1, 
+            TPayLoad2 payLoad2, 
+            TPayload3 payload3) where TState : class, IPayloadedState2<TPayload1, TPayLoad2, TPayload3>
+        {
+            TState state = ChangeState<TState>();
+            state.Enter(payload1, payLoad2, payload3);
         }
 
         private TState ChangeState<TState>() where TState : class, IExitableState

@@ -7,5 +7,6 @@
         public const string BulletPath = "Ammo/Bullet";
         public const string EnemyPath = "Enemies/Enemy";
         public const string SpawnManagerHolderPath = "SpawnManagers/SpawnManagerHolder";
+        public const string StartMenuHandler = "StartMenuHandler";
     }
 }

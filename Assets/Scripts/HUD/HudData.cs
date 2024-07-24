@@ -31,7 +31,7 @@ namespace HUD
             _signalBus.Subscribe<WaveCompleted>(ChangeWaveNumber);
             _signalBus.Subscribe<LevelCompleted>(ChangeLevelNumber);
             level.text = sceneName;
-            wave.text = "Wave " + waveNumber;
+            wave.text = "Wave " + (waveNumber + 1);
             playerHealthBar.Init(player);
             killCount.Init(myKillCount);
         }
@@ -62,8 +62,7 @@ namespace HUD
         private void ChangeWaveNumber(WaveCompleted args)
         {
             int waveNumber = args.WaveNumber;
-            waveNumber++;
-            wave.text = "Wave " + waveNumber;
+            wave.text = "Wave " + (waveNumber + 1);
         }
     }
 }
