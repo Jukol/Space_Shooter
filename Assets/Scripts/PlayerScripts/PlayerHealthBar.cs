@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PlayerScripts
 {
@@ -8,6 +9,7 @@ namespace PlayerScripts
         [SerializeField] private float distanceBetweenUnits;
         
         private Player _player;
+        private List<GameObject> _healthUnits = new();
 
         public void Init(Player player)
         {
@@ -23,19 +25,31 @@ namespace PlayerScripts
 
         private void DrawHealthUnits()
         {
-            GameObject[] healthUnits = GameObject.FindGameObjectsWithTag("HealthUnit");
-            for (int i = 0; i < healthUnits.Length; i++)
-            {
-                Destroy(healthUnits[i].gameObject);
-            }
+            if (_healthUnits.Count == 0) 
+                CreateHealthBar();
 
+            DeactivateCells();
+            
+            for (int i = 0; i < _player.Health; i++) 
+                _healthUnits[i].SetActive(true);
+        }
+
+        private void DeactivateCells()
+        {
+            for (int i = 0; i < _healthUnits.Count; i++) 
+                _healthUnits[i].gameObject.SetActive(false);
+        }
+
+        private void CreateHealthBar()
+        {
             float initialXPosition = 0;
-
+            
             for (int i = 0; i < _player.Health; i++)
             {
                 GameObject thisHealthUnit = Instantiate(healthUnit, transform, false);
                 thisHealthUnit.transform.localPosition = new Vector2(initialXPosition, 0);
                 initialXPosition += distanceBetweenUnits;
+                _healthUnits.Add(thisHealthUnit);
             }
         }
     }

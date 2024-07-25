@@ -5,7 +5,6 @@ using Interfaces;
 using PlayerScripts;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace HUD
