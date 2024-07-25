@@ -61,6 +61,7 @@ namespace Infrastructure.States
         {
             _completedSpawnManagerId = spawnManager.id;
             spawnManager.LevelCompleted += OnLevelCompleted;
+            player.GetToStartPosition();
             
             startMenuHandler.Init(spawnManager, player);
         }

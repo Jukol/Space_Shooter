@@ -24,12 +24,15 @@ namespace PlayerScripts
         private IMovable _movable;
         private IShootable[] _shootables;
         [Inject] private ISaveLoadService _saveLoadService;
+        private CurrentScreen _currentScreen;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
         {
             Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
             Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
             Animator = GetComponent<Animator>();
+
+            _currentScreen = currentScreen;
 
             GetComponent<IMovable>().Init(currentScreen);
 
@@ -42,6 +45,14 @@ namespace PlayerScripts
 
             _explosionStarted = false;
             _cameraShake = cameraShake;
+            
+            GetToStartPosition();
+        }
+        
+        public void GetToStartPosition()
+        {
+            ScreenBounds bounds = _currentScreen.GetBoundsForObject(this);
+            transform.position = new Vector3(0, bounds.Bottom, 0);
         }
 
         public void Damage(int amount)
