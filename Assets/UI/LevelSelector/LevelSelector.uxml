@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/LevelSelector/LevelSelector.uss?fileID=7433441132597879392&amp;guid=2a79b4a0ee8028b4faa2dd71f37a3f5b&amp;type=3#LevelSelector" />
+    <ui:VisualElement name="TopBox" style="flex-grow: 1; flex-shrink: 1; justify-content: center; align-items: center; flex-direction: column;">
+        <ui:VisualElement name="LevelIconHolder" style="flex-grow: 0; width: 90%; height: 50%; position: relative; background-color: rgb(255, 255, 255); justify-content: flex-start; flex-direction: row; flex-wrap: wrap; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+            <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseButton" enable-rich-text="false" style="position: absolute; right: 10px; -unity-font-style: bold; width: 35px; height: 34px; font-size: 32px; top: 10px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
