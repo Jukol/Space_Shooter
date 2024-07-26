@@ -3,28 +3,32 @@ using Infrastructure.GameLaunch;
 using Infrastructure.Signals;
 using Interfaces;
 using PlayerScripts;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Infrastructure.States
 {
-    public class GameLoopState : IPayloadedState2<SpawnManager, Player, StartMenuHandler>
+    public class GameLoopState : IPayloadedState2<SpawnManager, Player, StartMenuController>
     {
         private readonly GameStateMachine _gameStateMachine;
         private readonly GameInitializer _gameInitializer;
         private readonly SignalBus _signalBus;
+        private readonly SceneLoader _sceneLoader;
         
         private int _completedSpawnManagerId;
 
         public GameLoopState(
             GameStateMachine gameStateMachine, 
             GameInitializer gameInitializer,
-            SignalBus signalBus)
+            SignalBus signalBus,
+            SceneLoader sceneLoader)
         {
             _gameStateMachine = gameStateMachine;
             _gameInitializer = gameInitializer;
             _signalBus = signalBus;
+            _sceneLoader = sceneLoader;
         }
 
         private void OnLevelCompleted(SpawnManager spawnManager)
@@ -57,13 +61,13 @@ namespace Infrastructure.States
             PlayerPrefs.DeleteAll();
         }
 
-        public void Enter(SpawnManager spawnManager, Player player, StartMenuHandler startMenuHandler)
+        public void Enter(SpawnManager spawnManager, Player player, StartMenuController startMenuController)
         {
             _completedSpawnManagerId = spawnManager.id;
             spawnManager.LevelCompleted += OnLevelCompleted;
             player.GetToStartPosition();
             
-            startMenuHandler.Init(spawnManager, player);
+            startMenuController.Init(spawnManager, player, _gameInitializer, _gameStateMachine);
         }
 
         public void Exit()

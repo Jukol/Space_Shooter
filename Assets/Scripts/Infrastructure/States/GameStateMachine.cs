@@ -24,7 +24,7 @@ namespace Infrastructure.States
                 [typeof(BootstrapState)] = new BootstrapState(sceneLoader, this),
                 [typeof(LoadProgressState)] = new LoadProgressState(gameInitializer, this),
                 [typeof(LoadLevelState)] = new LoadLevelState(gameInitializer, coroutineRunner, this),
-                [typeof(GameLoopState)] = new GameLoopState(this, gameInitializer, signalBus)
+                [typeof(GameLoopState)] = new GameLoopState(this, gameInitializer, signalBus, sceneLoader)
             };
         }
 

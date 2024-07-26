@@ -2,6 +2,7 @@
 using EnemyScripts;
 using Infrastructure.GameLaunch;
 using PlayerScripts;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,7 @@ namespace Interfaces
 
         public void CreateHud(Player player, IPersistentProgressService progress);
         
-        public StartMenuHandler CreateStartMenuHandler();
+        public StartMenuController CreateStartMenu();
         public SpawnWrapperHolder CreateSpawnWrapperHolder();
         
         public SpawnManager CreateSpawnManager(string scene);

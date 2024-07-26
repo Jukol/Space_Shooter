@@ -6,6 +6,7 @@ using Infrastructure.GameLaunch;
 using Interfaces;
 using MyScreen;
 using PlayerScripts;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -76,9 +77,9 @@ namespace Infrastructure.Factory
             return _assets.Instantiate(AssetPaths.BulletPath);
         }
         
-        public StartMenuHandler CreateStartMenuHandler()
+        public StartMenuController CreateStartMenu()
         {
-            return _assets.Instantiate(AssetPaths.StartMenuHandler).GetComponent<StartMenuHandler>();
+            return _assets.Instantiate(AssetPaths.StartMenu).GetComponent<StartMenuController>();
         }
 
         public void CleanUp()

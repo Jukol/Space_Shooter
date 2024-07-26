@@ -5,6 +5,7 @@ using Infrastructure.Signals;
 using Interfaces;
 using Logic;
 using PlayerScripts;
+using UI;
 
 namespace Infrastructure.States
 {
@@ -48,7 +49,7 @@ namespace Infrastructure.States
             string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
             _gameInitializer.SignalBus.Fire(new LevelCompleted(levelToLoad));
             
-            StartMenuHandler startMenuHandler = _gameInitializer.GameFactory.CreateStartMenuHandler();
+            StartMenuController startMenuController = _gameInitializer.GameFactory.CreateStartMenu();
 
             if (enterCheck == 0)
             {
@@ -58,7 +59,7 @@ namespace Infrastructure.States
             }
             
             _player.gameObject.SetActive(false);
-            _gameStateMachine.Enter<GameLoopState, SpawnManager, Player, StartMenuHandler>(_spawnManager, _player, startMenuHandler);
+            _gameStateMachine.Enter<GameLoopState, SpawnManager, Player, StartMenuController>(_spawnManager, _player, startMenuController);
         }
         
         private void InitGameWorld()
