@@ -20,7 +20,8 @@ namespace Infrastructure.States
         private Player _player;
         
         private int enterCheck;
-        
+        private StartMenuController _startMenuController;
+
         public LoadLevelState(
             GameInitializer gameInitializer, 
             ICoroutineRunner coroutineRunner, 
@@ -29,6 +30,7 @@ namespace Infrastructure.States
             _gameInitializer = gameInitializer;
             _sceneLoader = new SceneLoader(coroutineRunner);
             _gameStateMachine = gameStateMachine;
+            _startMenuController = _gameInitializer.StartMenuController;
         }
 
         public void Enter(string sceneName)
@@ -49,8 +51,6 @@ namespace Infrastructure.States
             string levelToLoad = _gameInitializer.ProgressService.Progress.lastState.levelToLoad;
             _gameInitializer.SignalBus.Fire(new LevelCompleted(levelToLoad));
             
-            StartMenuController startMenuController = _gameInitializer.GameFactory.CreateStartMenu();
-
             if (enterCheck == 0)
             {
                 enterCheck++;
@@ -58,8 +58,10 @@ namespace Infrastructure.States
                 InformProgressReaders();
             }
             
+            _startMenuController.gameObject.SetActive(true);
+            
             _player.gameObject.SetActive(false);
-            _gameStateMachine.Enter<GameLoopState, SpawnManager, Player, StartMenuController>(_spawnManager, _player, startMenuController);
+            _gameStateMachine.Enter<GameLoopState, SpawnManager, Player, StartMenuController>(_spawnManager, _player, _startMenuController);
         }
         
         private void InitGameWorld()

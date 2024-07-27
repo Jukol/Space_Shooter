@@ -17,10 +17,11 @@ namespace UI
 
         public void Init(SpawnManager spawnManager, Player player, GameInitializer gameInitializer, GameStateMachine gameStateMachine)
         {
+            startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() => OnStartButtonClicked (spawnManager, player));
             selectLevelButton.onClick.AddListener(OnSelectLevelButtonClicked);
             
-            levelSelector.Init(gameInitializer, gameStateMachine);
+            levelSelector.Init(gameInitializer, gameStateMachine, spawnManager);
             levelSelector.gameObject.SetActive(false);
         }
 

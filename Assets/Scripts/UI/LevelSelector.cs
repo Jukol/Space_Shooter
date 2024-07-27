@@ -1,11 +1,9 @@
-using Infrastructure;
+using EnemyScripts;
 using Infrastructure.GameLaunch;
 using Infrastructure.States;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Zenject;
 
 namespace UI
 {
@@ -17,11 +15,13 @@ namespace UI
 
         private int _completedSpawnManagerId;
         private GameStateMachine _gameStateMachine;
+        private SpawnManager _spawnManager;
 
-        public void Init(GameInitializer gameInitializer, GameStateMachine gameStateMachine)
+        public void Init(GameInitializer gameInitializer, GameStateMachine gameStateMachine, SpawnManager spawnManager)
         {
             _gameInitializer = gameInitializer;
             _gameStateMachine = gameStateMachine;
+            _spawnManager = spawnManager;
         }
 
         private void OnEnable()
@@ -35,18 +35,19 @@ namespace UI
         }
 
 
-        public void SelectLevel(Button button)
+        public void SelectLevel(int level)
         {
-            _gameInitializer.ProgressService.Progress.lastState.levelToLoad = "Level " + (_completedSpawnManagerId + 2);
-            int wave = _gameInitializer.ProgressService.Progress.lastState.waveToLoad = 0;
+            Destroy(_spawnManager.gameObject);
             
-            _gameInitializer.ProgressService.Progress.lastState.spawnManagerIndex = _completedSpawnManagerId + 2;
+            _gameInitializer.ProgressService.Progress.lastState.levelToLoad = "Level " + level;
+            _gameInitializer.ProgressService.Progress.lastState.waveToLoad = 0;
+            
+            _gameInitializer.ProgressService.Progress.lastState.spawnManagerIndex = level + 2;
             _gameInitializer.SaveLoadService.SaveProgress();
             
-            _completedSpawnManagerId += 2;
-            string nextSceneName = "Level " + _completedSpawnManagerId;
+            string nextSceneName = "Level " + level;
 
-            if (SceneManager.sceneCountInBuildSettings >= _completedSpawnManagerId + 1)
+            if (SceneManager.sceneCountInBuildSettings >= level + 1)
             {
                 _gameStateMachine.Enter<LoadLevelState, string>(nextSceneName);
             }

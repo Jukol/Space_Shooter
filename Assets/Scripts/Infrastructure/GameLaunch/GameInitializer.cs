@@ -1,5 +1,6 @@
 using Interfaces;
 using Logic;
+using UI;
 using Zenject;
 
 namespace Infrastructure.GameLaunch
@@ -15,5 +16,6 @@ namespace Infrastructure.GameLaunch
         [Inject] public ISaveLoadService SaveLoadService;
         [Inject] public IGameFactory GameFactory;
         [Inject] public SignalBus SignalBus;
+        [Inject] public StartMenuController StartMenuController;
     }
 }
