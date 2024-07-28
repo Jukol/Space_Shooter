@@ -9,6 +9,7 @@ using InputClasses;
 using Interfaces;
 using Logic;
 using MyScreen;
+using PlayerScripts;
 using UI;
 using UnityEngine;
 using Zenject;
@@ -28,6 +29,8 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
         [SerializeField] private StartMenuController startMenuController;
+        [SerializeField] private PlayerUpgradeData playerUpgradeData;
+        
 
         public override void InstallBindings()
         {
@@ -43,6 +46,8 @@ namespace Infrastructure.GameLaunch
             Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
             Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
             Container.Bind<GameInitializer>().AsSingle();
+            
+            Container.Bind<PlayerUpgradeData>().FromComponentInNewPrefab(playerUpgradeData).AsSingle();
             
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<BootstrapLoaded>();
