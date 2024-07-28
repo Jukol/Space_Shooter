@@ -58,7 +58,6 @@ namespace Infrastructure.States
         private void GameOverRoutine()
         {
             Debug.Log("Game Over!");
-            PlayerPrefs.DeleteAll();
         }
 
         public void Enter(SpawnManager spawnManager, Player player, StartMenuController startMenuController)

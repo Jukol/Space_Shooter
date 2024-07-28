@@ -24,13 +24,15 @@ namespace HUD
             string sceneName, 
             Player player, 
             int waveNumber, 
-            int myKillCount)
+            int myKillCount,
+            SpawnManager spawnManager)
         {
             _signalBus = signalBus;
             _signalBus.Subscribe<WaveCompleted>(ChangeWaveNumber);
             _signalBus.Subscribe<LevelCompleted>(ChangeLevelNumber);
+            _spawnManager = spawnManager;
             level.text = sceneName;
-            wave.text = "Wave " + (waveNumber + 1);
+            UpdateWaveText(waveNumber);
             playerHealthBar.Init(player);
             killCount.Init(myKillCount);
         }
@@ -60,8 +62,14 @@ namespace HUD
 
         private void ChangeWaveNumber(WaveCompleted args)
         {
-            int waveNumber = args.WaveNumber;
-            wave.text = "Wave " + (waveNumber + 1);
+            int currentWaveNumber = args.WaveNumber;
+            UpdateWaveText(currentWaveNumber);
+        }
+
+        private void UpdateWaveText(int currentWaveNumber)
+        {
+            int totalWaves = _spawnManager.spawners.Length;
+            wave.text = $"Wave {currentWaveNumber + 1}/{totalWaves}";
         }
     }
 }

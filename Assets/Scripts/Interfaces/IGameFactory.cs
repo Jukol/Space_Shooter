@@ -17,7 +17,7 @@ namespace Interfaces
 
         public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder);
 
-        public void CreateHud(Player player, IPersistentProgressService progress);
+        public void CreateHud(Player player, IPersistentProgressService progress, SpawnManager spawnManager);
         
         public StartMenuController CreateStartMenu();
         public SpawnWrapperHolder CreateSpawnWrapperHolder();

@@ -14,6 +14,10 @@ namespace UI
         [SerializeField] private Button startButton;
         [SerializeField] private Button selectLevelButton;
         [SerializeField] private LevelSelector levelSelector;
+        
+        private SpawnManager _spawnManager;
+        private GameInitializer _gameInitializer;
+        private GameStateMachine _gameStateMachine;
 
         public void Init(SpawnManager spawnManager, Player player, GameInitializer gameInitializer, GameStateMachine gameStateMachine)
         {
@@ -21,13 +25,17 @@ namespace UI
             startButton.onClick.AddListener(() => OnStartButtonClicked (spawnManager, player));
             selectLevelButton.onClick.AddListener(OnSelectLevelButtonClicked);
             
-            levelSelector.Init(gameInitializer, gameStateMachine, spawnManager);
+            _spawnManager = spawnManager;
+            _gameInitializer = gameInitializer;
+            _gameStateMachine = gameStateMachine;
+            
             levelSelector.gameObject.SetActive(false);
         }
 
         private void OnSelectLevelButtonClicked()
         {
             levelSelector.gameObject.SetActive(true);
+            levelSelector.Init(_gameInitializer, _gameStateMachine, _spawnManager);
         }
 
         private void OnStartButtonClicked(SpawnManager spawnManager, Player player)

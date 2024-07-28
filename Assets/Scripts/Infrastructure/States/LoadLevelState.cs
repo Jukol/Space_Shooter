@@ -67,7 +67,7 @@ namespace Infrastructure.States
         private void InitGameWorld()
         {
             _player = _gameInitializer.GameFactory.CreatePlayer();
-            _gameInitializer.GameFactory.CreateHud(_player, _gameInitializer.ProgressService);
+            _gameInitializer.GameFactory.CreateHud(_player, _gameInitializer.ProgressService, _spawnManager);
         }
 
         private void InformProgressReaders()

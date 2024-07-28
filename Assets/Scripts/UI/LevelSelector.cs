@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using EnemyScripts;
 using Infrastructure.GameLaunch;
 using Infrastructure.States;
@@ -21,12 +22,14 @@ namespace UI
         private GameStateMachine _gameStateMachine;
         private SpawnManager _spawnManager;
         private bool _buttonsGenerated;
+        private readonly List<Button> _levelButtons = new ();
 
         public void Init(GameInitializer gameInitializer, GameStateMachine gameStateMachine, SpawnManager spawnManager)
         {
             _gameInitializer = gameInitializer;
             _gameStateMachine = gameStateMachine;
             _spawnManager = spawnManager;
+            _spawnManager.LevelCompleted += UpdateButtons;
 
             if (!_buttonsGenerated)
             {
@@ -34,17 +37,44 @@ namespace UI
             }
         }
 
+        private void UpdateButtons(SpawnManager spawnManager)
+        {
+            int levelToOpen = spawnManager.id;
+            
+            for (int i = 0; i < _levelButtons.Count; i++)
+            {
+                if (i <= levelToOpen)
+                {
+                    int level = i + 1;
+                    UpdateButtonStatus(_levelButtons[i], level);
+                }
+            }
+        }
+
         private void GenerateLevelButtons()
         {
+            int currentLevel = _gameInitializer.ProgressService.Progress.lastState.spawnManagerIndex;
+            
             for (int i = 0; i < SceneManager.sceneCountInBuildSettings - 1; i++)
             {
                 Button levelButton = Instantiate(levelButtonPrefab, levelButtonHolder);
-                levelButton.GetComponentInChildren<TMP_Text>().text = (i + 1).ToString();
-                int level = i + 1;
-                levelButton.onClick.AddListener(() => SelectLevel(level));
+                if (i <= currentLevel)
+                {
+                    int level = i + 1;
+                    UpdateButtonStatus(levelButton, level);
+                }
+                
+                _levelButtons.Add(levelButton);
             }
-            
+
             _buttonsGenerated = true;
+        }
+
+        private void UpdateButtonStatus(Button levelButton, int level)
+        {
+
+            levelButton.GetComponent<LevelButtonController>().SetLevelText(level);
+            levelButton.onClick.AddListener(() => SelectLevel(level));
         }
 
         private void OnEnable()
@@ -83,6 +113,11 @@ namespace UI
         private void OnDisable()
         {
             closeButton.onClick.RemoveListener(OnCloseButtonClicked);
+        }
+
+        private void OnDestroy()
+        {
+            _spawnManager.LevelCompleted -= UpdateButtons;
         }
     }
 }
