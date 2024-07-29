@@ -105,9 +105,9 @@ namespace PlayerScripts
         
         public void Upgrade()
         {
-            currentUpgradeLevel++;
-            spriteRenderer.sprite = _playerUpgradeData.playerSprites[currentUpgradeLevel];
-            Animator.runtimeAnimatorController = _playerUpgradeData.playerAnimatorControllers[currentUpgradeLevel];
+            // currentUpgradeLevel++;
+            // spriteRenderer.sprite = _playerUpgradeData.playerSprites[currentUpgradeLevel];
+            // Animator.runtimeAnimatorController = _playerUpgradeData.playerAnimatorControllers[currentUpgradeLevel];
         }
     }
 }
