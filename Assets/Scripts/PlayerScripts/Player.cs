@@ -16,8 +16,8 @@ namespace PlayerScripts
         public float Width { get; private set; }
         public float Height { get; private set; }
 
+        public SpriteRenderer spriteRenderer;
         [SerializeField] private GameObject megaExplosion;
-        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private CameraShake _cameraShake;
         private bool _explosionStarted;
@@ -25,6 +25,9 @@ namespace PlayerScripts
         private IShootable[] _shootables;
         [Inject] private ISaveLoadService _saveLoadService;
         private CurrentScreen _currentScreen;
+        
+        private int currentUpgradeLevel = 0;
+        [Inject] private PlayerUpgradeData _playerUpgradeData;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
         {
@@ -92,6 +95,19 @@ namespace PlayerScripts
                     }
                 }
             }
+
+            if (collision.CompareTag("Upgrade"))
+            {
+                Upgrade();
+                Debug.Log("Upgrade collided with player");
+            }
+        }
+        
+        public void Upgrade()
+        {
+            currentUpgradeLevel++;
+            spriteRenderer.sprite = _playerUpgradeData.playerSprites[currentUpgradeLevel];
+            Animator.runtimeAnimatorController = _playerUpgradeData.playerAnimatorControllers[currentUpgradeLevel];
         }
     }
 }

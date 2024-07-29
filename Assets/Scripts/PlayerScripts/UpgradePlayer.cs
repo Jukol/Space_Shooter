@@ -5,14 +5,12 @@ namespace PlayerScripts
     public class UpgradePlayer
     {
         private int currentUpgradeLevel = 0;
-        private Dictionary<int, PlayerUpgradeData> upgradeData;
-        private readonly PlayerUpgradeData playerUpgradeData;
-        
-        public UpgradePlayer(PlayerUpgradeData playerUpgradeData)
+        private readonly PlayerUpgradeData _playerUpgradeData;
+        private readonly Player _player;
+        public UpgradePlayer(PlayerUpgradeData playerUpgradeData, Player player)
         {
-            this.playerUpgradeData = playerUpgradeData;
-            upgradeData = new Dictionary<int, PlayerUpgradeData>();
-            upgradeData.Add(0, playerUpgradeData);
+            _playerUpgradeData = playerUpgradeData;
+            _player = player;
         }
 
         public void Upgrade()
@@ -21,9 +19,10 @@ namespace PlayerScripts
             UpgradeUpgradables(currentUpgradeLevel);
         }
 
-        private void UpgradeUpgradables(int currentUpgradeLevel)
+        private void UpgradeUpgradables(int upgradeLevel)
         {
-            
+            _player.spriteRenderer.sprite = _playerUpgradeData.playerSprites[upgradeLevel];
+            _player.Animator.runtimeAnimatorController = _playerUpgradeData.playerAnimatorControllers[upgradeLevel];
         }
     }
 }

@@ -15,6 +15,7 @@ TagManager:
   - Positions
   - Maneuvering
   - Bullet
+  - Upgrade
   layers:
   - Default
   - TransparentFX

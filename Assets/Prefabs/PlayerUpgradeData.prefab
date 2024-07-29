@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1818008976223774509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8794348, y: 11.130279, z: -0.035830796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,13 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df66c714b011428e8e7dcef18cb8200a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipSprites:
-  - {fileID: 21300000, guid: 503cc5f4aac98464988cc752df489609, type: 3}
-  - {fileID: 21300000, guid: 95b20ac847048e24693559f2a6f4707f, type: 3}
-  - {fileID: 21300000, guid: 805235bd273ff8a49bf9bd139715fb4c, type: 3}
-  - {fileID: 21300000, guid: f8e2388b298db4d489836cfe06ddb349, type: 3}
-  - {fileID: 21300000, guid: 8b58ee529036f6b4c840f9c1bd756228, type: 3}
-  bulletSprites: []
-  bulletSpeeds: []
-  bulletDamages: []
-  fireRates: []
+  playerSprites:
+  - {fileID: 21300000, guid: 4c042d2e1f1d45243bcb7f246f9189e1, type: 3}
+  - {fileID: 21300000, guid: 91b8f835531a1d542882f502dbe3f00e, type: 3}
+  - {fileID: 21300000, guid: c12cd39405b28da468a2eb5d13f9be8f, type: 3}
+  - {fileID: 21300000, guid: a07e8ff6923fadd43b65548247da7d38, type: 3}
+  - {fileID: 21300000, guid: 254e4b76fd7f02642ad0ab72be28dd39, type: 3}
+  playerAnimatorControllers:
+  - {fileID: 9100000, guid: a6e994656d0a8e84c92acb0022315538, type: 2}
+  - {fileID: 9100000, guid: 3ab850973ed1fd047b6949d6f209a678, type: 2}
