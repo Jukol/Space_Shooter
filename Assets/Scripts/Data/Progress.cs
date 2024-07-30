@@ -13,9 +13,10 @@ namespace Data
             int wave,
             SpawnWrapperHolder spawnWrapperHolder,
             int spawnManagerIndex, 
-            int playerHealth)
+            int playerHealth,
+            int playerUpgradeLevel)
         {
-            lastState = new LastState(level, wave, spawnWrapperHolder, spawnManagerIndex, playerHealth);
+            lastState = new LastState(level, wave, spawnWrapperHolder, spawnManagerIndex, playerHealth, playerUpgradeLevel);
         }
     }
 }

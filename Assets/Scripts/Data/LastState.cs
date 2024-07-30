@@ -14,13 +14,15 @@ namespace Data
         public int spawnManagerIndex;
         public SpawnWrapperHolder spawnWrapperHolder;
         public int killCount;
+        public int playerUpgradeLevel;
 
         public LastState(
             string level, 
             int wave,
             SpawnWrapperHolder spawnWrapperHolder,
             int spawnManagerIndex,
-            int playerHealth)
+            int playerHealth,
+            int playerUpgradeLevel)
         {
             levelToLoad = level;
             waveToLoad = wave;
@@ -28,6 +30,7 @@ namespace Data
             this.spawnManagerIndex = spawnManagerIndex;
             killCount = 0;
             this.playerHealth = playerHealth;
+            this.playerUpgradeLevel = playerUpgradeLevel;
         }
     }
 }

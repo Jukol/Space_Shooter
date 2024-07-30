@@ -13,8 +13,6 @@ namespace PlayerScripts
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private ParticleSystem muzzleFlashParticles;
 
-        [Range(0, 1)] [SerializeField] private float fireRate;
-
         private IAmmo _ammo;
 
         private WaitForSeconds _fireRateYield;
@@ -22,13 +20,14 @@ namespace PlayerScripts
         [Inject] private IPool _pool;
         private bool _shootStarted;
 
+
         private void Update()
         {
             _iInput.UserInput();
             Shoot();
         }
 
-        public void Init()
+        public void Init(float fireRate)
         {
             muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);

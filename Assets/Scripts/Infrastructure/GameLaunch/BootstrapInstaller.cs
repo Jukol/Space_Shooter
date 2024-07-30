@@ -28,16 +28,19 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialSpawnManagerIndex;
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
+        [SerializeField] private int initialPlayerUpgradeLevel;
         [SerializeField] private StartMenuController startMenuController;
-        [SerializeField] private PlayerUpgradeData playerUpgradeData;
+        [SerializeField] private PlayerUpgradeDataList playerUpgradeDataList;
         
 
         public override void InstallBindings()
         {
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
             Container.Bind<StartMenuController>().FromComponentInNewPrefab(startMenuController).AsSingle();
+            Container.Bind<PlayerUpgradeDataList>().FromInstance(playerUpgradeDataList).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
+            Container.BindInstance(initialPlayerUpgradeLevel).WithId("InitialPlayerUpgradeLevel");
             Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();
             Container.Bind<SpawnWrapperHolder>().AsSingle();
             Container.BindInstance(initialWave).WithId("InitialWave");
@@ -46,8 +49,6 @@ namespace Infrastructure.GameLaunch
             Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
             Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
             Container.Bind<GameInitializer>().AsSingle();
-            
-            Container.Bind<PlayerUpgradeData>().FromComponentInNewPrefab(playerUpgradeData).AsSingle();
             
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<BootstrapLoaded>();

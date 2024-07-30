@@ -43,7 +43,8 @@ namespace Infrastructure.States
                 _gameInitializer.InitialWave,
                 _spawnWrapperHolder,
                 _gameInitializer.SpawnManagerIndex,
-                _gameInitializer.InitialPlayerHealth);
+                _gameInitializer.InitialPlayerHealth,
+                _gameInitializer.InitialPlayerUpgradeLevel);
         }
     }
 }

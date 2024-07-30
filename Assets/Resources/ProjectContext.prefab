@@ -84,5 +84,6 @@ MonoBehaviour:
   initialSpawnManagerIndex: 0
   initialPlayerHealth: 10
   initialEnemyHealth: 5
+  initialPlayerUpgradeLevel: 0
   startMenuController: {fileID: 3392651418522246139, guid: 215dc51cc364bc4478ccf394717d126f, type: 3}
-  playerUpgradeData: {fileID: 321211291761706779, guid: 947041f1fe9544bfd9ad789a37ac910d, type: 3}
+  playerUpgradeDataList: {fileID: 11400000, guid: c0f06bff420944231ac2b09d3b3e3a9c, type: 2}

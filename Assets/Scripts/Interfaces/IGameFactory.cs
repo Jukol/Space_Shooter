@@ -24,7 +24,7 @@ namespace Interfaces
         
         public SpawnManager CreateSpawnManager(string scene);
 
-        public GameObject CreateBullet();
+        public GameObject CreateBullet(int damage, float speed);
 
         public void CleanUp();
     }

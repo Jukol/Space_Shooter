@@ -2,8 +2,7 @@
 {
     public interface IShootable
     {
-        public void Init();
-
+        public void Init(float fireRate);
         public void Shoot();
     }
 }

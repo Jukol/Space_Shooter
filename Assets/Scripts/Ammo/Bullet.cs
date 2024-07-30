@@ -7,19 +7,22 @@ namespace Ammo
     public class Bullet : MonoBehaviour, IAmmo
     {
         public GameObject Body => gameObject;
-        public float Speed => bulletSpeed;
+        public float Speed => _speed;
         public float Lifetime => lifetime;
-        public int Damage => damage;
+        public int Damage => _damage;
         
-        [SerializeField] private float bulletSpeed;
+        private float _speed;
+        private int _damage;
+        
         [SerializeField] private float lifetime;
-        [SerializeField] private int damage;
         [SerializeField] private GameObject explosion;
 
         private bool _targetHit;
 
-        private void Awake()
+        public void Init(int damage, float speed)
         {
+            _damage = damage;
+            _speed = speed;
             _targetHit = false;
         }
 
@@ -38,7 +41,7 @@ namespace Ammo
         public void Move()
         {
             Transform cachedTransform = transform;
-            cachedTransform.position += cachedTransform.up * (Time.deltaTime * bulletSpeed);
+            cachedTransform.position += cachedTransform.up * (Time.deltaTime * _speed);
         }
 
         private void OnBecameInvisible() => 
@@ -56,7 +59,7 @@ namespace Ammo
 
             if (damageable != null)
             {
-                damageable.Damage(damage);
+                damageable.Damage(_damage);
                 await ExplosionFx(collision);
                 gameObject.SetActive(false);
             }

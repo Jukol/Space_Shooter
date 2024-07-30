@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Infrastructure.Factory;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
 using Zenject;
 
@@ -12,12 +13,24 @@ namespace Ammo
         private readonly BulletContainer _bulletContainer;
         private readonly int _capacity;
         private readonly IGameFactory _gameFactory;
+        private readonly IPersistentProgressService _progressService;
+        private readonly PlayerUpgradeDataList _playerUpgradeDataList;
 
-        public BulletPool(IGameFactory gameFactory, BulletContainer bulletContainer)
+        private int _damage;
+        private float _speed;
+
+        public BulletPool(IGameFactory gameFactory, BulletContainer bulletContainer, IPersistentProgressService persistentProgressService, PlayerUpgradeDataList playerUpgradeDataList)
         {
             _gameFactory = gameFactory;
             _bulletContainer = bulletContainer;
             _capacity = _bulletContainer.Capacity;
+            _playerUpgradeDataList = playerUpgradeDataList;
+            _progressService = persistentProgressService;
+
+            int upgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
+            _damage = _playerUpgradeDataList.playerUpgrades[upgradeLevel].bulletDamage;
+            _speed = _playerUpgradeDataList.playerUpgrades[upgradeLevel].bulletSpeed;
+            
             Generate();
         }
 
@@ -29,7 +42,7 @@ namespace Ammo
 
         private GameObject Add()
         {
-            GameObject ammo = _gameFactory.CreateBullet();
+            GameObject ammo = _gameFactory.CreateBullet(_damage, _speed);
             ammo.transform.SetParent(_bulletContainer.transform);
             ammo.SetActive(false);
             _ammoBatch.Add(ammo);

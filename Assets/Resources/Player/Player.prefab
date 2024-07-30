@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 151090997390460288}
   megaExplosion: {fileID: 1682620552668852, guid: 00f24abfdf0d75142ad604932304d8c9, type: 3}
+  playerUpgradeDataList: {fileID: 11400000, guid: c0f06bff420944231ac2b09d3b3e3a9c, type: 2}
 --- !u!95 &151090997390460292
 Animator:
   serializedVersion: 5
@@ -119,7 +120,7 @@ Animator:
   m_GameObject: {fileID: 151090997390460289}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6e994656d0a8e84c92acb0022315538, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

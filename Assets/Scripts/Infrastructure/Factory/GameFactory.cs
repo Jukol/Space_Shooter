@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Ammo;
 using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
@@ -20,6 +21,7 @@ namespace Infrastructure.Factory
         private readonly CurrentScreen _currentScreen;
         private readonly SignalBus _signalBus;
         private readonly SpawnManagerHolder _spawnManagerHolder;
+        private GameInitializer _gameInitilizer;
 
         public GameFactory(
             IAssets assets, 
@@ -27,7 +29,8 @@ namespace Infrastructure.Factory
             IPersistentProgressService progressService,
             CurrentScreen currentScreen,
             SignalBus signalBus,
-            SpawnManagerHolder spawnManagerHolder)
+            SpawnManagerHolder spawnManagerHolder,
+            GameInitializer gameInitilizer)
         {
             _camera = camera;
             _assets = assets;
@@ -35,6 +38,7 @@ namespace Infrastructure.Factory
             _currentScreen = currentScreen;
             _signalBus = signalBus;
             _spawnManagerHolder = spawnManagerHolder;
+            _gameInitilizer = gameInitilizer;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -73,9 +77,11 @@ namespace Infrastructure.Factory
             InstantiateRegisteredHud(_signalBus, player, progressService, spawnManager);
         }
 
-        public GameObject CreateBullet()
+        public GameObject CreateBullet(int damage, float speed)
         {
-            return _assets.Instantiate(AssetPaths.BulletPath);
+            GameObject bullet = _assets.Instantiate(AssetPaths.BulletPath);
+            bullet.GetComponent<Bullet>().Init(damage, speed);
+            return bullet;
         }
         
         public StartMenuController CreateStartMenu()
@@ -111,7 +117,8 @@ namespace Infrastructure.Factory
             Player player = _assets.Instantiate(prefabPath).GetComponent<Player>();
             Register(player);
             var cameraShake = _camera.GetComponent<CameraShake>();
-            player.Init(cameraShake, _currentScreen);
+            int playerUpgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
+            player.Init(cameraShake, _currentScreen, _gameInitilizer.PlayerUpgradeDataList, playerUpgradeLevel);
             player.gameObject.SetActive(false);
             return player;
         }

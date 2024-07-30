@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2454331808858012063}
   - component: {fileID: 321211291761706779}
   m_Layer: 0
-  m_Name: PlayerUpgrade1
+  m_Name: PlayerUpgrade_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df66c714b011428e8e7dcef18cb8200a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprites: {fileID: 21300000, guid: 4c042d2e1f1d45243bcb7f246f9189e1, type: 3}
-  playerAnimatorControllers: {fileID: 9100000, guid: a6e994656d0a8e84c92acb0022315538, type: 2}
-  bulletSprites: {fileID: 0}
-  bulletSpeeds: 0
-  bulletDamages: 0
-  fireRates: 0.1
+  fireRate: 0.1
+  bulletDamage: 1
+  bulletSpeed: 5
+  playerSprite: {fileID: 21300000, guid: 4c042d2e1f1d45243bcb7f246f9189e1, type: 3}
+  playerAnimatorController: {fileID: 9100000, guid: a6e994656d0a8e84c92acb0022315538, type: 2}
+  bulletSprite: {fileID: 0}

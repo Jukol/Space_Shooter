@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUpgrades:
   - {fileID: 321211291761706779, guid: 947041f1fe9544bfd9ad789a37ac910d, type: 3}
-  - {fileID: 321211291761706779, guid: a096165d2a3e34a899a038a630e3cc6f, type: 3}
-  - {fileID: 321211291761706779, guid: a4de2337a8541402ab84470f07517563, type: 3}
+  - {fileID: 321211291761706779, guid: 68e68a4bb203d204b9fbf59d5bd14923, type: 3}
+  - {fileID: 321211291761706779, guid: a56e82f242417a24e8ae1b711cebcd24, type: 3}
+  - {fileID: 321211291761706779, guid: ed643c185db8017409b7d311608cc2a5, type: 3}
+  - {fileID: 321211291761706779, guid: 32a68a687e43bc84fa745455319c7eb1, type: 3}

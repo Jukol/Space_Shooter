@@ -18,6 +18,8 @@ namespace PlayerScripts
 
         public SpriteRenderer spriteRenderer;
         [SerializeField] private GameObject megaExplosion;
+        
+        private PlayerUpgradeDataList _playerUpgradeDataList;
 
         private CameraShake _cameraShake;
         private bool _explosionStarted;
@@ -26,16 +28,25 @@ namespace PlayerScripts
         [Inject] private ISaveLoadService _saveLoadService;
         private CurrentScreen _currentScreen;
         
-        private int currentUpgradeLevel = 0;
-        [Inject] private PlayerUpgradeData _playerUpgradeData;
+        private int _playerUpgradeLevel;
+        private float _fireRate;
 
-        public void Init(CameraShake cameraShake, CurrentScreen currentScreen)
+        public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
         {
+            _cameraShake = cameraShake;
+            _currentScreen = currentScreen;
+            _playerUpgradeDataList = playerUpgradeDataList;
+            _playerUpgradeLevel = playerUpgradeLevel;
+            
             Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
             Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
+
             Animator = GetComponent<Animator>();
 
-            _currentScreen = currentScreen;
+            GetComponent<SpriteRenderer>().sprite = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerSprite;
+            Animator.runtimeAnimatorController = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerAnimatorController;
+            _fireRate = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].fireRate;
+
 
             GetComponent<IMovable>().Init(currentScreen);
 
@@ -43,12 +54,11 @@ namespace PlayerScripts
 
             foreach (IShootable shootable in _shootables)
             {
-                shootable.Init();
+                shootable.Init(_fireRate);
             }
 
             _explosionStarted = false;
-            _cameraShake = cameraShake;
-            
+
             GetToStartPosition();
         }
         
@@ -70,11 +80,13 @@ namespace PlayerScripts
         {
             Health = progress.lastState.playerHealth;
             OnHealthUpdate?.Invoke();
+            _playerUpgradeLevel = progress.lastState.playerUpgradeLevel;
         }
 
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.playerHealth = Health;
+            progress.lastState.playerUpgradeLevel = _playerUpgradeLevel;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -99,15 +111,30 @@ namespace PlayerScripts
             if (collision.CompareTag("Upgrade"))
             {
                 Upgrade();
-                Debug.Log("Upgrade collided with player");
             }
         }
-        
+
         public void Upgrade()
         {
-            // currentUpgradeLevel++;
-            // spriteRenderer.sprite = _playerUpgradeData.playerSprites[currentUpgradeLevel];
-            // Animator.runtimeAnimatorController = _playerUpgradeData.playerAnimatorControllers[currentUpgradeLevel];
+            int maxUpgrades = _playerUpgradeDataList.playerUpgrades.Length - 1;
+            if (_playerUpgradeLevel < maxUpgrades)
+            {
+                _playerUpgradeLevel++;
+            }
+            else
+            {
+                Debug.Log("No more upgrades available!");
+                return;
+            }
+
+            float newFireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
+
+            foreach (IShootable shootable in _shootables) 
+                shootable.Init(newFireRate);
+
+            Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
+
+            _saveLoadService.SaveProgress();
         }
     }
 }
