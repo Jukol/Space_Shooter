@@ -11,6 +11,7 @@ namespace PlayerScripts
         public float bulletSpeed;
         public Sprite playerSprite;
         public RuntimeAnimatorController playerAnimatorController;
+        public Transform[] sockets;
         public Sprite bulletSprite;
     }
 }

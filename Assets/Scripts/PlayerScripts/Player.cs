@@ -18,7 +18,8 @@ namespace PlayerScripts
 
         public SpriteRenderer spriteRenderer;
         [SerializeField] private GameObject megaExplosion;
-        
+        [SerializeField] private Transform[] socketPlaceholders;
+
         private PlayerUpgradeDataList _playerUpgradeDataList;
 
         private CameraShake _cameraShake;
@@ -48,14 +49,17 @@ namespace PlayerScripts
             float fireRate = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].fireRate;
             int bulletDamage = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletDamage;
             float bulletSpeed = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletSpeed;
+            Transform[] sockets = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].sockets;
 
             GetComponent<IMovable>().Init(currentScreen);
 
             _shootables = GetComponents<IShootable>();
 
-            foreach (IShootable shootable in _shootables)
+            for (int index = 0; index < socketPlaceholders.Length; index++)
             {
-                shootable.Init(fireRate, bulletDamage, bulletSpeed);
+                socketPlaceholders[index].localPosition = sockets[index].position;
+                IShootable shootable = _shootables[index];
+                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[index]);
             }
 
             _explosionStarted = false;
@@ -139,9 +143,14 @@ namespace PlayerScripts
             float newFireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
             int newDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
             float newSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
+            Transform[] newSockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
 
-            foreach (IShootable shootable in _shootables) 
-                shootable.Init(newFireRate, newDamage, newSpeed);
+            for (int index = 0; index < newSockets.Length; index++)
+            {
+                socketPlaceholders[index].position = newSockets[index].position;
+                IShootable shootable = _shootables[index];
+                shootable.Init(newFireRate, newDamage, newSpeed, newSockets[index]);
+            }
 
             Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
 

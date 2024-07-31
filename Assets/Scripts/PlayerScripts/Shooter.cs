@@ -14,43 +14,24 @@ namespace PlayerScripts
         private IAmmo _ammo;
 
         private WaitForSeconds _fireRateYield;
-        [Inject] private IInput _iInput;
         [Inject] private IPool _pool;
         private bool _shootStarted;
 
-
-        // private void Update()
-        // {
-        //     //_iInput.UserInput();
-        //     Shoot();
-        // }
-
-        public void Init(float fireRate, int damage, float speed)
+        public void Init(float fireRate, int damage, float speed, Transform newSocket)
         {
             muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);
             _pool.Upgrade(damage, speed);
+            socket = newSocket;
         }
 
         public void Shoot()
         {
-            // if (_iInput.IsFire && !_shootStarted)
-            // {
-            //     StartCoroutine(ContinuousShoot());
-            // }
-            // else if (!_iInput.IsFire && _shootStarted)
-            // {
-            //     StopAllCoroutines();
-            //     _shootStarted = false;
-            // }
-            
-            StartCoroutine(ContinuousShoot());
+           StartCoroutine(ContinuousShoot());
         }
 
         private IEnumerator ContinuousShoot()
         {
-            //_shootStarted = true;
-
             while (true)
             {
                 muzzleFlashParticles.Play();

@@ -37,10 +37,10 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 151090998354532067}
-  - {fileID: 151090998752038258}
   - {fileID: 151090998135981437}
   - {fileID: 151090996818533350}
+  - {fileID: 5472886568388861121}
+  - {fileID: 7889673783644023119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &151090997390460288
@@ -109,7 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 151090997390460288}
   megaExplosion: {fileID: 1682620552668852, guid: 00f24abfdf0d75142ad604932304d8c9, type: 3}
-  playerUpgradeDataList: {fileID: 11400000, guid: c0f06bff420944231ac2b09d3b3e3a9c, type: 2}
+  socketPlaceholders:
+  - {fileID: 5472886568388861121}
+  - {fileID: 7889673783644023119}
 --- !u!95 &151090997390460292
 Animator:
   serializedVersion: 5
@@ -434,10 +436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d302e738f93df41ba5eded8d15202d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socket: {fileID: 151090998354532067}
+  socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 151090998151215571}
-  fireRate: 0.1
 --- !u!114 &151090997390460296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,11 +451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d302e738f93df41ba5eded8d15202d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socket: {fileID: 151090998752038258}
+  socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 151090996833724232}
-  fireRate: 0.1
---- !u!1 &151090998354532092
+--- !u!1 &2507993050352708781
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -462,30 +462,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 151090998354532067}
+  - component: {fileID: 7889673783644023119}
   m_Layer: 0
-  m_Name: Left_Socket_Position
+  m_Name: Socket2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &151090998354532067
+--- !u!4 &7889673783644023119
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151090998354532092}
+  m_GameObject: {fileID: 2507993050352708781}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.645, y: 3.3, z: 0}
-  m_LocalScale: {x: 6.666666, y: 6.666666, z: 6.666666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 151090997390460295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &151090998752038259
+--- !u!1 &7313979230040476054
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,25 +493,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 151090998752038258}
+  - component: {fileID: 5472886568388861121}
   m_Layer: 0
-  m_Name: Right_Socket_Position
+  m_Name: Socket1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &151090998752038258
+--- !u!4 &5472886568388861121
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151090998752038259}
+  m_GameObject: {fileID: 7313979230040476054}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.645, y: 3.3, z: 0}
-  m_LocalScale: {x: 6.666666, y: 6.666666, z: 6.666666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 151090997390460295}

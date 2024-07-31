@@ -1,8 +1,10 @@
-﻿namespace Interfaces
+﻿using UnityEngine;
+
+namespace Interfaces
 {
     public interface IShootable
     {
-        public void Init(float fireRate, int damage, float speed);
+        public void Init(float fireRate, int damage, float speed, Transform socket);
         public void Shoot();
     }
 }
