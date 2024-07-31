@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using Ammo;
-using InputClasses;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -21,34 +19,37 @@ namespace PlayerScripts
         private bool _shootStarted;
 
 
-        private void Update()
-        {
-            _iInput.UserInput();
-            Shoot();
-        }
+        // private void Update()
+        // {
+        //     //_iInput.UserInput();
+        //     Shoot();
+        // }
 
-        public void Init(float fireRate)
+        public void Init(float fireRate, int damage, float speed)
         {
             muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);
+            _pool.Upgrade(damage, speed);
         }
 
         public void Shoot()
         {
-            if (_iInput.IsFire && !_shootStarted)
-            {
-                StartCoroutine(ContinuousShoot());
-            }
-            else if (!_iInput.IsFire && _shootStarted)
-            {
-                StopAllCoroutines();
-                _shootStarted = false;
-            }
+            // if (_iInput.IsFire && !_shootStarted)
+            // {
+            //     StartCoroutine(ContinuousShoot());
+            // }
+            // else if (!_iInput.IsFire && _shootStarted)
+            // {
+            //     StopAllCoroutines();
+            //     _shootStarted = false;
+            // }
+            
+            StartCoroutine(ContinuousShoot());
         }
 
         private IEnumerator ContinuousShoot()
         {
-            _shootStarted = true;
+            //_shootStarted = true;
 
             while (true)
             {

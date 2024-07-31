@@ -43,6 +43,7 @@ namespace UI
             gameObject.SetActive(false);
             spawnManager.Launch();
             player.gameObject.SetActive(true);
+            player.StartShooting();
         }
     }
 }

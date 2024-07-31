@@ -34,6 +34,31 @@ namespace Ammo
             Generate();
         }
 
+        public GameObject Request()
+        {
+            foreach (GameObject ammo in _ammoBatch)
+            {
+                if (NotAvailable(ammo) || AlreadyInHierarchy(ammo)) continue;
+                
+                MakeReady(ammo);
+
+                return ammo;
+            }
+            
+            return Add();
+        }
+        
+        public void Upgrade(int damage, float speed)
+        {
+            _damage = damage;
+            _speed = speed;
+
+            foreach (Transform bullet in _bulletContainer.transform)
+            {
+                bullet.GetComponent<Bullet>().Init(damage, speed);
+            }
+        }
+
         private void Generate()
         {
             for (int i = 0; i < _capacity; i++) 
@@ -47,20 +72,6 @@ namespace Ammo
             ammo.SetActive(false);
             _ammoBatch.Add(ammo);
             return ammo;
-        }
-
-        public GameObject Request()
-        {
-            foreach (GameObject ammo in _ammoBatch)
-            {
-                if (NotAvailable(ammo) || AlreadyInHierarchy(ammo)) continue;
-                
-                MakeReady(ammo);
-
-                return ammo;
-            }
-            
-            return Add();
         }
 
         private void MakeReady(GameObject ammo)

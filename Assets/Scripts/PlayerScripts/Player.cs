@@ -29,7 +29,6 @@ namespace PlayerScripts
         private CurrentScreen _currentScreen;
         
         private int _playerUpgradeLevel;
-        private float _fireRate;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
         {
@@ -45,8 +44,10 @@ namespace PlayerScripts
 
             GetComponent<SpriteRenderer>().sprite = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerSprite;
             Animator.runtimeAnimatorController = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerAnimatorController;
-            _fireRate = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].fireRate;
-
+            
+            float fireRate = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].fireRate;
+            int bulletDamage = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletDamage;
+            float bulletSpeed = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletSpeed;
 
             GetComponent<IMovable>().Init(currentScreen);
 
@@ -54,12 +55,20 @@ namespace PlayerScripts
 
             foreach (IShootable shootable in _shootables)
             {
-                shootable.Init(_fireRate);
+                shootable.Init(fireRate, bulletDamage, bulletSpeed);
             }
 
             _explosionStarted = false;
 
             GetToStartPosition();
+        }
+
+        public void StartShooting()
+        {
+            foreach (IShootable shootable in _shootables)
+            {
+                shootable.Shoot();
+            }
         }
         
         public void GetToStartPosition()
@@ -128,9 +137,11 @@ namespace PlayerScripts
             }
 
             float newFireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
+            int newDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
+            float newSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
 
             foreach (IShootable shootable in _shootables) 
-                shootable.Init(newFireRate);
+                shootable.Init(newFireRate, newDamage, newSpeed);
 
             Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
 
