@@ -57,12 +57,16 @@ namespace Ammo
 
         private async Task DamageAndDie(Collider2D collision)
         {
+            if (this == null) return;
+            
             IDamageable damageable = collision.GetComponent<IDamageable>();
 
             if (damageable != null)
             {
                 damageable.Damage(_damage);
                 await ExplosionFx(collision);
+                
+                if (this == null) return;
                 gameObject.SetActive(false);
             }
         }

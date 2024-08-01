@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 151090997390460288}
-  megaExplosion: {fileID: 1682620552668852, guid: 00f24abfdf0d75142ad604932304d8c9, type: 3}
+  megaExplosion: {fileID: 0}
   socketPlaceholders:
   - {fileID: 5472886568388861121}
   - {fileID: 7889673783644023119}

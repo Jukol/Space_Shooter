@@ -52,10 +52,6 @@ namespace Ammo
         
         public void Upgrade(int damage, float speed, Sprite sprite)
         {
-            _bulletContainer.Clean();
-            
-            Generate();
-            
             _damage = damage;
             _speed = speed;
 

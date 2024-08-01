@@ -12,7 +12,8 @@ namespace PlayerScripts
         public Sprite playerSprite;
         public RuntimeAnimatorController playerAnimatorController;
         public Transform[] sockets;
-        public ParticleSystem particleSystem;
+        public ParticleSystem myParticleSystem;
         public Sprite bulletSprite;
+        public GameObject explosion;
     }
 }

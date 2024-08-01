@@ -17,7 +17,6 @@ namespace PlayerScripts
         public float Height { get; private set; }
 
         public SpriteRenderer spriteRenderer;
-        [SerializeField] private GameObject megaExplosion;
         [SerializeField] private Transform[] socketPlaceholders;
 
         private PlayerUpgradeDataList _playerUpgradeDataList;
@@ -37,6 +36,7 @@ namespace PlayerScripts
         private Transform[] sockets;
         private ParticleSystem myParticleSystem;
         private Sprite sprite;
+        private GameObject explosion;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
         {
@@ -81,8 +81,9 @@ namespace PlayerScripts
             sockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
             spriteRenderer.sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerSprite;
             Animator.runtimeAnimatorController = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
-            myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].particleSystem;
+            myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].myParticleSystem;
             sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSprite;
+            explosion = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].explosion;
 
             for (int i = 0; i < socketPlaceholders.Length; i++)
             {
@@ -125,7 +126,7 @@ namespace PlayerScripts
                     if (!_explosionStarted)
                     {
                         _explosionStarted = true;
-                        Instantiate(megaExplosion, transform.position, Quaternion.identity);
+                        Instantiate(explosion, transform.position, Quaternion.identity);
                         SoundManager.Instance.PlayerExplosion();
                         spriteRenderer.enabled = false;
                         Destroy(gameObject, 2f);
