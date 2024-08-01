@@ -17,12 +17,22 @@ namespace PlayerScripts
         [Inject] private IPool _pool;
         private bool _shootStarted;
 
-        public void Init(float fireRate, int damage, float speed, Transform newSocket)
+        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem)
         {
-            muzzleFlashParticles.Stop();
             _fireRateYield = new WaitForSeconds(fireRate);
             _pool.Upgrade(damage, speed);
             socket = newSocket;
+
+            muzzleFlashParticles = myParticleSystem;
+            muzzleFlashParticles.Stop();
+
+            Transform muzzleTransform = myParticleSystem.transform;
+            muzzleTransform.position = socket.position;
+            
+            Vector2 currentRotation = muzzleTransform.eulerAngles;
+            currentRotation.x = 90;
+            muzzleTransform.eulerAngles = currentRotation;
+            muzzleTransform.localScale = new Vector2(2f, 2f);
         }
 
         public void Shoot()

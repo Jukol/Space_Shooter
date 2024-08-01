@@ -12,6 +12,7 @@ namespace PlayerScripts
         public Sprite playerSprite;
         public RuntimeAnimatorController playerAnimatorController;
         public Transform[] sockets;
+        public ParticleSystem particleSystem;
         public Sprite bulletSprite;
     }
 }
