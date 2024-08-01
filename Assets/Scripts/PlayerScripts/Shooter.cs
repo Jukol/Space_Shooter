@@ -17,10 +17,10 @@ namespace PlayerScripts
         [Inject] private IPool _pool;
         private bool _shootStarted;
 
-        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem)
+        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
         {
             _fireRateYield = new WaitForSeconds(fireRate);
-            _pool.Upgrade(damage, speed);
+            _pool.Upgrade(damage, speed, sprite);
             socket = newSocket;
 
             muzzleFlashParticles = myParticleSystem;

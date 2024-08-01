@@ -16,14 +16,16 @@ namespace Ammo
         
         [SerializeField] private float lifetime;
         [SerializeField] private GameObject explosion;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private bool _targetHit;
 
-        public void Init(int damage, float speed)
+        public void Init(int damage, float speed, Sprite sprite)
         {
             _damage = damage;
             _speed = speed;
             _targetHit = false;
+            spriteRenderer.sprite = sprite;
         }
 
         private void OnEnable()

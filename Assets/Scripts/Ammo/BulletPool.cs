@@ -18,6 +18,7 @@ namespace Ammo
 
         private int _damage;
         private float _speed;
+        private Sprite _sprite;
 
         public BulletPool(IGameFactory gameFactory, BulletContainer bulletContainer, IPersistentProgressService persistentProgressService, PlayerUpgradeDataList playerUpgradeDataList)
         {
@@ -30,6 +31,7 @@ namespace Ammo
             int upgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
             _damage = _playerUpgradeDataList.playerUpgrades[upgradeLevel].bulletDamage;
             _speed = _playerUpgradeDataList.playerUpgrades[upgradeLevel].bulletSpeed;
+            _sprite = _playerUpgradeDataList.playerUpgrades[upgradeLevel].bulletSprite;
             
             Generate();
         }
@@ -48,14 +50,18 @@ namespace Ammo
             return Add();
         }
         
-        public void Upgrade(int damage, float speed)
+        public void Upgrade(int damage, float speed, Sprite sprite)
         {
+            _bulletContainer.Clean();
+            
+            Generate();
+            
             _damage = damage;
             _speed = speed;
 
             foreach (Transform bullet in _bulletContainer.transform)
             {
-                bullet.GetComponent<Bullet>().Init(damage, speed);
+                bullet.GetComponent<Bullet>().Init(damage, speed, sprite);
             }
         }
 
@@ -67,7 +73,7 @@ namespace Ammo
 
         private GameObject Add()
         {
-            GameObject ammo = _gameFactory.CreateBullet(_damage, _speed);
+            GameObject ammo = _gameFactory.CreateBullet(_damage, _speed, _sprite);
             ammo.transform.SetParent(_bulletContainer.transform);
             ammo.SetActive(false);
             _ammoBatch.Add(ammo);

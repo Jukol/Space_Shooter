@@ -53,4 +53,4 @@ MonoBehaviour:
   - {fileID: 3806825308119990426, guid: 3bf7660a6ed875c43b21af61e4267df3, type: 3}
   - {fileID: 2566384838086944647, guid: 039630d34ab8b114c9115c8fbf8393c0, type: 3}
   particleSystem: {fileID: 19888426, guid: 77534620571a96046b1582909ca7d77a, type: 3}
-  bulletSprite: {fileID: 0}
+  bulletSprite: {fileID: 21300000, guid: 7f26421ee874ae344850c9d1dc034aec, type: 3}

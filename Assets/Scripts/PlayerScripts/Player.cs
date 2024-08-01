@@ -36,6 +36,7 @@ namespace PlayerScripts
         private float bulletSpeed;
         private Transform[] sockets;
         private ParticleSystem myParticleSystem;
+        private Sprite sprite;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
         {
@@ -81,12 +82,13 @@ namespace PlayerScripts
             spriteRenderer.sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerSprite;
             Animator.runtimeAnimatorController = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
             myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].particleSystem;
+            sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSprite;
 
             for (int i = 0; i < socketPlaceholders.Length; i++)
             {
                 socketPlaceholders[i].localPosition = sockets[i].position;
                 IShootable shootable = _shootables[i];
-                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem);
+                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem, sprite);
             }
         }
 

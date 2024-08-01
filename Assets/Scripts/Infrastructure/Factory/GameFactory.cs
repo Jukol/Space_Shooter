@@ -77,10 +77,10 @@ namespace Infrastructure.Factory
             InstantiateRegisteredHud(_signalBus, player, progressService, spawnManager);
         }
 
-        public GameObject CreateBullet(int damage, float speed)
+        public GameObject CreateBullet(int damage, float speed, Sprite sprite)
         {
             GameObject bullet = _assets.Instantiate(AssetPaths.BulletPath);
-            bullet.GetComponent<Bullet>().Init(damage, speed);
+            bullet.GetComponent<Bullet>().Init(damage, speed, sprite);
             return bullet;
         }
         
