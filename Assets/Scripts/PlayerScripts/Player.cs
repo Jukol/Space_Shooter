@@ -31,6 +31,11 @@ namespace PlayerScripts
         
         private int _playerUpgradeLevel;
 
+        private float fireRate;
+        private int bulletDamage;
+        private float bulletSpeed;
+        private Transform[] sockets;
+
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
         {
             _cameraShake = cameraShake;
@@ -42,51 +47,15 @@ namespace PlayerScripts
             Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
 
             Animator = GetComponent<Animator>();
-
-            GetComponent<SpriteRenderer>().sprite = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerSprite;
-            Animator.runtimeAnimatorController = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].playerAnimatorController;
-            
-            float fireRate = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].fireRate;
-            int bulletDamage = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletDamage;
-            float bulletSpeed = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].bulletSpeed;
-            Transform[] sockets = playerUpgradeDataList.playerUpgrades[playerUpgradeLevel].sockets;
-
-            GetComponent<IMovable>().Init(currentScreen);
-
             _shootables = GetComponents<IShootable>();
 
-            for (int index = 0; index < socketPlaceholders.Length; index++)
-            {
-                socketPlaceholders[index].localPosition = sockets[index].position;
-                IShootable shootable = _shootables[index];
-                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[index]);
-            }
+            GetDataFromUpgrade();
+
+            GetComponent<IMovable>().Init(currentScreen);
 
             _explosionStarted = false;
 
             GetToStartPosition();
-        }
-
-        public void StartShooting()
-        {
-            foreach (IShootable shootable in _shootables)
-            {
-                shootable.Shoot();
-            }
-        }
-        
-        public void GetToStartPosition()
-        {
-            ScreenBounds bounds = _currentScreen.GetBoundsForObject(this);
-            transform.position = new Vector3(0, bounds.Bottom, 0);
-        }
-
-        public void Damage(int amount)
-        {
-            Health -= amount;
-            StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
-            _saveLoadService.SaveProgress();
-            OnHealthUpdate?.Invoke();
         }
 
         public void LoadProgress(Progress progress)
@@ -100,6 +69,46 @@ namespace PlayerScripts
         {
             progress.lastState.playerHealth = Health;
             progress.lastState.playerUpgradeLevel = _playerUpgradeLevel;
+        }
+
+        private void GetDataFromUpgrade()
+        {
+
+            fireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
+            bulletDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
+            bulletSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
+            sockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
+            spriteRenderer.sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerSprite;
+            Animator.runtimeAnimatorController = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
+
+            for (int i = 0; i < socketPlaceholders.Length; i++)
+            {
+                socketPlaceholders[i].localPosition = sockets[i].position;
+                IShootable shootable = _shootables[i];
+                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i]);
+            }
+        }
+
+        public void StartShooting()
+        {
+            foreach (IShootable shootable in _shootables)
+            {
+                shootable.Shoot();
+            }
+        }
+
+        public void GetToStartPosition()
+        {
+            ScreenBounds bounds = _currentScreen.GetBoundsForObject(this);
+            transform.position = new Vector3(0, bounds.Bottom, 0);
+        }
+
+        public void Damage(int amount)
+        {
+            Health -= amount;
+            StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
+            _saveLoadService.SaveProgress();
+            OnHealthUpdate?.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -140,17 +149,7 @@ namespace PlayerScripts
                 return;
             }
 
-            float newFireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
-            int newDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
-            float newSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
-            Transform[] newSockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
-
-            for (int index = 0; index < newSockets.Length; index++)
-            {
-                socketPlaceholders[index].position = newSockets[index].position;
-                IShootable shootable = _shootables[index];
-                shootable.Init(newFireRate, newDamage, newSpeed, newSockets[index]);
-            }
+            GetDataFromUpgrade();
 
             Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
 
