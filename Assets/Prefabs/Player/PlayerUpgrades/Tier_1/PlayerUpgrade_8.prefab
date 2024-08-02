@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.1
   bulletDamage: 2
-  bulletSpeed: 7
+  bulletSpeed: 6
   playerSprite: {fileID: 21300000, guid: 91b8f835531a1d542882f502dbe3f00e, type: 3}
   playerAnimatorController: {fileID: 9100000, guid: 3ab850973ed1fd047b6949d6f209a678, type: 2}
   sockets:
