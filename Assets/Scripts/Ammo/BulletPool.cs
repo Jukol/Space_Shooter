@@ -52,6 +52,11 @@ namespace Ammo
         
         public void Upgrade(int damage, float speed, Sprite sprite)
         {
+            //clean only before every fifth upgrade
+            var upgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
+            
+            if (upgradeLevel % 4 == 0 && upgradeLevel != 0) _bulletContainer.Clean();
+            
             _damage = damage;
             _speed = speed;
 

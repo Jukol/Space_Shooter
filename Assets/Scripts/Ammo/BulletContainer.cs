@@ -11,7 +11,7 @@ namespace Ammo
         {
             foreach (Transform bullet in transform)
             {
-                Destroy(bullet.gameObject);
+                bullet.gameObject.SetActive(false);
             }
         }
 
