@@ -78,14 +78,17 @@ namespace PlayerScripts
             fireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
             bulletDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
             bulletSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
+
+            sockets = null;
             sockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
+            
             spriteRenderer.sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerSprite;
             Animator.runtimeAnimatorController = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
             myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].myParticleSystem;
             sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSprite;
             explosion = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].explosion;
 
-            for (int i = 0; i < socketPlaceholders.Length; i++)
+            for (int i = 0; i < sockets.Length; i++)
             {
                 socketPlaceholders[i].localPosition = sockets[i].position;
                 IShootable shootable = _shootables[i];
@@ -142,6 +145,11 @@ namespace PlayerScripts
 
         public void Upgrade()
         {
+            foreach (IShootable shootable in _shootables)
+            {
+                shootable.StopShooting();
+            }
+            
             int maxUpgrades = _playerUpgradeDataList.playerUpgrades.Length - 1;
             if (_playerUpgradeLevel < maxUpgrades)
             {
@@ -150,10 +158,12 @@ namespace PlayerScripts
             else
             {
                 Debug.Log("No more upgrades available!");
+                StartShooting();
                 return;
             }
 
             GetDataFromUpgrade();
+            StartShooting();
 
             Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
 

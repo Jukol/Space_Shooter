@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2454331808858012063}
   - component: {fileID: 321211291761706779}
   m_Layer: 0
-  m_Name: PlayerUpgrade_3
+  m_Name: PlayerUpgrade_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,14 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df66c714b011428e8e7dcef18cb8200a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.2
-  bulletDamage: 1
-  bulletSpeed: 5
-  playerSprite: {fileID: 21300000, guid: 4c042d2e1f1d45243bcb7f246f9189e1, type: 3}
-  playerAnimatorController: {fileID: 9100000, guid: a6e994656d0a8e84c92acb0022315538, type: 2}
+  fireRate: 0.5
+  bulletDamage: 10
+  bulletSpeed: 10
+  playerSprite: {fileID: 21300000, guid: 254e4b76fd7f02642ad0ab72be28dd39, type: 3}
+  playerAnimatorController: {fileID: 9100000, guid: f2f56e66fc5e5ab478171811c4758f43, type: 2}
   sockets:
-  - {fileID: 8882663279985628822, guid: f837559842bb6eb40a6d48ddec703315, type: 3}
-  - {fileID: 5299941166058468721, guid: fb5d5c7ac5c10a943a6534f292a758ff, type: 3}
-  myParticleSystem: {fileID: 19888426, guid: c1b4e472457466749be57ddf4d7d235b, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 62bd8d8e9a0c2fe4abbc4db1b2b7dfcd, type: 3}
-  explosion: {fileID: 1682620552668852, guid: aa6d2c903b8524d4f9adf105e2532929, type: 3}
+  - {fileID: 7089979061653241376, guid: 8d711a234ceb05240837c094d2398dd8, type: 3}
+  - {fileID: 2168232074725701962, guid: d09a6f03637b61b4ca0f81279119b4d5, type: 3}
+  - {fileID: 2019093560912784028, guid: d7453ccae98bcd947b385c175bcae4bb, type: 3}
+  myParticleSystem: {fileID: 19888426, guid: bcd34d169e9abd34bb3484f9e3ddf57c, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 1c98389a3c9cf8842b13b460716f13ec, type: 3}
+  explosion: {fileID: 3835102155167036925, guid: 9585ae8bcfbd59a4680884765728b8f7, type: 3}

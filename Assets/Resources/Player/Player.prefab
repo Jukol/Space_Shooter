@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 151090997390460298}
   - component: {fileID: 151090997390460297}
   - component: {fileID: 151090997390460296}
+  - component: {fileID: 8984416159041221763}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -39,6 +40,7 @@ Transform:
   m_Children:
   - {fileID: 5472886568388861121}
   - {fileID: 7889673783644023119}
+  - {fileID: 3265034712526547246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &151090997390460288
@@ -82,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: a07e8ff6923fadd43b65548247da7d38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 254e4b76fd7f02642ad0ab72be28dd39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,6 +111,7 @@ MonoBehaviour:
   socketPlaceholders:
   - {fileID: 5472886568388861121}
   - {fileID: 7889673783644023119}
+  - {fileID: 3265034712526547246}
 --- !u!95 &151090997390460292
 Animator:
   serializedVersion: 5
@@ -262,7 +265,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.9895835, y: 7.0208335}
+    oldSize: {x: 4.1770835, y: 8.822917}
     newSize: {x: 10.65, y: 8.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -436,6 +439,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  _initiated: 0
 --- !u!114 &151090997390460296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +455,23 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  _initiated: 0
+--- !u!114 &8984416159041221763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151090997390460289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d302e738f93df41ba5eded8d15202d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
+  audioSource: {fileID: 151090997390460299}
+  muzzleFlashParticles: {fileID: 0}
+  _initiated: 0
 --- !u!1 &2507993050352708781
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +497,38 @@ Transform:
   m_GameObject: {fileID: 2507993050352708781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: 3.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 151090997390460295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4075588510164679783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3265034712526547246}
+  m_Layer: 0
+  m_Name: Socket3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3265034712526547246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075588510164679783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -507,7 +559,7 @@ Transform:
   m_GameObject: {fileID: 7313979230040476054}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: 3.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

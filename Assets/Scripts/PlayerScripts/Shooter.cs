@@ -16,6 +16,7 @@ namespace PlayerScripts
         private WaitForSeconds _fireRateYield;
         [Inject] private IPool _pool;
         private bool _shootStarted;
+        [SerializeField] private bool _initiated = false;
 
         public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
         {
@@ -33,11 +34,21 @@ namespace PlayerScripts
             currentRotation.x = 90;
             muzzleTransform.eulerAngles = currentRotation;
             muzzleTransform.localScale = new Vector2(2f, 2f);
+            
+            _initiated = true;
         }
 
         public void Shoot()
         {
-           StartCoroutine(ContinuousShoot());
+            if (_initiated)
+            {
+                StartCoroutine(ContinuousShoot());
+            }
+        }
+        
+        public void StopShooting()
+        {
+            StopAllCoroutines();
         }
 
         private IEnumerator ContinuousShoot()
