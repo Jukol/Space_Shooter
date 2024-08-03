@@ -15,5 +15,6 @@ namespace PlayerScripts
         public ParticleSystem myParticleSystem;
         public Sprite bulletSprite;
         public GameObject explosion;
+        public AudioClip shootSound;
     }
 }

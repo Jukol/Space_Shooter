@@ -18,6 +18,7 @@ namespace PlayerScripts
 
         public SpriteRenderer spriteRenderer;
         [SerializeField] private Transform[] socketPlaceholders;
+        [SerializeField] private AudioSource audioSource;
 
         private PlayerUpgradeDataList _playerUpgradeDataList;
 
@@ -27,7 +28,7 @@ namespace PlayerScripts
         private IShootable[] _shootables;
         [Inject] private ISaveLoadService _saveLoadService;
         private CurrentScreen _currentScreen;
-        
+
         private int _playerUpgradeLevel;
 
         private float fireRate;
@@ -87,6 +88,7 @@ namespace PlayerScripts
             myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].myParticleSystem;
             sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSprite;
             explosion = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].explosion;
+            audioSource.clip = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].shootSound;
 
             for (int i = 0; i < sockets.Length; i++)
             {
