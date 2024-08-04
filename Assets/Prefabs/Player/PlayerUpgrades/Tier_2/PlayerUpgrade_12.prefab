@@ -55,3 +55,4 @@ MonoBehaviour:
   myParticleSystem: {fileID: 19888426, guid: c67843cb2f76c284391036d5fa61716d, type: 3}
   bulletSprite: {fileID: 21300000, guid: 3a28b716cefce0840be301af4e8a2717, type: 3}
   explosion: {fileID: 3835102155167036925, guid: a7d7a4d841e373846ab124c69e290429, type: 3}
+  shootSound: {fileID: 8300000, guid: d95ca33b57f019e4a9d25fac9680d9e8, type: 3}
