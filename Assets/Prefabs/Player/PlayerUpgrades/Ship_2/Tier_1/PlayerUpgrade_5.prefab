@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1818008976223774509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2454331808858012063}
+  - component: {fileID: 321211291761706779}
+  m_Layer: 0
+  m_Name: PlayerUpgrade_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2454331808858012063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818008976223774509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &321211291761706779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818008976223774509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df66c714b011428e8e7dcef18cb8200a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.4
+  bulletDamage: 2
+  bulletSpeed: 6
+  playerSprite: {fileID: 21300000, guid: 88c729af340582e4cba735cf2cf029ad, type: 3}
+  playerAnimatorController: {fileID: 9100000, guid: 97cecade812a51945ace883419d838f4, type: 2}
+  sockets:
+  - {fileID: 3806825308119990426, guid: 3bf7660a6ed875c43b21af61e4267df3, type: 3}
+  - {fileID: 2566384838086944647, guid: 039630d34ab8b114c9115c8fbf8393c0, type: 3}
+  myParticleSystem: {fileID: 19888426, guid: 77534620571a96046b1582909ca7d77a, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 7f26421ee874ae344850c9d1dc034aec, type: 3}
+  explosion: {fileID: 3835102155167036925, guid: 1b6a3c89550cbf44495cd3bf527b9cda, type: 3}
+  shootSound: {fileID: 8300000, guid: 398fe418a062b0e4f944cd452cab8575, type: 3}
