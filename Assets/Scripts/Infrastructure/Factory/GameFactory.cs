@@ -118,7 +118,8 @@ namespace Infrastructure.Factory
             Register(player);
             var cameraShake = _camera.GetComponent<CameraShake>();
             int playerUpgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
-            player.Init(cameraShake, _currentScreen, _gameInitilizer.PlayerUpgradeDataList, playerUpgradeLevel);
+            int ship = _progressService.Progress.lastState.playerShip;
+            player.Init(cameraShake, _currentScreen, _gameInitilizer.PlayerUpgradeDataList, ship, playerUpgradeLevel);
             player.gameObject.SetActive(false);
             return player;
         }

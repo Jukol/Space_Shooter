@@ -29,6 +29,7 @@ namespace PlayerScripts
         [Inject] private ISaveLoadService _saveLoadService;
         private CurrentScreen _currentScreen;
 
+        private int _ship;
         private int _playerUpgradeLevel;
 
         private float fireRate;
@@ -39,11 +40,12 @@ namespace PlayerScripts
         private Sprite sprite;
         private GameObject explosion;
 
-        public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerUpgradeLevel)
+        public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerShip, int playerUpgradeLevel)
         {
             _cameraShake = cameraShake;
             _currentScreen = currentScreen;
             _playerUpgradeDataList = playerUpgradeDataList;
+            _ship = playerShip;
             _playerUpgradeLevel = playerUpgradeLevel;
             
             Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
@@ -76,19 +78,19 @@ namespace PlayerScripts
 
         private void GetDataFromUpgrade()
         {
-            fireRate = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].fireRate;
-            bulletDamage = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletDamage;
-            bulletSpeed = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSpeed;
+            fireRate = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].fireRate;
+            bulletDamage = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].bulletDamage;
+            bulletSpeed = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].bulletSpeed;
 
             sockets = null;
-            sockets = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].sockets;
+            sockets = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].sockets;
             
-            spriteRenderer.sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerSprite;
-            Animator.runtimeAnimatorController = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
-            myParticleSystem = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].myParticleSystem;
-            sprite = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].bulletSprite;
-            explosion = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].explosion;
-            audioSource.clip = _playerUpgradeDataList.playerUpgrades[_playerUpgradeLevel].shootSound;
+            spriteRenderer.sprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].playerSprite;
+            Animator.runtimeAnimatorController = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
+            myParticleSystem = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].myParticleSystem;
+            sprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].bulletSprite;
+            explosion = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].explosion;
+            audioSource.clip = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].shootSound;
 
             for (int i = 0; i < sockets.Length; i++)
             {
@@ -152,7 +154,7 @@ namespace PlayerScripts
                 shootable.StopShooting();
             }
             
-            int maxUpgrades = _playerUpgradeDataList.playerUpgrades.Length - 1;
+            int maxUpgrades = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades.Length - 1;
             if (_playerUpgradeLevel < maxUpgrades)
             {
                 _playerUpgradeLevel++;

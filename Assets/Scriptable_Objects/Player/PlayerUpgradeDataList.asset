@@ -12,29 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41ebf42602466084b42d9221c33be1, type: 3}
   m_Name: PlayerUpgradeDataList
   m_EditorClassIdentifier: 
-  playerUpgrades:
-  - {fileID: 321211291761706779, guid: 947041f1fe9544bfd9ad789a37ac910d, type: 3}
-  - {fileID: 321211291761706779, guid: 68e68a4bb203d204b9fbf59d5bd14923, type: 3}
-  - {fileID: 321211291761706779, guid: a56e82f242417a24e8ae1b711cebcd24, type: 3}
-  - {fileID: 321211291761706779, guid: ed643c185db8017409b7d311608cc2a5, type: 3}
-  - {fileID: 321211291761706779, guid: 32a68a687e43bc84fa745455319c7eb1, type: 3}
-  - {fileID: 321211291761706779, guid: b85bd0cef4d2a4ff38b756ecb9511112, type: 3}
-  - {fileID: 321211291761706779, guid: 46716dc37f4f44a049eb2dbbf51135dd, type: 3}
-  - {fileID: 321211291761706779, guid: d1b5e7e5819154a05a5665978ce108cd, type: 3}
-  - {fileID: 321211291761706779, guid: 4bd8ed61cfbe24e19ad31e10df20c7d5, type: 3}
-  - {fileID: 321211291761706779, guid: d4e37fa5e1b804b74a032b9ffaef53e5, type: 3}
-  - {fileID: 321211291761706779, guid: a5468e09875d17445bf7e2a5bdc287b8, type: 3}
-  - {fileID: 321211291761706779, guid: e20aad657ea2ad24cb763ee0c7c6b5db, type: 3}
-  - {fileID: 321211291761706779, guid: b237311993e6de142a0da707e8f9ae27, type: 3}
-  - {fileID: 321211291761706779, guid: b64d95277e88222489666ddaad94a4dd, type: 3}
-  - {fileID: 321211291761706779, guid: a99d699fb3934334ea5f02e4c398fe2c, type: 3}
-  - {fileID: 321211291761706779, guid: 366120fb444b159469a926546840ba99, type: 3}
-  - {fileID: 321211291761706779, guid: 999922e323e04774e872fa050bcce8d2, type: 3}
-  - {fileID: 321211291761706779, guid: ff17e88248577214696dfc034e4d2ee4, type: 3}
-  - {fileID: 321211291761706779, guid: e36c42703768ad343b851859ca707577, type: 3}
-  - {fileID: 321211291761706779, guid: b745cfa023cc9a6409fa07aeb1c44c33, type: 3}
-  - {fileID: 321211291761706779, guid: 1fcd8eeca8268ad4ca5d2df43b729e7b, type: 3}
-  - {fileID: 321211291761706779, guid: 413d63ed36891fc4f91b94cbb06af351, type: 3}
-  - {fileID: 321211291761706779, guid: 96c6d23a3a055da43864ca4da4b37dbe, type: 3}
-  - {fileID: 321211291761706779, guid: c091ee0c076585c46955a397de10d8bd, type: 3}
-  - {fileID: 321211291761706779, guid: fb0dce7d54c4cf34e8548ac47a685713, type: 3}

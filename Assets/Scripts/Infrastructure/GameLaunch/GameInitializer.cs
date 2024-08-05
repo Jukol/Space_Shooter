@@ -20,5 +20,6 @@ namespace Infrastructure.GameLaunch
         [Inject] public SignalBus SignalBus;
         [Inject] public StartMenuController StartMenuController;
         [Inject] public PlayerUpgradeDataList PlayerUpgradeDataList;
+        [Inject (Id = "PlayerShip")] public int PlayerShip;
     }
 }

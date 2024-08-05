@@ -11,6 +11,7 @@ namespace Data
         public string levelToLoad;
         public int waveToLoad;
         public int playerHealth;
+        public int playerShip;
         public int spawnManagerIndex;
         public SpawnWrapperHolder spawnWrapperHolder;
         public int killCount;
@@ -22,6 +23,7 @@ namespace Data
             SpawnWrapperHolder spawnWrapperHolder,
             int spawnManagerIndex,
             int playerHealth,
+            int playerShip,
             int playerUpgradeLevel)
         {
             levelToLoad = level;
@@ -31,6 +33,7 @@ namespace Data
             killCount = 0;
             this.playerHealth = playerHealth;
             this.playerUpgradeLevel = playerUpgradeLevel;
+            this.playerShip = playerShip;
         }
     }
 }

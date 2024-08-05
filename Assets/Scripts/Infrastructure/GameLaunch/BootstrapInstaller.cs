@@ -28,6 +28,7 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialSpawnManagerIndex;
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
+        [SerializeField] private int playerShip;
         [SerializeField] private int initialPlayerUpgradeLevel;
         [SerializeField] private StartMenuController startMenuController;
         [SerializeField] private PlayerUpgradeDataList playerUpgradeDataList;
@@ -40,6 +41,7 @@ namespace Infrastructure.GameLaunch
             Container.Bind<PlayerUpgradeDataList>().FromInstance(playerUpgradeDataList).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
+            Container.BindInstance(playerShip).WithId("PlayerShip");
             Container.BindInstance(initialPlayerUpgradeLevel).WithId("InitialPlayerUpgradeLevel");
             Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();
             Container.Bind<SpawnWrapperHolder>().AsSingle();
