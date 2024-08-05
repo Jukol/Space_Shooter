@@ -68,12 +68,14 @@ namespace PlayerScripts
             Health = progress.lastState.playerHealth;
             OnHealthUpdate?.Invoke();
             _playerUpgradeLevel = progress.lastState.playerUpgradeLevel;
+            _ship = progress.lastState.playerShip;
         }
 
         public void UpdateProgress(Progress progress)
         {
             progress.lastState.playerHealth = Health;
             progress.lastState.playerUpgradeLevel = _playerUpgradeLevel;
+            progress.lastState.playerShip = _ship;
         }
 
         private void GetDataFromUpgrade()
@@ -171,6 +173,15 @@ namespace PlayerScripts
 
             Debug.Log($"Upgraded to level {_playerUpgradeLevel}");
 
+            _saveLoadService.SaveProgress();
+        }
+        
+        public void ChangeShip()
+        {
+            _ship++;
+            _playerUpgradeLevel = 0;
+            GetDataFromUpgrade();
+            
             _saveLoadService.SaveProgress();
         }
     }

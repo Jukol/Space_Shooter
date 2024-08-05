@@ -50,8 +50,8 @@ MonoBehaviour:
   playerSprite: {fileID: 21300000, guid: 88c729af340582e4cba735cf2cf029ad, type: 3}
   playerAnimatorController: {fileID: 9100000, guid: 97cecade812a51945ace883419d838f4, type: 2}
   sockets:
-  - {fileID: 3806825308119990426, guid: 3bf7660a6ed875c43b21af61e4267df3, type: 3}
-  - {fileID: 2566384838086944647, guid: 039630d34ab8b114c9115c8fbf8393c0, type: 3}
+  - {fileID: 7254171085322509289, guid: 61fe2ae803a45ba49ad27f80f4069ba2, type: 3}
+  - {fileID: 6649576548359371698, guid: 82a59628827b88e449b81ea1c094e9c1, type: 3}
   myParticleSystem: {fileID: 19888426, guid: 77534620571a96046b1582909ca7d77a, type: 3}
   bulletSprite: {fileID: 21300000, guid: 7f26421ee874ae344850c9d1dc034aec, type: 3}
   explosion: {fileID: 3835102155167036925, guid: 1b6a3c89550cbf44495cd3bf527b9cda, type: 3}

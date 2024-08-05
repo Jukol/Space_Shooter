@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 151090997390460297}
   - component: {fileID: 151090997390460296}
   - component: {fileID: 8984416159041221763}
+  - component: {fileID: 7053773483542048534}
+  - component: {fileID: 9209852105684313616}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -114,6 +116,8 @@ MonoBehaviour:
   - {fileID: 5472886568388861121}
   - {fileID: 7889673783644023119}
   - {fileID: 3265034712526547246}
+  - {fileID: 7870586954410688670}
+  - {fileID: 948917329503875933}
   audioSource: {fileID: 151090997390460299}
 --- !u!95 &151090997390460292
 Animator:
@@ -268,7 +272,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.36, y: 16.5}
+    oldSize: {x: 5.9166665, y: 8.59375}
     newSize: {x: 10.65, y: 8.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -460,6 +464,38 @@ MonoBehaviour:
   muzzleFlashParticles: {fileID: 0}
   _initiated: 0
 --- !u!114 &8984416159041221763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151090997390460289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d302e738f93df41ba5eded8d15202d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
+  audioSource: {fileID: 151090997390460299}
+  muzzleFlashParticles: {fileID: 0}
+  _initiated: 0
+--- !u!114 &7053773483542048534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151090997390460289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d302e738f93df41ba5eded8d15202d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 0}
+  audioSource: {fileID: 151090997390460299}
+  muzzleFlashParticles: {fileID: 0}
+  _initiated: 0
+--- !u!114 &9209852105684313616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

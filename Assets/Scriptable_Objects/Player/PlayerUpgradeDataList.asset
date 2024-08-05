@@ -12,3 +12,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a41ebf42602466084b42d9221c33be1, type: 3}
   m_Name: PlayerUpgradeDataList
   m_EditorClassIdentifier: 
+  shipUpgrades:
+  - playerUpgrades:
+    - {fileID: 321211291761706779, guid: 947041f1fe9544bfd9ad789a37ac910d, type: 3}
+    - {fileID: 321211291761706779, guid: 68e68a4bb203d204b9fbf59d5bd14923, type: 3}
+    - {fileID: 321211291761706779, guid: a56e82f242417a24e8ae1b711cebcd24, type: 3}
+    - {fileID: 321211291761706779, guid: ed643c185db8017409b7d311608cc2a5, type: 3}
+    - {fileID: 321211291761706779, guid: 32a68a687e43bc84fa745455319c7eb1, type: 3}
+    - {fileID: 321211291761706779, guid: b85bd0cef4d2a4ff38b756ecb9511112, type: 3}
+    - {fileID: 321211291761706779, guid: 46716dc37f4f44a049eb2dbbf51135dd, type: 3}
+    - {fileID: 321211291761706779, guid: d1b5e7e5819154a05a5665978ce108cd, type: 3}
+    - {fileID: 321211291761706779, guid: 4bd8ed61cfbe24e19ad31e10df20c7d5, type: 3}
+    - {fileID: 321211291761706779, guid: d4e37fa5e1b804b74a032b9ffaef53e5, type: 3}
+    - {fileID: 321211291761706779, guid: a5468e09875d17445bf7e2a5bdc287b8, type: 3}
+    - {fileID: 321211291761706779, guid: e20aad657ea2ad24cb763ee0c7c6b5db, type: 3}
+    - {fileID: 321211291761706779, guid: b237311993e6de142a0da707e8f9ae27, type: 3}
+    - {fileID: 321211291761706779, guid: b64d95277e88222489666ddaad94a4dd, type: 3}
+    - {fileID: 321211291761706779, guid: a99d699fb3934334ea5f02e4c398fe2c, type: 3}
+    - {fileID: 321211291761706779, guid: 366120fb444b159469a926546840ba99, type: 3}
+    - {fileID: 321211291761706779, guid: 999922e323e04774e872fa050bcce8d2, type: 3}
+    - {fileID: 321211291761706779, guid: ff17e88248577214696dfc034e4d2ee4, type: 3}
+    - {fileID: 321211291761706779, guid: e36c42703768ad343b851859ca707577, type: 3}
+    - {fileID: 321211291761706779, guid: b745cfa023cc9a6409fa07aeb1c44c33, type: 3}
+    - {fileID: 321211291761706779, guid: 1fcd8eeca8268ad4ca5d2df43b729e7b, type: 3}
+    - {fileID: 321211291761706779, guid: 413d63ed36891fc4f91b94cbb06af351, type: 3}
+    - {fileID: 321211291761706779, guid: 96c6d23a3a055da43864ca4da4b37dbe, type: 3}
+    - {fileID: 321211291761706779, guid: c091ee0c076585c46955a397de10d8bd, type: 3}
+    - {fileID: 321211291761706779, guid: fb0dce7d54c4cf34e8548ac47a685713, type: 3}
+  - playerUpgrades:
+    - {fileID: 321211291761706779, guid: 75c4970898cf57c44806ef2c74fcbffd, type: 3}
+    - {fileID: 321211291761706779, guid: a7a06afab10d10c4da1cc56855b3c11e, type: 3}
+    - {fileID: 321211291761706779, guid: 675ca971c08daca4a888fff3881572cb, type: 3}
+    - {fileID: 321211291761706779, guid: 79265af352eabb74b8227003b2adf104, type: 3}
+    - {fileID: 321211291761706779, guid: 8c51b4310b747054cafd9ba87216b29f, type: 3}
+    - {fileID: 321211291761706779, guid: 10528da949d4eff47a83c48eff29480b, type: 3}
+    - {fileID: 321211291761706779, guid: 8fd993a3613ce094aa03ff3d96412030, type: 3}
+    - {fileID: 321211291761706779, guid: 25d4562c6cbdba348b16f17128967213, type: 3}
+    - {fileID: 321211291761706779, guid: 613abe1d92ba22741bd2b253840e8d11, type: 3}
+    - {fileID: 321211291761706779, guid: 8245d466da8594141b03758872b0a5c8, type: 3}
+    - {fileID: 321211291761706779, guid: 1c264808c7516fa46b9ead7a6dcbe1a6, type: 3}
+    - {fileID: 321211291761706779, guid: 0bdea6331b439514aab1956cab733b16, type: 3}
+    - {fileID: 321211291761706779, guid: 028d5557ba12fe84abd72d70a59be9ea, type: 3}
+    - {fileID: 321211291761706779, guid: 8f30cc1e724f3d641a006d925db5203f, type: 3}
+    - {fileID: 321211291761706779, guid: b6b764248e1a3f540a1953690696aaef, type: 3}
+    - {fileID: 321211291761706779, guid: fc269acb347c99c4f8b65a252c2bd60f, type: 3}
+    - {fileID: 321211291761706779, guid: 3c22adc9b2aa6e1449156c5b2c4348f9, type: 3}
+    - {fileID: 321211291761706779, guid: e5b7c6c7d32afd344b45b479d04562e1, type: 3}
+    - {fileID: 321211291761706779, guid: 1cfbe4530f62d004790eb4581e2360c1, type: 3}
+    - {fileID: 321211291761706779, guid: 0c40955c9bbe8364b8f0ddf6e399734c, type: 3}
+    - {fileID: 321211291761706779, guid: fd9ce28303bf38e4fa992dd811a79598, type: 3}
+    - {fileID: 321211291761706779, guid: c5109453dbf7e6f4d84946285bdbe6a3, type: 3}
+    - {fileID: 321211291761706779, guid: f97a746860e23e542a9e01fc4d86254c, type: 3}
+    - {fileID: 321211291761706779, guid: 55405666db2bee4479195dc37871feaa, type: 3}
+    - {fileID: 321211291761706779, guid: 24bb183499ad9174bb9e611f2d36507f, type: 3}
+  - playerUpgrades:
+    - {fileID: 321211291761706779, guid: ee0d8464eab1754458e4f454ee2ace5a, type: 3}
+    - {fileID: 321211291761706779, guid: 056f2ff8c8e219a4898062c33c7f92ad, type: 3}
+    - {fileID: 321211291761706779, guid: 1a093fe00e333094ca020e2232c4ab6d, type: 3}
+    - {fileID: 321211291761706779, guid: 71b4d927360481a499b37698e5e85836, type: 3}
+    - {fileID: 321211291761706779, guid: 3826e01ada9731f46bae1ab03455978b, type: 3}
+    - {fileID: 321211291761706779, guid: 1c25c1c0e23e6504aa529d57ac2f9075, type: 3}
+    - {fileID: 321211291761706779, guid: bb2029bc41541464f9ed3b39d1c4605e, type: 3}
+    - {fileID: 321211291761706779, guid: 9bf0b48db1c72b14f8eecc1ed18bb7a5, type: 3}
+    - {fileID: 321211291761706779, guid: fc43b72a489a4284ea81b6b21fdb8414, type: 3}
+    - {fileID: 321211291761706779, guid: ff117aa694fd53547b1adac78dda04ad, type: 3}
+    - {fileID: 321211291761706779, guid: 779847f2828e4324980161cabeea21fa, type: 3}
+    - {fileID: 321211291761706779, guid: 141f77b82d849394d95ae2856631cc61, type: 3}
+    - {fileID: 321211291761706779, guid: baaddd62da143224d866f139c06c0c3a, type: 3}
+    - {fileID: 321211291761706779, guid: 0532f3a85bbb58b4aa249a3aa56271e2, type: 3}
+    - {fileID: 321211291761706779, guid: 38c167d986b2a2a4abe33b8effb94c74, type: 3}
+    - {fileID: 321211291761706779, guid: 24bb98038d5906d498afc86445fa0c49, type: 3}
+    - {fileID: 321211291761706779, guid: d20a44742cf14ec4ea148f780b77f612, type: 3}
+    - {fileID: 321211291761706779, guid: 9389d9d7d6f19684b9d1a1ac3e626abd, type: 3}
+    - {fileID: 321211291761706779, guid: c08dd13d1290c7a42b3f669b760a8a9c, type: 3}
+    - {fileID: 321211291761706779, guid: f58c17c069effdf4bbd40fffdede4dea, type: 3}
+    - {fileID: 321211291761706779, guid: 6871761487788ea4fa50684e18e8ae54, type: 3}
+    - {fileID: 321211291761706779, guid: cf4ccc4cca31c6342a726b95f3d44391, type: 3}
+    - {fileID: 321211291761706779, guid: e98c1365fdb049c469edec04bcee174d, type: 3}
+    - {fileID: 321211291761706779, guid: 5d1d00d12ad05a748aa48a8b9730a51f, type: 3}
+    - {fileID: 321211291761706779, guid: e54339dbe6ffb054ab686bb8e9cb712c, type: 3}
