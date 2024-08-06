@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Drops;
 using EnemyScripts;
 using Infrastructure.GameLaunch;
 using PlayerScripts;
@@ -16,6 +17,7 @@ namespace Interfaces
         public Player CreatePlayer();
 
         public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder);
+        public UpgradeDrop CreateUpgradeDrop();
 
         public void CreateHud(Player player, IPersistentProgressService progress, SpawnManager spawnManager);
         

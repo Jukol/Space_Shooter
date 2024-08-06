@@ -1,4 +1,5 @@
 ﻿using System;
+using Drops;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -10,12 +11,40 @@ namespace EnemyScripts
     {
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
+        
+        private IGameFactory _gameFactory;
+        private UpgradeDrop _upgradeDrop;
+        
+        [SerializeField] private bool hasDrop;
+
+        [Inject]
+        public void Construct(IGameFactory gameFactory)
+        {
+            _gameFactory = gameFactory;
+            
+            if (hasDrop)
+            {
+                _upgradeDrop = _gameFactory.CreateUpgradeDrop();
+                _upgradeDrop.gameObject.SetActive(false);
+            }
+        }
 
         public void UpdateStatus(int health, ISaveLoadService saveLoadService)
         {
+            
+            
             enemyStatus.health = health;
-            if (enemyStatus.health == 0) 
+            if (enemyStatus.health == 0)
+            {
                 enemyStatus.dead = true;
+
+                if (hasDrop)
+                {
+                    _upgradeDrop.gameObject.SetActive(true);
+                    _upgradeDrop.transform.position = transform.position;
+                    _upgradeDrop.startMoving = true;
+                }
+            } 
 
             saveLoadService.SaveProgress();
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Ammo;
+using Drops;
 using EnemyScripts;
 using HUD;
 using Infrastructure.AssetManagement;
@@ -83,6 +84,12 @@ namespace Infrastructure.Factory
             bullet.GetComponent<Bullet>().Init(damage, speed, sprite);
             return bullet;
         }
+        
+        public UpgradeDrop CreateUpgradeDrop()
+        {
+            UpgradeDrop drop = _assets.Instantiate(AssetPaths.UpgradeDropPath).GetComponent<UpgradeDrop>();
+            return drop;
+        } 
         
         public StartMenuController CreateStartMenu()
         {

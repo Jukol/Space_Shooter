@@ -51,8 +51,11 @@ namespace Ammo
 
         private async void OnTriggerEnter2D(Collider2D collision)
         {
-            _targetHit = true;
-            await DamageAndDie(collision);
+            if (collision.CompareTag("Enemy"))
+            {
+                _targetHit = true;
+                await DamageAndDie(collision);
+            }
         }
 
         private async Task DamageAndDie(Collider2D collision)
