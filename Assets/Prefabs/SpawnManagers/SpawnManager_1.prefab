@@ -487,6 +487,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088162809520
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +652,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088177381139
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +784,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088193747455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1272,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088228152090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1373,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088234591475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1474,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088235224520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1575,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088246491754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +1744,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088263237196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,6 +1845,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088265879834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +2011,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088291495606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,6 +2112,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088295351960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2607,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088327076611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2708,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088347257141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,6 +2809,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088348330502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,6 +2910,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088357396610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +3011,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088378524230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,6 +3112,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088379118073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3277,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088409959713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3378,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088418728363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,6 +3479,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088434485452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,6 +3580,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088437242724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,6 +4221,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088485392041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4300,6 +4322,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088519265823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,6 +4423,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088542425442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4887,6 +4911,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088562594404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,6 +5498,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088608024722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5573,6 +5599,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088611188409
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,6 +5700,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088612784533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,6 +5801,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088615494672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,6 +5963,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088662081268
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,6 +6125,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088667518632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,6 +6226,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088678047203
 GameObject:
   m_ObjectHideFlags: 0
@@ -6295,6 +6327,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088685526439
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,6 +6428,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088685659033
 GameObject:
   m_ObjectHideFlags: 0
@@ -6495,6 +6529,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088694257949
 GameObject:
   m_ObjectHideFlags: 0
@@ -6595,6 +6630,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088698754623
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,6 +6762,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088719882946
 GameObject:
   m_ObjectHideFlags: 0
@@ -6826,6 +6863,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088746811190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6926,6 +6964,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088751166294
 GameObject:
   m_ObjectHideFlags: 0
@@ -7057,6 +7096,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088767456447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7188,6 +7228,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088799391600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7288,6 +7329,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088804102685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7388,6 +7430,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088833034159
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,6 +7531,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088856616559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,6 +7632,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088859949593
 GameObject:
   m_ObjectHideFlags: 0
@@ -7688,6 +7733,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088865557867
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,6 +7834,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088893565512
 GameObject:
   m_ObjectHideFlags: 0
@@ -7888,6 +7935,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088918667344
 GameObject:
   m_ObjectHideFlags: 0
@@ -7988,6 +8036,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088922858281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8088,6 +8137,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088937001450
 GameObject:
   m_ObjectHideFlags: 0
@@ -8188,6 +8238,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088941096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -8288,6 +8339,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088950149127
 GameObject:
   m_ObjectHideFlags: 0
@@ -8388,6 +8440,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088957263120
 GameObject:
   m_ObjectHideFlags: 0
@@ -8488,6 +8541,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088965109111
 GameObject:
   m_ObjectHideFlags: 0
@@ -8588,6 +8642,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088972325163
 GameObject:
   m_ObjectHideFlags: 0
@@ -8688,6 +8743,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088986731841
 GameObject:
   m_ObjectHideFlags: 0
@@ -8788,6 +8844,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607088992121255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9668,6 +9725,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089016168150
 GameObject:
   m_ObjectHideFlags: 0
@@ -9768,6 +9826,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089029254880
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,6 +9927,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089029276408
 GameObject:
   m_ObjectHideFlags: 0
@@ -10895,6 +10955,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089115547555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10995,6 +11056,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089126624809
 GameObject:
   m_ObjectHideFlags: 0
@@ -11095,6 +11157,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089135007536
 GameObject:
   m_ObjectHideFlags: 0
@@ -11195,6 +11258,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089141599638
 GameObject:
   m_ObjectHideFlags: 0
@@ -11295,6 +11359,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089149442603
 GameObject:
   m_ObjectHideFlags: 0
@@ -11426,6 +11491,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089166477952
 GameObject:
   m_ObjectHideFlags: 0
@@ -11526,6 +11592,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089171957199
 GameObject:
   m_ObjectHideFlags: 0
@@ -11626,6 +11693,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089176839026
 GameObject:
   m_ObjectHideFlags: 0
@@ -11726,6 +11794,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089182440835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11826,6 +11895,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089195257426
 GameObject:
   m_ObjectHideFlags: 0
@@ -11926,6 +11996,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089197715594
 GameObject:
   m_ObjectHideFlags: 0
@@ -12026,6 +12097,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089201741309
 GameObject:
   m_ObjectHideFlags: 0
@@ -12126,6 +12198,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089208335425
 GameObject:
   m_ObjectHideFlags: 0
@@ -12226,6 +12299,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089216375486
 GameObject:
   m_ObjectHideFlags: 0
@@ -12326,6 +12400,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089239366836
 GameObject:
   m_ObjectHideFlags: 0
@@ -12426,6 +12501,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089259981096
 GameObject:
   m_ObjectHideFlags: 0
@@ -12526,6 +12602,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089263927652
 GameObject:
   m_ObjectHideFlags: 0
@@ -12626,6 +12703,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089271233805
 GameObject:
   m_ObjectHideFlags: 0
@@ -12757,6 +12835,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089279589254
 GameObject:
   m_ObjectHideFlags: 0
@@ -12921,6 +13000,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089300948826
 GameObject:
   m_ObjectHideFlags: 0
@@ -13021,6 +13101,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089318748344
 GameObject:
   m_ObjectHideFlags: 0
@@ -13508,6 +13589,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089337913654
 GameObject:
   m_ObjectHideFlags: 0
@@ -13608,6 +13690,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089343012390
 GameObject:
   m_ObjectHideFlags: 0
@@ -13776,6 +13859,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089356284917
 GameObject:
   m_ObjectHideFlags: 0
@@ -13876,6 +13960,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089398559982
 GameObject:
   m_ObjectHideFlags: 0
@@ -13976,6 +14061,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089402703870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14076,6 +14162,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089416943679
 GameObject:
   m_ObjectHideFlags: 0
@@ -14563,6 +14650,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089445492156
 GameObject:
   m_ObjectHideFlags: 0
@@ -14663,6 +14751,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089460937061
 GameObject:
   m_ObjectHideFlags: 0
@@ -14763,6 +14852,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089463423843
 GameObject:
   m_ObjectHideFlags: 0
@@ -14863,6 +14953,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089470368439
 GameObject:
   m_ObjectHideFlags: 0
@@ -14963,6 +15054,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089482375060
 GameObject:
   m_ObjectHideFlags: 0
@@ -15063,6 +15155,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089498865153
 GameObject:
   m_ObjectHideFlags: 0
@@ -15163,6 +15256,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089499644688
 GameObject:
   m_ObjectHideFlags: 0
@@ -15263,6 +15357,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089520068837
 GameObject:
   m_ObjectHideFlags: 0
@@ -15363,6 +15458,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089520216893
 GameObject:
   m_ObjectHideFlags: 0
@@ -15463,6 +15559,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089534130434
 GameObject:
   m_ObjectHideFlags: 0
@@ -15563,6 +15660,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089551266505
 GameObject:
   m_ObjectHideFlags: 0
@@ -15663,6 +15761,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089569040572
 GameObject:
   m_ObjectHideFlags: 0
@@ -16153,6 +16252,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089620670685
 GameObject:
   m_ObjectHideFlags: 0
@@ -16253,6 +16353,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089623268109
 GameObject:
   m_ObjectHideFlags: 0
@@ -16353,6 +16454,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089628190176
 GameObject:
   m_ObjectHideFlags: 0
@@ -16453,6 +16555,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089632195880
 GameObject:
   m_ObjectHideFlags: 0
@@ -16553,6 +16656,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089634165856
 GameObject:
   m_ObjectHideFlags: 0
@@ -16714,6 +16818,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089635908338
 GameObject:
   m_ObjectHideFlags: 0
@@ -16814,6 +16919,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089656959582
 GameObject:
   m_ObjectHideFlags: 0
@@ -16914,6 +17020,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089659329470
 GameObject:
   m_ObjectHideFlags: 0
@@ -17045,6 +17152,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089675315785
 GameObject:
   m_ObjectHideFlags: 0
@@ -17145,6 +17253,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089679226339
 GameObject:
   m_ObjectHideFlags: 0
@@ -17245,6 +17354,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089688460227
 GameObject:
   m_ObjectHideFlags: 0
@@ -17345,6 +17455,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089688700996
 GameObject:
   m_ObjectHideFlags: 0
@@ -17445,6 +17556,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089689515507
 GameObject:
   m_ObjectHideFlags: 0
@@ -17545,6 +17657,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089699424986
 GameObject:
   m_ObjectHideFlags: 0
@@ -17676,6 +17789,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089739732091
 GameObject:
   m_ObjectHideFlags: 0
@@ -17776,6 +17890,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089768091383
 GameObject:
   m_ObjectHideFlags: 0
@@ -17876,6 +17991,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089770138292
 GameObject:
   m_ObjectHideFlags: 0
@@ -17976,6 +18092,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089776404080
 GameObject:
   m_ObjectHideFlags: 0
@@ -18076,6 +18193,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089776761498
 GameObject:
   m_ObjectHideFlags: 0
@@ -18207,6 +18325,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089797472000
 GameObject:
   m_ObjectHideFlags: 0
@@ -18338,6 +18457,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089808373948
 GameObject:
   m_ObjectHideFlags: 0
@@ -18438,6 +18558,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089812196628
 GameObject:
   m_ObjectHideFlags: 0
@@ -18538,6 +18659,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089814386089
 GameObject:
   m_ObjectHideFlags: 0
@@ -18638,6 +18760,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089828503450
 GameObject:
   m_ObjectHideFlags: 0
@@ -18769,6 +18892,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089844212467
 GameObject:
   m_ObjectHideFlags: 0
@@ -18869,6 +18993,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089847935793
 GameObject:
   m_ObjectHideFlags: 0
@@ -18969,6 +19094,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089860631370
 GameObject:
   m_ObjectHideFlags: 0
@@ -19069,6 +19195,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089868286293
 GameObject:
   m_ObjectHideFlags: 0
@@ -19556,6 +19683,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089879213181
 GameObject:
   m_ObjectHideFlags: 0
@@ -19687,6 +19815,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089881076996
 GameObject:
   m_ObjectHideFlags: 0
@@ -19787,6 +19916,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089882319471
 GameObject:
   m_ObjectHideFlags: 0
@@ -19887,6 +20017,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089894067240
 GameObject:
   m_ObjectHideFlags: 0
@@ -19987,6 +20118,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089900068897
 GameObject:
   m_ObjectHideFlags: 0
@@ -20087,6 +20219,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089906983966
 GameObject:
   m_ObjectHideFlags: 0
@@ -20187,6 +20320,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089942819892
 GameObject:
   m_ObjectHideFlags: 0
@@ -20287,6 +20421,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089946133994
 GameObject:
   m_ObjectHideFlags: 0
@@ -20455,6 +20590,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089949530319
 GameObject:
   m_ObjectHideFlags: 0
@@ -20555,6 +20691,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089960361361
 GameObject:
   m_ObjectHideFlags: 0
@@ -20655,6 +20792,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607089970730149
 GameObject:
   m_ObjectHideFlags: 0
@@ -20786,6 +20924,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090007782251
 GameObject:
   m_ObjectHideFlags: 0
@@ -20886,6 +21025,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090016887949
 GameObject:
   m_ObjectHideFlags: 0
@@ -20986,6 +21126,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090046348351
 GameObject:
   m_ObjectHideFlags: 0
@@ -21086,6 +21227,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090061815154
 GameObject:
   m_ObjectHideFlags: 0
@@ -21186,6 +21328,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090079327552
 GameObject:
   m_ObjectHideFlags: 0
@@ -21286,6 +21429,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090088643842
 GameObject:
   m_ObjectHideFlags: 0
@@ -21386,6 +21530,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090090665867
 GameObject:
   m_ObjectHideFlags: 0
@@ -21486,6 +21631,7 @@ MonoBehaviour:
   enemyStatus:
     health: 5
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090096491752
 GameObject:
   m_ObjectHideFlags: 0
@@ -21647,6 +21793,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090115894904
 GameObject:
   m_ObjectHideFlags: 0
@@ -21747,6 +21894,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090119143814
 GameObject:
   m_ObjectHideFlags: 0
@@ -21847,6 +21995,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090122376691
 GameObject:
   m_ObjectHideFlags: 0
@@ -21947,6 +22096,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090123280969
 GameObject:
   m_ObjectHideFlags: 0
@@ -22047,6 +22197,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090137617651
 GameObject:
   m_ObjectHideFlags: 0
@@ -22147,6 +22298,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090151027407
 GameObject:
   m_ObjectHideFlags: 0
@@ -22247,6 +22399,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090155001808
 GameObject:
   m_ObjectHideFlags: 0
@@ -22347,6 +22500,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090164697709
 GameObject:
   m_ObjectHideFlags: 0
@@ -22447,6 +22601,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090166644256
 GameObject:
   m_ObjectHideFlags: 0
@@ -22547,6 +22702,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090179707776
 GameObject:
   m_ObjectHideFlags: 0
@@ -22647,6 +22803,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090184981931
 GameObject:
   m_ObjectHideFlags: 0
@@ -22747,6 +22904,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090197007237
 GameObject:
   m_ObjectHideFlags: 0
@@ -22847,6 +23005,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090207941913
 GameObject:
   m_ObjectHideFlags: 0
@@ -22947,6 +23106,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090221757864
 GameObject:
   m_ObjectHideFlags: 0
@@ -23441,6 +23601,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090228107108
 GameObject:
   m_ObjectHideFlags: 0
@@ -23541,6 +23702,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090248315428
 GameObject:
   m_ObjectHideFlags: 0
@@ -23641,6 +23803,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090250962559
 GameObject:
   m_ObjectHideFlags: 0
@@ -23741,6 +23904,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0
 --- !u!1 &7071607090268386291
 GameObject:
   m_ObjectHideFlags: 0
@@ -23872,3 +24036,4 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+  hasDrop: 0

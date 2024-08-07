@@ -3,8 +3,10 @@ using System.Collections;
 using System.Linq;
 using Data;
 using DG.Tweening;
+using Drops;
 using Interfaces;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace EnemyScripts
 {
@@ -47,6 +49,7 @@ namespace EnemyScripts
             id = spawnerId;
             _spawnManagerId = spawnerManagerId;
 
+            ChooseDropper();
             ResizeWindow();
             InitializePosition();
             ArrangeAndInitEnemyPlaceHolders();
@@ -62,6 +65,13 @@ namespace EnemyScripts
             _initialPosition = position;
             position = new Vector3(0, position.y / _adjuster.ResizeFactor, 0);
             transform1.position = position;
+        }
+        
+        private void ChooseDropper()
+        {
+            int placeHolders = enemyPlaceHolders.Length;
+            int dropperIndex = Random.Range(0, placeHolders);
+            enemyPlaceHolders[dropperIndex].hasDrop = true;
         }
 
         private void ResizeWindow()

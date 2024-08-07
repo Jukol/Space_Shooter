@@ -11,17 +11,19 @@ namespace EnemyScripts
     {
         public Vector2 Position { get; set; }
         public EnemyStatus enemyStatus;
-        
+        public bool hasDrop;
+
         private IGameFactory _gameFactory;
         private UpgradeDrop _upgradeDrop;
-        
-        [SerializeField] private bool hasDrop;
 
         [Inject]
         public void Construct(IGameFactory gameFactory)
         {
             _gameFactory = gameFactory;
-            
+        }
+
+        private void Start()
+        {
             if (hasDrop)
             {
                 _upgradeDrop = _gameFactory.CreateUpgradeDrop();
@@ -31,8 +33,6 @@ namespace EnemyScripts
 
         public void UpdateStatus(int health, ISaveLoadService saveLoadService)
         {
-            
-            
             enemyStatus.health = health;
             if (enemyStatus.health == 0)
             {

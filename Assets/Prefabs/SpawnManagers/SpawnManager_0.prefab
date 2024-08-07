@@ -535,12 +535,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPlaceHolders:
-  - {fileID: 6488119812557024586}
+  - {fileID: 7280882246307298753}
   - {fileID: 6150284097270440208}
   - {fileID: 900211502658360751}
   - {fileID: 1361373435945513920}
   - {fileID: 2711171218355481517}
-  - {fileID: 7280882246307298753}
+  - {fileID: 6488119812557024586}
   - {fileID: 7134616683076998620}
   - {fileID: 4163343763658665940}
   - {fileID: 5137687709405600064}
@@ -1744,7 +1744,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088263237196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,7 +3125,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088379118073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,7 +3593,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088437242724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,7 +4234,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088485392041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,7 +4436,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088542425442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5511,7 +5511,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088608024722
 GameObject:
   m_ObjectHideFlags: 0
@@ -6239,7 +6239,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088678047203
 GameObject:
   m_ObjectHideFlags: 0
@@ -7342,7 +7342,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088804102685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8251,7 +8251,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607088941096449
 GameObject:
   m_ObjectHideFlags: 0
@@ -12514,7 +12514,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607089259981096
 GameObject:
   m_ObjectHideFlags: 0
@@ -12908,6 +12908,7 @@ MonoBehaviour:
   - {fileID: 1924824118912544771}
   - {fileID: 4570828078645324210}
   - {fileID: 4421882463654917100}
+  - {fileID: 5271131416393241499}
   id: 4
   gridStartPosition: {fileID: 7071607089149442602}
   positionsParent: {fileID: 7071607088992121255}
@@ -13872,7 +13873,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607089356284917
 GameObject:
   m_ObjectHideFlags: 0
@@ -15370,7 +15371,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607089520068837
 GameObject:
   m_ObjectHideFlags: 0
@@ -16831,7 +16832,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607089635908338
 GameObject:
   m_ObjectHideFlags: 0
@@ -20333,7 +20334,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607089942819892
 GameObject:
   m_ObjectHideFlags: 0
@@ -21240,7 +21241,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
-  hasDrop: 1
+  hasDrop: 0
 --- !u!1 &7071607090061815154
 GameObject:
   m_ObjectHideFlags: 0
