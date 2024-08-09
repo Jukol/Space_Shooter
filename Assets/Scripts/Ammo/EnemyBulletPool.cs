@@ -1,39 +1,41 @@
 ﻿using System.Collections.Generic;
-using Infrastructure.Factory;
+using EnemyScripts;
 using Interfaces;
-using PlayerScripts;
 using UnityEngine;
-using Zenject;
 
 namespace Ammo
 {
-    public class BulletPool : IPool
+    public class EnemyBulletPool : IPool
     {
         private readonly List<GameObject> _ammoBatch = new();
-        private readonly BulletContainer _bulletContainer;
+        private readonly EnemyBulletContainer _enemyBulletContainer;
         private readonly int _capacity;
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _progressService;
-        private readonly PlayerUpgradeDataList _playerUpgradeDataList;
+        private readonly EnemyUpgradeDataList _enemyUpgradeDataList;
 
         private int _damage;
         private float _speed;
         private Sprite _sprite;
 
-        public BulletPool(IGameFactory gameFactory, BulletContainer bulletContainer, IPersistentProgressService persistentProgressService, PlayerUpgradeDataList playerUpgradeDataList)
+        public EnemyBulletPool(
+            IGameFactory gameFactory, 
+            EnemyBulletContainer enemyBulletContainer, 
+            IPersistentProgressService persistentProgressService, 
+            EnemyUpgradeDataList enemyUpgradeDataList)
         {
             _gameFactory = gameFactory;
-            _bulletContainer = bulletContainer;
-            _capacity = _bulletContainer.Capacity;
-            _playerUpgradeDataList = playerUpgradeDataList;
+            _enemyBulletContainer = enemyBulletContainer;
+            _capacity = _enemyBulletContainer.Capacity;
+            _enemyUpgradeDataList = enemyUpgradeDataList;
             _progressService = persistentProgressService;
 
             int upgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
             int ship = _progressService.Progress.lastState.playerShip;
             
-            _damage = _playerUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletDamage;
-            _speed = _playerUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSpeed;
-            _sprite = _playerUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSprite;
+            _damage = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletDamage;
+            _speed = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSpeed;
+            _sprite = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSprite;
             
             Generate();
         }
@@ -54,12 +56,12 @@ namespace Ammo
         
         public void Upgrade(int damage, float speed, Sprite sprite)
         {
-            _bulletContainer.Clean();
+            _enemyBulletContainer.Clean();
             
             _damage = damage;
             _speed = speed;
 
-            foreach (Transform bullet in _bulletContainer.transform)
+            foreach (Transform bullet in _enemyBulletContainer.transform)
             {
                 bullet.GetComponent<Bullet>().Init(damage, speed, sprite);
             }
@@ -74,7 +76,7 @@ namespace Ammo
         private GameObject Add()
         {
             GameObject ammo = _gameFactory.CreateBullet(_damage, _speed, _sprite);
-            ammo.transform.SetParent(_bulletContainer.transform);
+            ammo.transform.SetParent(_enemyBulletContainer.transform);
             ammo.SetActive(false);
             _ammoBatch.Add(ammo);
             return ammo;
@@ -84,7 +86,7 @@ namespace Ammo
         {
 
             ammo.SetActive(true);
-            ammo.transform.SetParent(_bulletContainer.transform);
+            ammo.transform.SetParent(_enemyBulletContainer.transform);
         }
 
         private static bool AlreadyInHierarchy(GameObject ammo)

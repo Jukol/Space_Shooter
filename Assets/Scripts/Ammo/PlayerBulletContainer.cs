@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Ammo
 {
-    public class BulletContainer : MonoBehaviour
+    public class PlayerBulletContainer : MonoBehaviour
     {
         [SerializeField] private int capacity;
         

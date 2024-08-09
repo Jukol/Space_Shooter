@@ -3,9 +3,9 @@ using Interfaces;
 using UnityEngine;
 using Zenject;
 
-namespace PlayerScripts
+namespace EnemyScripts
 {
-    public class Shooter : MonoBehaviour, IShootable
+    public class EnemyShooter : MonoBehaviour, IShootable
     {
         [SerializeField] private Transform socket;
         [SerializeField] private AudioSource audioSource;
@@ -14,9 +14,9 @@ namespace PlayerScripts
         private IAmmo _ammo;
 
         private WaitForSeconds _fireRateYield;
-        [Inject] private IPool _pool;
+        [Inject (Id = "Enemy")] private IPool _pool;
         private bool _shootStarted;
-        [SerializeField] private bool _initiated = false;
+        [SerializeField] private bool initiated = false;
 
         public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
         {
@@ -35,12 +35,12 @@ namespace PlayerScripts
             muzzleTransform.eulerAngles = currentRotation;
             muzzleTransform.localScale = new Vector2(2f, 2f);
             
-            _initiated = true;
+            initiated = true;
         }
 
         public void Shoot()
         {
-            if (_initiated)
+            if (initiated)
             {
                 StartCoroutine(ContinuousShoot());
             }

@@ -76,7 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curtain: {fileID: 3681425444270156750, guid: 687d2763fc40f0741ab54b1f80223dd7, type: 3}
   spriteRenderer: {fileID: 1745972634859916820, guid: 2f9ecb516e85d0444a5a9d2d596d1ff6, type: 3}
-  bulletParent: {fileID: 1986638416795416070, guid: cbc05add649794169892a9fccb201aa3, type: 3}
+  playerBulletParent: {fileID: 1986638416795416070, guid: cbc05add649794169892a9fccb201aa3, type: 3}
+  enemyBulletParent: {fileID: 552150624117631165, guid: c86d6236e71292f428dcc7db07b80d8b, type: 3}
   myCamera: {fileID: 29944998062663, guid: 0463f3e3f90b447ecbc4909df276247f, type: 3}
   spawnManagerHolder: {fileID: 83746038571348629, guid: ed7e5afd53cfd4ee8a0c77d09d3e7eb3, type: 3}
   initialLevel: Level 1
@@ -84,6 +85,8 @@ MonoBehaviour:
   initialSpawnManagerIndex: 0
   initialPlayerHealth: 10
   initialEnemyHealth: 5
+  playerShip: 0
   initialPlayerUpgradeLevel: 0
   startMenuController: {fileID: 3392651418522246139, guid: 215dc51cc364bc4478ccf394717d126f, type: 3}
   playerUpgradeDataList: {fileID: 11400000, guid: c0f06bff420944231ac2b09d3b3e3a9c, type: 2}
+  enemyUpgradeDataList: {fileID: 11400000, guid: fac9c5b90da381e4193eab6abb2ef227, type: 2}

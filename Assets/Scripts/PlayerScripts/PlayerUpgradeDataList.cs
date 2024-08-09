@@ -8,11 +8,11 @@ namespace PlayerScripts
     public class PlayerUpgradeDataList : ScriptableObject
     {
         [ShowInInspector]
-        public ShipUpgrade[] shipUpgrades;
+        public PlayerShipUpgrade[] shipUpgrades;
     }
 
     [Serializable]
-    public class ShipUpgrade
+    public class PlayerShipUpgrade
     {
         public PlayerUpgradeData[] playerUpgrades;
     }

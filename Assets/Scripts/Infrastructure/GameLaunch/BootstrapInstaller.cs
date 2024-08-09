@@ -20,7 +20,8 @@ namespace Infrastructure.GameLaunch
     {
         [SerializeField] private LoadingCurtain curtain;
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private BulletContainer bulletParent;
+        [SerializeField] private PlayerBulletContainer playerBulletParent;
+        [SerializeField] private EnemyBulletContainer enemyBulletParent;
         [SerializeField] private Camera myCamera;
         [SerializeField] private SpawnManagerHolder spawnManagerHolder;
         [SerializeField] private string initialLevel;
@@ -32,6 +33,7 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialPlayerUpgradeLevel;
         [SerializeField] private StartMenuController startMenuController;
         [SerializeField] private PlayerUpgradeDataList playerUpgradeDataList;
+        [SerializeField] private EnemyUpgradeDataList enemyUpgradeDataList;
         
 
         public override void InstallBindings()
@@ -39,6 +41,7 @@ namespace Infrastructure.GameLaunch
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(curtain).AsSingle();
             Container.Bind<StartMenuController>().FromComponentInNewPrefab(startMenuController).AsSingle();
             Container.Bind<PlayerUpgradeDataList>().FromInstance(playerUpgradeDataList).AsSingle();
+            Container.Bind<EnemyUpgradeDataList>().FromInstance(enemyUpgradeDataList).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
             Container.BindInstance(playerShip).WithId("PlayerShip");
@@ -60,7 +63,8 @@ namespace Infrastructure.GameLaunch
             Container.DeclareSignal<WaveCompleted>();
 
             Container.Bind<SpriteRenderer>().FromComponentInNewPrefab(spriteRenderer).AsSingle();
-            Container.Bind<BulletContainer>().FromComponentInNewPrefab(bulletParent).AsSingle();
+            Container.Bind<PlayerBulletContainer>().FromComponentInNewPrefab(playerBulletParent).AsSingle();
+            Container.Bind<EnemyBulletContainer>().FromComponentInNewPrefab(enemyBulletParent).AsSingle();
             Container.Bind<Camera>().FromComponentInNewPrefab(myCamera).AsSingle();
             Container.BindInstance(initialEnemyHealth).WithId("EnemyHealth");
 
@@ -68,7 +72,8 @@ namespace Infrastructure.GameLaunch
             Container.Bind<CurrentScreen>().AsSingle();
             Container.Bind<IBackgroundAdjuster>().To<BackgroundAdjuster>().AsSingle();
 
-            Container.Bind<IPool>().To<BulletPool>().AsSingle();
+            Container.Bind<IPool>().WithId("Player").To<PlayerBulletPool>().AsSingle();
+            Container.Bind<IPool>().WithId("Enemy").To<EnemyBulletPool>().AsSingle();
             
             Container.Bind<IInput>().To<MouseInput>().AsSingle();
         }
