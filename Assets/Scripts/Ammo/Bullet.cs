@@ -10,13 +10,15 @@ namespace Ammo
         public float Speed => _speed;
         public float Lifetime => lifetime;
         public int Damage => _damage;
-        
+        public string TargetTag { get => targetTag; set => targetTag = value; }
+
         private float _speed;
         private int _damage;
         
         [SerializeField] private float lifetime;
         [SerializeField] private GameObject explosion;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private string targetTag;
 
         private bool _targetHit;
 
@@ -51,7 +53,7 @@ namespace Ammo
 
         private async void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Enemy"))
+            if (collision.CompareTag(targetTag))
             {
                 _targetHit = true;
                 await DamageAndDie(collision);

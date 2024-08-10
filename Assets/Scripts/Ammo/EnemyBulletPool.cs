@@ -33,9 +33,9 @@ namespace Ammo
             int upgradeLevel = _progressService.Progress.lastState.playerUpgradeLevel;
             int ship = _progressService.Progress.lastState.playerShip;
             
-            _damage = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletDamage;
-            _speed = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSpeed;
-            _sprite = _enemyUpgradeDataList.shipUpgrades[ship].playerUpgrades[upgradeLevel].bulletSprite;
+            _damage = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletDamage;
+            _speed = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSpeed;
+            _sprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSprite;
             
             Generate();
         }

@@ -446,6 +446,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  targetTag: Enemy
   _initiated: 0
 --- !u!114 &151090997390460296
 MonoBehaviour:
@@ -462,6 +463,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  targetTag: Enemy
   _initiated: 0
 --- !u!114 &8984416159041221763
 MonoBehaviour:
@@ -478,6 +480,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  targetTag: Enemy
   _initiated: 0
 --- !u!114 &7053773483542048534
 MonoBehaviour:
@@ -494,6 +497,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  targetTag: Enemy
   _initiated: 0
 --- !u!114 &9209852105684313616
 MonoBehaviour:
@@ -510,6 +514,7 @@ MonoBehaviour:
   socket: {fileID: 0}
   audioSource: {fileID: 151090997390460299}
   muzzleFlashParticles: {fileID: 0}
+  targetTag: Enemy
   _initiated: 0
 --- !u!1 &745294078818385853
 GameObject:

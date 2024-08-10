@@ -18,6 +18,7 @@ namespace EnemyScripts
         [SerializeField] private EnemyScriptableObject shipData;
         [SerializeField] private RectTransform healthBar;
         [SerializeField] private GameObject shipExplosion, wounded, whiteSmoke;
+        [SerializeField] private Transform[] socketPlaceholders;
         
         private int _damagedValue;
         private bool _dead;
@@ -29,18 +30,28 @@ namespace EnemyScripts
         private bool _woundedAnim, _smokeAnim;
         private int _woundedValue;
         private ISaveLoadService _saveLoadService;
+        private EnemyUpgradeDataList _enemyUpgradeDataList;
+        private IShootable[] _shootables;
 
         private Spawner _spawner;
+        
+        private float _fireRate;
+        private int _bulletDamage;
+        private float _bulletSpeed;
+        private Transform[] _sockets;
+        private ParticleSystem _myParticleSystem;
+        private Sprite _bulletSprite;
 
         private void OnEnable()
         {
             _woundedAnim = false;
         }
 
-        public void Init(int health)
+        public void Init(int health, EnemyUpgradeDataList enemyUpgradeDataList)
         {
             _woundedValue = shipData.wounded;
             _damagedValue = shipData.damaged;
+            _enemyUpgradeDataList = enemyUpgradeDataList;
 
             _currentHealth = health;
             
@@ -48,10 +59,40 @@ namespace EnemyScripts
 
             wounded.SetActive(false);
             whiteSmoke.SetActive(false);
+            _shootables = GetComponents<IShootable>();
+            
+            GetDataFromEnemyUpgrade();
             
             UpdateStatus();
             
             DamageEffects();
+
+            StartShooting();
+        }
+
+        private void StartShooting()
+        {
+            foreach (IShootable shootable in _shootables)
+            {
+                shootable.Shoot();
+            }
+        }
+
+        private void GetDataFromEnemyUpgrade()
+        {
+            _fireRate = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].fireRate;
+            _bulletDamage = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletDamage;
+            _bulletSpeed = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSpeed;
+            _sockets = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].sockets;
+            _myParticleSystem = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].myParticleSystem;
+            _bulletSprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSprite;
+            
+            for (int i = 0; i < _sockets.Length; i++)
+            {
+                socketPlaceholders[i].localPosition = _sockets[i].position;
+                IShootable shootable = _shootables[i];
+                shootable.Init(_fireRate, _bulletDamage, _bulletSpeed, socketPlaceholders[i], _myParticleSystem, _bulletSprite);
+            }
         }
 
         private void SetSlider()

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Ammo;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,7 @@ namespace PlayerScripts
         [SerializeField] private Transform socket;
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private ParticleSystem muzzleFlashParticles;
+        [SerializeField] private string targetTag;
 
         private IAmmo _ammo;
 
@@ -59,11 +61,13 @@ namespace PlayerScripts
                 audioSource.Play();
 
                 GameObject bullet = _pool.Request();
+                Bullet bulletComponent = bullet.GetComponent<Bullet>();
 
                 Transform myTransform = socket.transform;
 
                 bullet.transform.position = myTransform.position;
                 bullet.transform.rotation = myTransform.rotation;
+                bulletComponent.TargetTag = targetTag;
 
                 yield return _fireRateYield;
             }

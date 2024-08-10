@@ -14,6 +14,6 @@ namespace EnemyScripts
     [Serializable]
     public class EnemyShipUpgrade
     {
-        public EnemyUpgradeData[] playerUpgrades;
+        public EnemyUpgradeData[] enemyUpgrades;
     }
 }

@@ -1,3 +1,4 @@
+using EnemyScripts;
 using Interfaces;
 using Logic;
 using PlayerScripts;
@@ -20,6 +21,7 @@ namespace Infrastructure.GameLaunch
         [Inject] public SignalBus SignalBus;
         [Inject] public StartMenuController StartMenuController;
         [Inject] public PlayerUpgradeDataList PlayerUpgradeDataList;
+        [Inject] public EnemyUpgradeDataList EnemyUpgradeDataList;
         [Inject (Id = "PlayerShip")] public int PlayerShip;
     }
 }
