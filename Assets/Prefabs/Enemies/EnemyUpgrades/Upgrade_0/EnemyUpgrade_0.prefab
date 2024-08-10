@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c79757cbe914e4588e49ab176932a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.5
+  fireRate: 15
   bulletDamage: 1
   bulletSpeed: 3
   sockets:

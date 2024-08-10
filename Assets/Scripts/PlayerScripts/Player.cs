@@ -129,17 +129,18 @@ namespace PlayerScripts
             if (collision.CompareTag("Enemy"))
             {
                 Damage(1);
-                if (Health < 1)
+            }
+            
+            if (Health < 1)
+            {
+                StartCoroutine(_cameraShake.Shake(1, 0.1f));
+                if (!_explosionStarted)
                 {
-                    StartCoroutine(_cameraShake.Shake(1, 0.1f));
-                    if (!_explosionStarted)
-                    {
-                        _explosionStarted = true;
-                        Instantiate(explosion, transform.position, Quaternion.identity);
-                        SoundManager.Instance.PlayerExplosion();
-                        spriteRenderer.enabled = false;
-                        Destroy(gameObject, 2f);
-                    }
+                    _explosionStarted = true;
+                    Instantiate(explosion, transform.position, Quaternion.identity);
+                    SoundManager.Instance.PlayerExplosion();
+                    spriteRenderer.enabled = false;
+                    Destroy(gameObject, 2f);
                 }
             }
 

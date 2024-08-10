@@ -556,6 +556,7 @@ MonoBehaviour:
   audioSource: {fileID: 7209965569073211181}
   muzzleFlashParticles: {fileID: 0}
   targetTag: Player
+  randomFire: 1
   initiated: 0
 --- !u!114 &2365520631791042011
 MonoBehaviour:
@@ -573,6 +574,7 @@ MonoBehaviour:
   audioSource: {fileID: 7209965569073211181}
   muzzleFlashParticles: {fileID: 0}
   targetTag: Player
+  randomFire: 1
   initiated: 0
 --- !u!1 &2505702600124579888
 GameObject:

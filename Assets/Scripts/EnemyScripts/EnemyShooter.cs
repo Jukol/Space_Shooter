@@ -12,9 +12,11 @@ namespace EnemyScripts
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private ParticleSystem muzzleFlashParticles;
         [SerializeField] private string targetTag;
+        [SerializeField] private bool randomFire;
 
         private IAmmo _ammo;
 
+        private float _fireRate;
         private WaitForSeconds _fireRateYield;
         [Inject (Id = "Enemy")] private IPool _pool;
         private bool _shootStarted;
@@ -22,7 +24,9 @@ namespace EnemyScripts
 
         public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
         {
+            _fireRate = fireRate;
             _fireRateYield = new WaitForSeconds(fireRate);
+
             _pool.Upgrade(damage, speed, sprite);
             socket = newSocket;
 
@@ -68,7 +72,12 @@ namespace EnemyScripts
                 bullet.transform.position = myTransform.position;
                 bullet.transform.rotation = myTransform.rotation;
                 bulletComponent.TargetTag = targetTag;
-
+                
+                if (randomFire)
+                {
+                    _fireRateYield = new WaitForSeconds(Random.Range(0f, _fireRate));
+                }
+                
                 yield return _fireRateYield;
             }
         }
