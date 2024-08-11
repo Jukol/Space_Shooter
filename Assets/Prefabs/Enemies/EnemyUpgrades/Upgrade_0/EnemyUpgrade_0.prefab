@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c79757cbe914e4588e49ab176932a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 15
+  fireRate: 20
   bulletDamage: 1
   bulletSpeed: 3
+  playerSprite: {fileID: 21300000, guid: 2dc06f977eb72454eb56bc867e0f32e4, type: 3}
   sockets:
   - {fileID: 347510825125672879, guid: 9ea669d26f93dab498823981a5d06f96, type: 3}
   - {fileID: 4557145033385395644, guid: 3b39378f9405fb64192c5a6a8435220b, type: 3}
   myParticleSystem: {fileID: 19888426, guid: e30a4231dad20c349a162c5f16f12ba7, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 62bd8d8e9a0c2fe4abbc4db1b2b7dfcd, type: 3}
+  bulletSprite: {fileID: 21300000, guid: ecabf629deb28b647a31b23114a77764, type: 3}

@@ -20,7 +20,7 @@ namespace EnemyScripts
         private WaitForSeconds _fireRateYield;
         [Inject (Id = "Enemy")] private IPool _pool;
         private bool _shootStarted;
-        [SerializeField] private bool initiated = false;
+        [SerializeField] private bool initiated;
 
         public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
         {

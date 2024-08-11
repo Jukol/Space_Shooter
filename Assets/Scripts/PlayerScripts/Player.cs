@@ -37,7 +37,7 @@ namespace PlayerScripts
         private float bulletSpeed;
         private Transform[] sockets;
         private ParticleSystem myParticleSystem;
-        private Sprite sprite;
+        private Sprite bulletSprite;
         private GameObject explosion;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerShip, int playerUpgradeLevel)
@@ -90,7 +90,7 @@ namespace PlayerScripts
             spriteRenderer.sprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].playerSprite;
             Animator.runtimeAnimatorController = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].playerAnimatorController;
             myParticleSystem = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].myParticleSystem;
-            sprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].bulletSprite;
+            bulletSprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].bulletSprite;
             explosion = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].explosion;
             audioSource.clip = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].shootSound;
 
@@ -98,7 +98,7 @@ namespace PlayerScripts
             {
                 socketPlaceholders[i].localPosition = sockets[i].position;
                 IShootable shootable = _shootables[i];
-                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem, sprite);
+                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem, bulletSprite);
             }
         }
 

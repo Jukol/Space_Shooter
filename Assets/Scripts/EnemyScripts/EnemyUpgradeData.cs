@@ -9,7 +9,7 @@ namespace EnemyScripts
         public float fireRate;
         public int bulletDamage;
         public float bulletSpeed;
-        //public Sprite playerSprite;
+        public Sprite playerSprite;
         //public RuntimeAnimatorController playerAnimatorController;
         public Transform[] sockets;
         public ParticleSystem myParticleSystem;

@@ -13,6 +13,8 @@ namespace EnemyScripts
             _saveLoadService = saveLoadService;
 
         public static event Action OnDestroy;
+        
+        public SpriteRenderer SpriteRenderer => GetComponent<SpriteRenderer>();
 
         [SerializeField] private float startHealth;
         [SerializeField] private EnemyScriptableObject shipData;
@@ -41,6 +43,7 @@ namespace EnemyScripts
         private Transform[] _sockets;
         private ParticleSystem _myParticleSystem;
         private Sprite _bulletSprite;
+        private Sprite _enemySprite;
 
         private void OnEnable()
         {
@@ -49,11 +52,12 @@ namespace EnemyScripts
 
         public void Init(int health, EnemyUpgradeDataList enemyUpgradeDataList)
         {
-            _woundedValue = shipData.wounded;
-            _damagedValue = shipData.damaged;
             _enemyUpgradeDataList = enemyUpgradeDataList;
 
             _currentHealth = health;
+            
+            _woundedValue = (int)(0.5f * _currentHealth);
+            _damagedValue = (int)(0.1f * _currentHealth);
             
             SetSlider();
 
@@ -86,6 +90,8 @@ namespace EnemyScripts
             _sockets = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].sockets;
             _myParticleSystem = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].myParticleSystem;
             _bulletSprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSprite;
+            _enemySprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].playerSprite;
+            SpriteRenderer.sprite = _enemySprite;
             
             for (int i = 0; i < _sockets.Length; i++)
             {
