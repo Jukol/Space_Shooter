@@ -21,7 +21,8 @@ namespace EnemyScripts
         [SerializeField] private RectTransform healthBar;
         [SerializeField] private GameObject shipExplosion, wounded, whiteSmoke;
         [SerializeField] private Transform[] socketPlaceholders;
-        
+        [SerializeField] private bool useDoubleShooter;
+
         private int _damagedValue;
         private bool _dead;
 
@@ -58,11 +59,18 @@ namespace EnemyScripts
             
             _woundedValue = (int)(0.5f * _currentHealth);
             _damagedValue = (int)(0.1f * _currentHealth);
-            
+
             SetSlider();
 
             wounded.SetActive(false);
             whiteSmoke.SetActive(false);
+
+            if (!useDoubleShooter)
+            {
+                EnemyDoubleShooter doubleShooter = GetComponent<EnemyDoubleShooter>();
+                DestroyImmediate(doubleShooter);
+            }
+            
             _shootables = GetComponents<IShootable>();
             
             GetDataFromEnemyUpgrade();
@@ -96,9 +104,18 @@ namespace EnemyScripts
             for (int i = 0; i < _sockets.Length; i++)
             {
                 socketPlaceholders[i].localPosition = _sockets[i].position;
-                IShootable shootable = _shootables[i];
-                shootable.Init(_fireRate, _bulletDamage, _bulletSpeed, socketPlaceholders[i], _myParticleSystem, _bulletSprite);
             }
+            
+            if (!useDoubleShooter)
+            {
+                for (int i = 0; i < _sockets.Length; i++)
+                {
+                    _shootables[i].Init(_fireRate, _bulletDamage, _bulletSpeed, socketPlaceholders[0], _myParticleSystem, _bulletSprite);
+                }
+                return;
+            }
+            
+            _shootables[0].Init(_fireRate, _bulletDamage, _bulletSpeed, socketPlaceholders[0], _myParticleSystem, _bulletSprite, socketPlaceholders[1]);
         }
 
         private void SetSlider()

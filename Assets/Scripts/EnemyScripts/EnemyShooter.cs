@@ -22,7 +22,7 @@ namespace EnemyScripts
         private bool _shootStarted;
         [SerializeField] private bool initiated;
 
-        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
+        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite, Transform socket2 = null)
         {
             _fireRate = fireRate;
             _fireRateYield = new WaitForSeconds(fireRate);

@@ -97,8 +97,8 @@ namespace PlayerScripts
             for (int i = 0; i < sockets.Length; i++)
             {
                 socketPlaceholders[i].localPosition = sockets[i].position;
-                IShootable shootable = _shootables[i];
-                shootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem, bulletSprite);
+                IShootable singleShootable = _shootables[i];
+                singleShootable.Init(fireRate, bulletDamage, bulletSpeed, socketPlaceholders[i], myParticleSystem, bulletSprite);
             }
         }
 

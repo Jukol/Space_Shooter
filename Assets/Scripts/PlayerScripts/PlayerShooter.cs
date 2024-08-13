@@ -20,7 +20,7 @@ namespace PlayerScripts
         private bool _shootStarted;
         [SerializeField] private bool _initiated = false;
 
-        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite)
+        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite, Transform socket2 = null)
         {
             _fireRateYield = new WaitForSeconds(fireRate);
             _pool.Upgrade(damage, speed, sprite);
@@ -38,6 +38,11 @@ namespace PlayerScripts
             muzzleTransform.localScale = new Vector2(2f, 2f);
             
             _initiated = true;
+        }
+
+        public void Init(float fireRate, int damage, float speed, Transform[] sockets, ParticleSystem myParticleSystem, Sprite sprite)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void Shoot()
