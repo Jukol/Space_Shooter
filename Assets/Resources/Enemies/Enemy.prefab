@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15000379, y: 0.15000379, z: 0.15000379}
+  m_LocalScale: {x: 0.15000752, y: 0.15000752, z: 0.15000752}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2505702601425337766}
@@ -197,6 +197,7 @@ MonoBehaviour:
   - {fileID: 2744034243986559722}
   - {fileID: 6184336046234433112}
   useDoubleShooter: 0
+  audioSource: {fileID: 7209965569073211181}
 --- !u!82 &7209965569073211181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -208,7 +209,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -512,8 +513,8 @@ ScaleConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_ScaleAtRest: {x: 0.15000379, y: 0.15000379, z: 0.15000379}
-  m_ScaleOffset: {x: 0.99825794, y: 0.99825794, z: 0.99825794}
+  m_ScaleAtRest: {x: 0.15000752, y: 0.15000752, z: 0.15000752}
+  m_ScaleOffset: {x: 0.9982827, y: 0.9982827, z: 0.9982827}
   m_AffectScalingX: 1
   m_AffectScalingY: 1
   m_AffectScalingZ: 1

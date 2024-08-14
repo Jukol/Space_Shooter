@@ -22,6 +22,7 @@ namespace EnemyScripts
         [SerializeField] private GameObject shipExplosion, wounded, whiteSmoke;
         [SerializeField] private Transform[] socketPlaceholders;
         [SerializeField] private bool useDoubleShooter;
+        [SerializeField] private AudioSource audioSource;
 
         private int _damagedValue;
         private bool _dead;
@@ -100,6 +101,7 @@ namespace EnemyScripts
             _bulletSprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSprite;
             _enemySprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].playerSprite;
             SpriteRenderer.sprite = _enemySprite;
+            audioSource.clip = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].shootSound;
             
             for (int i = 0; i < _sockets.Length; i++)
             {

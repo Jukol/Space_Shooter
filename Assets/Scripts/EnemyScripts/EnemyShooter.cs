@@ -61,9 +61,13 @@ namespace EnemyScripts
         {
             while (true)
             {
-                muzzleFlashParticles.Play();
-                audioSource.Play();
-
+                if (randomFire)
+                {
+                    _fireRateYield = new WaitForSeconds(Random.Range(0f, _fireRate));
+                }
+                
+                yield return _fireRateYield;
+                
                 GameObject bullet = _pool.Request();
                 Bullet bulletComponent = bullet.GetComponent<Bullet>();
 
@@ -73,12 +77,8 @@ namespace EnemyScripts
                 bullet.transform.rotation = myTransform.rotation;
                 bulletComponent.TargetTag = targetTag;
                 
-                if (randomFire)
-                {
-                    _fireRateYield = new WaitForSeconds(Random.Range(0f, _fireRate));
-                }
-                
-                yield return _fireRateYield;
+                muzzleFlashParticles.Play();
+                audioSource.Play();
             }
         }
     }
