@@ -14,10 +14,11 @@ namespace EnemyScripts
     {
         public static Action OnAllShipsKilled;
         public EnemyPlaceHolder[] enemyPlaceHolders;
+        public EnemyUpgradeData enemyUpgradeData;
         public static Action OnAllInPlace { get; set; }
 
         [SerializeField] private int id;
-        
+
         [SerializeField] private Transform gridStartPosition;
         [SerializeField] private GameObject positionsParent;
         [SerializeField] private float seconds;
@@ -122,7 +123,7 @@ namespace EnemyScripts
                     continue;
                 }
 
-                Enemy enemy = gameFactory.CreateEnemy(gridStartPosition, enemyPlaceHolders[i]);
+                Enemy enemy = gameFactory.CreateEnemy(gridStartPosition, enemyPlaceHolders[i], enemyUpgradeData);
 
                 if (i != enemyPlaceHolders.Length - 1)
                 {

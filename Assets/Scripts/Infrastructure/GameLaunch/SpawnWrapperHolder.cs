@@ -32,7 +32,8 @@ namespace Infrastructure.GameLaunch
 
                     for (int k = 0; k < spawnManagerHolder.SpawnManagers[i].spawners[j].enemyPlaceHolders.Length; k++)
                     {
-                        EnemyStatus enemyStatus = new(10, false, 0);
+                        EnemyUpgradeData enemyUpgradeData = spawnManagerHolder.SpawnManagers[i].spawners[j].enemyUpgradeData;
+                        EnemyStatus enemyStatus = new(10, false, enemyUpgradeData);
                         statusesWrapper.ListOfStatuses.Add(enemyStatus);
                     }
                     

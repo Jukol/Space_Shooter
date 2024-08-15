@@ -7,13 +7,13 @@ namespace EnemyScripts
     {
         public int health;
         public bool dead;
-        public int ship;
+        public EnemyUpgradeData enemyUpgradeData;
         
-        public EnemyStatus(int health, bool dead, int ship)
+        public EnemyStatus(int health, bool dead, EnemyUpgradeData enemyUpgradeData)
         {
             this.health = health;
             this.dead = dead;
-            this.ship = ship;
+            this.enemyUpgradeData = enemyUpgradeData;
         }
     }
 }

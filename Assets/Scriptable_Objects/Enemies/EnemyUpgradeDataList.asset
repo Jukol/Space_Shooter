@@ -15,3 +15,4 @@ MonoBehaviour:
   shipUpgrades:
   - enemyUpgrades:
     - {fileID: 2039121673313924108, guid: b2726ce1847646b46ac8dc2a1bd66ccc, type: 3}
+    - {fileID: 2039121673313924108, guid: a5c93a195d4bf85429b37efba34df325, type: 3}

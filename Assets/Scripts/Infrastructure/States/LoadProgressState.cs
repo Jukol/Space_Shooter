@@ -45,8 +45,7 @@ namespace Infrastructure.States
                 _gameInitializer.SpawnManagerIndex,
                 _gameInitializer.InitialPlayerHealth,
                 _gameInitializer.PlayerShip,
-                _gameInitializer.InitialPlayerUpgradeLevel,
-                _gameInitializer.EnemyShip);
+                _gameInitializer.InitialPlayerUpgradeLevel);
         }
     }
 }

@@ -487,6 +487,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088162809520
 GameObject:
@@ -547,6 +548,7 @@ MonoBehaviour:
   - {fileID: 5088405070758324923}
   - {fileID: 7631519697492543007}
   - {fileID: 1327729008354191355}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: df2c95b6e7970674383d007fd649a1b9, type: 3}
   id: 14
   gridStartPosition: {fileID: 7071607089029276415}
   positionsParent: {fileID: 7071607088993564505}
@@ -652,6 +654,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088177381139
 GameObject:
@@ -784,6 +787,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088193747455
 GameObject:
@@ -1272,6 +1276,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088228152090
 GameObject:
@@ -1373,6 +1378,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088234591475
 GameObject:
@@ -1474,6 +1480,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088235224520
 GameObject:
@@ -1575,6 +1582,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088246491754
 GameObject:
@@ -1639,6 +1647,7 @@ MonoBehaviour:
   - {fileID: 7391100391592530641}
   - {fileID: 4224811712730845415}
   - {fileID: 1254575321288586365}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: b2039d3f7f106fc4cb8ef9feb9c05b4c, type: 3}
   id: 7
   gridStartPosition: {fileID: 7071607088698754622}
   positionsParent: {fileID: 7071607090221757864}
@@ -1744,6 +1753,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088263237196
 GameObject:
@@ -1845,6 +1855,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088265879834
 GameObject:
@@ -2024,6 +2035,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088291495606
 GameObject:
@@ -2125,6 +2137,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088295351960
 GameObject:
@@ -2620,6 +2633,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088327076611
 GameObject:
@@ -2721,6 +2735,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088347257141
 GameObject:
@@ -2822,6 +2837,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088348330502
 GameObject:
@@ -2923,6 +2939,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088357396610
 GameObject:
@@ -3024,6 +3041,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088378524230
 GameObject:
@@ -3125,6 +3143,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088379118073
 GameObject:
@@ -3185,6 +3204,7 @@ MonoBehaviour:
   - {fileID: 6197596089599854638}
   - {fileID: 5815660848339535524}
   - {fileID: 6011365144932874372}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: c1e3c5efe47e86949b07976154cbd6ee, type: 3}
   id: 9
   gridStartPosition: {fileID: 7071607088567325403}
   positionsParent: {fileID: 7071607089569040572}
@@ -3290,6 +3310,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088409959713
 GameObject:
@@ -3391,6 +3412,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088418728363
 GameObject:
@@ -3492,6 +3514,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088434485452
 GameObject:
@@ -3593,6 +3616,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088437242724
 GameObject:
@@ -3681,6 +3705,7 @@ MonoBehaviour:
   - {fileID: 5621266394378430293}
   - {fileID: 7229386030932845664}
   - {fileID: 1528619258943867937}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 556b913ddeb00894493948281fcee52e, type: 3}
   id: 5
   gridStartPosition: {fileID: 7071607088437242731}
   positionsParent: {fileID: 7071607089065470587}
@@ -4129,6 +4154,7 @@ MonoBehaviour:
   - {fileID: 3189760896446840344}
   - {fileID: 6851973563393887642}
   - {fileID: 2218762135652636759}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: b2ddd523c3cce1b479dd74aaa9079578, type: 3}
   id: 8
   gridStartPosition: {fileID: 7071607089879213180}
   positionsParent: {fileID: 7071607088144791396}
@@ -4234,6 +4260,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088485392041
 GameObject:
@@ -4335,6 +4362,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088519265823
 GameObject:
@@ -4436,6 +4464,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088542425442
 GameObject:
@@ -4924,6 +4953,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088562594404
 GameObject:
@@ -5406,6 +5436,7 @@ MonoBehaviour:
   - {fileID: 1554733504140371858}
   - {fileID: 4299305416712982091}
   - {fileID: 8764613173097546351}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: b2726ce1847646b46ac8dc2a1bd66ccc, type: 3}
   id: 0
   gridStartPosition: {fileID: 7071607089970730148}
   positionsParent: {fileID: 7071607089318748344}
@@ -5511,6 +5542,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088608024722
 GameObject:
@@ -5612,6 +5644,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088611188409
 GameObject:
@@ -5713,6 +5746,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088612784533
 GameObject:
@@ -5814,6 +5848,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088615494672
 GameObject:
@@ -5871,6 +5906,7 @@ MonoBehaviour:
   - {fileID: 9192685932680164316}
   - {fileID: 3642117356853322078}
   - {fileID: 2100206860132585512}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 5521b0d56f7a05f4088b47910c0b2722, type: 3}
   id: 13
   gridStartPosition: {fileID: 7071607088767456446}
   positionsParent: {fileID: 7071607089416943679}
@@ -5976,6 +6012,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088662081268
 GameObject:
@@ -6033,6 +6070,7 @@ MonoBehaviour:
   - {fileID: 4285417151199882318}
   - {fileID: 729100621846196614}
   - {fileID: 8019924360233643981}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 83ab768ba67662e45900369caec5aaf6, type: 3}
   id: 11
   gridStartPosition: {fileID: 7071607088177381138}
   positionsParent: {fileID: 7071607088193747455}
@@ -6138,6 +6176,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088667518632
 GameObject:
@@ -6239,6 +6278,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088678047203
 GameObject:
@@ -6340,6 +6380,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088685526439
 GameObject:
@@ -6441,6 +6482,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088685659033
 GameObject:
@@ -6542,6 +6584,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088694257949
 GameObject:
@@ -6643,6 +6686,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088698754623
 GameObject:
@@ -6775,6 +6819,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088719882946
 GameObject:
@@ -6876,6 +6921,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088746811190
 GameObject:
@@ -6977,6 +7023,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088751166294
 GameObject:
@@ -7109,6 +7156,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088767456447
 GameObject:
@@ -7241,6 +7289,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088799391600
 GameObject:
@@ -7342,6 +7391,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088804102685
 GameObject:
@@ -7443,6 +7493,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088833034159
 GameObject:
@@ -7544,6 +7595,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088856616559
 GameObject:
@@ -7645,6 +7697,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088859949593
 GameObject:
@@ -7746,6 +7799,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088865557867
 GameObject:
@@ -7847,6 +7901,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088893565512
 GameObject:
@@ -7948,6 +8003,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088918667344
 GameObject:
@@ -8049,6 +8105,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088922858281
 GameObject:
@@ -8150,6 +8207,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088937001450
 GameObject:
@@ -8251,6 +8309,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088941096449
 GameObject:
@@ -8352,6 +8411,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088950149127
 GameObject:
@@ -8453,6 +8513,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088957263120
 GameObject:
@@ -8554,6 +8615,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088965109111
 GameObject:
@@ -8655,6 +8717,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088972325163
 GameObject:
@@ -8756,6 +8819,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088986731841
 GameObject:
@@ -8857,6 +8921,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607088992121255
 GameObject:
@@ -9738,6 +9803,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089016168150
 GameObject:
@@ -9839,6 +9905,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089029254880
 GameObject:
@@ -9940,6 +10007,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089029276408
 GameObject:
@@ -10415,6 +10483,7 @@ MonoBehaviour:
   - {fileID: 8482310780682754215}
   - {fileID: 8837718612842845789}
   - {fileID: 4892577738594770867}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: c13f983fe30a236459705e62990d3a8c, type: 3}
   id: 10
   gridStartPosition: {fileID: 7071607089271233804}
   positionsParent: {fileID: 7071607088542425442}
@@ -10476,6 +10545,7 @@ MonoBehaviour:
   - {fileID: 5605095408310752544}
   - {fileID: 1672476541267413879}
   - {fileID: 2180130476075866080}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: adb9cd0f2861d804f811a634ebfea1d6, type: 3}
   id: 6
   gridStartPosition: {fileID: 7071607089776761497}
   positionsParent: {fileID: 7071607089868286293}
@@ -10968,6 +11038,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089115547555
 GameObject:
@@ -11069,6 +11140,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089126624809
 GameObject:
@@ -11170,6 +11242,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089135007536
 GameObject:
@@ -11271,6 +11344,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089141599638
 GameObject:
@@ -11372,6 +11446,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089149442603
 GameObject:
@@ -11504,6 +11579,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089166477952
 GameObject:
@@ -11605,6 +11681,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089171957199
 GameObject:
@@ -11706,6 +11783,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089176839026
 GameObject:
@@ -11807,6 +11885,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089182440835
 GameObject:
@@ -11908,6 +11987,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089195257426
 GameObject:
@@ -12009,6 +12089,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089197715594
 GameObject:
@@ -12110,6 +12191,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089201741309
 GameObject:
@@ -12211,6 +12293,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089208335425
 GameObject:
@@ -12312,6 +12395,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089216375486
 GameObject:
@@ -12413,6 +12497,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089239366836
 GameObject:
@@ -12514,6 +12599,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089259981096
 GameObject:
@@ -12615,6 +12701,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089263927652
 GameObject:
@@ -12716,6 +12803,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089271233805
 GameObject:
@@ -12848,6 +12936,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089279589254
 GameObject:
@@ -12909,6 +12998,7 @@ MonoBehaviour:
   - {fileID: 4570828078645324210}
   - {fileID: 4421882463654917100}
   - {fileID: 5271131416393241499}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 30b9ddc0a0d469148b370cc7366a19a3, type: 3}
   id: 4
   gridStartPosition: {fileID: 7071607089149442602}
   positionsParent: {fileID: 7071607088992121255}
@@ -13014,6 +13104,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089300948826
 GameObject:
@@ -13115,6 +13206,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089318748344
 GameObject:
@@ -13603,6 +13695,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089337913654
 GameObject:
@@ -13704,6 +13797,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089343012390
 GameObject:
@@ -13768,6 +13862,7 @@ MonoBehaviour:
   - {fileID: 9120964127235477693}
   - {fileID: 506572167070608396}
   - {fileID: 7563872703332898300}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 0b78c2e815f2fad47bb85ef6dadeae04, type: 3}
   id: 2
   gridStartPosition: {fileID: 7071607090268386290}
   positionsParent: {fileID: 7071607088295351960}
@@ -13873,6 +13968,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089356284917
 GameObject:
@@ -13974,6 +14070,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089398559982
 GameObject:
@@ -14075,6 +14172,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089402703870
 GameObject:
@@ -14176,6 +14274,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089416943679
 GameObject:
@@ -14664,6 +14763,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089445492156
 GameObject:
@@ -14765,6 +14865,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089460937061
 GameObject:
@@ -14866,6 +14967,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089463423843
 GameObject:
@@ -14967,6 +15069,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089470368439
 GameObject:
@@ -15068,6 +15171,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089482375060
 GameObject:
@@ -15169,6 +15273,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089498865153
 GameObject:
@@ -15270,6 +15375,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089499644688
 GameObject:
@@ -15371,6 +15477,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089520068837
 GameObject:
@@ -15472,6 +15579,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089520216893
 GameObject:
@@ -15573,6 +15681,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089534130434
 GameObject:
@@ -15674,6 +15783,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089551266505
 GameObject:
@@ -15775,6 +15885,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089569040572
 GameObject:
@@ -16266,6 +16377,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089620670685
 GameObject:
@@ -16367,6 +16479,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089623268109
 GameObject:
@@ -16468,6 +16581,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089628190176
 GameObject:
@@ -16569,6 +16683,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089632195880
 GameObject:
@@ -16670,6 +16785,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089634165856
 GameObject:
@@ -16727,6 +16843,7 @@ MonoBehaviour:
   - {fileID: 1374174112776985355}
   - {fileID: 7344773734184221907}
   - {fileID: 457848604595686754}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: a5c93a195d4bf85429b37efba34df325, type: 3}
   id: 1
   gridStartPosition: {fileID: 7071607089797472007}
   positionsParent: {fileID: 7071607089087685801}
@@ -16832,6 +16949,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089635908338
 GameObject:
@@ -16933,6 +17051,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089656959582
 GameObject:
@@ -17034,6 +17153,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089659329470
 GameObject:
@@ -17166,6 +17286,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089675315785
 GameObject:
@@ -17267,6 +17388,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089679226339
 GameObject:
@@ -17368,6 +17490,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089688460227
 GameObject:
@@ -17469,6 +17592,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089688700996
 GameObject:
@@ -17570,6 +17694,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089689515507
 GameObject:
@@ -17671,6 +17796,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089699424986
 GameObject:
@@ -17803,6 +17929,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089739732091
 GameObject:
@@ -17904,6 +18031,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089768091383
 GameObject:
@@ -18005,6 +18133,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089770138292
 GameObject:
@@ -18106,6 +18235,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089776404080
 GameObject:
@@ -18207,6 +18337,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089776761498
 GameObject:
@@ -18339,6 +18470,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089797472000
 GameObject:
@@ -18471,6 +18603,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089808373948
 GameObject:
@@ -18572,6 +18705,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089812196628
 GameObject:
@@ -18673,6 +18807,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089814386089
 GameObject:
@@ -18774,6 +18909,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089828503450
 GameObject:
@@ -18906,6 +19042,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089844212467
 GameObject:
@@ -19007,6 +19144,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089847935793
 GameObject:
@@ -19108,6 +19246,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089860631370
 GameObject:
@@ -19209,6 +19348,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089868286293
 GameObject:
@@ -19697,6 +19837,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089879213181
 GameObject:
@@ -19829,6 +19970,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089881076996
 GameObject:
@@ -19930,6 +20072,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089882319471
 GameObject:
@@ -20031,6 +20174,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089894067240
 GameObject:
@@ -20132,6 +20276,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089900068897
 GameObject:
@@ -20233,6 +20378,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089906983966
 GameObject:
@@ -20334,6 +20480,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089942819892
 GameObject:
@@ -20435,6 +20582,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089946133994
 GameObject:
@@ -20499,6 +20647,7 @@ MonoBehaviour:
   - {fileID: 9128089381053703224}
   - {fileID: 7758262151451144395}
   - {fileID: 5639955073228521941}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 2833b7799e19c64489ad508a39621a8e, type: 3}
   id: 12
   gridStartPosition: {fileID: 7071607088751166293}
   positionsParent: {fileID: 7071607088562594404}
@@ -20604,6 +20753,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089949530319
 GameObject:
@@ -20705,6 +20855,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089960361361
 GameObject:
@@ -20806,6 +20957,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607089970730149
 GameObject:
@@ -20938,6 +21090,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090007782251
 GameObject:
@@ -21039,6 +21192,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090016887949
 GameObject:
@@ -21140,6 +21294,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090046348351
 GameObject:
@@ -21241,6 +21396,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090061815154
 GameObject:
@@ -21342,6 +21498,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090079327552
 GameObject:
@@ -21443,6 +21600,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090088643842
 GameObject:
@@ -21544,6 +21702,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090090665867
 GameObject:
@@ -21645,6 +21804,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090096491752
 GameObject:
@@ -21702,6 +21862,7 @@ MonoBehaviour:
   - {fileID: 6078980733420302293}
   - {fileID: 3541434293626602307}
   - {fileID: 4064947434041004984}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: fe8268b5516f278498f8066e90851578, type: 3}
   id: 3
   gridStartPosition: {fileID: 7071607089699424985}
   positionsParent: {fileID: 7071607088467270160}
@@ -21807,6 +21968,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090115894904
 GameObject:
@@ -21908,6 +22070,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090119143814
 GameObject:
@@ -22009,6 +22172,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090122376691
 GameObject:
@@ -22110,6 +22274,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090123280969
 GameObject:
@@ -22211,6 +22376,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090137617651
 GameObject:
@@ -22312,6 +22478,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090151027407
 GameObject:
@@ -22413,6 +22580,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090155001808
 GameObject:
@@ -22514,6 +22682,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090164697709
 GameObject:
@@ -22615,6 +22784,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090166644256
 GameObject:
@@ -22716,6 +22886,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090179707776
 GameObject:
@@ -22817,6 +22988,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090184981931
 GameObject:
@@ -22918,6 +23090,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090197007237
 GameObject:
@@ -23019,6 +23192,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090207941913
 GameObject:
@@ -23120,6 +23294,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090221757864
 GameObject:
@@ -23615,6 +23790,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090228107108
 GameObject:
@@ -23716,6 +23892,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090248315428
 GameObject:
@@ -23817,6 +23994,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090250962559
 GameObject:
@@ -23918,6 +24096,7 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0
 --- !u!1 &7071607090268386291
 GameObject:
@@ -24050,4 +24229,5 @@ MonoBehaviour:
   enemyStatus:
     health: 0
     dead: 0
+    enemyUpgradeData: {fileID: 0}
   hasDrop: 0

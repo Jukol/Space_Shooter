@@ -16,6 +16,7 @@ namespace Data
         public SpawnWrapperHolder spawnWrapperHolder;
         public int killCount;
         public int playerUpgradeLevel;
+        public int enemyUpgradeLevel;
         public int enemyShip;
 
         public LastState(
@@ -25,8 +26,7 @@ namespace Data
             int spawnManagerIndex,
             int playerHealth,
             int playerShip,
-            int playerUpgradeLevel,
-            int enemyShip)
+            int playerUpgradeLevel)
         {
             levelToLoad = level;
             waveToLoad = wave;
@@ -36,7 +36,6 @@ namespace Data
             this.playerHealth = playerHealth;
             this.playerUpgradeLevel = playerUpgradeLevel;
             this.playerShip = playerShip;
-            this.enemyShip = enemyShip;
         }
     }
 }

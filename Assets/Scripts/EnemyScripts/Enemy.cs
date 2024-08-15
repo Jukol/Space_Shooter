@@ -34,7 +34,7 @@ namespace EnemyScripts
         private bool _woundedAnim, _smokeAnim;
         private int _woundedValue;
         private ISaveLoadService _saveLoadService;
-        private EnemyUpgradeDataList _enemyUpgradeDataList;
+        private EnemyUpgradeData _enemyUpgradeData;
         private IShootable[] _shootables;
 
         private Spawner _spawner;
@@ -52,9 +52,9 @@ namespace EnemyScripts
             _woundedAnim = false;
         }
 
-        public void Init(int health, EnemyUpgradeDataList enemyUpgradeDataList)
+        public void Init(int health, EnemyUpgradeData enemyUpgradeData)
         {
-            _enemyUpgradeDataList = enemyUpgradeDataList;
+            _enemyUpgradeData = enemyUpgradeData;
 
             _currentHealth = health;
             
@@ -85,16 +85,16 @@ namespace EnemyScripts
 
         private void GetDataFromEnemyUpgrade()
         {
-            _fireRate = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].fireRate;
-            _bulletDamage = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletDamage;
-            _bulletSpeed = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSpeed;
-            _sockets = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].sockets;
-            _myParticleSystem = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].myParticleSystem;
-            _bulletSprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].bulletSprite;
-            _enemySprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].playerSprite;
+            _fireRate = _enemyUpgradeData.fireRate;
+            _bulletDamage = _enemyUpgradeData.bulletDamage;
+            _bulletSpeed = _enemyUpgradeData.bulletSpeed;
+            _sockets = _enemyUpgradeData.sockets;
+            _myParticleSystem = _enemyUpgradeData.myParticleSystem;
+            _bulletSprite = _enemyUpgradeData.bulletSprite;
+            _enemySprite = _enemyUpgradeData.playerSprite;
             SpriteRenderer.sprite = _enemySprite;
-            audioSource.clip = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].shootSound;
-            useDoubleShooter = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].useDoubleShooter;
+            audioSource.clip = _enemyUpgradeData.shootSound;
+            useDoubleShooter = _enemyUpgradeData.useDoubleShooter;
             
             if (!useDoubleShooter)
             {
