@@ -30,11 +30,12 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private int initialPlayerHealth;
         [SerializeField] private int initialEnemyHealth;
         [SerializeField] private int playerShip;
+        [SerializeField] private int enemyShip;
         [SerializeField] private int initialPlayerUpgradeLevel;
+        [SerializeField] private int initialEnemyUpgradeLevel;
         [SerializeField] private StartMenuController startMenuController;
         [SerializeField] private PlayerUpgradeDataList playerUpgradeDataList;
         [SerializeField] private EnemyUpgradeDataList enemyUpgradeDataList;
-        
 
         public override void InstallBindings()
         {
@@ -45,7 +46,9 @@ namespace Infrastructure.GameLaunch
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
             Container.BindInstance(playerShip).WithId("PlayerShip");
+            Container.BindInstance(enemyShip).WithId("EnemyShip");
             Container.BindInstance(initialPlayerUpgradeLevel).WithId("InitialPlayerUpgradeLevel");
+            Container.BindInstance(initialEnemyUpgradeLevel).WithId("InitialEnemyUpgradeLevel");
             Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();
             Container.Bind<SpawnWrapperHolder>().AsSingle();
             Container.BindInstance(initialWave).WithId("InitialWave");

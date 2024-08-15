@@ -21,7 +21,7 @@ namespace EnemyScripts
         [SerializeField] private RectTransform healthBar;
         [SerializeField] private GameObject shipExplosion, wounded, whiteSmoke;
         [SerializeField] private Transform[] socketPlaceholders;
-        [SerializeField] private bool useDoubleShooter;
+        private bool useDoubleShooter;
         [SerializeField] private AudioSource audioSource;
 
         private int _damagedValue;
@@ -66,14 +66,6 @@ namespace EnemyScripts
             wounded.SetActive(false);
             whiteSmoke.SetActive(false);
 
-            if (!useDoubleShooter)
-            {
-                EnemyDoubleShooter doubleShooter = GetComponent<EnemyDoubleShooter>();
-                DestroyImmediate(doubleShooter);
-            }
-            
-            _shootables = GetComponents<IShootable>();
-            
             GetDataFromEnemyUpgrade();
             
             UpdateStatus();
@@ -102,6 +94,15 @@ namespace EnemyScripts
             _enemySprite = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].playerSprite;
             SpriteRenderer.sprite = _enemySprite;
             audioSource.clip = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].shootSound;
+            useDoubleShooter = _enemyUpgradeDataList.shipUpgrades[0].enemyUpgrades[0].useDoubleShooter;
+            
+            if (!useDoubleShooter)
+            {
+                EnemyDoubleShooter doubleShooter = GetComponent<EnemyDoubleShooter>();
+                DestroyImmediate(doubleShooter);
+            }
+            
+            _shootables = GetComponents<IShootable>();
             
             for (int i = 0; i < _sockets.Length; i++)
             {

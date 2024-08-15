@@ -16,5 +16,6 @@ namespace EnemyScripts
         public Sprite bulletSprite;
         //public GameObject explosion;
         public AudioClip shootSound;
+        public bool useDoubleShooter;
     }
 }

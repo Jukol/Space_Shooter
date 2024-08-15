@@ -15,9 +15,10 @@ namespace Data
             int spawnManagerIndex, 
             int playerHealth,
             int playerShip,
-            int playerUpgradeLevel)
+            int playerUpgradeLevel,
+            int enemyShip)
         {
-            lastState = new LastState(level, wave, spawnWrapperHolder, spawnManagerIndex, playerHealth, playerShip, playerUpgradeLevel);
+            lastState = new LastState(level, wave, spawnWrapperHolder, spawnManagerIndex, playerHealth, playerShip, playerUpgradeLevel, enemyShip);
         }
     }
 }

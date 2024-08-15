@@ -15,6 +15,7 @@ namespace Infrastructure.GameLaunch
         [Inject (Id = "SpawnManagerIndex")] public int SpawnManagerIndex;
         [Inject (Id = "InitialWave")] public int InitialWave;
         [Inject (Id = "InitialPlayerUpgradeLevel")] public int InitialPlayerUpgradeLevel;
+        [Inject (Id = "InitialEnemyUpgradeLevel")] public int InitialEnemyUpgradeLevel;
         [Inject] public IPersistentProgressService ProgressService;
         [Inject] public ISaveLoadService SaveLoadService;
         [Inject] public IGameFactory GameFactory;
@@ -23,5 +24,6 @@ namespace Infrastructure.GameLaunch
         [Inject] public PlayerUpgradeDataList PlayerUpgradeDataList;
         [Inject] public EnemyUpgradeDataList EnemyUpgradeDataList;
         [Inject (Id = "PlayerShip")] public int PlayerShip;
+        [Inject (Id = "EnemyShip")] public int EnemyShip;
     }
 }
