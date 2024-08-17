@@ -1,6 +1,8 @@
 ﻿using System;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,7 +13,10 @@ namespace EnemyScripts
         [Inject]
         public void Construct(ISaveLoadService saveLoadService) => 
             _saveLoadService = saveLoadService;
-
+        public bool LookAtPlayer {
+            get => lookAtPlayer;
+            set => lookAtPlayer = value;
+        }
         public static event Action OnDestroy;
         
         public SpriteRenderer SpriteRenderer => GetComponent<SpriteRenderer>();
@@ -23,6 +28,8 @@ namespace EnemyScripts
         [SerializeField] private Transform[] socketPlaceholders;
         private bool useDoubleShooter;
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private RotationConstraint rotationConstraint;
+        [SerializeField] private bool lookAtPlayer;
 
         private int _damagedValue;
         private bool _dead;
@@ -46,17 +53,24 @@ namespace EnemyScripts
         private ParticleSystem _myParticleSystem;
         private Sprite _bulletSprite;
         private Sprite _enemySprite;
+        private Player _player;
 
         private void OnEnable()
         {
             _woundedAnim = false;
         }
 
-        public void Init(int health, EnemyUpgradeData enemyUpgradeData)
+        public void Init(int health, EnemyUpgradeData enemyUpgradeData, Player player)
         {
             _enemyUpgradeData = enemyUpgradeData;
 
             _currentHealth = health;
+            _player = player;
+
+            if (lookAtPlayer)
+            {
+                rotationConstraint.enabled = false;
+            }
             
             _woundedValue = (int)(0.5f * _currentHealth);
             _damagedValue = (int)(0.1f * _currentHealth);
@@ -73,6 +87,21 @@ namespace EnemyScripts
             DamageEffects();
 
             StartShooting();
+        }
+
+        private void Update()
+        {
+            if (lookAtPlayer)
+            {
+                LookAtPlayerMethod();
+            }
+        }
+
+        private void LookAtPlayerMethod()
+        {
+            Vector3 direction = _player.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90f));
         }
 
         private void StartShooting()

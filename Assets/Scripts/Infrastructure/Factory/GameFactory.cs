@@ -50,9 +50,9 @@ namespace Infrastructure.Factory
             return InstantiateRegisteredPlayer(AssetPaths.PlayerPath);
         }
 
-        public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder, EnemyUpgradeData enemyUpgradeData)
+        public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder, EnemyUpgradeData enemyUpgradeData, Player player)
         {
-            return InstantiateEnemy(AssetPaths.EnemyPath, gridStartPosition, placeHolder, enemyUpgradeData);
+            return InstantiateEnemy(AssetPaths.EnemyPath, gridStartPosition, placeHolder, enemyUpgradeData, player);
         }
         
         public SpawnWrapperHolder CreateSpawnWrapperHolder()
@@ -131,11 +131,11 @@ namespace Infrastructure.Factory
             return player;
         }
 
-        private Enemy InstantiateEnemy(string prefabPath, Transform gridStartPosition, EnemyPlaceHolder placeHolder, EnemyUpgradeData enemyUpgradeData)
+        private Enemy InstantiateEnemy(string prefabPath, Transform gridStartPosition, EnemyPlaceHolder placeHolder, EnemyUpgradeData enemyUpgradeData, Player player)
         {
             Enemy enemy = _assets.Instantiate(prefabPath, gridStartPosition, Quaternion.Euler(0, 0, 180)).GetComponent<Enemy>();
             enemy.transform.SetParent(placeHolder.transform, true);
-            enemy.Init(placeHolder.enemyStatus.health, enemyUpgradeData);
+            enemy.Init(placeHolder.enemyStatus.health, enemyUpgradeData, player);
 
             return enemy;
         }

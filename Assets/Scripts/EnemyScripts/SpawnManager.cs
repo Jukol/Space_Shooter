@@ -3,6 +3,7 @@ using System.Collections;
 using Data;
 using Infrastructure.Signals;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -36,9 +37,9 @@ namespace EnemyScripts
             _signalBus = signalBus;
         }
 
-        public void Launch()
+        public void Launch(Player player)
         {
-            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster));
+            StartCoroutine(SpawnerEnumerator(_gameFactory, _progress.Progress, _adjuster, player));
         }
 
         public void UpdateProgress(Progress progress)
@@ -60,7 +61,7 @@ namespace EnemyScripts
             }
         }
 
-        private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster)
+        private IEnumerator SpawnerEnumerator(IGameFactory gameFactory, Progress progress, IBackgroundAdjuster adjuster, Player player)
         {
             int wave = progress.lastState.waveToLoad;
 
@@ -69,7 +70,7 @@ namespace EnemyScripts
                 spawners[i].gameObject.SetActive(true);
                 _progress.Progress.lastState.waveToLoad = i;
                 _signalBus.Fire(new WaveCompleted(i));
-                spawners[i].Init(id,i, gameFactory, progress, adjuster);
+                spawners[i].Init(id,i, gameFactory, progress, adjuster, player);
                 _saveLoadService.SaveProgress();
                 int i1 = i;
                 yield return new WaitUntil(() => spawners[i1].gameObject.activeSelf == false);

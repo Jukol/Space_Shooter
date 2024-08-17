@@ -196,8 +196,9 @@ MonoBehaviour:
   socketPlaceholders:
   - {fileID: 2744034243986559722}
   - {fileID: 6184336046234433112}
-  useDoubleShooter: 0
   audioSource: {fileID: 7209965569073211181}
+  rotationConstraint: {fileID: -6397978655343373017}
+  lookAtPlayer: 0
 --- !u!82 &7209965569073211181
 AudioSource:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ RotationConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505702599986202165}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Weight: 1
   m_RotationAtRest: {x: 0, y: 0, z: 180}

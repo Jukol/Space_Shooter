@@ -5,6 +5,7 @@ using Data;
 using DG.Tweening;
 using Drops;
 using Interfaces;
+using PlayerScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -37,18 +38,22 @@ namespace EnemyScripts
 
         private int _spawnManagerId;
 
+        private Player _player;
+
         public void Init(
             int spawnerManagerId,
             int spawnerId,
             IGameFactory gameFactory, 
             Progress progress,
-            IBackgroundAdjuster adjuster)
+            IBackgroundAdjuster adjuster,
+            Player player)
         {
             _intervalBetweenShips = new WaitForSeconds(seconds);
             _adjuster = adjuster;
             _progress = progress;
             id = spawnerId;
             _spawnManagerId = spawnerManagerId;
+            _player = player;
 
             ChooseDropper();
             ResizeWindow();
@@ -123,7 +128,7 @@ namespace EnemyScripts
                     continue;
                 }
 
-                Enemy enemy = gameFactory.CreateEnemy(gridStartPosition, enemyPlaceHolders[i], enemyUpgradeData);
+                Enemy enemy = gameFactory.CreateEnemy(gridStartPosition, enemyPlaceHolders[i], enemyUpgradeData, _player);
 
                 if (i != enemyPlaceHolders.Length - 1)
                 {

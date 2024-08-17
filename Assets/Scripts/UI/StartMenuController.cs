@@ -41,7 +41,7 @@ namespace UI
         private void OnStartButtonClicked(SpawnManager spawnManager, Player player)
         {
             gameObject.SetActive(false);
-            spawnManager.Launch();
+            spawnManager.Launch(player);
             player.gameObject.SetActive(true);
             player.StartShooting();
         }
