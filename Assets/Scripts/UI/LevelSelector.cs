@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using EnemyScripts;
 using Infrastructure.GameLaunch;
 using Infrastructure.States;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

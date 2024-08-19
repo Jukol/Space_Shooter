@@ -13,8 +13,10 @@ namespace UI
     {
         [SerializeField] private Button startButton;
         [SerializeField] private Button selectLevelButton;
+        [SerializeField] private Button cheatButton;
         [SerializeField] private LevelSelector levelSelector;
-        
+        [SerializeField] private CheatPanel cheatPanel;
+
         private SpawnManager _spawnManager;
         private GameInitializer _gameInitializer;
         private GameStateMachine _gameStateMachine;
@@ -24,12 +26,20 @@ namespace UI
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() => OnStartButtonClicked (spawnManager, player));
             selectLevelButton.onClick.AddListener(OnSelectLevelButtonClicked);
+            cheatButton.onClick.AddListener(OnCheatButtonClicked);
             
             _spawnManager = spawnManager;
             _gameInitializer = gameInitializer;
             _gameStateMachine = gameStateMachine;
             
             levelSelector.gameObject.SetActive(false);
+            cheatPanel.gameObject.SetActive(false);
+        }
+
+        private void OnCheatButtonClicked()
+        {
+            cheatPanel.gameObject.SetActive(true);
+            cheatPanel.Init(_spawnManager, _gameStateMachine);
         }
 
         private void OnSelectLevelButtonClicked()
