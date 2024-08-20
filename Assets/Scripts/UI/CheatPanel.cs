@@ -1,4 +1,5 @@
 ﻿using EnemyScripts;
+using Infrastructure.GameLaunch;
 using Infrastructure.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,13 @@ namespace UI
 
         private SpawnManager _spawnManager;
         private GameStateMachine _gameStateMachine;
+        private GameInitializer _gameInitializer;
 
-        public void Init(SpawnManager spawnManager, GameStateMachine gameStateMachine)
+        public void Init(SpawnManager spawnManager, GameStateMachine gameStateMachine, GameInitializer gameInitializer)
         {
             _spawnManager = spawnManager;
             _gameStateMachine = gameStateMachine;
+            _gameInitializer = gameInitializer;
             closeButton.onClick.AddListener(() => gameObject.SetActive(false));
             GenerateLevelButtons();
         }
@@ -41,7 +44,8 @@ namespace UI
             PlayerPrefs.Save();
             
             string levelToLoad = "Level " + level;
-            
+            _gameInitializer.ProgressService.Progress.lastState.levelToLoad = levelToLoad;
+            _gameInitializer.SaveLoadService.SaveProgress();
             _gameStateMachine.Enter<LoadLevelState, string>(levelToLoad);
         }
     }

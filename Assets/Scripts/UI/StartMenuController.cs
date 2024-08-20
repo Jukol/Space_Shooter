@@ -39,7 +39,7 @@ namespace UI
         private void OnCheatButtonClicked()
         {
             cheatPanel.gameObject.SetActive(true);
-            cheatPanel.Init(_spawnManager, _gameStateMachine);
+            cheatPanel.Init(_spawnManager, _gameStateMachine, _gameInitializer);
         }
 
         private void OnSelectLevelButtonClicked()
