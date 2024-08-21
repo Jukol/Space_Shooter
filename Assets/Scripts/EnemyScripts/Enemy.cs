@@ -26,7 +26,7 @@ namespace EnemyScripts
         [SerializeField] private RectTransform healthBar;
         [SerializeField] private GameObject shipExplosion, wounded, whiteSmoke;
         [SerializeField] private Transform[] socketPlaceholders;
-        private bool useDoubleShooter;
+        [SerializeField] private bool useDoubleShooter;
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private RotationConstraint rotationConstraint;
         [SerializeField] private bool lookAtPlayer;
@@ -129,6 +129,14 @@ namespace EnemyScripts
             {
                 EnemyDoubleShooter doubleShooter = GetComponent<EnemyDoubleShooter>();
                 DestroyImmediate(doubleShooter);
+            }
+            else
+            {
+                EnemyShooter[] shooter = GetComponents<EnemyShooter>();
+                foreach (EnemyShooter enemyShooter in shooter)
+                {
+                    DestroyImmediate(enemyShooter);
+                }
             }
             
             _shootables = GetComponents<IShootable>();

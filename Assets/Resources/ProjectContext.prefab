@@ -83,7 +83,7 @@ MonoBehaviour:
   initialLevel: Level 1
   initialWave: 0
   initialSpawnManagerIndex: 0
-  initialPlayerHealth: 10
+  initialPlayerHealth: 50
   initialEnemyHealth: 10
   playerShip: 0
   initialPlayerUpgradeLevel: 0

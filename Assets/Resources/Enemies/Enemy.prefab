@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6827cf928743449b91fc2c2427865a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 50
+  startHealth: 10
   shipData: {fileID: 11400000, guid: 1c7c9306ceceeb14a98dbc24a901632c, type: 2}
   healthBar: {fileID: 2505702600124579889}
   shipExplosion: {fileID: 121806, guid: 4dbaeaca9d7e967419f27723f2718287, type: 3}
@@ -196,6 +196,7 @@ MonoBehaviour:
   socketPlaceholders:
   - {fileID: 2744034243986559722}
   - {fileID: 6184336046234433112}
+  useDoubleShooter: 0
   audioSource: {fileID: 7209965569073211181}
   rotationConstraint: {fileID: -6397978655343373017}
   lookAtPlayer: 0
@@ -814,7 +815,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2505702601425337767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +832,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 311
 --- !u!1 &2962251878138417748
 GameObject:
   m_ObjectHideFlags: 0

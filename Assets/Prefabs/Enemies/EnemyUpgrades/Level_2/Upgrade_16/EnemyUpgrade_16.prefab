@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8678644698301176583}
   - component: {fileID: 2039121673313924108}
   m_Layer: 0
-  m_Name: EnemyUpgrade_11
+  m_Name: EnemyUpgrade_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,12 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 9
   bulletDamage: 1
-  bulletSpeed: 4.1
-  playerSprite: {fileID: 21300000, guid: 2dc06f977eb72454eb56bc867e0f32e4, type: 3}
+  bulletSpeed: 4.6
+  playerSprite: {fileID: 21300000, guid: abd9cd8ce963da64c8530e87d5075597, type: 3}
   sockets:
-  - {fileID: 347510825125672879, guid: 9ea669d26f93dab498823981a5d06f96, type: 3}
+  - {fileID: 6794835303394398205, guid: 69dda476d6fd5e84a915ac581fbc36df, type: 3}
   - {fileID: 4557145033385395644, guid: 3b39378f9405fb64192c5a6a8435220b, type: 3}
   myParticleSystem: {fileID: 19888426, guid: e30a4231dad20c349a162c5f16f12ba7, type: 3}
-  bulletSprite: {fileID: 21300000, guid: ecabf629deb28b647a31b23114a77764, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 342eec45c979e8f4c9f51f57776d2927, type: 3}
   shootSound: {fileID: 8300000, guid: c4f22a352c9c4134eae11dc1563434f9, type: 3}
-  useDoubleShooter: 0
+  useDoubleShooter: 1

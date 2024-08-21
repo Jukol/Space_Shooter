@@ -22,13 +22,13 @@ namespace EnemyScripts
         private bool _shootStarted;
         [SerializeField] private bool initiated;
 
-        public void Init(float fireRate, int damage, float speed, Transform newSocket, ParticleSystem myParticleSystem, Sprite sprite, Transform socket2 = null)
+        public void Init(float fireRate, int damage, float speed, Transform socket1, ParticleSystem myParticleSystem, Sprite sprite, Transform socket2 = null)
         {
             _fireRate = fireRate;
             _fireRateYield = new WaitForSeconds(fireRate);
 
             _pool.Upgrade(damage, speed, sprite);
-            sockets[0] = newSocket;
+            sockets[0] = socket1;
             sockets[1] = socket2;
 
             for (int i = 0; i < muzzleFlashParticles.Length; i++)
@@ -79,11 +79,10 @@ namespace EnemyScripts
                     _fireRateYield = new WaitForSeconds(Random.Range(0f, _fireRate));
                 }
                 
+                yield return _fireRateYield;
+                
                 for (int i = 0; i < sockets.Length; i++)
                 {
-                    muzzleFlashParticles[i].Play();
-                    audioSource.Play();
-                    
                     GameObject bullet = _pool.Request();
                     Bullet bulletComponent = bullet.GetComponent<Bullet>();
                     
@@ -92,9 +91,10 @@ namespace EnemyScripts
                     bullet.transform.position = myTransform.position;
                     bullet.transform.rotation = myTransform.rotation;
                     bulletComponent.TargetTag = targetTag;
+                    
+                    muzzleFlashParticles[i].Play();
+                    audioSource.Play();
                 }
-
-                yield return _fireRateYield;
             }
         }
     }

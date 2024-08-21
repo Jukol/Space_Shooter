@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8678644698301176583}
   - component: {fileID: 2039121673313924108}
   m_Layer: 0
-  m_Name: EnemyUpgrade_15
+  m_Name: EnemyUpgrade_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 9
   bulletDamage: 1
-  bulletSpeed: 4.5
+  bulletSpeed: 4.2
   playerSprite: {fileID: 21300000, guid: abd9cd8ce963da64c8530e87d5075597, type: 3}
   sockets:
   - {fileID: 6794835303394398205, guid: 69dda476d6fd5e84a915ac581fbc36df, type: 3}
