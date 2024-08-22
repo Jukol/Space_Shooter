@@ -10,10 +10,12 @@ namespace Infrastructure.GameLaunch
     [Serializable]
     public class SpawnWrapperHolder : ISavedProgressWriter
     {
+        private readonly int _enemyInitialHealth;
         public ChiefWrapper chiefWrapper = new ();
         
-        public SpawnWrapperHolder(SpawnManagerHolder spawnManagerHolder)
+        public SpawnWrapperHolder(SpawnManagerHolder spawnManagerHolder, int enemyInitialHealth)
         {
+            _enemyInitialHealth = enemyInitialHealth;
             chiefWrapper.SpawnersWrappers = new List<SpawnersWrapper>();
             CreateSpawnersWrappers(spawnManagerHolder);
         }
@@ -33,7 +35,7 @@ namespace Infrastructure.GameLaunch
                     for (int k = 0; k < spawnManagerHolder.SpawnManagers[i].spawners[j].enemyPlaceHolders.Length; k++)
                     {
                         EnemyUpgradeData enemyUpgradeData = spawnManagerHolder.SpawnManagers[i].spawners[j].enemyUpgradeData;
-                        EnemyStatus enemyStatus = new(10, false, enemyUpgradeData);
+                        EnemyStatus enemyStatus = new(_enemyInitialHealth, false, enemyUpgradeData);
                         statusesWrapper.ListOfStatuses.Add(enemyStatus);
                     }
                     

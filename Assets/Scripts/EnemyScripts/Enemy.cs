@@ -34,7 +34,7 @@ namespace EnemyScripts
         private int _damagedValue;
         private bool _dead;
 
-        private int _currentHealth;
+        [SerializeField] private int _currentHealth;
 
         private Slider _healthSlider;
 

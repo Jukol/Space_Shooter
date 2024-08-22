@@ -22,6 +22,7 @@ namespace Infrastructure.Factory
         private readonly CurrentScreen _currentScreen;
         private readonly SignalBus _signalBus;
         private readonly SpawnManagerHolder _spawnManagerHolder;
+        private readonly int _initialEnemyHealth;
         private GameInitializer _gameInitilizer;
 
         public GameFactory(
@@ -40,6 +41,8 @@ namespace Infrastructure.Factory
             _signalBus = signalBus;
             _spawnManagerHolder = spawnManagerHolder;
             _gameInitilizer = gameInitilizer;
+            
+            _initialEnemyHealth = _gameInitilizer.InitialEnemyHealth;
         }
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new();
@@ -57,7 +60,7 @@ namespace Infrastructure.Factory
         
         public SpawnWrapperHolder CreateSpawnWrapperHolder()
         {
-            var spawnWrapperHolder = new SpawnWrapperHolder(_spawnManagerHolder);
+            var spawnWrapperHolder = new SpawnWrapperHolder(_spawnManagerHolder, _initialEnemyHealth);
             Register(spawnWrapperHolder);
             return spawnWrapperHolder;
         }

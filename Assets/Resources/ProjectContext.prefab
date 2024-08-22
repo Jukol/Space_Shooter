@@ -83,8 +83,8 @@ MonoBehaviour:
   initialLevel: Level 1
   initialWave: 0
   initialSpawnManagerIndex: 0
-  initialPlayerHealth: 50
-  initialEnemyHealth: 10
+  initialPlayerHealth: 20
+  initialEnemyHealth: 1
   playerShip: 0
   initialPlayerUpgradeLevel: 0
   startMenuController: {fileID: 3392651418522246139, guid: 215dc51cc364bc4478ccf394717d126f, type: 3}

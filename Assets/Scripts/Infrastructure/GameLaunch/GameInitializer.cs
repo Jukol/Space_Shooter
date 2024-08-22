@@ -12,6 +12,7 @@ namespace Infrastructure.GameLaunch
         [Inject] public LoadingCurtain Curtain;
         [Inject] public string InitialLevel;
         [Inject (Id = "PlayerHealth")] public int InitialPlayerHealth;
+        [Inject (Id = "EnemyHealth")] public int InitialEnemyHealth;
         [Inject (Id = "SpawnManagerIndex")] public int SpawnManagerIndex;
         [Inject (Id = "InitialWave")] public int InitialWave;
         [Inject (Id = "InitialPlayerUpgradeLevel")] public int InitialPlayerUpgradeLevel;

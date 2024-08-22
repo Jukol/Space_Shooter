@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6827cf928743449b91fc2c2427865a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 10
+  startHealth: 1
   shipData: {fileID: 11400000, guid: 1c7c9306ceceeb14a98dbc24a901632c, type: 2}
   healthBar: {fileID: 2505702600124579889}
   shipExplosion: {fileID: 121806, guid: 4dbaeaca9d7e967419f27723f2718287, type: 3}
@@ -200,6 +200,7 @@ MonoBehaviour:
   audioSource: {fileID: 7209965569073211181}
   rotationConstraint: {fileID: -6397978655343373017}
   lookAtPlayer: 0
+  _currentHealth: 0
 --- !u!82 &7209965569073211181
 AudioSource:
   m_ObjectHideFlags: 0

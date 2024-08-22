@@ -44,6 +44,7 @@ namespace Infrastructure.GameLaunch
             Container.Bind<EnemyUpgradeDataList>().FromInstance(enemyUpgradeDataList).AsSingle();
             Container.BindInstance(initialLevel);
             Container.BindInstance(initialPlayerHealth).WithId("PlayerHealth");
+            Container.BindInstance(initialEnemyHealth).WithId("EnemyHealth");
             Container.BindInstance(playerShip).WithId("PlayerShip");
             Container.BindInstance(initialPlayerUpgradeLevel).WithId("InitialPlayerUpgradeLevel");
             Container.Bind<SpawnManagerHolder>().FromComponentInNewPrefab(spawnManagerHolder).AsSingle();
@@ -54,7 +55,7 @@ namespace Infrastructure.GameLaunch
             Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
             Container.Bind<IGameFactory>().To<GameFactory>().AsSingle();
             Container.Bind<GameInitializer>().AsSingle();
-            
+
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<BootstrapLoaded>();
             Container.DeclareSignal<ProgressLoaded>();
@@ -66,7 +67,6 @@ namespace Infrastructure.GameLaunch
             Container.Bind<PlayerBulletContainer>().FromComponentInNewPrefab(playerBulletParent).AsSingle();
             Container.Bind<EnemyBulletContainer>().FromComponentInNewPrefab(enemyBulletParent).AsSingle();
             Container.Bind<Camera>().FromComponentInNewPrefab(myCamera).AsSingle();
-            Container.BindInstance(initialEnemyHealth).WithId("EnemyHealth");
 
             Container.Bind<IAssets>().To<AssetProvider>().AsSingle();
             Container.Bind<CurrentScreen>().AsSingle();
