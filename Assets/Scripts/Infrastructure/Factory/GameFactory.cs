@@ -138,7 +138,7 @@ namespace Infrastructure.Factory
         {
             Enemy enemy = _assets.Instantiate(prefabPath, gridStartPosition, Quaternion.Euler(0, 0, 180)).GetComponent<Enemy>();
             enemy.transform.SetParent(placeHolder.transform, true);
-            enemy.Init(placeHolder.enemyStatus.health, enemyUpgradeData, player);
+            enemy.Init(placeHolder.enemyStatus.health, enemyUpgradeData, player, placeHolder.enemyStatus.hit);
 
             return enemy;
         }

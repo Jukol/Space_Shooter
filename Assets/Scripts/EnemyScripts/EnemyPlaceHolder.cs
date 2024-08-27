@@ -31,10 +31,11 @@ namespace EnemyScripts
             }
         }
 
-        public void UpdateStatus(int health, ISaveLoadService saveLoadService)
+        public void UpdateStatus(float health, ISaveLoadService saveLoadService, bool isHit)
         {
             enemyStatus.health = health;
-            if (enemyStatus.health == 0)
+            enemyStatus.hit = isHit;
+            if (enemyStatus.health <= 0)
             {
                 enemyStatus.dead = true;
 

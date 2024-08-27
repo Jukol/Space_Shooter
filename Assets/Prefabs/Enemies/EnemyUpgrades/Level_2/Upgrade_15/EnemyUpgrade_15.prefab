@@ -55,3 +55,4 @@ MonoBehaviour:
   bulletSprite: {fileID: 21300000, guid: 342eec45c979e8f4c9f51f57776d2927, type: 3}
   shootSound: {fileID: 8300000, guid: c4f22a352c9c4134eae11dc1563434f9, type: 3}
   useDoubleShooter: 1
+  initialHealth: 12.5

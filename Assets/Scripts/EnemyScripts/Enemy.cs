@@ -34,7 +34,7 @@ namespace EnemyScripts
         private int _damagedValue;
         private bool _dead;
 
-        [SerializeField] private int _currentHealth;
+        [SerializeField] private float _currentHealth;
 
         private Slider _healthSlider;
 
@@ -60,11 +60,21 @@ namespace EnemyScripts
             _woundedAnim = false;
         }
 
-        public void Init(int health, EnemyUpgradeData enemyUpgradeData, Player player)
+        public void Init(float health, EnemyUpgradeData enemyUpgradeData, Player player, bool hit)
         {
             _enemyUpgradeData = enemyUpgradeData;
+            startHealth = enemyUpgradeData.initialHealth;
 
-            _currentHealth = health;
+            if (hit)
+            {
+                _currentHealth = health;
+            }
+            else
+            {
+                _currentHealth = startHealth;
+            }
+            
+            
             _player = player;
 
             if (lookAtPlayer)
@@ -166,12 +176,12 @@ namespace EnemyScripts
 
         public void Damage(int damageAmount)
         {
-            if (_currentHealth >= 1)
+            if (_currentHealth > 0)
                 _currentHealth -= damageAmount;
             else if (_currentHealth < 0) 
                 _currentHealth = 0;
 
-            UpdateStatus();
+            UpdateStatus(true);
 
             _saveLoadService.SaveProgress();
 
@@ -179,7 +189,7 @@ namespace EnemyScripts
 
             DamageEffects();
 
-            if (_currentHealth != 0 || _dead)
+            if (_currentHealth > 0 || _dead)
                 return;
             
             InitiateDestruction();
@@ -200,10 +210,10 @@ namespace EnemyScripts
             Destroy(gameObject);
         }
 
-        private void UpdateStatus()
+        private void UpdateStatus(bool hit = false)
         {
             transform.parent.GetComponent<EnemyPlaceHolder>()
-                .UpdateStatus(_currentHealth, _saveLoadService);
+                .UpdateStatus(_currentHealth, _saveLoadService, hit);
         }
 
         private void DamageEffects()
