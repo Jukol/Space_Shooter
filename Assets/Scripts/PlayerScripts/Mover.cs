@@ -1,5 +1,4 @@
-﻿using InputClasses;
-using Interfaces;
+﻿using Interfaces;
 using MyScreen;
 using UnityEngine;
 using Zenject;
@@ -40,11 +39,11 @@ namespace PlayerScripts
             Move();
         }
 
-        public void Init(CurrentScreen currentScreen)
+        public void Init(CurrentScreen currentScreen, IGetSizeable gameObjectSize)
         {
             _camera = Camera.main;
 
-            _gameObjectSize = GetComponent<IGetSizeable>();
+            _gameObjectSize = gameObjectSize;
             _animator = GetComponent<IAnimatable>();
             
             ScreenBounds borders = currentScreen.GetBoundsForObject(_gameObjectSize);

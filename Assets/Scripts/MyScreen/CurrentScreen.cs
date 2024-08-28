@@ -22,7 +22,7 @@ namespace MyScreen
 
         public ScreenBounds GetBoundsForObject(IGetSizeable go)
         {
-            ScreenBounds bounds = new ScreenBounds
+            ScreenBounds bounds = new()
             {
                 Left = -Width + go.Width / 2,
                 Right = Width - go.Width / 2,

@@ -47,16 +47,19 @@ namespace PlayerScripts
             _playerUpgradeDataList = playerUpgradeDataList;
             _ship = playerShip;
             _playerUpgradeLevel = playerUpgradeLevel;
+
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = _playerUpgradeDataList.shipUpgrades[_ship].playerUpgrades[_playerUpgradeLevel].playerSprite;
             
-            Width = transform.GetComponent<SpriteRenderer>().bounds.size.x;
-            Height = transform.GetComponent<SpriteRenderer>().bounds.size.y;
+            Width = spriteRenderer.bounds.size.x;
+            Height = spriteRenderer.bounds.size.y;
 
             Animator = GetComponent<Animator>();
             _shootables = GetComponents<IShootable>();
 
             GetDataFromUpgrade();
 
-            GetComponent<IMovable>().Init(currentScreen);
+            GetComponent<IMovable>().Init(currentScreen, this);
 
             _explosionStarted = false;
 
