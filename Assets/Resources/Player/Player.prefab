@@ -120,6 +120,9 @@ MonoBehaviour:
   - {fileID: 7870586954410688670}
   - {fileID: 948917329503875933}
   audioSource: {fileID: 151090997390460299}
+  undamageable: 0
+  cooldownTime: 2
+  blinkInterval: 0.1
 --- !u!95 &151090997390460292
 Animator:
   serializedVersion: 5

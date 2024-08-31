@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Data;
 using Infrastructure;
 using Interfaces;
@@ -19,6 +20,9 @@ namespace PlayerScripts
         public SpriteRenderer spriteRenderer;
         [SerializeField] private Transform[] socketPlaceholders;
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private bool undamageable;
+        [SerializeField] private float cooldownTime = 3;
+        [SerializeField] private float blinkInterval = 0.1f;
 
         private PlayerUpgradeDataList _playerUpgradeDataList;
 
@@ -39,6 +43,8 @@ namespace PlayerScripts
         private ParticleSystem myParticleSystem;
         private Sprite bulletSprite;
         private GameObject explosion;
+        private Coroutine undamageableCoroutine;
+        private Color originalColor;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerShip, int playerUpgradeLevel)
         {
@@ -62,6 +68,7 @@ namespace PlayerScripts
             GetComponent<IMovable>().Init(currentScreen, this);
 
             _explosionStarted = false;
+            originalColor = spriteRenderer.color;
 
             GetToStartPosition();
         }
@@ -121,10 +128,14 @@ namespace PlayerScripts
 
         public void Damage(int amount)
         {
-            Health -= amount;
-            StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
-            _saveLoadService.SaveProgress();
-            OnHealthUpdate?.Invoke();
+            if (!undamageable)
+            {
+                Health -= amount;
+                StartCoroutine(_cameraShake.Shake(0.2f, 0.05f));
+                _saveLoadService.SaveProgress();
+                OnHealthUpdate?.Invoke();
+                Cooldown();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -151,6 +162,37 @@ namespace PlayerScripts
             {
                 Upgrade();
             }
+        }
+
+        private void Cooldown()
+        {
+            if (undamageableCoroutine != null)
+            {
+                StopCoroutine(undamageableCoroutine);
+            }
+            undamageableCoroutine = StartCoroutine(CooldownCoroutine());
+        }
+
+        private IEnumerator CooldownCoroutine()
+        {
+            undamageable = true;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < cooldownTime)
+            {
+                spriteRenderer.enabled = true;
+                spriteRenderer.color = Color.red;
+                yield return new WaitForSeconds(blinkInterval);
+                spriteRenderer.enabled = false;
+                yield return new WaitForSeconds(blinkInterval);
+
+                elapsedTime += blinkInterval * 2;
+            }
+
+            spriteRenderer.enabled = true;
+            spriteRenderer.color = originalColor;
+            undamageable = false;
+            undamageableCoroutine = null;
         }
 
         public void Upgrade()
