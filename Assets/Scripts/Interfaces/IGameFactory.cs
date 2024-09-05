@@ -18,6 +18,7 @@ namespace Interfaces
 
         public Enemy CreateEnemy(Transform gridStartPosition, EnemyPlaceHolder placeHolder, EnemyUpgradeData enemyUpgradeData, Player player);
         public UpgradeDrop CreateUpgradeDrop();
+        public HealthDrop CreateHealthDrop();
 
         public void CreateHud(Player player, IPersistentProgressService progress, SpawnManager spawnManager);
         

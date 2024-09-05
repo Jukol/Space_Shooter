@@ -94,6 +94,12 @@ namespace Infrastructure.Factory
             return drop;
         } 
         
+        public HealthDrop CreateHealthDrop()
+        {
+            HealthDrop drop = _assets.Instantiate(AssetPaths.HealthDropPath).GetComponent<HealthDrop>();
+            return drop;
+        }
+        
         public StartMenuController CreateStartMenu()
         {
             return _assets.Instantiate(AssetPaths.StartMenu).GetComponent<StartMenuController>();

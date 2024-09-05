@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3053742458512400972}
   - component: {fileID: 483985429611474888}
   - component: {fileID: 4225427524919034984}
-  - component: {fileID: 7912683828657731136}
   - component: {fileID: 5834449912985744403}
+  - component: {fileID: 7912683828657731136}
   m_Layer: 0
   m_Name: UpgradeDrop
   m_TagString: Untagged
@@ -132,20 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5677084, y: 1.5729166}
   m_EdgeRadius: 0
---- !u!114 &7912683828657731136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496897379427871861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d062ad380227443dacc959f81444d56e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  startMoving: 0
 --- !u!50 &5834449912985744403
 Rigidbody2D:
   serializedVersion: 4
@@ -173,3 +159,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7912683828657731136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496897379427871861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d062ad380227443dacc959f81444d56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  startMoving: 0

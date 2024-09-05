@@ -14,7 +14,7 @@ namespace EnemyScripts
         public bool hasDrop;
 
         private IGameFactory _gameFactory;
-        private UpgradeDrop _upgradeDrop;
+        private Drop _drop;
 
         [Inject]
         public void Construct(IGameFactory gameFactory)
@@ -26,8 +26,17 @@ namespace EnemyScripts
         {
             if (hasDrop)
             {
-                _upgradeDrop = _gameFactory.CreateUpgradeDrop();
-                _upgradeDrop.gameObject.SetActive(false);
+                int random = UnityEngine.Random.Range(0, 2);
+                if (random == 0)
+                {
+                    _drop = _gameFactory.CreateUpgradeDrop();
+                    _drop.gameObject.SetActive(false);
+                }
+                else
+                {
+                    _drop = _gameFactory.CreateHealthDrop();
+                    _drop.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -41,9 +50,9 @@ namespace EnemyScripts
 
                 if (hasDrop)
                 {
-                    _upgradeDrop.gameObject.SetActive(true);
-                    _upgradeDrop.transform.position = transform.position;
-                    _upgradeDrop.startMoving = true;
+                    _drop.gameObject.SetActive(true);
+                    _drop.transform.position = transform.position;
+                    _drop.startMoving = true;
                 }
             } 
 

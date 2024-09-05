@@ -44,7 +44,7 @@ namespace PlayerScripts
         {
             float initialXPosition = 0;
             
-            for (int i = 0; i < _player.Health; i++)
+            for (int i = 0; i < 20; i++)
             {
                 GameObject thisHealthUnit = Instantiate(healthUnit, transform, false);
                 thisHealthUnit.transform.localPosition = new Vector2(initialXPosition, 0);

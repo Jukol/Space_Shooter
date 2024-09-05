@@ -12,5 +12,6 @@ namespace Infrastructure.AssetManagement
         public const string StartMenuHandler = "StartMenuHandler";
         public const string StartMenu = "StartMenu";
         public const string UpgradeDropPath = "Drops/UpgradeDrop";
+        public const string HealthDropPath = "Drops/HPDrop";
     }
 }

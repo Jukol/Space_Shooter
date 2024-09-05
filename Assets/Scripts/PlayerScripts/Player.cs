@@ -45,6 +45,7 @@ namespace PlayerScripts
         private GameObject explosion;
         private Coroutine undamageableCoroutine;
         private Color originalColor;
+        private Progress _progress;
 
         public void Init(CameraShake cameraShake, CurrentScreen currentScreen, PlayerUpgradeDataList playerUpgradeDataList, int playerShip, int playerUpgradeLevel)
         {
@@ -75,10 +76,19 @@ namespace PlayerScripts
 
         public void LoadProgress(Progress progress)
         {
+            _progress = progress;
             Health = progress.lastState.playerHealth;
             OnHealthUpdate?.Invoke();
             _playerUpgradeLevel = progress.lastState.playerUpgradeLevel;
             _ship = progress.lastState.playerShip;
+        }
+
+        public void UpgradeHealth()
+        {
+            _progress.lastState.playerHealth++;
+            Health = _progress.lastState.playerHealth;
+            _saveLoadService.SaveProgress();
+            OnHealthUpdate?.Invoke();
         }
 
         public void UpdateProgress(Progress progress)
@@ -145,7 +155,7 @@ namespace PlayerScripts
                 Damage(1);
             }
             
-            if (Health < 1)
+            if (Health <= 0)
             {
                 StartCoroutine(_cameraShake.Shake(1, 0.1f));
                 if (!_explosionStarted)
@@ -156,11 +166,6 @@ namespace PlayerScripts
                     spriteRenderer.enabled = false;
                     Destroy(gameObject, 2f);
                 }
-            }
-
-            if (collision.CompareTag("Upgrade"))
-            {
-                Upgrade();
             }
         }
 
