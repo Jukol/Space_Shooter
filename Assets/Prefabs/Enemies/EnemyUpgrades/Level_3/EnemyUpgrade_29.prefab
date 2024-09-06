@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &430078426404915153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8678644698301176583}
+  - component: {fileID: 2039121673313924108}
+  m_Layer: 0
+  m_Name: EnemyUpgrade_29
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8678644698301176583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430078426404915153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039121673313924108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430078426404915153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c79757cbe914e4588e49ab176932a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 9
+  bulletDamage: 2
+  bulletSpeed: 4.6
+  playerSprite: {fileID: 21300000, guid: abd9cd8ce963da64c8530e87d5075597, type: 3}
+  sockets:
+  - {fileID: 6794835303394398205, guid: 69dda476d6fd5e84a915ac581fbc36df, type: 3}
+  - {fileID: 4557145033385395644, guid: 3b39378f9405fb64192c5a6a8435220b, type: 3}
+  myParticleSystem: {fileID: 19888426, guid: e30a4231dad20c349a162c5f16f12ba7, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 342eec45c979e8f4c9f51f57776d2927, type: 3}
+  shootSound: {fileID: 8300000, guid: c4f22a352c9c4134eae11dc1563434f9, type: 3}
+  useDoubleShooter: 1
+  initialHealth: 24
+  lookAtPlayer: 1

@@ -4081,7 +4081,7 @@ MonoBehaviour:
   - {fileID: 6554126285290189886}
   - {fileID: 6070299228386191859}
   - {fileID: 1226778308547292678}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 4c881b7707bc6a84896210aa1cb23f8f, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 8b882eb51a8553343849212e356c1793, type: 3}
   id: 7
   gridStartPosition: {fileID: 1683539849284192808}
   positionsParent: {fileID: 1184503447053462139}
@@ -6133,7 +6133,7 @@ MonoBehaviour:
   - {fileID: 4198261183703748771}
   - {fileID: 1483259788387792877}
   - {fileID: 5829245663595388159}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 6558296152280e94ba06af95fda33e3a, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: bb372bff56b115d4c8d657c9b5c7e4e3, type: 3}
   id: 7
   gridStartPosition: {fileID: 6834141316827927410}
   positionsParent: {fileID: 7882292341197449153}
@@ -6998,7 +6998,7 @@ MonoBehaviour:
   - {fileID: 3829662621221350279}
   - {fileID: 4011473179221853310}
   - {fileID: 1264457966870480428}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: bb372bff56b115d4c8d657c9b5c7e4e3, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 2884b7925af0e53479236e7aea537b8b, type: 3}
   id: 6
   gridStartPosition: {fileID: 6605837156612902880}
   positionsParent: {fileID: 9015720289187595766}
@@ -9028,7 +9028,7 @@ MonoBehaviour:
   - {fileID: 5888323509364823892}
   - {fileID: 1101554702855772083}
   - {fileID: 1638909368818583326}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: a5d3d9775e0b9074483085bf1ceecb7e, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 483dc76133fffd7488dd0a6753a98d0b, type: 3}
   id: 3
   gridStartPosition: {fileID: 4204101651621690077}
   positionsParent: {fileID: 1004638689605538639}
@@ -11022,7 +11022,7 @@ MonoBehaviour:
   - {fileID: 2878529199101469278}
   - {fileID: 8460463625873286664}
   - {fileID: 7949585750420293503}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 83ab768ba67662e45900369caec5aaf6, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: c13f983fe30a236459705e62990d3a8c, type: 3}
   id: 0
   gridStartPosition: {fileID: 2325992298781277692}
   positionsParent: {fileID: 4923002274653761442}
@@ -12636,7 +12636,7 @@ MonoBehaviour:
   - {fileID: 6271647523501458264}
   - {fileID: 3317851489644671965}
   - {fileID: 7209656723142917091}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: b057e9db53cce0348beb42fd68a0817a, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 83ab768ba67662e45900369caec5aaf6, type: 3}
   id: 1
   gridStartPosition: {fileID: 5628184549530797307}
   positionsParent: {fileID: 157215871921955374}
@@ -13244,7 +13244,7 @@ MonoBehaviour:
   - {fileID: 1410177671139677420}
   - {fileID: 7603247525408489953}
   - {fileID: 7606163499197197658}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 483dc76133fffd7488dd0a6753a98d0b, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: b057e9db53cce0348beb42fd68a0817a, type: 3}
   id: 2
   gridStartPosition: {fileID: 2566750808616927858}
   positionsParent: {fileID: 1012819688404754045}
@@ -13615,7 +13615,7 @@ MonoBehaviour:
   - {fileID: 6861287762777011614}
   - {fileID: 2381381467823973158}
   - {fileID: 1105293958489716556}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 2884b7925af0e53479236e7aea537b8b, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: a5d3d9775e0b9074483085bf1ceecb7e, type: 3}
   id: 4
   gridStartPosition: {fileID: 897258327665720641}
   positionsParent: {fileID: 3651285426309963054}
@@ -15360,7 +15360,7 @@ MonoBehaviour:
   - {fileID: 9187376326788875185}
   - {fileID: 7468297244478959068}
   - {fileID: 5189269197053728262}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: c51f8c965b43951498b7a671e4ff2b3e, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 2884b7925af0e53479236e7aea537b8b, type: 3}
   id: 5
   gridStartPosition: {fileID: 1340390186740149349}
   positionsParent: {fileID: 4074508745500221698}
@@ -15525,7 +15525,7 @@ MonoBehaviour:
   - {fileID: 6130987119665635672}
   - {fileID: 241564912344735132}
   - {fileID: 957502745271443654}
-  enemyUpgradeData: {fileID: 2039121673313924108, guid: 8b882eb51a8553343849212e356c1793, type: 3}
+  enemyUpgradeData: {fileID: 2039121673313924108, guid: 6558296152280e94ba06af95fda33e3a, type: 3}
   id: 7
   gridStartPosition: {fileID: 5730035495702352025}
   positionsParent: {fileID: 1003213938876237956}

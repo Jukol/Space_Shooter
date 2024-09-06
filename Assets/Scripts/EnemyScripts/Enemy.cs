@@ -64,6 +64,7 @@ namespace EnemyScripts
         {
             _enemyUpgradeData = enemyUpgradeData;
             startHealth = enemyUpgradeData.initialHealth;
+            lookAtPlayer = enemyUpgradeData.lookAtPlayer;
 
             if (hit)
             {

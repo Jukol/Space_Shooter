@@ -16,5 +16,6 @@ namespace EnemyScripts
         public AudioClip shootSound;
         public bool useDoubleShooter;
         public float initialHealth;
+        public bool lookAtPlayer;
     }
 }

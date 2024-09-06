@@ -12,20 +12,20 @@ namespace Infrastructure.GameLaunch
 
         public SpawnManager[] SpawnManagers => spawnManagers;
 
-        public Dictionary<string, SpawnManager> SpawnManagersByScene;
+        public Dictionary<string, SpawnManager> SpawnManagersByScene = new();
 
         [Inject]
         private void Construct()
         {
             Enumerate();
             
-            SpawnManagersByScene = new()
+            for (int i = 0; i < spawnManagers.Length; i++)
             {
-                { "Level 1", spawnManagers[0] },
-                { "Level 2", spawnManagers[1] },
-                { "Level 3", spawnManagers[2] },
-                { "Level 4", spawnManagers[3] },
-            };
+                string sceneName = $"Level {i + 1}";
+
+                SpawnManagersByScene.Add(sceneName, spawnManagers[i]);
+            }
+            
 
         }
 
