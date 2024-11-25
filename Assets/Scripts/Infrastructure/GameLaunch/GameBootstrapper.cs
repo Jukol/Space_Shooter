@@ -1,3 +1,4 @@
+using System;
 using Infrastructure.States;
 using Interfaces;
 using UnityEngine;
@@ -24,6 +25,9 @@ namespace Infrastructure.GameLaunch
             _game.StateMachine.Enter<BootstrapState>();
             
             DontDestroyOnLoad(this);
+            
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
         }
     }
 }
