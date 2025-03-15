@@ -31,7 +31,7 @@ namespace PlayerScripts
 
         public void OnMouseDown()
         {
-            _offsetDistance = MousePositionInWorld() - transform.position;
+            //_offsetDistance = MousePositionInWorld() - transform.position;
         }
 
         private void OnMouseDrag()

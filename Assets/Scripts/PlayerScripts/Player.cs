@@ -157,16 +157,23 @@ namespace PlayerScripts
             
             if (Health <= 0)
             {
-                StartCoroutine(_cameraShake.Shake(1, 0.1f));
-                if (!_explosionStarted)
-                {
-                    _explosionStarted = true;
-                    Instantiate(explosion, transform.position, Quaternion.identity);
-                    SoundManager.Instance.PlayerExplosion();
-                    spriteRenderer.enabled = false;
-                    Destroy(gameObject, 2f);
-                }
+                HandlePlayerDeath();
             }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            StartCoroutine(_cameraShake.Shake(1, 0.1f));
+            if (!_explosionStarted)
+            {
+                _explosionStarted = true;
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                SoundManager.Instance.PlayerExplosion();
+                spriteRenderer.enabled = false;
+                Destroy(gameObject, 2f);
+            }
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
         }
 
         private void Cooldown()

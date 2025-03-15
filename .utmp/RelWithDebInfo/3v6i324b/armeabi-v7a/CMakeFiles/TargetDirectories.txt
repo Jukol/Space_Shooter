@@ -1,0 +1,5 @@
+C:/_GAMEDEV/Space_Shooter/.utmp/RelWithDebInfo/3v6i324b/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/_GAMEDEV/Space_Shooter/.utmp/RelWithDebInfo/3v6i324b/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/_GAMEDEV/Space_Shooter/.utmp/RelWithDebInfo/3v6i324b/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/_GAMEDEV/Space_Shooter/.utmp/RelWithDebInfo/3v6i324b/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/_GAMEDEV/Space_Shooter/.utmp/RelWithDebInfo/3v6i324b/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

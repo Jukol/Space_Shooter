@@ -34,7 +34,6 @@ namespace Infrastructure.GameLaunch
         [SerializeField] private StartMenuController startMenuController;
         [SerializeField] private PlayerUpgradeDataList playerUpgradeDataList;
         [SerializeField] private EnemyUpgradeDataList enemyUpgradeDataList;
-        
 
         public override void InstallBindings()
         {

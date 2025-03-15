@@ -9,7 +9,7 @@ namespace Background
     {
         [SerializeField] protected float speed = 0.5f;
         
-        private const float GapCrutch = 0.1f;
+        private const float GapCrutch = 0.2f;
         private BackgroundCompositor _compositor;
         private float _myHeight;
         private float _offset;
